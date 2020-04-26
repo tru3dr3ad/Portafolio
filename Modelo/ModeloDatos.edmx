@@ -1,0 +1,989 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ModeloAlmacen.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ABONO">
+          <Key>
+            <PropertyRef Name="ABONOID" />
+          </Key>
+          <Property Name="ABONOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHAABONO" Type="date" Nullable="false" />
+          <Property Name="VALORABONO" Type="number" Precision="6" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BOLETA">
+          <Key>
+            <PropertyRef Name="NUMEROBOLETA" />
+          </Key>
+          <Property Name="NUMEROBOLETA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHABOLETA" Type="date" Nullable="false" />
+          <Property Name="VALORBOLETA" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="USUARIO_USUARIOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MEDIO_PAGO_MEDIOPAGOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTE_RUNCLIENTE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CATEGORIA">
+          <Key>
+            <PropertyRef Name="CATEGORIAID" />
+          </Key>
+          <Property Name="CATEGORIAID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCATEGORIA" Type="varchar2" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="RUNCLIENTE" />
+          </Key>
+          <Property Name="RUNCLIENTE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DVCLIENTE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="NOMBRECLIENTE" Type="varchar2" MaxLength="70" Nullable="false" />
+          <Property Name="DIRECCIONCLIENTE" Type="varchar2" MaxLength="150" Nullable="false" />
+          <Property Name="FONOCLIENTE" Type="number" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="ESTADO_FIADO_ESTADOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_CLIENTE_TIPOCLIENTEID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_BOLETA">
+          <Key>
+            <PropertyRef Name="PRODUCTO_CODIGOPROD" />
+            <PropertyRef Name="BOLETA_NUMEROBOLETA" />
+          </Key>
+          <Property Name="PRODUCTO_CODIGOPROD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="BOLETA_NUMEROBOLETA" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_PEDIDO">
+          <Key>
+            <PropertyRef Name="ORDEN_PEDIDO_NUMERORDEN" />
+            <PropertyRef Name="PRODUCTO_CODIGOPROD" />
+          </Key>
+          <Property Name="ORDEN_PEDIDO_NUMERORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PRODUCTO_CODIGOPROD" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTADO_FIADO">
+          <Key>
+            <PropertyRef Name="ESTADOID" />
+          </Key>
+          <Property Name="ESTADOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPESTADO" Type="varchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MEDIO_PAGO">
+          <Key>
+            <PropertyRef Name="MEDIOPAGOID" />
+          </Key>
+          <Property Name="MEDIOPAGOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPMEDIO" Type="varchar2" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORDEN_PEDIDO">
+          <Key>
+            <PropertyRef Name="NUMERORDEN" />
+          </Key>
+          <Property Name="NUMERORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHAORDEN" Type="date" Nullable="false" />
+          <Property Name="VALORORDEN" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="USUARIO_USUARIOID" Type="number" Precision="38" Scale="0" />
+          <Property Name="ORDEN_RECEPCION_NROORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROVEEDOR_RUTPROVEEDOR" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="CODIGOPROD" />
+          </Key>
+          <Property Name="CODIGOPROD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPROD" Type="varchar2" MaxLength="70" Nullable="false" />
+          <Property Name="DESCRIPPROD" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="PRECIOCOMPRA" Type="number" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="PRECIOVENTA" Type="varchar2" MaxLength="6" Nullable="false" />
+          <Property Name="FECHAVENCIMIENTO" Type="date" Nullable="false" />
+          <Property Name="CATEGORIA_CATEGORIAID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="RUTPROVEEDOR" />
+          </Key>
+          <Property Name="RUTPROVEEDOR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DVPROVEEDOR" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="NOMBREPROVEEDOR" Type="varchar2" MaxLength="70" Nullable="false" />
+          <Property Name="FONOPROVEEDOR" Type="number" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="DIRECCIONPROVEEDOR" Type="varchar2" MaxLength="150" Nullable="false" />
+          <Property Name="TIPO_RUBRO_RUBROID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REGISTRO_FIADO">
+          <Key>
+            <PropertyRef Name="REGISTROID" />
+          </Key>
+          <Property Name="REGISTROID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ABONO_ABONOID" Type="number" Precision="38" Scale="0" />
+          <Property Name="CLIENTE_RUNCLIENTE" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="TIPO_CLIENTE">
+          <Key>
+            <PropertyRef Name="TIPOCLIENTEID" />
+          </Key>
+          <Property Name="TIPOCLIENTEID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCLIENTE" Type="varchar2" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_RUBRO">
+          <Key>
+            <PropertyRef Name="RUBROID" />
+          </Key>
+          <Property Name="RUBROID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPRUBRO" Type="varchar2" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_USUARIO">
+          <Key>
+            <PropertyRef Name="TIPOUSUARIOID" />
+          </Key>
+          <Property Name="TIPOUSUARIOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPUSUARIO" Type="varchar2" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="USUARIOID" />
+          </Key>
+          <Property Name="USUARIOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREUSUARIO" Type="varchar2" MaxLength="70" Nullable="false" />
+          <Property Name="CLAVEUSUARIO" Type="varchar2" MaxLength="70" Nullable="false" />
+          <Property Name="FECHACREACION" Type="date" Nullable="false" />
+          <Property Name="TIPO_USUARIO_TIPOUSUARIOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="BOLETA_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUNCLIENTE" />
+            </Principal>
+            <Dependent Role="BOLETA">
+              <PropertyRef Name="CLIENTE_RUNCLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BOLETA_MEDIO_PAGO_FK">
+          <End Role="MEDIO_PAGO" Type="Self.MEDIO_PAGO" Multiplicity="1" />
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDIO_PAGO">
+              <PropertyRef Name="MEDIOPAGOID" />
+            </Principal>
+            <Dependent Role="BOLETA">
+              <PropertyRef Name="MEDIO_PAGO_MEDIOPAGOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BOLETA_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USUARIOID" />
+            </Principal>
+            <Dependent Role="BOLETA">
+              <PropertyRef Name="USUARIO_USUARIOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CLIENTE_ESTADO_FIADO_FK">
+          <End Role="ESTADO_FIADO" Type="Self.ESTADO_FIADO" Multiplicity="1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO_FIADO">
+              <PropertyRef Name="ESTADOID" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="ESTADO_FIADO_ESTADOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CLIENTE_TIPO_CLIENTE_FK">
+          <End Role="TIPO_CLIENTE" Type="Self.TIPO_CLIENTE" Multiplicity="1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_CLIENTE">
+              <PropertyRef Name="TIPOCLIENTEID" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="TIPO_CLIENTE_TIPOCLIENTEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_BOLETA_BOLETA_FK">
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="1" />
+          <End Role="DETALLE_BOLETA" Type="Self.DETALLE_BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOLETA">
+              <PropertyRef Name="NUMEROBOLETA" />
+            </Principal>
+            <Dependent Role="DETALLE_BOLETA">
+              <PropertyRef Name="BOLETA_NUMEROBOLETA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_BOLETA_PRODUCTO_FK">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+          <End Role="DETALLE_BOLETA" Type="Self.DETALLE_BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="CODIGOPROD" />
+            </Principal>
+            <Dependent Role="DETALLE_BOLETA">
+              <PropertyRef Name="PRODUCTO_CODIGOPROD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_ORDEN_PEDIDO_FK">
+          <End Role="ORDEN_PEDIDO" Type="Self.ORDEN_PEDIDO" Multiplicity="1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDEN_PEDIDO">
+              <PropertyRef Name="NUMERORDEN" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="ORDEN_PEDIDO_NUMERORDEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_PRODUCTO_FK">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="CODIGOPROD" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="PRODUCTO_CODIGOPROD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORDEN_PEDIDO_PROVEEDOR_FK">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+          <End Role="ORDEN_PEDIDO" Type="Self.ORDEN_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="RUTPROVEEDOR" />
+            </Principal>
+            <Dependent Role="ORDEN_PEDIDO">
+              <PropertyRef Name="PROVEEDOR_RUTPROVEEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORDEN_PEDIDO_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="ORDEN_PEDIDO" Type="Self.ORDEN_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USUARIOID" />
+            </Principal>
+            <Dependent Role="ORDEN_PEDIDO">
+              <PropertyRef Name="USUARIO_USUARIOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_CATEGORIA_FK">
+          <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA">
+              <PropertyRef Name="CATEGORIAID" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="CATEGORIA_CATEGORIAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PROVEEDOR_TIPO_RUBRO_FK">
+          <End Role="TIPO_RUBRO" Type="Self.TIPO_RUBRO" Multiplicity="1" />
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_RUBRO">
+              <PropertyRef Name="RUBROID" />
+            </Principal>
+            <Dependent Role="PROVEEDOR">
+              <PropertyRef Name="TIPO_RUBRO_RUBROID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REGISTRO_FIADO_ABONO_FK">
+          <End Role="ABONO" Type="Self.ABONO" Multiplicity="0..1" />
+          <End Role="REGISTRO_FIADO" Type="Self.REGISTRO_FIADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ABONO">
+              <PropertyRef Name="ABONOID" />
+            </Principal>
+            <Dependent Role="REGISTRO_FIADO">
+              <PropertyRef Name="ABONO_ABONOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REGISTRO_FIADO_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="REGISTRO_FIADO" Type="Self.REGISTRO_FIADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUNCLIENTE" />
+            </Principal>
+            <Dependent Role="REGISTRO_FIADO">
+              <PropertyRef Name="CLIENTE_RUNCLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_TIPO_USUARIO_FK">
+          <End Role="TIPO_USUARIO" Type="Self.TIPO_USUARIO" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_USUARIO">
+              <PropertyRef Name="TIPOUSUARIOID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="TIPO_USUARIO_TIPOUSUARIOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModeloAlmacenStoreContainer">
+          <EntitySet Name="ABONO" EntityType="Self.ABONO" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="BOLETA" EntityType="Self.BOLETA" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="DETALLE_BOLETA" EntityType="Self.DETALLE_BOLETA" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="DETALLE_PEDIDO" EntityType="Self.DETALLE_PEDIDO" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="ESTADO_FIADO" EntityType="Self.ESTADO_FIADO" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="MEDIO_PAGO" EntityType="Self.MEDIO_PAGO" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="ORDEN_PEDIDO" EntityType="Self.ORDEN_PEDIDO" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="REGISTRO_FIADO" EntityType="Self.REGISTRO_FIADO" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="TIPO_CLIENTE" EntityType="Self.TIPO_CLIENTE" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="TIPO_RUBRO" EntityType="Self.TIPO_RUBRO" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="ALMACEN" store:Type="Tables" />
+          <AssociationSet Name="BOLETA_CLIENTE_FK" Association="Self.BOLETA_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="BOLETA" EntitySet="BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="BOLETA_MEDIO_PAGO_FK" Association="Self.BOLETA_MEDIO_PAGO_FK">
+            <End Role="MEDIO_PAGO" EntitySet="MEDIO_PAGO" />
+            <End Role="BOLETA" EntitySet="BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="BOLETA_USUARIO_FK" Association="Self.BOLETA_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="BOLETA" EntitySet="BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="CLIENTE_ESTADO_FIADO_FK" Association="Self.CLIENTE_ESTADO_FIADO_FK">
+            <End Role="ESTADO_FIADO" EntitySet="ESTADO_FIADO" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="CLIENTE_TIPO_CLIENTE_FK" Association="Self.CLIENTE_TIPO_CLIENTE_FK">
+            <End Role="TIPO_CLIENTE" EntitySet="TIPO_CLIENTE" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_BOLETA_BOLETA_FK" Association="Self.DETALLE_BOLETA_BOLETA_FK">
+            <End Role="BOLETA" EntitySet="BOLETA" />
+            <End Role="DETALLE_BOLETA" EntitySet="DETALLE_BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_BOLETA_PRODUCTO_FK" Association="Self.DETALLE_BOLETA_PRODUCTO_FK">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="DETALLE_BOLETA" EntitySet="DETALLE_BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_ORDEN_PEDIDO_FK" Association="Self.DETALLE_PEDIDO_ORDEN_PEDIDO_FK">
+            <End Role="ORDEN_PEDIDO" EntitySet="ORDEN_PEDIDO" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_PRODUCTO_FK" Association="Self.DETALLE_PEDIDO_PRODUCTO_FK">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="ORDEN_PEDIDO_PROVEEDOR_FK" Association="Self.ORDEN_PEDIDO_PROVEEDOR_FK">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="ORDEN_PEDIDO" EntitySet="ORDEN_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="ORDEN_PEDIDO_USUARIO_FK" Association="Self.ORDEN_PEDIDO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="ORDEN_PEDIDO" EntitySet="ORDEN_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_CATEGORIA_FK" Association="Self.PRODUCTO_CATEGORIA_FK">
+            <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="PROVEEDOR_TIPO_RUBRO_FK" Association="Self.PROVEEDOR_TIPO_RUBRO_FK">
+            <End Role="TIPO_RUBRO" EntitySet="TIPO_RUBRO" />
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="REGISTRO_FIADO_ABONO_FK" Association="Self.REGISTRO_FIADO_ABONO_FK">
+            <End Role="ABONO" EntitySet="ABONO" />
+            <End Role="REGISTRO_FIADO" EntitySet="REGISTRO_FIADO" />
+          </AssociationSet>
+          <AssociationSet Name="REGISTRO_FIADO_CLIENTE_FK" Association="Self.REGISTRO_FIADO_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="REGISTRO_FIADO" EntitySet="REGISTRO_FIADO" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_TIPO_USUARIO_FK" Association="Self.USUARIO_TIPO_USUARIO_FK">
+            <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModeloAlmacen" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ABONO">
+          <Key>
+            <PropertyRef Name="ABONOID" />
+          </Key>
+          <Property Name="ABONOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHAABONO" Type="DateTime" Nullable="false" />
+          <Property Name="VALORABONO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="REGISTRO_FIADO" Relationship="Self.REGISTRO_FIADO_ABONO_FK" FromRole="ABONO" ToRole="REGISTRO_FIADO" />
+        </EntityType>
+        <EntityType Name="BOLETA">
+          <Key>
+            <PropertyRef Name="NUMEROBOLETA" />
+          </Key>
+          <Property Name="NUMEROBOLETA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHABOLETA" Type="DateTime" Nullable="false" />
+          <Property Name="VALORBOLETA" Type="Int32" Nullable="false" />
+          <Property Name="USUARIO_USUARIOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MEDIO_PAGO_MEDIOPAGOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTE_RUNCLIENTE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.BOLETA_CLIENTE_FK" FromRole="BOLETA" ToRole="CLIENTE" />
+          <NavigationProperty Name="MEDIO_PAGO" Relationship="Self.BOLETA_MEDIO_PAGO_FK" FromRole="BOLETA" ToRole="MEDIO_PAGO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.BOLETA_USUARIO_FK" FromRole="BOLETA" ToRole="USUARIO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.DETALLE_BOLETA" FromRole="BOLETA" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="CATEGORIA">
+          <Key>
+            <PropertyRef Name="CATEGORIAID" />
+          </Key>
+          <Property Name="CATEGORIAID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCATEGORIA" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.PRODUCTO_CATEGORIA_FK" FromRole="CATEGORIA" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="RUNCLIENTE" />
+          </Key>
+          <Property Name="RUNCLIENTE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DVCLIENTE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRECLIENTE" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIRECCIONCLIENTE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FONOCLIENTE" Type="Int32" Nullable="false" />
+          <Property Name="ESTADO_FIADO_ESTADOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_CLIENTE_TIPOCLIENTEID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="BOLETA" Relationship="Self.BOLETA_CLIENTE_FK" FromRole="CLIENTE" ToRole="BOLETA" />
+          <NavigationProperty Name="ESTADO_FIADO" Relationship="Self.CLIENTE_ESTADO_FIADO_FK" FromRole="CLIENTE" ToRole="ESTADO_FIADO" />
+          <NavigationProperty Name="TIPO_CLIENTE" Relationship="Self.CLIENTE_TIPO_CLIENTE_FK" FromRole="CLIENTE" ToRole="TIPO_CLIENTE" />
+          <NavigationProperty Name="REGISTRO_FIADO" Relationship="Self.REGISTRO_FIADO_CLIENTE_FK" FromRole="CLIENTE" ToRole="REGISTRO_FIADO" />
+        </EntityType>
+        <EntityType Name="ESTADO_FIADO">
+          <Key>
+            <PropertyRef Name="ESTADOID" />
+          </Key>
+          <Property Name="ESTADOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.CLIENTE_ESTADO_FIADO_FK" FromRole="ESTADO_FIADO" ToRole="CLIENTE" />
+        </EntityType>
+        <EntityType Name="MEDIO_PAGO">
+          <Key>
+            <PropertyRef Name="MEDIOPAGOID" />
+          </Key>
+          <Property Name="MEDIOPAGOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPMEDIO" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BOLETA" Relationship="Self.BOLETA_MEDIO_PAGO_FK" FromRole="MEDIO_PAGO" ToRole="BOLETA" />
+        </EntityType>
+        <EntityType Name="ORDEN_PEDIDO">
+          <Key>
+            <PropertyRef Name="NUMERORDEN" />
+          </Key>
+          <Property Name="NUMERORDEN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHAORDEN" Type="DateTime" Nullable="false" />
+          <Property Name="VALORORDEN" Type="Int32" Nullable="false" />
+          <Property Name="USUARIO_USUARIOID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ORDEN_RECEPCION_NROORDEN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROVEEDOR_RUTPROVEEDOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="Self.ORDEN_PEDIDO_PROVEEDOR_FK" FromRole="ORDEN_PEDIDO" ToRole="PROVEEDOR" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.ORDEN_PEDIDO_USUARIO_FK" FromRole="ORDEN_PEDIDO" ToRole="USUARIO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.DETALLE_PEDIDO" FromRole="ORDEN_PEDIDO" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="CODIGOPROD" />
+          </Key>
+          <Property Name="CODIGOPROD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPROD" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPPROD" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRECIOCOMPRA" Type="Int32" Nullable="false" />
+          <Property Name="PRECIOVENTA" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHAVENCIMIENTO" Type="DateTime" Nullable="false" />
+          <Property Name="CATEGORIA_CATEGORIAID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="CATEGORIA" Relationship="Self.PRODUCTO_CATEGORIA_FK" FromRole="PRODUCTO" ToRole="CATEGORIA" />
+          <NavigationProperty Name="BOLETA" Relationship="Self.DETALLE_BOLETA" FromRole="PRODUCTO" ToRole="BOLETA" />
+          <NavigationProperty Name="ORDEN_PEDIDO" Relationship="Self.DETALLE_PEDIDO" FromRole="PRODUCTO" ToRole="ORDEN_PEDIDO" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="RUTPROVEEDOR" />
+          </Key>
+          <Property Name="RUTPROVEEDOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DVPROVEEDOR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NOMBREPROVEEDOR" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FONOPROVEEDOR" Type="Int32" Nullable="false" />
+          <Property Name="DIRECCIONPROVEEDOR" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPO_RUBRO_RUBROID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="ORDEN_PEDIDO" Relationship="Self.ORDEN_PEDIDO_PROVEEDOR_FK" FromRole="PROVEEDOR" ToRole="ORDEN_PEDIDO" />
+          <NavigationProperty Name="TIPO_RUBRO" Relationship="Self.PROVEEDOR_TIPO_RUBRO_FK" FromRole="PROVEEDOR" ToRole="TIPO_RUBRO" />
+        </EntityType>
+        <EntityType Name="REGISTRO_FIADO">
+          <Key>
+            <PropertyRef Name="REGISTROID" />
+          </Key>
+          <Property Name="REGISTROID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ABONO_ABONOID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CLIENTE_RUNCLIENTE" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="ABONO" Relationship="Self.REGISTRO_FIADO_ABONO_FK" FromRole="REGISTRO_FIADO" ToRole="ABONO" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.REGISTRO_FIADO_CLIENTE_FK" FromRole="REGISTRO_FIADO" ToRole="CLIENTE" />
+        </EntityType>
+        <EntityType Name="TIPO_CLIENTE">
+          <Key>
+            <PropertyRef Name="TIPOCLIENTEID" />
+          </Key>
+          <Property Name="TIPOCLIENTEID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCLIENTE" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.CLIENTE_TIPO_CLIENTE_FK" FromRole="TIPO_CLIENTE" ToRole="CLIENTE" />
+        </EntityType>
+        <EntityType Name="TIPO_RUBRO">
+          <Key>
+            <PropertyRef Name="RUBROID" />
+          </Key>
+          <Property Name="RUBROID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPRUBRO" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="Self.PROVEEDOR_TIPO_RUBRO_FK" FromRole="TIPO_RUBRO" ToRole="PROVEEDOR" />
+        </EntityType>
+        <EntityType Name="TIPO_USUARIO">
+          <Key>
+            <PropertyRef Name="TIPOUSUARIOID" />
+          </Key>
+          <Property Name="TIPOUSUARIOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPUSUARIO" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.USUARIO_TIPO_USUARIO_FK" FromRole="TIPO_USUARIO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="USUARIOID" />
+          </Key>
+          <Property Name="USUARIOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREUSUARIO" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLAVEUSUARIO" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
+          <Property Name="TIPO_USUARIO_TIPOUSUARIOID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="BOLETA" Relationship="Self.BOLETA_USUARIO_FK" FromRole="USUARIO" ToRole="BOLETA" />
+          <NavigationProperty Name="ORDEN_PEDIDO" Relationship="Self.ORDEN_PEDIDO_USUARIO_FK" FromRole="USUARIO" ToRole="ORDEN_PEDIDO" />
+          <NavigationProperty Name="TIPO_USUARIO" Relationship="Self.USUARIO_TIPO_USUARIO_FK" FromRole="USUARIO" ToRole="TIPO_USUARIO" />
+        </EntityType>
+        <Association Name="REGISTRO_FIADO_ABONO_FK">
+          <End Role="ABONO" Type="Self.ABONO" Multiplicity="0..1" />
+          <End Role="REGISTRO_FIADO" Type="Self.REGISTRO_FIADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ABONO">
+              <PropertyRef Name="ABONOID" />
+            </Principal>
+            <Dependent Role="REGISTRO_FIADO">
+              <PropertyRef Name="ABONO_ABONOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BOLETA_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUNCLIENTE" />
+            </Principal>
+            <Dependent Role="BOLETA">
+              <PropertyRef Name="CLIENTE_RUNCLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BOLETA_MEDIO_PAGO_FK">
+          <End Role="MEDIO_PAGO" Type="Self.MEDIO_PAGO" Multiplicity="1" />
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDIO_PAGO">
+              <PropertyRef Name="MEDIOPAGOID" />
+            </Principal>
+            <Dependent Role="BOLETA">
+              <PropertyRef Name="MEDIO_PAGO_MEDIOPAGOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BOLETA_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USUARIOID" />
+            </Principal>
+            <Dependent Role="BOLETA">
+              <PropertyRef Name="USUARIO_USUARIOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_CATEGORIA_FK">
+          <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA">
+              <PropertyRef Name="CATEGORIAID" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="CATEGORIA_CATEGORIAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CLIENTE_ESTADO_FIADO_FK">
+          <End Role="ESTADO_FIADO" Type="Self.ESTADO_FIADO" Multiplicity="1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO_FIADO">
+              <PropertyRef Name="ESTADOID" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="ESTADO_FIADO_ESTADOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CLIENTE_TIPO_CLIENTE_FK">
+          <End Role="TIPO_CLIENTE" Type="Self.TIPO_CLIENTE" Multiplicity="1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_CLIENTE">
+              <PropertyRef Name="TIPOCLIENTEID" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="TIPO_CLIENTE_TIPOCLIENTEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REGISTRO_FIADO_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="REGISTRO_FIADO" Type="Self.REGISTRO_FIADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUNCLIENTE" />
+            </Principal>
+            <Dependent Role="REGISTRO_FIADO">
+              <PropertyRef Name="CLIENTE_RUNCLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORDEN_PEDIDO_PROVEEDOR_FK">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+          <End Role="ORDEN_PEDIDO" Type="Self.ORDEN_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="RUTPROVEEDOR" />
+            </Principal>
+            <Dependent Role="ORDEN_PEDIDO">
+              <PropertyRef Name="PROVEEDOR_RUTPROVEEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORDEN_PEDIDO_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="ORDEN_PEDIDO" Type="Self.ORDEN_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="USUARIOID" />
+            </Principal>
+            <Dependent Role="ORDEN_PEDIDO">
+              <PropertyRef Name="USUARIO_USUARIOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PROVEEDOR_TIPO_RUBRO_FK">
+          <End Role="TIPO_RUBRO" Type="Self.TIPO_RUBRO" Multiplicity="1" />
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_RUBRO">
+              <PropertyRef Name="RUBROID" />
+            </Principal>
+            <Dependent Role="PROVEEDOR">
+              <PropertyRef Name="TIPO_RUBRO_RUBROID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_TIPO_USUARIO_FK">
+          <End Role="TIPO_USUARIO" Type="Self.TIPO_USUARIO" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_USUARIO">
+              <PropertyRef Name="TIPOUSUARIOID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="TIPO_USUARIO_TIPOUSUARIOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_BOLETA">
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="*" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+        </Association>
+        <Association Name="DETALLE_PEDIDO">
+          <End Role="ORDEN_PEDIDO" Type="Self.ORDEN_PEDIDO" Multiplicity="*" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="AlmacenEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ABONO" EntityType="Self.ABONO" />
+          <EntitySet Name="BOLETA" EntityType="Self.BOLETA" />
+          <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" />
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+          <EntitySet Name="ESTADO_FIADO" EntityType="Self.ESTADO_FIADO" />
+          <EntitySet Name="MEDIO_PAGO" EntityType="Self.MEDIO_PAGO" />
+          <EntitySet Name="ORDEN_PEDIDO" EntityType="Self.ORDEN_PEDIDO" />
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" />
+          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" />
+          <EntitySet Name="REGISTRO_FIADO" EntityType="Self.REGISTRO_FIADO" />
+          <EntitySet Name="TIPO_CLIENTE" EntityType="Self.TIPO_CLIENTE" />
+          <EntitySet Name="TIPO_RUBRO" EntityType="Self.TIPO_RUBRO" />
+          <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="REGISTRO_FIADO_ABONO_FK" Association="Self.REGISTRO_FIADO_ABONO_FK">
+            <End Role="ABONO" EntitySet="ABONO" />
+            <End Role="REGISTRO_FIADO" EntitySet="REGISTRO_FIADO" />
+          </AssociationSet>
+          <AssociationSet Name="BOLETA_CLIENTE_FK" Association="Self.BOLETA_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="BOLETA" EntitySet="BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="BOLETA_MEDIO_PAGO_FK" Association="Self.BOLETA_MEDIO_PAGO_FK">
+            <End Role="MEDIO_PAGO" EntitySet="MEDIO_PAGO" />
+            <End Role="BOLETA" EntitySet="BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="BOLETA_USUARIO_FK" Association="Self.BOLETA_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="BOLETA" EntitySet="BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_CATEGORIA_FK" Association="Self.PRODUCTO_CATEGORIA_FK">
+            <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="CLIENTE_ESTADO_FIADO_FK" Association="Self.CLIENTE_ESTADO_FIADO_FK">
+            <End Role="ESTADO_FIADO" EntitySet="ESTADO_FIADO" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="CLIENTE_TIPO_CLIENTE_FK" Association="Self.CLIENTE_TIPO_CLIENTE_FK">
+            <End Role="TIPO_CLIENTE" EntitySet="TIPO_CLIENTE" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="REGISTRO_FIADO_CLIENTE_FK" Association="Self.REGISTRO_FIADO_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="REGISTRO_FIADO" EntitySet="REGISTRO_FIADO" />
+          </AssociationSet>
+          <AssociationSet Name="ORDEN_PEDIDO_PROVEEDOR_FK" Association="Self.ORDEN_PEDIDO_PROVEEDOR_FK">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="ORDEN_PEDIDO" EntitySet="ORDEN_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="ORDEN_PEDIDO_USUARIO_FK" Association="Self.ORDEN_PEDIDO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="ORDEN_PEDIDO" EntitySet="ORDEN_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="PROVEEDOR_TIPO_RUBRO_FK" Association="Self.PROVEEDOR_TIPO_RUBRO_FK">
+            <End Role="TIPO_RUBRO" EntitySet="TIPO_RUBRO" />
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_TIPO_USUARIO_FK" Association="Self.USUARIO_TIPO_USUARIO_FK">
+            <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_BOLETA" Association="Self.DETALLE_BOLETA">
+            <End Role="BOLETA" EntitySet="BOLETA" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO" Association="Self.DETALLE_PEDIDO">
+            <End Role="ORDEN_PEDIDO" EntitySet="ORDEN_PEDIDO" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModeloAlmacenStoreContainer" CdmEntityContainer="AlmacenEntities">
+          <EntitySetMapping Name="ABONO">
+            <EntityTypeMapping TypeName="ModeloAlmacen.ABONO">
+              <MappingFragment StoreEntitySet="ABONO">
+                <ScalarProperty Name="ABONOID" ColumnName="ABONOID" />
+                <ScalarProperty Name="FECHAABONO" ColumnName="FECHAABONO" />
+                <ScalarProperty Name="VALORABONO" ColumnName="VALORABONO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOLETA">
+            <EntityTypeMapping TypeName="ModeloAlmacen.BOLETA">
+              <MappingFragment StoreEntitySet="BOLETA">
+                <ScalarProperty Name="NUMEROBOLETA" ColumnName="NUMEROBOLETA" />
+                <ScalarProperty Name="FECHABOLETA" ColumnName="FECHABOLETA" />
+                <ScalarProperty Name="VALORBOLETA" ColumnName="VALORBOLETA" />
+                <ScalarProperty Name="USUARIO_USUARIOID" ColumnName="USUARIO_USUARIOID" />
+                <ScalarProperty Name="MEDIO_PAGO_MEDIOPAGOID" ColumnName="MEDIO_PAGO_MEDIOPAGOID" />
+                <ScalarProperty Name="CLIENTE_RUNCLIENTE" ColumnName="CLIENTE_RUNCLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATEGORIA">
+            <EntityTypeMapping TypeName="ModeloAlmacen.CATEGORIA">
+              <MappingFragment StoreEntitySet="CATEGORIA">
+                <ScalarProperty Name="CATEGORIAID" ColumnName="CATEGORIAID" />
+                <ScalarProperty Name="DESCRIPCATEGORIA" ColumnName="DESCRIPCATEGORIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTE">
+            <EntityTypeMapping TypeName="ModeloAlmacen.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="RUNCLIENTE" ColumnName="RUNCLIENTE" />
+                <ScalarProperty Name="DVCLIENTE" ColumnName="DVCLIENTE" />
+                <ScalarProperty Name="NOMBRECLIENTE" ColumnName="NOMBRECLIENTE" />
+                <ScalarProperty Name="DIRECCIONCLIENTE" ColumnName="DIRECCIONCLIENTE" />
+                <ScalarProperty Name="FONOCLIENTE" ColumnName="FONOCLIENTE" />
+                <ScalarProperty Name="ESTADO_FIADO_ESTADOID" ColumnName="ESTADO_FIADO_ESTADOID" />
+                <ScalarProperty Name="TIPO_CLIENTE_TIPOCLIENTEID" ColumnName="TIPO_CLIENTE_TIPOCLIENTEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTADO_FIADO">
+            <EntityTypeMapping TypeName="ModeloAlmacen.ESTADO_FIADO">
+              <MappingFragment StoreEntitySet="ESTADO_FIADO">
+                <ScalarProperty Name="ESTADOID" ColumnName="ESTADOID" />
+                <ScalarProperty Name="DESCRIPESTADO" ColumnName="DESCRIPESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDIO_PAGO">
+            <EntityTypeMapping TypeName="ModeloAlmacen.MEDIO_PAGO">
+              <MappingFragment StoreEntitySet="MEDIO_PAGO">
+                <ScalarProperty Name="MEDIOPAGOID" ColumnName="MEDIOPAGOID" />
+                <ScalarProperty Name="DESCRIPMEDIO" ColumnName="DESCRIPMEDIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDEN_PEDIDO">
+            <EntityTypeMapping TypeName="ModeloAlmacen.ORDEN_PEDIDO">
+              <MappingFragment StoreEntitySet="ORDEN_PEDIDO">
+                <ScalarProperty Name="NUMERORDEN" ColumnName="NUMERORDEN" />
+                <ScalarProperty Name="FECHAORDEN" ColumnName="FECHAORDEN" />
+                <ScalarProperty Name="VALORORDEN" ColumnName="VALORORDEN" />
+                <ScalarProperty Name="USUARIO_USUARIOID" ColumnName="USUARIO_USUARIOID" />
+                <ScalarProperty Name="ORDEN_RECEPCION_NROORDEN" ColumnName="ORDEN_RECEPCION_NROORDEN" />
+                <ScalarProperty Name="PROVEEDOR_RUTPROVEEDOR" ColumnName="PROVEEDOR_RUTPROVEEDOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTO">
+            <EntityTypeMapping TypeName="ModeloAlmacen.PRODUCTO">
+              <MappingFragment StoreEntitySet="PRODUCTO">
+                <ScalarProperty Name="CODIGOPROD" ColumnName="CODIGOPROD" />
+                <ScalarProperty Name="NOMBREPROD" ColumnName="NOMBREPROD" />
+                <ScalarProperty Name="DESCRIPPROD" ColumnName="DESCRIPPROD" />
+                <ScalarProperty Name="PRECIOCOMPRA" ColumnName="PRECIOCOMPRA" />
+                <ScalarProperty Name="PRECIOVENTA" ColumnName="PRECIOVENTA" />
+                <ScalarProperty Name="FECHAVENCIMIENTO" ColumnName="FECHAVENCIMIENTO" />
+                <ScalarProperty Name="CATEGORIA_CATEGORIAID" ColumnName="CATEGORIA_CATEGORIAID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVEEDOR">
+            <EntityTypeMapping TypeName="ModeloAlmacen.PROVEEDOR">
+              <MappingFragment StoreEntitySet="PROVEEDOR">
+                <ScalarProperty Name="RUTPROVEEDOR" ColumnName="RUTPROVEEDOR" />
+                <ScalarProperty Name="DVPROVEEDOR" ColumnName="DVPROVEEDOR" />
+                <ScalarProperty Name="NOMBREPROVEEDOR" ColumnName="NOMBREPROVEEDOR" />
+                <ScalarProperty Name="FONOPROVEEDOR" ColumnName="FONOPROVEEDOR" />
+                <ScalarProperty Name="DIRECCIONPROVEEDOR" ColumnName="DIRECCIONPROVEEDOR" />
+                <ScalarProperty Name="TIPO_RUBRO_RUBROID" ColumnName="TIPO_RUBRO_RUBROID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGISTRO_FIADO">
+            <EntityTypeMapping TypeName="ModeloAlmacen.REGISTRO_FIADO">
+              <MappingFragment StoreEntitySet="REGISTRO_FIADO">
+                <ScalarProperty Name="REGISTROID" ColumnName="REGISTROID" />
+                <ScalarProperty Name="ABONO_ABONOID" ColumnName="ABONO_ABONOID" />
+                <ScalarProperty Name="CLIENTE_RUNCLIENTE" ColumnName="CLIENTE_RUNCLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_CLIENTE">
+            <EntityTypeMapping TypeName="ModeloAlmacen.TIPO_CLIENTE">
+              <MappingFragment StoreEntitySet="TIPO_CLIENTE">
+                <ScalarProperty Name="TIPOCLIENTEID" ColumnName="TIPOCLIENTEID" />
+                <ScalarProperty Name="DESCRIPCLIENTE" ColumnName="DESCRIPCLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_RUBRO">
+            <EntityTypeMapping TypeName="ModeloAlmacen.TIPO_RUBRO">
+              <MappingFragment StoreEntitySet="TIPO_RUBRO">
+                <ScalarProperty Name="RUBROID" ColumnName="RUBROID" />
+                <ScalarProperty Name="DESCRIPRUBRO" ColumnName="DESCRIPRUBRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_USUARIO">
+            <EntityTypeMapping TypeName="ModeloAlmacen.TIPO_USUARIO">
+              <MappingFragment StoreEntitySet="TIPO_USUARIO">
+                <ScalarProperty Name="TIPOUSUARIOID" ColumnName="TIPOUSUARIOID" />
+                <ScalarProperty Name="DESCRIPUSUARIO" ColumnName="DESCRIPUSUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="ModeloAlmacen.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="USUARIOID" ColumnName="USUARIOID" />
+                <ScalarProperty Name="NOMBREUSUARIO" ColumnName="NOMBREUSUARIO" />
+                <ScalarProperty Name="CLAVEUSUARIO" ColumnName="CLAVEUSUARIO" />
+                <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
+                <ScalarProperty Name="TIPO_USUARIO_TIPOUSUARIOID" ColumnName="TIPO_USUARIO_TIPOUSUARIOID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="DETALLE_BOLETA" TypeName="ModeloAlmacen.DETALLE_BOLETA" StoreEntitySet="DETALLE_BOLETA">
+            <EndProperty Name="BOLETA">
+              <ScalarProperty Name="NUMEROBOLETA" ColumnName="BOLETA_NUMEROBOLETA" />
+            </EndProperty>
+            <EndProperty Name="PRODUCTO">
+              <ScalarProperty Name="CODIGOPROD" ColumnName="PRODUCTO_CODIGOPROD" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="DETALLE_PEDIDO" TypeName="ModeloAlmacen.DETALLE_PEDIDO" StoreEntitySet="DETALLE_PEDIDO">
+            <EndProperty Name="ORDEN_PEDIDO">
+              <ScalarProperty Name="NUMERORDEN" ColumnName="ORDEN_PEDIDO_NUMERORDEN" />
+            </EndProperty>
+            <EndProperty Name="PRODUCTO">
+              <ScalarProperty Name="CODIGOPROD" ColumnName="PRODUCTO_CODIGOPROD" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
