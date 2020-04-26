@@ -244,6 +244,7 @@
             this.btnAgregarCliente.TabIndex = 18;
             this.btnAgregarCliente.Text = "Agregar";
             this.btnAgregarCliente.UseVisualStyleBackColor = true;
+            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
             // grdCliente
             // 

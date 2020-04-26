@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Modelo;
 
 namespace Controlador
 {
     public class Cliente
     {
-        public int Rut { get; set; }
+        public int Run { get; set; }
         public char Dv { get; set; }
         public string Nombre { get; set; }
         public string Direccion { get; set; }
@@ -19,15 +20,40 @@ namespace Controlador
         {
 
         }
-        public Cliente(int rut, char dv, string nombre, string direccion, int telefono, int estado, int tipo)
+        public Cliente(int run, char dv, string nombre, string direccion, int telefono, int estado, int tipo)
         {
-            Rut = rut;
+            Run = run;
             Dv = dv;
             Nombre = nombre;
             Direccion = direccion;
             Telefono = telefono;
             Estado = estado;
             Tipo = tipo;
+        }
+        public bool AgregarCliente()
+        {
+            try
+            {
+                Modelo.CLIENTE cliente = new Modelo.CLIENTE();
+
+                cliente.RUNCLIENTE = Run;
+                cliente.DVCLIENTE = Dv.ToString();
+                cliente.NOMBRECLIENTE = Nombre;
+                cliente.DIRECCIONCLIENTE = Direccion;
+                cliente.FONOCLIENTE = Telefono;
+                cliente.ESTADO_FIADO_ESTADOID = 1;
+                cliente.TIPO_CLIENTE_TIPOCLIENTEID = 1;
+
+                ConectorDALC.ModeloAlmacen.CLIENTE.Add(cliente);
+                ConectorDALC.ModeloAlmacen.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw;
+            }
         }
     }
 }

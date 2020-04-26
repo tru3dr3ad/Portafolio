@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,22 @@ namespace Vista
         public frmCliente()
         {
             InitializeComponent();
+        }
+
+        public void CapturarDatos()
+        {
+            int rut = int.Parse(txtRunCliente.Text);
+            char dv = char.Parse(txtDv.Text);
+            string nombre = txtNombre.Text;
+            string direccion = txtDireccion.Text;
+            int telefono = int.Parse(txtTelefono.Text);
+
+            Cliente cliente = new Cliente(rut, dv, nombre, direccion, telefono, 1, 1);
+            cliente.AgregarCliente();
+        }
+        private void btnAgregarCliente_Click(object sender, EventArgs e)
+        {
+            CapturarDatos();
         }
     }
 }
