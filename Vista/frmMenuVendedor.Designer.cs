@@ -45,6 +45,7 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnPerfil = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnProducto = new System.Windows.Forms.Button();
             this.pnlBarraTitulo.SuspendLayout();
             this.pnlMenuVertical.SuspendLayout();
             this.pnlBarraSuperior.SuspendLayout();
@@ -94,6 +95,7 @@
             // pnlMenuVertical
             // 
             this.pnlMenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.pnlMenuVertical.Controls.Add(this.btnProducto);
             this.pnlMenuVertical.Controls.Add(this.btnCliente);
             this.pnlMenuVertical.Controls.Add(this.btnCerrarSesion);
             this.pnlMenuVertical.Controls.Add(this.btnPedidos);
@@ -115,12 +117,13 @@
             this.btnCliente.ForeColor = System.Drawing.Color.White;
             this.btnCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnCliente.Image")));
             this.btnCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCliente.Location = new System.Drawing.Point(7, 100);
+            this.btnCliente.Location = new System.Drawing.Point(7, 145);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(188, 25);
             this.btnCliente.TabIndex = 23;
             this.btnCliente.Text = "Clientes";
             this.btnCliente.UseVisualStyleBackColor = true;
+            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
             // btnCerrarSesion
             // 
@@ -131,12 +134,13 @@
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
             this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(7, 184);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(7, 231);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(188, 25);
             this.btnCerrarSesion.TabIndex = 21;
             this.btnCerrarSesion.Text = "Cerrar Sesion";
             this.btnCerrarSesion.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // btnPedidos
             // 
@@ -147,12 +151,13 @@
             this.btnPedidos.ForeColor = System.Drawing.Color.White;
             this.btnPedidos.Image = ((System.Drawing.Image)(resources.GetObject("btnPedidos.Image")));
             this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPedidos.Location = new System.Drawing.Point(7, 142);
+            this.btnPedidos.Location = new System.Drawing.Point(7, 188);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Size = new System.Drawing.Size(188, 25);
             this.btnPedidos.TabIndex = 19;
             this.btnPedidos.Text = "Pedidos";
             this.btnPedidos.UseVisualStyleBackColor = true;
+            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
             // btnVentas
             // 
@@ -163,12 +168,13 @@
             this.btnVentas.ForeColor = System.Drawing.Color.White;
             this.btnVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnVentas.Image")));
             this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVentas.Location = new System.Drawing.Point(7, 58);
+            this.btnVentas.Location = new System.Drawing.Point(7, 59);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(188, 25);
             this.btnVentas.TabIndex = 18;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.UseVisualStyleBackColor = true;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
             // btnDashboard
             // 
@@ -185,6 +191,7 @@
             this.btnDashboard.TabIndex = 6;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // pnlBarraSuperior
             // 
@@ -200,6 +207,7 @@
             this.pnlBarraSuperior.Name = "pnlBarraSuperior";
             this.pnlBarraSuperior.Size = new System.Drawing.Size(1200, 50);
             this.pnlBarraSuperior.TabIndex = 8;
+            this.pnlBarraSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBarraSuperior_MouseDown);
             // 
             // btnMinimizar
             // 
@@ -212,6 +220,7 @@
             this.btnMinimizar.Size = new System.Drawing.Size(40, 40);
             this.btnMinimizar.TabIndex = 5;
             this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnMenuVertical
             // 
@@ -224,6 +233,7 @@
             this.btnMenuVertical.Size = new System.Drawing.Size(45, 40);
             this.btnMenuVertical.TabIndex = 4;
             this.btnMenuVertical.UseVisualStyleBackColor = true;
+            this.btnMenuVertical.Click += new System.EventHandler(this.btnMenuVertical_Click);
             // 
             // btnCerrar
             // 
@@ -236,6 +246,7 @@
             this.btnCerrar.Size = new System.Drawing.Size(40, 40);
             this.btnCerrar.TabIndex = 3;
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnPerfil
             // 
@@ -261,6 +272,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Vendedor";
             // 
+            // btnProducto
+            // 
+            this.btnProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnProducto.FlatAppearance.BorderSize = 0;
+            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProducto.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProducto.ForeColor = System.Drawing.Color.White;
+            this.btnProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnProducto.Image")));
+            this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProducto.Location = new System.Drawing.Point(7, 102);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Size = new System.Drawing.Size(188, 25);
+            this.btnProducto.TabIndex = 24;
+            this.btnProducto.Text = "Productos";
+            this.btnProducto.UseVisualStyleBackColor = true;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
+            // 
             // frmMenuVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,6 +300,7 @@
             this.Controls.Add(this.pnlBarraSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMenuVendedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDashboardVendedor";
             this.pnlBarraTitulo.ResumeLayout(false);
             this.pnlBarraTitulo.PerformLayout();
@@ -300,5 +329,6 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnPerfil;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnProducto;
     }
 }

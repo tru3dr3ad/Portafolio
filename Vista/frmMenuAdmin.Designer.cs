@@ -131,6 +131,7 @@
             this.btnConfiguracion.TabIndex = 25;
             this.btnConfiguracion.Text = "Configuracion";
             this.btnConfiguracion.UseVisualStyleBackColor = true;
+            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
             // 
             // btnProveedor
             // 
@@ -147,6 +148,7 @@
             this.btnProveedor.TabIndex = 24;
             this.btnProveedor.Text = "Proveedores";
             this.btnProveedor.UseVisualStyleBackColor = true;
+            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
             // 
             // btnProducto
             // 
@@ -163,6 +165,7 @@
             this.btnProducto.TabIndex = 23;
             this.btnProducto.Text = "Productos";
             this.btnProducto.UseVisualStyleBackColor = true;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             // 
             // btnCliente
             // 
@@ -179,6 +182,7 @@
             this.btnCliente.TabIndex = 22;
             this.btnCliente.Text = "Clientes";
             this.btnCliente.UseVisualStyleBackColor = true;
+            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
             // btnCerrarSesion
             // 
@@ -195,6 +199,7 @@
             this.btnCerrarSesion.TabIndex = 21;
             this.btnCerrarSesion.Text = "Cerrar Sesion";
             this.btnCerrarSesion.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // btnUsuarios
             // 
@@ -211,6 +216,7 @@
             this.btnUsuarios.TabIndex = 20;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // btnPedidos
             // 
@@ -227,6 +233,7 @@
             this.btnPedidos.TabIndex = 19;
             this.btnPedidos.Text = "Pedidos";
             this.btnPedidos.UseVisualStyleBackColor = true;
+            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
             // btnVentas
             // 
@@ -243,6 +250,7 @@
             this.btnVentas.TabIndex = 18;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.UseVisualStyleBackColor = true;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
             // btnEstadisticas
             // 
@@ -259,6 +267,7 @@
             this.btnEstadisticas.TabIndex = 17;
             this.btnEstadisticas.Text = "Estadisticas";
             this.btnEstadisticas.UseVisualStyleBackColor = true;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             // 
             // btnDashboard
             // 
@@ -275,6 +284,7 @@
             this.btnDashboard.TabIndex = 6;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // pnlBarraSuperior
             // 
@@ -290,6 +300,7 @@
             this.pnlBarraSuperior.Name = "pnlBarraSuperior";
             this.pnlBarraSuperior.Size = new System.Drawing.Size(1200, 50);
             this.pnlBarraSuperior.TabIndex = 4;
+            this.pnlBarraSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBarraSuperior_MouseDown);
             // 
             // btnMinimizar
             // 
@@ -302,6 +313,7 @@
             this.btnMinimizar.Size = new System.Drawing.Size(40, 40);
             this.btnMinimizar.TabIndex = 5;
             this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnMenuVertical
             // 
@@ -314,6 +326,7 @@
             this.btnMenuVertical.Size = new System.Drawing.Size(45, 40);
             this.btnMenuVertical.TabIndex = 4;
             this.btnMenuVertical.UseVisualStyleBackColor = true;
+            this.btnMenuVertical.Click += new System.EventHandler(this.btnMenuVertical_Click);
             // 
             // btnCerrar
             // 
@@ -326,6 +339,7 @@
             this.btnCerrar.Size = new System.Drawing.Size(40, 40);
             this.btnCerrar.TabIndex = 3;
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnPerfil
             // 
@@ -351,7 +365,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Administrador";
             // 
-            // Form1
+            // frmMenuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -361,7 +375,8 @@
             this.Controls.Add(this.pnlMenuVertical);
             this.Controls.Add(this.pnlBarraSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "frmMenuAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.pnlBarraTitulo.ResumeLayout(false);
             this.pnlBarraTitulo.PerformLayout();
