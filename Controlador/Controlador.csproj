@@ -58,11 +58,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cliente.cs" />
+    <Compile Include="ConectorDALC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{253F8AAC-44F4-4ED5-9283-B97D58554222}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
