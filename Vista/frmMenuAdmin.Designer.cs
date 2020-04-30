@@ -34,7 +34,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlMenuVertical = new System.Windows.Forms.Panel();
-            this.btnConfiguracion = new System.Windows.Forms.Button();
             this.btnProveedor = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
@@ -48,7 +47,7 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMenuVertical = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnPerfil = new System.Windows.Forms.Button();
+            this.btnConfiguracion = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlBarraTitulo.SuspendLayout();
             this.pnlMenuVertical.SuspendLayout();
@@ -99,7 +98,6 @@
             // pnlMenuVertical
             // 
             this.pnlMenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
-            this.pnlMenuVertical.Controls.Add(this.btnConfiguracion);
             this.pnlMenuVertical.Controls.Add(this.btnProveedor);
             this.pnlMenuVertical.Controls.Add(this.btnProducto);
             this.pnlMenuVertical.Controls.Add(this.btnCliente);
@@ -116,23 +114,6 @@
             this.pnlMenuVertical.Size = new System.Drawing.Size(200, 600);
             this.pnlMenuVertical.TabIndex = 5;
             // 
-            // btnConfiguracion
-            // 
-            this.btnConfiguracion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnConfiguracion.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracion.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfiguracion.ForeColor = System.Drawing.Color.White;
-            this.btnConfiguracion.Image = ((System.Drawing.Image)(resources.GetObject("btnConfiguracion.Image")));
-            this.btnConfiguracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfiguracion.Location = new System.Drawing.Point(7, 344);
-            this.btnConfiguracion.Name = "btnConfiguracion";
-            this.btnConfiguracion.Size = new System.Drawing.Size(188, 25);
-            this.btnConfiguracion.TabIndex = 25;
-            this.btnConfiguracion.Text = "Configuracion";
-            this.btnConfiguracion.UseVisualStyleBackColor = true;
-            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
-            // 
             // btnProveedor
             // 
             this.btnProveedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -142,7 +123,7 @@
             this.btnProveedor.ForeColor = System.Drawing.Color.White;
             this.btnProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedor.Image")));
             this.btnProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedor.Location = new System.Drawing.Point(7, 221);
+            this.btnProveedor.Location = new System.Drawing.Point(7, 216);
             this.btnProveedor.Name = "btnProveedor";
             this.btnProveedor.Size = new System.Drawing.Size(188, 25);
             this.btnProveedor.TabIndex = 24;
@@ -159,7 +140,7 @@
             this.btnProducto.ForeColor = System.Drawing.Color.White;
             this.btnProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnProducto.Image")));
             this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducto.Location = new System.Drawing.Point(7, 98);
+            this.btnProducto.Location = new System.Drawing.Point(7, 96);
             this.btnProducto.Name = "btnProducto";
             this.btnProducto.Size = new System.Drawing.Size(188, 25);
             this.btnProducto.TabIndex = 23;
@@ -176,7 +157,7 @@
             this.btnCliente.ForeColor = System.Drawing.Color.White;
             this.btnCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnCliente.Image")));
             this.btnCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCliente.Location = new System.Drawing.Point(7, 139);
+            this.btnCliente.Location = new System.Drawing.Point(7, 136);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(188, 25);
             this.btnCliente.TabIndex = 22;
@@ -193,7 +174,7 @@
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
             this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(7, 385);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(7, 336);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(188, 25);
             this.btnCerrarSesion.TabIndex = 21;
@@ -210,7 +191,7 @@
             this.btnUsuarios.ForeColor = System.Drawing.Color.White;
             this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(7, 262);
+            this.btnUsuarios.Location = new System.Drawing.Point(7, 256);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(188, 25);
             this.btnUsuarios.TabIndex = 20;
@@ -227,7 +208,7 @@
             this.btnPedidos.ForeColor = System.Drawing.Color.White;
             this.btnPedidos.Image = ((System.Drawing.Image)(resources.GetObject("btnPedidos.Image")));
             this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPedidos.Location = new System.Drawing.Point(7, 180);
+            this.btnPedidos.Location = new System.Drawing.Point(7, 176);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Size = new System.Drawing.Size(188, 25);
             this.btnPedidos.TabIndex = 19;
@@ -244,7 +225,7 @@
             this.btnVentas.ForeColor = System.Drawing.Color.White;
             this.btnVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnVentas.Image")));
             this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVentas.Location = new System.Drawing.Point(7, 57);
+            this.btnVentas.Location = new System.Drawing.Point(7, 56);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(188, 25);
             this.btnVentas.TabIndex = 18;
@@ -261,7 +242,7 @@
             this.btnEstadisticas.ForeColor = System.Drawing.Color.White;
             this.btnEstadisticas.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadisticas.Image")));
             this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticas.Location = new System.Drawing.Point(7, 303);
+            this.btnEstadisticas.Location = new System.Drawing.Point(7, 296);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(188, 25);
             this.btnEstadisticas.TabIndex = 17;
@@ -292,7 +273,7 @@
             this.pnlBarraSuperior.Controls.Add(this.btnMinimizar);
             this.pnlBarraSuperior.Controls.Add(this.btnMenuVertical);
             this.pnlBarraSuperior.Controls.Add(this.btnCerrar);
-            this.pnlBarraSuperior.Controls.Add(this.btnPerfil);
+            this.pnlBarraSuperior.Controls.Add(this.btnConfiguracion);
             this.pnlBarraSuperior.Controls.Add(this.label1);
             this.pnlBarraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBarraSuperior.Location = new System.Drawing.Point(0, 0);
@@ -341,17 +322,18 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // btnPerfil
+            // btnConfiguracion
             // 
-            this.btnPerfil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPerfil.BackgroundImage")));
-            this.btnPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPerfil.FlatAppearance.BorderSize = 0;
-            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPerfil.Location = new System.Drawing.Point(1065, 3);
-            this.btnPerfil.Name = "btnPerfil";
-            this.btnPerfil.Size = new System.Drawing.Size(40, 40);
-            this.btnPerfil.TabIndex = 2;
-            this.btnPerfil.UseVisualStyleBackColor = true;
+            this.btnConfiguracion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConfiguracion.BackgroundImage")));
+            this.btnConfiguracion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnConfiguracion.FlatAppearance.BorderSize = 0;
+            this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfiguracion.Location = new System.Drawing.Point(1065, 3);
+            this.btnConfiguracion.Name = "btnConfiguracion";
+            this.btnConfiguracion.Size = new System.Drawing.Size(40, 40);
+            this.btnConfiguracion.TabIndex = 2;
+            this.btnConfiguracion.UseVisualStyleBackColor = true;
+            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
             // 
             // label1
             // 
@@ -394,7 +376,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlMenuVertical;
-        private System.Windows.Forms.Button btnConfiguracion;
         private System.Windows.Forms.Button btnProveedor;
         private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.Button btnCliente;
@@ -408,7 +389,7 @@
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnMenuVertical;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Button btnPerfil;
+        private System.Windows.Forms.Button btnConfiguracion;
         private System.Windows.Forms.Label label1;
     }
 }

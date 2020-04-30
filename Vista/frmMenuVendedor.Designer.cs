@@ -34,6 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlMenuVertical = new System.Windows.Forms.Panel();
+            this.btnProducto = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnPedidos = new System.Windows.Forms.Button();
@@ -43,9 +44,8 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMenuVertical = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnPerfil = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnProducto = new System.Windows.Forms.Button();
+            this.btnPerfil = new System.Windows.Forms.Button();
             this.pnlBarraTitulo.SuspendLayout();
             this.pnlMenuVertical.SuspendLayout();
             this.pnlBarraSuperior.SuspendLayout();
@@ -107,6 +107,23 @@
             this.pnlMenuVertical.Name = "pnlMenuVertical";
             this.pnlMenuVertical.Size = new System.Drawing.Size(200, 600);
             this.pnlMenuVertical.TabIndex = 9;
+            // 
+            // btnProducto
+            // 
+            this.btnProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnProducto.FlatAppearance.BorderSize = 0;
+            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProducto.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProducto.ForeColor = System.Drawing.Color.White;
+            this.btnProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnProducto.Image")));
+            this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProducto.Location = new System.Drawing.Point(7, 102);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Size = new System.Drawing.Size(188, 25);
+            this.btnProducto.TabIndex = 24;
+            this.btnProducto.Text = "Productos";
+            this.btnProducto.UseVisualStyleBackColor = true;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             // 
             // btnCliente
             // 
@@ -248,18 +265,6 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // btnPerfil
-            // 
-            this.btnPerfil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPerfil.BackgroundImage")));
-            this.btnPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPerfil.FlatAppearance.BorderSize = 0;
-            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPerfil.Location = new System.Drawing.Point(1065, 3);
-            this.btnPerfil.Name = "btnPerfil";
-            this.btnPerfil.Size = new System.Drawing.Size(40, 40);
-            this.btnPerfil.TabIndex = 2;
-            this.btnPerfil.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -272,22 +277,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Vendedor";
             // 
-            // btnProducto
+            // btnPerfil
             // 
-            this.btnProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProducto.FlatAppearance.BorderSize = 0;
-            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProducto.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProducto.ForeColor = System.Drawing.Color.White;
-            this.btnProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnProducto.Image")));
-            this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducto.Location = new System.Drawing.Point(7, 102);
-            this.btnProducto.Name = "btnProducto";
-            this.btnProducto.Size = new System.Drawing.Size(188, 25);
-            this.btnProducto.TabIndex = 24;
-            this.btnProducto.Text = "Productos";
-            this.btnProducto.UseVisualStyleBackColor = true;
-            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
+            this.btnPerfil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPerfil.BackgroundImage")));
+            this.btnPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPerfil.FlatAppearance.BorderSize = 0;
+            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerfil.Location = new System.Drawing.Point(1065, 3);
+            this.btnPerfil.Name = "btnPerfil";
+            this.btnPerfil.Size = new System.Drawing.Size(40, 40);
+            this.btnPerfil.TabIndex = 2;
+            this.btnPerfil.UseVisualStyleBackColor = true;
             // 
             // frmMenuVendedor
             // 
@@ -327,8 +327,8 @@
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnMenuVertical;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Button btnPerfil;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnProducto;
+        private System.Windows.Forms.Button btnPerfil;
     }
 }

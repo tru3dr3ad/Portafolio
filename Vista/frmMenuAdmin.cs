@@ -105,14 +105,14 @@ namespace Vista
             AbrirFormInPanel(new frmEstadistica());
         }
 
-        private void btnConfiguracion_Click(object sender, EventArgs e)
-        {
-            AbrirFormInPanel(new frmConfiguracion());
-        }
-
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnConfiguracion_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmConfiguracion());
         }
     }
 }
