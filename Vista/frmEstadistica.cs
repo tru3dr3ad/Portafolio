@@ -15,6 +15,27 @@ namespace Vista
         public frmEstadistica()
         {
             InitializeComponent();
+            grpInforme.Visible = false;
+            dgrInforme.Visible = false;
+        }
+
+        private void rdEstadistica_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdEstadistica.Checked)
+            {
+                grpEstadistica.Visible = true;
+                grpInforme.Visible = false;
+                chart.Visible = true;
+                dgrInforme.Visible = false;
+            }
+            
+            if (rdInforme.Checked)
+            {
+                grpEstadistica.Visible = false;
+                grpInforme.Visible = true;
+                chart.Visible = false;
+                dgrInforme.Visible = true;
+            }
         }
     }
 }

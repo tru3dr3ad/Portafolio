@@ -24,7 +24,7 @@ namespace Vista
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
         //FUNCIONES DASHBOARD
         //ABRIR FORMULARIO COMO PANEL
-        private void AbrirFormInPanel(object formHijo)
+        public void AbrirFormInPanel(object formHijo)
         {
             if (this.pnlContenedor.Controls.Count > 0)
             {

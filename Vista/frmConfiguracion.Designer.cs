@@ -43,7 +43,7 @@
             // 
             // btnProveedores
             // 
-            this.btnProveedores.Location = new System.Drawing.Point(327, 186);
+            this.btnProveedores.Location = new System.Drawing.Point(327, 168);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Size = new System.Drawing.Size(300, 50);
             this.btnProveedores.TabIndex = 1;
