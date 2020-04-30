@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCrearOrden = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -37,7 +36,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.btnRecepcionarOrden = new System.Windows.Forms.Button();
@@ -57,23 +55,17 @@
             this.btnAgregarOrden = new System.Windows.Forms.Button();
             this.btnModificarOrden = new System.Windows.Forms.Button();
             this.grdOrden = new System.Windows.Forms.DataGridView();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrden)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnCrearOrden
-            // 
-            this.btnCrearOrden.Location = new System.Drawing.Point(816, 226);
-            this.btnCrearOrden.Name = "btnCrearOrden";
-            this.btnCrearOrden.Size = new System.Drawing.Size(128, 62);
-            this.btnCrearOrden.TabIndex = 40;
-            this.btnCrearOrden.Text = "Crear Orden";
-            this.btnCrearOrden.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.numericUpDown1);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.btnAgregarProducto);
@@ -81,7 +73,6 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.textBox4);
             this.groupBox3.Location = new System.Drawing.Point(280, 24);
@@ -149,13 +140,6 @@
             this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 6;
             this.label7.Text = "Cantidad:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(13, 83);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(182, 20);
-            this.textBox3.TabIndex = 5;
             // 
             // label8
             // 
@@ -325,13 +309,19 @@
             this.grdOrden.Size = new System.Drawing.Size(740, 255);
             this.grdOrden.TabIndex = 41;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(13, 83);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(182, 20);
+            this.numericUpDown1.TabIndex = 12;
+            // 
             // frmPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 550);
             this.Controls.Add(this.grdOrden);
-            this.Controls.Add(this.btnCrearOrden);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnRecepcionarOrden);
             this.Controls.Add(this.groupBox2);
@@ -349,13 +339,12 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrden)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnCrearOrden;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox1;
@@ -364,7 +353,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button btnRecepcionarOrden;
@@ -384,5 +372,6 @@
         private System.Windows.Forms.Button btnAgregarOrden;
         private System.Windows.Forms.Button btnModificarOrden;
         private System.Windows.Forms.DataGridView grdOrden;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
