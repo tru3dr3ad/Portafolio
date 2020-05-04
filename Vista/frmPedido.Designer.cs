@@ -28,16 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnAgregarProducto = new System.Windows.Forms.Button();
-            this.btnBuscarProducto = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.btnRecepcionarOrden = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBuscarOrden = new System.Windows.Forms.Button();
@@ -52,122 +42,49 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreProveedor = new System.Windows.Forms.TextBox();
             this.btnEliminarOrden = new System.Windows.Forms.Button();
-            this.btnAgregarOrden = new System.Windows.Forms.Button();
+            this.btnGuardarOrden = new System.Windows.Forms.Button();
             this.btnModificarOrden = new System.Windows.Forms.Button();
             this.grdOrden = new System.Windows.Forms.DataGridView();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnBuscarProducto = new System.Windows.Forms.Button();
+            this.btnAgregarProducto = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.groupBox3.SuspendLayout();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnDescargarOrden = new System.Windows.Forms.Button();
+            this.grpRecepcion = new System.Windows.Forms.GroupBox();
+            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.cmbEstadoOrden = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrden)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.grpRecepcion.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.numericUpDown1);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.btnAgregarProducto);
-            this.groupBox3.Controls.Add(this.btnBuscarProducto);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Location = new System.Drawing.Point(280, 24);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(368, 231);
-            this.groupBox3.TabIndex = 39;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Productos:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 170);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Total:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(13, 186);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 20);
-            this.textBox1.TabIndex = 10;
-            // 
-            // btnAgregarProducto
-            // 
-            this.btnAgregarProducto.Location = new System.Drawing.Point(225, 186);
-            this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(128, 21);
-            this.btnAgregarProducto.TabIndex = 9;
-            this.btnAgregarProducto.Text = "Agregar Productos";
-            this.btnAgregarProducto.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscarProducto
-            // 
-            this.btnBuscarProducto.Location = new System.Drawing.Point(225, 31);
-            this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(128, 21);
-            this.btnBuscarProducto.TabIndex = 3;
-            this.btnBuscarProducto.Text = "Buscar Producto";
-            this.btnBuscarProducto.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 119);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Precio Compra:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(13, 135);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(182, 20);
-            this.textBox2.TabIndex = 7;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 67);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Cantidad:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 15);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 13);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Nombre Producto";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(13, 31);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(182, 20);
-            this.textBox4.TabIndex = 3;
             // 
             // btnRecepcionarOrden
             // 
+            this.btnRecepcionarOrden.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnRecepcionarOrden.Location = new System.Drawing.Point(816, 303);
             this.btnRecepcionarOrden.Name = "btnRecepcionarOrden";
             this.btnRecepcionarOrden.Size = new System.Drawing.Size(128, 62);
             this.btnRecepcionarOrden.TabIndex = 38;
             this.btnRecepcionarOrden.Text = "Recepcionar Orden";
             this.btnRecepcionarOrden.UseVisualStyleBackColor = true;
+            this.btnRecepcionarOrden.Click += new System.EventHandler(this.btnRecepcionarOrden_Click);
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.groupBox2.Controls.Add(this.btnBuscarOrden);
             this.groupBox2.Controls.Add(this.txtBuscarUsuario);
             this.groupBox2.Location = new System.Drawing.Point(776, 24);
@@ -276,6 +193,7 @@
             // 
             // btnEliminarOrden
             // 
+            this.btnEliminarOrden.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnEliminarOrden.Location = new System.Drawing.Point(816, 506);
             this.btnEliminarOrden.Name = "btnEliminarOrden";
             this.btnEliminarOrden.Size = new System.Drawing.Size(128, 21);
@@ -283,17 +201,19 @@
             this.btnEliminarOrden.Text = "Eliminar";
             this.btnEliminarOrden.UseVisualStyleBackColor = true;
             // 
-            // btnAgregarOrden
+            // btnGuardarOrden
             // 
-            this.btnAgregarOrden.Location = new System.Drawing.Point(816, 430);
-            this.btnAgregarOrden.Name = "btnAgregarOrden";
-            this.btnAgregarOrden.Size = new System.Drawing.Size(128, 21);
-            this.btnAgregarOrden.TabIndex = 33;
-            this.btnAgregarOrden.Text = "Agregar";
-            this.btnAgregarOrden.UseVisualStyleBackColor = true;
+            this.btnGuardarOrden.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnGuardarOrden.Location = new System.Drawing.Point(816, 389);
+            this.btnGuardarOrden.Name = "btnGuardarOrden";
+            this.btnGuardarOrden.Size = new System.Drawing.Size(128, 21);
+            this.btnGuardarOrden.TabIndex = 33;
+            this.btnGuardarOrden.Text = "Guardar";
+            this.btnGuardarOrden.UseVisualStyleBackColor = true;
             // 
             // btnModificarOrden
             // 
+            this.btnModificarOrden.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnModificarOrden.Location = new System.Drawing.Point(816, 467);
             this.btnModificarOrden.Name = "btnModificarOrden";
             this.btnModificarOrden.Size = new System.Drawing.Size(128, 21);
@@ -303,58 +223,222 @@
             // 
             // grdOrden
             // 
+            this.grdOrden.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdOrden.Location = new System.Drawing.Point(12, 283);
             this.grdOrden.Name = "grdOrden";
             this.grdOrden.Size = new System.Drawing.Size(740, 255);
             this.grdOrden.TabIndex = 41;
             // 
+            // textBox4
+            // 
+            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.textBox4.Location = new System.Drawing.Point(179, 31);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(182, 20);
+            this.textBox4.TabIndex = 3;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(176, 15);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Nombre Producto";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(176, 67);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Cantidad:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.textBox2.Location = new System.Drawing.Point(179, 135);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(182, 20);
+            this.textBox2.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(176, 119);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Precio Compra:";
+            // 
+            // btnBuscarProducto
+            // 
+            this.btnBuscarProducto.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(391, 31);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(128, 21);
+            this.btnBuscarProducto.TabIndex = 3;
+            this.btnBuscarProducto.Text = "Buscar Producto";
+            this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarProducto
+            // 
+            this.btnAgregarProducto.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(391, 186);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(128, 21);
+            this.btnAgregarProducto.TabIndex = 9;
+            this.btnAgregarProducto.Text = "Agregar Productos";
+            this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.textBox1.Location = new System.Drawing.Point(179, 186);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(182, 20);
+            this.textBox1.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(176, 170);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Total:";
+            // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(13, 83);
+            this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.numericUpDown1.Location = new System.Drawing.Point(179, 83);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(182, 20);
             this.numericUpDown1.TabIndex = 12;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.numericUpDown1);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.btnAgregarProducto);
+            this.groupBox3.Controls.Add(this.btnBuscarProducto);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Location = new System.Drawing.Point(227, 24);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(525, 231);
+            this.groupBox3.TabIndex = 39;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Productos:";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 31);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(156, 174);
+            this.dataGridView1.TabIndex = 14;
+            // 
+            // btnDescargarOrden
+            // 
+            this.btnDescargarOrden.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnDescargarOrden.Location = new System.Drawing.Point(816, 426);
+            this.btnDescargarOrden.Name = "btnDescargarOrden";
+            this.btnDescargarOrden.Size = new System.Drawing.Size(128, 21);
+            this.btnDescargarOrden.TabIndex = 42;
+            this.btnDescargarOrden.Text = "Descargar";
+            this.btnDescargarOrden.UseVisualStyleBackColor = true;
+            // 
+            // grpRecepcion
+            // 
+            this.grpRecepcion.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.grpRecepcion.Controls.Add(this.label9);
+            this.grpRecepcion.Controls.Add(this.cmbEstadoOrden);
+            this.grpRecepcion.Controls.Add(this.btnConfirmar);
+            this.grpRecepcion.Location = new System.Drawing.Point(776, 134);
+            this.grpRecepcion.Name = "grpRecepcion";
+            this.grpRecepcion.Size = new System.Drawing.Size(212, 135);
+            this.grpRecepcion.TabIndex = 38;
+            this.grpRecepcion.TabStop = false;
+            this.grpRecepcion.Text = "Recepción:";
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.Location = new System.Drawing.Point(40, 100);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(128, 21);
+            this.btnConfirmar.TabIndex = 2;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            // 
+            // cmbEstadoOrden
+            // 
+            this.cmbEstadoOrden.FormattingEnabled = true;
+            this.cmbEstadoOrden.Location = new System.Drawing.Point(13, 52);
+            this.cmbEstadoOrden.Name = "cmbEstadoOrden";
+            this.cmbEstadoOrden.Size = new System.Drawing.Size(181, 21);
+            this.cmbEstadoOrden.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(10, 32);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(146, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "¿Orden de Pedido Completa?";
             // 
             // frmPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.grpRecepcion);
+            this.Controls.Add(this.btnDescargarOrden);
             this.Controls.Add(this.grdOrden);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnRecepcionarOrden);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnEliminarOrden);
-            this.Controls.Add(this.btnAgregarOrden);
+            this.Controls.Add(this.btnGuardarOrden);
             this.Controls.Add(this.btnModificarOrden);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPedido";
             this.Text = "frmPedido";
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrden)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.grpRecepcion.ResumeLayout(false);
+            this.grpRecepcion.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnAgregarProducto;
-        private System.Windows.Forms.Button btnBuscarProducto;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button btnRecepcionarOrden;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnBuscarOrden;
@@ -369,9 +453,25 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombreProveedor;
         private System.Windows.Forms.Button btnEliminarOrden;
-        private System.Windows.Forms.Button btnAgregarOrden;
+        private System.Windows.Forms.Button btnGuardarOrden;
         private System.Windows.Forms.Button btnModificarOrden;
         private System.Windows.Forms.DataGridView grdOrden;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnBuscarProducto;
+        private System.Windows.Forms.Button btnAgregarProducto;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnDescargarOrden;
+        private System.Windows.Forms.GroupBox grpRecepcion;
+        private System.Windows.Forms.ComboBox cmbEstadoOrden;
+        private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.Label label9;
     }
 }

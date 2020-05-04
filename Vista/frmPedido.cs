@@ -15,6 +15,16 @@ namespace Vista
         public frmPedido()
         {
             InitializeComponent();
+            EscondeGroupRecepcionar();
+        }
+
+        private void btnRecepcionarOrden_Click(object sender, EventArgs e)
+        {
+            grpRecepcion.Visible = true;
+        }
+        private void EscondeGroupRecepcionar()
+        {
+            grpRecepcion.Visible = false;
         }
     }
 }

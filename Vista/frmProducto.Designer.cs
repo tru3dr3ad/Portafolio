@@ -57,6 +57,7 @@
             // 
             // btnEliminarProducto
             // 
+            this.btnEliminarProducto.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnEliminarProducto.Location = new System.Drawing.Point(815, 517);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
             this.btnEliminarProducto.Size = new System.Drawing.Size(128, 21);
@@ -66,6 +67,7 @@
             // 
             // btnAgregarProducto
             // 
+            this.btnAgregarProducto.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnAgregarProducto.Location = new System.Drawing.Point(815, 463);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
             this.btnAgregarProducto.Size = new System.Drawing.Size(128, 21);
@@ -75,6 +77,7 @@
             // 
             // btnModificarProducto
             // 
+            this.btnModificarProducto.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnModificarProducto.Location = new System.Drawing.Point(815, 490);
             this.btnModificarProducto.Name = "btnModificarProducto";
             this.btnModificarProducto.Size = new System.Drawing.Size(128, 21);
@@ -84,6 +87,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtFechaVencimiento);
             this.groupBox1.Controls.Add(this.label6);
@@ -220,6 +224,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.groupBox2.Controls.Add(this.btnBuscarProducto);
             this.groupBox2.Controls.Add(this.txtBuscarProductor);
             this.groupBox2.Location = new System.Drawing.Point(776, 12);
@@ -247,6 +252,9 @@
             // 
             // grdProducto
             // 
+            this.grdProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdProducto.Location = new System.Drawing.Point(12, 12);
             this.grdProducto.Name = "grdProducto";

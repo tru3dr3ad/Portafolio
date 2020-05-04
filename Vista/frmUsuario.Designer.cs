@@ -51,6 +51,7 @@
             // 
             // btnEliminarUsuario
             // 
+            this.btnEliminarUsuario.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnEliminarUsuario.Location = new System.Drawing.Point(816, 494);
             this.btnEliminarUsuario.Name = "btnEliminarUsuario";
             this.btnEliminarUsuario.Size = new System.Drawing.Size(128, 21);
@@ -60,6 +61,7 @@
             // 
             // btnAgregarUsuario
             // 
+            this.btnAgregarUsuario.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnAgregarUsuario.Location = new System.Drawing.Point(816, 418);
             this.btnAgregarUsuario.Name = "btnAgregarUsuario";
             this.btnAgregarUsuario.Size = new System.Drawing.Size(128, 21);
@@ -69,6 +71,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.groupBox2.Controls.Add(this.btnBuscarUsuario);
             this.groupBox2.Controls.Add(this.txtBuscarUsuario);
             this.groupBox2.Location = new System.Drawing.Point(776, 12);
@@ -96,6 +99,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.groupBox1.Controls.Add(this.cmbTipoUsuario);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -178,6 +182,7 @@
             // 
             // btnModificarUsuario
             // 
+            this.btnModificarUsuario.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnModificarUsuario.Location = new System.Drawing.Point(816, 455);
             this.btnModificarUsuario.Name = "btnModificarUsuario";
             this.btnModificarUsuario.Size = new System.Drawing.Size(128, 21);
@@ -187,6 +192,9 @@
             // 
             // grdUsuario
             // 
+            this.grdUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdUsuario.Location = new System.Drawing.Point(12, 8);
             this.grdUsuario.Name = "grdUsuario";

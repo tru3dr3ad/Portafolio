@@ -72,7 +72,7 @@ namespace Vista
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new frmVenta());
+            AbrirFormInPanel(new cmbMedioPago());
         }
 
         private void btnProducto_Click(object sender, EventArgs e)

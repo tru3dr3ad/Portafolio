@@ -57,6 +57,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.groupBox2.Controls.Add(this.btnBuscarCliente);
             this.groupBox2.Controls.Add(this.txtBuscarCliente);
             this.groupBox2.Location = new System.Drawing.Point(776, 12);
@@ -68,6 +69,7 @@
             // 
             // btnBuscarCliente
             // 
+            this.btnBuscarCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBuscarCliente.Location = new System.Drawing.Point(40, 55);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(128, 21);
@@ -77,6 +79,7 @@
             // 
             // txtBuscarCliente
             // 
+            this.txtBuscarCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBuscarCliente.Location = new System.Drawing.Point(13, 19);
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.Size = new System.Drawing.Size(182, 20);
@@ -84,6 +87,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtDv);
             this.groupBox1.Controls.Add(this.label6);
@@ -107,6 +111,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(155, 34);
             this.label7.Name = "label7";
@@ -116,6 +121,7 @@
             // 
             // txtDv
             // 
+            this.txtDv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDv.Location = new System.Drawing.Point(171, 31);
             this.txtDv.Name = "txtDv";
             this.txtDv.Size = new System.Drawing.Size(24, 20);
@@ -123,6 +129,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(13, 254);
             this.label6.Name = "label6";
@@ -132,6 +139,7 @@
             // 
             // cmbTipoCliente
             // 
+            this.cmbTipoCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbTipoCliente.FormattingEnabled = true;
             this.cmbTipoCliente.Location = new System.Drawing.Point(13, 270);
             this.cmbTipoCliente.Name = "cmbTipoCliente";
@@ -140,6 +148,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(10, 207);
             this.label5.Name = "label5";
@@ -149,6 +158,7 @@
             // 
             // txtTelefono
             // 
+            this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTelefono.Location = new System.Drawing.Point(13, 223);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(182, 20);
@@ -156,6 +166,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(10, 159);
             this.label4.Name = "label4";
@@ -165,6 +176,7 @@
             // 
             // txtDireccion
             // 
+            this.txtDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDireccion.Location = new System.Drawing.Point(13, 175);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(182, 20);
@@ -172,6 +184,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(10, 111);
             this.label3.Name = "label3";
@@ -181,6 +194,7 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtApellido.Location = new System.Drawing.Point(13, 127);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(182, 20);
@@ -188,6 +202,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 63);
             this.label2.Name = "label2";
@@ -197,6 +212,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNombre.Location = new System.Drawing.Point(13, 79);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(182, 20);
@@ -204,6 +220,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(10, 15);
             this.label1.Name = "label1";
@@ -213,6 +230,7 @@
             // 
             // txtRunCliente
             // 
+            this.txtRunCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtRunCliente.Location = new System.Drawing.Point(13, 31);
             this.txtRunCliente.Name = "txtRunCliente";
             this.txtRunCliente.Size = new System.Drawing.Size(131, 20);
@@ -220,6 +238,7 @@
             // 
             // btnEliminarCliente
             // 
+            this.btnEliminarCliente.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnEliminarCliente.Location = new System.Drawing.Point(816, 494);
             this.btnEliminarCliente.Name = "btnEliminarCliente";
             this.btnEliminarCliente.Size = new System.Drawing.Size(128, 21);
@@ -229,6 +248,7 @@
             // 
             // btnModificarCliente
             // 
+            this.btnModificarCliente.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnModificarCliente.Location = new System.Drawing.Point(816, 467);
             this.btnModificarCliente.Name = "btnModificarCliente";
             this.btnModificarCliente.Size = new System.Drawing.Size(128, 21);
@@ -238,6 +258,7 @@
             // 
             // btnAgregarCliente
             // 
+            this.btnAgregarCliente.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnAgregarCliente.Location = new System.Drawing.Point(816, 440);
             this.btnAgregarCliente.Name = "btnAgregarCliente";
             this.btnAgregarCliente.Size = new System.Drawing.Size(128, 21);
@@ -248,6 +269,9 @@
             // 
             // grdCliente
             // 
+            this.grdCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCliente.Location = new System.Drawing.Point(12, 12);
             this.grdCliente.Name = "grdCliente";

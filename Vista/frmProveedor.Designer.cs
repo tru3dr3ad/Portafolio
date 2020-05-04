@@ -55,6 +55,9 @@
             // 
             // grdProveedor
             // 
+            this.grdProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdProveedor.Location = new System.Drawing.Point(12, 8);
             this.grdProveedor.Name = "grdProveedor";
@@ -63,6 +66,7 @@
             // 
             // btnEliminarProveedor
             // 
+            this.btnEliminarProveedor.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnEliminarProveedor.Location = new System.Drawing.Point(816, 490);
             this.btnEliminarProveedor.Name = "btnEliminarProveedor";
             this.btnEliminarProveedor.Size = new System.Drawing.Size(128, 21);
@@ -72,6 +76,7 @@
             // 
             // btnAgregarProveedor
             // 
+            this.btnAgregarProveedor.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnAgregarProveedor.Location = new System.Drawing.Point(816, 436);
             this.btnAgregarProveedor.Name = "btnAgregarProveedor";
             this.btnAgregarProveedor.Size = new System.Drawing.Size(128, 21);
@@ -81,6 +86,7 @@
             // 
             // btnModificarProveedor
             // 
+            this.btnModificarProveedor.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnModificarProveedor.Location = new System.Drawing.Point(816, 463);
             this.btnModificarProveedor.Name = "btnModificarProveedor";
             this.btnModificarProveedor.Size = new System.Drawing.Size(128, 21);
@@ -90,6 +96,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.cmbRubro);
             this.groupBox1.Controls.Add(this.label5);
@@ -208,6 +215,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.groupBox2.Controls.Add(this.btnBuscarProveedor);
             this.groupBox2.Controls.Add(this.txtBuscarProveedor);
             this.groupBox2.Location = new System.Drawing.Point(776, 8);
