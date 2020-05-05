@@ -85,6 +85,12 @@
     <Compile Include="frmEstadistica.Designer.cs">
       <DependentUpon>frmEstadistica.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFiado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFiado.Designer.cs">
+      <DependentUpon>frmFiado.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInforme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,17 +133,23 @@
     <Compile Include="frmProveedor.Designer.cs">
       <DependentUpon>frmProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRealizarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRealizarVenta.Designer.cs">
+      <DependentUpon>frmRealizarVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmUsuario.Designer.cs">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVenta.cs">
+    <Compile Include="frmRevisarVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVenta.Designer.cs">
-      <DependentUpon>frmVenta.cs</DependentUpon>
+    <Compile Include="frmRevisarVenta.Designer.cs">
+      <DependentUpon>frmRevisarVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEstadistica.resx">
       <DependentUpon>frmEstadistica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFiado.resx">
+      <DependentUpon>frmFiado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInforme.resx">
       <DependentUpon>frmInforme.cs</DependentUpon>
@@ -174,11 +189,14 @@
     <EmbeddedResource Include="frmProveedor.resx">
       <DependentUpon>frmProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRealizarVenta.resx">
+      <DependentUpon>frmRealizarVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVenta.resx">
-      <DependentUpon>frmVenta.cs</DependentUpon>
+    <EmbeddedResource Include="frmRevisarVenta.resx">
+      <DependentUpon>frmRevisarVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

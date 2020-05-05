@@ -39,6 +39,79 @@ namespace Vista
             fh.Show();
             fh.BringToFront();
         }
+        private void PersonalizarDiseño()
+        {
+            pnlReporteSubMenu.Visible = false;
+            pnlClienteSubMenu.Visible = false;
+            pnlVentaSubMenu.Visible = false;
+        }
+        private void OcultarSubMenu()
+        {
+            if (pnlReporteSubMenu.Visible)
+            {
+                pnlReporteSubMenu.Visible = false;
+            }
+            if (pnlVentaSubMenu.Visible)
+            {
+                pnlVentaSubMenu.Visible = false;
+            }
+            if (pnlClienteSubMenu.Visible)
+            {
+                pnlClienteSubMenu.Visible = false;
+            }
+        }
+        private void MostrarSubMenu(Panel subMenu)
+        {
+            if (subMenu.Visible == false)
+            {
+                OcultarSubMenu();
+                subMenu.Visible = true;
+            }
+            else
+            {
+                subMenu.Visible = false;
+            }
+        }
+        private void OcultarNombresMenu()
+        {
+            btnDashboard.Text = "";
+            btnCliente.Text = "";
+            btnVentas.Text = "";
+            btnPedidos.Text = "";
+            btnProveedor.Text = "";
+            btnProducto.Text = "";
+            btnUsuarios.Text = "";
+            btnCerrarSesion.Text = "";
+            btnReportes.Text = "";
+            btnEstadisticas.Text = "";
+            btnInforme.Text = "";
+            btnRealizarVenta.Text = "";
+            btnRevisarVentas.Text = "";
+            btnRevisionCliente.Text = "";
+            btnFiado.Text = "";
+        }
+        private void MostrarNombresMenu()
+        {
+            btnDashboard.Text = "Dashboard";
+            btnCliente.Text = "Clientes";
+            btnVentas.Text = "Ventas";
+            btnPedidos.Text = "Pedidos";
+            btnProveedor.Text = "Proveedores";
+            btnProducto.Text = "Productos";
+            btnUsuarios.Text = "Usuarios";
+            btnCerrarSesion.Text = "Cerrar Sesion";
+            btnReportes.Text = "Reportes";
+            btnEstadisticas.Text = "Estadisticas";
+            btnInforme.Text = "Informe";
+            btnRealizarVenta.Text = "Realizar Venta";
+            btnRevisarVentas.Text = "Revisar Ventas";
+            btnRevisionCliente.Text = "Revision Clientes";
+            btnFiado.Text = "Fiados";
+        }
+        private void NombreFormularioAbierto(string nombre)
+        {
+            lblTituloForm.Text = nombre;
+        }
         private void btnMenuVertical_Click(object sender, EventArgs e)
         {
             if (pnlMenuVertical.Width == 200)
@@ -69,6 +142,12 @@ namespace Vista
         {
             this.WindowState = FormWindowState.Minimized;
         }
+        private void btnConfiguracion_Click(object sender, EventArgs e)
+        {
+            OcultarSubMenu();
+            AbrirFormInPanel(new frmConfiguracion());
+            NombreFormularioAbierto("Configuración");
+        }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
@@ -79,46 +158,40 @@ namespace Vista
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
+            MostrarSubMenu(pnlVentaSubMenu);
+        }
+
+        private void btnRealizarVenta_Click(object sender, EventArgs e)
+        {
             OcultarSubMenu();
-            AbrirFormInPanel(new cmbMedioPago());
+            AbrirFormInPanel(new frmRealizarVenta());
+            NombreFormularioAbierto("Realizar Venta");
+        }
+
+        private void btnRevisarVentas_Click(object sender, EventArgs e)
+        {
+            OcultarSubMenu();
             NombreFormularioAbierto("Ventas");
+            AbrirFormInPanel(new frmRevisarVenta());
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu();
-            AbrirFormInPanel(new frmCliente());
-            NombreFormularioAbierto("Cliente");
+            MostrarSubMenu(pnlClienteSubMenu);
         }
 
-        private void btnConfiguracion_Click(object sender, EventArgs e)
+        private void btnFiado_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmFiado());
+            OcultarSubMenu();
+            NombreFormularioAbierto("Fiados");
+        }
+
+        private void btnRevisionCliente_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
-            AbrirFormInPanel(new frmConfiguracion());
-            NombreFormularioAbierto("Configuración");
-        }
-        private void PersonalizarDiseño()
-        {
-            pnlReporteSubMenu.Visible = false;
-        }
-        private void OcultarSubMenu()
-        {
-            if (pnlReporteSubMenu.Visible)
-            {
-                pnlReporteSubMenu.Visible = false;
-            }
-        }
-        private void MostrarSubMenu(Panel subMenu)
-        {
-            if (subMenu.Visible == false)
-            {
-                OcultarSubMenu();
-                subMenu.Visible = true;
-            }
-            else
-            {
-                subMenu.Visible = false;
-            }
+            NombreFormularioAbierto("Clientes");
+            AbrirFormInPanel(new frmCliente());
         }
 
         private void btnProducto_Click(object sender, EventArgs e)
@@ -138,7 +211,7 @@ namespace Vista
         private void btnProveedor_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
-            AbrirFormInPanel(new frmProveedor());
+            AbrirFormInPanel(new frmPedido());
             NombreFormularioAbierto("Proveedores");
         }
 
@@ -152,58 +225,26 @@ namespace Vista
         private void btnReportes_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(pnlReporteSubMenu);
-            NombreFormularioAbierto("Reportes");
-        }
-
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
 
         private void btnEstadisticas_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new frmEstadistica());
             OcultarSubMenu();
+            AbrirFormInPanel(new frmEstadistica());
             NombreFormularioAbierto("Estadisticas");
         }
 
         private void btnInforme_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new frmInforme());
             OcultarSubMenu();
+            AbrirFormInPanel(new frmInforme());
             NombreFormularioAbierto("Informes");
         }
-        private void OcultarNombresMenu()
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            btnDashboard.Text = "";
-            btnCliente.Text = "";
-            btnVentas.Text = "";
-            btnPedidos.Text = "";
-            btnProveedor.Text = "";
-            btnProducto.Text = "";
-            btnUsuarios.Text = "";
-            btnCerrarSesion.Text = "";
-            btnReportes.Text = "";
-            btnEstadisticas.Text = "";
-            btnInforme.Text = "";
-        }
-        private void MostrarNombresMenu()
-        {
-            btnDashboard.Text = "Dashboard";
-            btnCliente.Text = "Clientes";
-            btnVentas.Text = "Ventas";
-            btnPedidos.Text = "Pedidos";
-            btnProveedor.Text = "Proveedores";
-            btnProducto.Text = "Productos";
-            btnUsuarios.Text = "Usuarios";
-            btnCerrarSesion.Text = "Cerrar Sesion";
-            btnReportes.Text = "Reportes";
-            btnEstadisticas.Text = "Estadisticas";
-            btnInforme.Text = "Informe";
-        }
-        private void NombreFormularioAbierto(string nombre)
-        {
-            lblNombreFormulario.Text = nombre;
+            OcultarSubMenu();
+            this.Dispose();
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class cmbMedioPago : Form
+    public partial class frmFiado : Form
     {
-        public cmbMedioPago()
+        public frmFiado()
         {
             InitializeComponent();
         }
