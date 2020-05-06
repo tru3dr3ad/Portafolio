@@ -90,12 +90,12 @@
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtFechaVencimiento);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.cmbCategoria);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtPrecioCompra);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtPrecioVenta);
+            this.groupBox1.Controls.Add(this.cmbCategoria);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label2);
@@ -112,7 +112,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 254);
+            this.label7.Location = new System.Drawing.Point(11, 107);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(101, 13);
             this.label7.TabIndex = 16;
@@ -120,7 +120,7 @@
             // 
             // txtFechaVencimiento
             // 
-            this.txtFechaVencimiento.Location = new System.Drawing.Point(13, 270);
+            this.txtFechaVencimiento.Location = new System.Drawing.Point(14, 123);
             this.txtFechaVencimiento.Name = "txtFechaVencimiento";
             this.txtFechaVencimiento.Size = new System.Drawing.Size(182, 20);
             this.txtFechaVencimiento.TabIndex = 15;
@@ -128,7 +128,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 299);
+            this.label6.Location = new System.Drawing.Point(13, 58);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 14;
@@ -137,7 +137,7 @@
             // cmbCategoria
             // 
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(13, 315);
+            this.cmbCategoria.Location = new System.Drawing.Point(13, 74);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(182, 21);
             this.cmbCategoria.TabIndex = 13;
@@ -145,7 +145,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 207);
+            this.label5.Location = new System.Drawing.Point(11, 306);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 12;
@@ -153,7 +153,7 @@
             // 
             // txtPrecioCompra
             // 
-            this.txtPrecioCompra.Location = new System.Drawing.Point(13, 223);
+            this.txtPrecioCompra.Location = new System.Drawing.Point(14, 322);
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(182, 20);
             this.txtPrecioCompra.TabIndex = 11;
@@ -161,7 +161,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 159);
+            this.label4.Location = new System.Drawing.Point(11, 258);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 10;
@@ -169,7 +169,7 @@
             // 
             // txtPrecioVenta
             // 
-            this.txtPrecioVenta.Location = new System.Drawing.Point(13, 175);
+            this.txtPrecioVenta.Location = new System.Drawing.Point(14, 274);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(182, 20);
             this.txtPrecioVenta.TabIndex = 9;
@@ -177,7 +177,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 111);
+            this.label3.Location = new System.Drawing.Point(11, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 8;
@@ -185,7 +185,7 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(13, 127);
+            this.txtDescripcion.Location = new System.Drawing.Point(14, 224);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(182, 20);
             this.txtDescripcion.TabIndex = 7;
@@ -193,7 +193,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 63);
+            this.label2.Location = new System.Drawing.Point(11, 155);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 6;
@@ -201,7 +201,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(13, 79);
+            this.txtNombre.Location = new System.Drawing.Point(14, 171);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(182, 20);
             this.txtNombre.TabIndex = 5;

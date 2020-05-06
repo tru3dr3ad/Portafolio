@@ -164,8 +164,8 @@ namespace Vista
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
-            AbrirFormInPanel(new frmRealizarVenta());
-            NombreFormularioAbierto("Realizar Venta");
+            AbrirFormInPanel(new frmPuntoVenta());
+            NombreFormularioAbierto("Punto de Venta");
         }
 
         private void btnRevisarVentas_Click(object sender, EventArgs e)
@@ -211,7 +211,7 @@ namespace Vista
         private void btnProveedor_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
-            AbrirFormInPanel(new frmPedido());
+            AbrirFormInPanel(new frmProveedor());
             NombreFormularioAbierto("Proveedores");
         }
 

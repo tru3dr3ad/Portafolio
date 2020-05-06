@@ -406,7 +406,7 @@
             this.btnRealizarVenta.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnRealizarVenta.Size = new System.Drawing.Size(200, 44);
             this.btnRealizarVenta.TabIndex = 40;
-            this.btnRealizarVenta.Text = "Realizar Venta";
+            this.btnRealizarVenta.Text = "Punto de Venta";
             this.btnRealizarVenta.UseVisualStyleBackColor = true;
             this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
             // 

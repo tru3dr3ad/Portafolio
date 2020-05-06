@@ -133,11 +133,11 @@
     <Compile Include="frmProveedor.Designer.cs">
       <DependentUpon>frmProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRealizarVenta.cs">
+    <Compile Include="frmPuntoVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRealizarVenta.Designer.cs">
-      <DependentUpon>frmRealizarVenta.cs</DependentUpon>
+    <Compile Include="frmPuntoVenta.Designer.cs">
+      <DependentUpon>frmPuntoVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUsuario.cs">
       <SubType>Form</SubType>
@@ -189,8 +189,8 @@
     <EmbeddedResource Include="frmProveedor.resx">
       <DependentUpon>frmProveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRealizarVenta.resx">
-      <DependentUpon>frmRealizarVenta.cs</DependentUpon>
+    <EmbeddedResource Include="frmPuntoVenta.resx">
+      <DependentUpon>frmPuntoVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
