@@ -16,6 +16,7 @@ namespace Vista
         public frmMenuVendedor()
         {
             InitializeComponent();
+            PersonalizarDiseño();
         }
         //CONFIGURACIONES PARA HACER VENTANA MOVIBLE
         [System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -37,16 +38,76 @@ namespace Vista
             this.pnlContenedor.Tag = fh;
             fh.Show();
         }
-
+        private void PersonalizarDiseño()
+        {
+            pnlClienteSubMenu.Visible = false;
+            pnlVentaSubMenu.Visible = false;
+        }
+        private void OcultarSubMenu()
+        {
+            if (pnlVentaSubMenu.Visible)
+            {
+                pnlVentaSubMenu.Visible = false;
+            }
+            if (pnlClienteSubMenu.Visible)
+            {
+                pnlClienteSubMenu.Visible = false;
+            }
+        }
+        private void MostrarSubMenu(Panel subMenu)
+        {
+            if (subMenu.Visible == false)
+            {
+                OcultarSubMenu();
+                subMenu.Visible = true;
+            }
+            else
+            {
+                subMenu.Visible = false;
+            }
+        }
+        private void OcultarNombresMenu()
+        {
+            btnDashboard.Text = "";
+            btnCliente.Text = "";
+            btnVentas.Text = "";
+            btnPedido.Text = "";
+            btnProducto.Text = "";
+            btnCerrarSesion.Text = "";
+            btnRealizarVenta.Text = "";
+            btnRevisarVentas.Text = "";
+            btnRevisionCliente.Text = "";
+            btnFiado.Text = "";
+        }
+        private void MostrarNombresMenu()
+        {
+            btnDashboard.Text = "Dashboard";
+            btnCliente.Text = "Clientes";
+            btnVentas.Text = "Ventas";
+            btnPedido.Text = "Pedidos";
+            btnProducto.Text = "Productos";
+            btnCerrarSesion.Text = "Cerrar Sesion";
+            btnRealizarVenta.Text = "Realizar Venta";
+            btnRevisarVentas.Text = "Revisar Ventas";
+            btnRevisionCliente.Text = "Revision Clientes";
+            btnFiado.Text = "Fiados";
+        }
+        private void NombreFormularioAbierto(string nombre)
+        {
+            lblTituloForm.Text = nombre;
+        }
         private void btnMenuVertical_Click(object sender, EventArgs e)
         {
             if (pnlMenuVertical.Width == 200)
             {
                 pnlMenuVertical.Width = 50;
+                OcultarNombresMenu();
+                OcultarSubMenu();
             }
             else
             {
                 pnlMenuVertical.Width = 200;
+                MostrarNombresMenu();
             }
         }
 
@@ -68,31 +129,66 @@ namespace Vista
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+            OcultarSubMenu();
             AbrirFormInPanel(new frmDashboard());
+            NombreFormularioAbierto("Dashboard");
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new frmRevisarVenta());
+            MostrarSubMenu(pnlVentaSubMenu);
         }
 
-        private void btnProducto_Click(object sender, EventArgs e)
+        private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new frmProducto());
+            OcultarSubMenu();
+            AbrirFormInPanel(new frmPuntoVenta());
+            NombreFormularioAbierto("Punto de Venta");
+        }
+
+        private void btnRevisarVentas_Click(object sender, EventArgs e)
+        {
+            OcultarSubMenu();
+            NombreFormularioAbierto("Ventas");
+            AbrirFormInPanel(new frmRevisarVenta());
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
+            MostrarSubMenu(pnlClienteSubMenu);
+        }
+
+        private void btnFiado_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmFiado());
+            OcultarSubMenu();
+            NombreFormularioAbierto("Fiados");
+        }
+
+        private void btnRevisionCliente_Click(object sender, EventArgs e)
+        {
+            OcultarSubMenu();
+            NombreFormularioAbierto("Clientes");
             AbrirFormInPanel(new frmCliente());
         }
 
-        private void btnPedidos_Click(object sender, EventArgs e)
+        private void btnProducto_Click(object sender, EventArgs e)
         {
+            OcultarSubMenu();
+            AbrirFormInPanel(new frmProducto());
+            NombreFormularioAbierto("Productos");
+        }
+
+        private void btnPedido_Click(object sender, EventArgs e)
+        {
+            OcultarSubMenu();
             AbrirFormInPanel(new frmPedido());
+            NombreFormularioAbierto("Orden de Pedido");
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
+            OcultarSubMenu();
             this.Dispose();
         }
     }
