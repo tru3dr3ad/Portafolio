@@ -23,10 +23,12 @@ namespace Modelo
         public decimal NUMERORDEN { get; set; }
         public System.DateTime FECHAORDEN { get; set; }
         public int VALORORDEN { get; set; }
-        public Nullable<decimal> USUARIO_USUARIOID { get; set; }
-        public decimal ORDEN_RECEPCION_NROORDEN { get; set; }
+        public Nullable<System.DateTime> FECHARECEPCION { get; set; }
         public decimal PROVEEDOR_RUTPROVEEDOR { get; set; }
+        public decimal USUARIO_USUARIOID { get; set; }
+        public decimal ESTADO_ORDEN_ESTADOID { get; set; }
     
+        public virtual ESTADO_ORDEN ESTADO_ORDEN { get; set; }
         public virtual PROVEEDOR PROVEEDOR { get; set; }
         public virtual USUARIO USUARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

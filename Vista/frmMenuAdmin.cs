@@ -18,6 +18,8 @@ namespace Vista
             InitializeComponent();
             PersonalizarDiseño();
         }
+        #region Metodos Para el Diseño
+        
         //CONFIGURACIONES PARA HACER VENTANA MOVIBLE
         [System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -37,7 +39,6 @@ namespace Vista
             this.pnlContenedor.Controls.Add(fh);
             this.pnlContenedor.Tag = fh;
             fh.Show();
-            fh.BringToFront();
         }
         private void PersonalizarDiseño()
         {
@@ -112,6 +113,13 @@ namespace Vista
         {
             lblTituloForm.Text = nombre;
         }
+        private void pnlBarraSuperior_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
+        #region Botones
         private void btnMenuVertical_Click(object sender, EventArgs e)
         {
             if (pnlMenuVertical.Width == 200)
@@ -126,13 +134,6 @@ namespace Vista
                 MostrarNombresMenu();
             }
         }
-
-        private void pnlBarraSuperior_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -246,5 +247,6 @@ namespace Vista
             OcultarSubMenu();
             this.Dispose();
         }
+        #endregion
     }
 }

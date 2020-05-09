@@ -30,6 +30,7 @@ namespace Modelo
         public virtual DbSet<CATEGORIA> CATEGORIA { get; set; }
         public virtual DbSet<CLIENTE> CLIENTE { get; set; }
         public virtual DbSet<ESTADO_FIADO> ESTADO_FIADO { get; set; }
+        public virtual DbSet<ESTADO_ORDEN> ESTADO_ORDEN { get; set; }
         public virtual DbSet<MEDIO_PAGO> MEDIO_PAGO { get; set; }
         public virtual DbSet<ORDEN_PEDIDO> ORDEN_PEDIDO { get; set; }
         public virtual DbSet<PRODUCTO> PRODUCTO { get; set; }

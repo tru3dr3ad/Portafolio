@@ -12,6 +12,8 @@ namespace Controlador
         public int Run { get; set; }
         public char Dv { get; set; }
         public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public DateTime FechaNacimiento { get; set; }
         public string Direccion { get; set; }
         public int Telefono { get; set; }
         public int Estado { get; set; }
@@ -20,11 +22,14 @@ namespace Controlador
         {
 
         }
-        public Cliente(int run, char dv, string nombre, string direccion, int telefono, int estado, int tipo)
+        public Cliente(int run, char dv, string nombre,string apellido, DateTime fechaNacimiento, string direccion,
+                    int telefono, int estado, int tipo)
         {
             Run = run;
             Dv = dv;
             Nombre = nombre;
+            Apellido = apellido;
+            FechaNacimiento = fechaNacimiento;
             Direccion = direccion;
             Telefono = telefono;
             Estado = estado;
@@ -39,11 +44,13 @@ namespace Controlador
                 cliente.RUNCLIENTE = Run;
                 cliente.DVCLIENTE = Dv.ToString();
                 cliente.NOMBRECLIENTE = Nombre;
+                cliente.APELLIDOCLIENTE = Apellido;
+                cliente.FECHANACIMIENTO = FechaNacimiento;
                 cliente.DIRECCIONCLIENTE = Direccion;
                 cliente.FONOCLIENTE = Telefono;
                 cliente.ESTADO_FIADO_ESTADOID = 1;
                 cliente.TIPO_CLIENTE_TIPOCLIENTEID = 1;
-
+                
                 ConectorDALC.ModeloAlmacen.CLIENTE.Add(cliente);
                 ConectorDALC.ModeloAlmacen.SaveChanges();
 
@@ -52,8 +59,13 @@ namespace Controlador
             catch (Exception ex)
             {
                 return false;
-                throw;
             }
+        }
+        public List<Modelo.CLIENTE> Listar()
+        {
+            List<Modelo.CLIENTE> resultado = new List<Modelo.CLIENTE>();
+            resultado = ConectorDALC.ModeloAlmacen.CLIENTE.ToList();
+            return resultado;
         }
     }
 }

@@ -24,6 +24,8 @@ namespace Modelo
         public decimal RUNCLIENTE { get; set; }
         public string DVCLIENTE { get; set; }
         public string NOMBRECLIENTE { get; set; }
+        public string APELLIDOCLIENTE { get; set; }
+        public System.DateTime FECHANACIMIENTO { get; set; }
         public string DIRECCIONCLIENTE { get; set; }
         public int FONOCLIENTE { get; set; }
         public decimal ESTADO_FIADO_ESTADOID { get; set; }

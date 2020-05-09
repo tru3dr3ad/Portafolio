@@ -32,6 +32,8 @@
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDv = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,6 +52,8 @@
             this.btnModificarCliente = new System.Windows.Forms.Button();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
             this.grdCliente = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCliente)).BeginInit();
@@ -62,7 +66,7 @@
             this.groupBox2.Controls.Add(this.txtBuscarCliente);
             this.groupBox2.Location = new System.Drawing.Point(776, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(212, 85);
+            this.groupBox2.Size = new System.Drawing.Size(212, 71);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Buscar Cliente:";
@@ -70,7 +74,7 @@
             // btnBuscarCliente
             // 
             this.btnBuscarCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(40, 55);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(37, 45);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(128, 21);
             this.btnBuscarCliente.TabIndex = 2;
@@ -88,6 +92,10 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.cmbEstado);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.dtpFechaNacimiento);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtDv);
             this.groupBox1.Controls.Add(this.label6);
@@ -102,18 +110,37 @@
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtRunCliente);
-            this.groupBox1.Location = new System.Drawing.Point(776, 108);
+            this.groupBox1.Location = new System.Drawing.Point(776, 89);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 307);
+            this.groupBox1.Size = new System.Drawing.Size(213, 340);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Cliente:";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(10, 140);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 13);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "Fecha Nacimiento:";
+            // 
+            // dtpFechaNacimiento
+            // 
+            this.dtpFechaNacimiento.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(13, 156);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(182, 20);
+            this.dtpFechaNacimiento.TabIndex = 24;
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(155, 34);
+            this.label7.Location = new System.Drawing.Point(155, 42);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(10, 13);
             this.label7.TabIndex = 16;
@@ -122,16 +149,16 @@
             // txtDv
             // 
             this.txtDv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDv.Location = new System.Drawing.Point(171, 31);
+            this.txtDv.Location = new System.Drawing.Point(172, 39);
             this.txtDv.Name = "txtDv";
             this.txtDv.Size = new System.Drawing.Size(24, 20);
-            this.txtDv.TabIndex = 15;
+            this.txtDv.TabIndex = 4;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 254);
+            this.label6.Location = new System.Drawing.Point(11, 257);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 14;
@@ -141,16 +168,16 @@
             // 
             this.cmbTipoCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbTipoCliente.FormattingEnabled = true;
-            this.cmbTipoCliente.Location = new System.Drawing.Point(13, 270);
+            this.cmbTipoCliente.Location = new System.Drawing.Point(13, 273);
             this.cmbTipoCliente.Name = "cmbTipoCliente";
             this.cmbTipoCliente.Size = new System.Drawing.Size(182, 21);
-            this.cmbTipoCliente.TabIndex = 13;
+            this.cmbTipoCliente.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 207);
+            this.label5.Location = new System.Drawing.Point(10, 218);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 12;
@@ -159,16 +186,16 @@
             // txtTelefono
             // 
             this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTelefono.Location = new System.Drawing.Point(13, 223);
+            this.txtTelefono.Location = new System.Drawing.Point(13, 234);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(182, 20);
-            this.txtTelefono.TabIndex = 11;
+            this.txtTelefono.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 159);
+            this.label4.Location = new System.Drawing.Point(11, 179);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 10;
@@ -177,16 +204,16 @@
             // txtDireccion
             // 
             this.txtDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDireccion.Location = new System.Drawing.Point(13, 175);
+            this.txtDireccion.Location = new System.Drawing.Point(13, 195);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(182, 20);
-            this.txtDireccion.TabIndex = 9;
+            this.txtDireccion.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 111);
+            this.label3.Location = new System.Drawing.Point(11, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 8;
@@ -195,16 +222,16 @@
             // txtApellido
             // 
             this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtApellido.Location = new System.Drawing.Point(13, 127);
+            this.txtApellido.Location = new System.Drawing.Point(13, 117);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(182, 20);
-            this.txtApellido.TabIndex = 7;
+            this.txtApellido.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 63);
+            this.label2.Location = new System.Drawing.Point(11, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 6;
@@ -213,7 +240,7 @@
             // txtNombre
             // 
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNombre.Location = new System.Drawing.Point(13, 79);
+            this.txtNombre.Location = new System.Drawing.Point(14, 78);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(182, 20);
             this.txtNombre.TabIndex = 5;
@@ -222,7 +249,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 15);
+            this.label1.Location = new System.Drawing.Point(11, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 4;
@@ -231,38 +258,38 @@
             // txtRunCliente
             // 
             this.txtRunCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtRunCliente.Location = new System.Drawing.Point(13, 31);
+            this.txtRunCliente.Location = new System.Drawing.Point(13, 39);
             this.txtRunCliente.Name = "txtRunCliente";
-            this.txtRunCliente.Size = new System.Drawing.Size(131, 20);
+            this.txtRunCliente.Size = new System.Drawing.Size(136, 20);
             this.txtRunCliente.TabIndex = 3;
             // 
             // btnEliminarCliente
             // 
             this.btnEliminarCliente.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnEliminarCliente.Location = new System.Drawing.Point(816, 494);
+            this.btnEliminarCliente.Location = new System.Drawing.Point(813, 517);
             this.btnEliminarCliente.Name = "btnEliminarCliente";
             this.btnEliminarCliente.Size = new System.Drawing.Size(128, 21);
-            this.btnEliminarCliente.TabIndex = 20;
+            this.btnEliminarCliente.TabIndex = 12;
             this.btnEliminarCliente.Text = "Eliminar";
             this.btnEliminarCliente.UseVisualStyleBackColor = true;
             // 
             // btnModificarCliente
             // 
             this.btnModificarCliente.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnModificarCliente.Location = new System.Drawing.Point(816, 467);
+            this.btnModificarCliente.Location = new System.Drawing.Point(813, 490);
             this.btnModificarCliente.Name = "btnModificarCliente";
             this.btnModificarCliente.Size = new System.Drawing.Size(128, 21);
-            this.btnModificarCliente.TabIndex = 19;
+            this.btnModificarCliente.TabIndex = 11;
             this.btnModificarCliente.Text = "Modificar";
             this.btnModificarCliente.UseVisualStyleBackColor = true;
             // 
             // btnAgregarCliente
             // 
             this.btnAgregarCliente.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAgregarCliente.Location = new System.Drawing.Point(816, 440);
+            this.btnAgregarCliente.Location = new System.Drawing.Point(813, 463);
             this.btnAgregarCliente.Name = "btnAgregarCliente";
             this.btnAgregarCliente.Size = new System.Drawing.Size(128, 21);
-            this.btnAgregarCliente.TabIndex = 18;
+            this.btnAgregarCliente.TabIndex = 10;
             this.btnAgregarCliente.Text = "Agregar";
             this.btnAgregarCliente.UseVisualStyleBackColor = true;
             this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
@@ -277,6 +304,25 @@
             this.grdCliente.Name = "grdCliente";
             this.grdCliente.Size = new System.Drawing.Size(740, 530);
             this.grdCliente.TabIndex = 23;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(11, 297);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(43, 13);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Estado:";
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(13, 313);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(182, 21);
+            this.cmbEstado.TabIndex = 26;
             // 
             // frmCliente
             // 
@@ -325,5 +371,9 @@
         private System.Windows.Forms.Button btnModificarCliente;
         private System.Windows.Forms.Button btnAgregarCliente;
         private System.Windows.Forms.DataGridView grdCliente;
+        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cmbEstado;
     }
 }

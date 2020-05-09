@@ -74,6 +74,9 @@
     <Compile Include="ESTADO_FIADO.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="ESTADO_ORDEN.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="MEDIO_PAGO.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>

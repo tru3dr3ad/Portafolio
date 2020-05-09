@@ -24,7 +24,6 @@ namespace Modelo
         public decimal CODIGOPROD { get; set; }
         public string NOMBREPROD { get; set; }
         public string DESCRIPPROD { get; set; }
-        public int PRECIOCOMPRA { get; set; }
         public string PRECIOVENTA { get; set; }
         public System.DateTime FECHAVENCIMIENTO { get; set; }
         public decimal CATEGORIA_CATEGORIAID { get; set; }
