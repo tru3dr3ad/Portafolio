@@ -17,6 +17,7 @@ namespace Vista
         {
             InitializeComponent();
             CargarComboboxTipoCliente();
+            CargarComboboxEstadoFiado();
             CargarGrilla();
         }
         #region Metodos
@@ -36,7 +37,10 @@ namespace Vista
             int telefono = int.Parse(txtTelefono.Text);
 
             Cliente cliente = new Cliente(rut, dv, nombre, apellido, fechaNacimiento, direccion, telefono, 1, 1);
-            cliente.AgregarCliente();
+            if (cliente.AgregarCliente())
+            {
+                MessageBox.Show("Cliente Ha sido Agregado");
+            }
         }
         private void CargarComboboxTipoCliente()
         {
@@ -44,6 +48,13 @@ namespace Vista
             cmbTipoCliente.DataSource = tipoCliente.Listar();
             cmbTipoCliente.DisplayMember = "Descripcion";
             cmbTipoCliente.ValueMember = "Id";
+        }
+        private void CargarComboboxEstadoFiado()
+        {
+            Controlador.EstadoFiado estadoFiado = new Controlador.EstadoFiado();
+            cmbEstado.DataSource = estadoFiado.Listar();
+            cmbEstado.DisplayMember = "Descripcion";
+            cmbEstado.ValueMember = "Id";
         }
         #endregion
         #region Botones

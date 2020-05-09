@@ -32,6 +32,8 @@
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,8 +54,6 @@
             this.btnModificarCliente = new System.Windows.Forms.Button();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
             this.grdCliente = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCliente)).BeginInit();
@@ -117,6 +117,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Cliente:";
             // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(11, 297);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(43, 13);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Estado:";
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(13, 313);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(182, 21);
+            this.cmbEstado.TabIndex = 26;
+            // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -167,6 +187,7 @@
             // cmbTipoCliente
             // 
             this.cmbTipoCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbTipoCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoCliente.FormattingEnabled = true;
             this.cmbTipoCliente.Location = new System.Drawing.Point(13, 273);
             this.cmbTipoCliente.Name = "cmbTipoCliente";
@@ -304,25 +325,6 @@
             this.grdCliente.Name = "grdCliente";
             this.grdCliente.Size = new System.Drawing.Size(740, 530);
             this.grdCliente.TabIndex = 23;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 297);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 13);
-            this.label9.TabIndex = 27;
-            this.label9.Text = "Estado:";
-            // 
-            // cmbEstado
-            // 
-            this.cmbEstado.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(13, 313);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(182, 21);
-            this.cmbEstado.TabIndex = 26;
             // 
             // frmCliente
             // 

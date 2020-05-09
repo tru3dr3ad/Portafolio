@@ -21,15 +21,15 @@ namespace Controlador
         }
         public IList<TipoCliente> Listar()
         {
-            List<TipoCliente> resultado = new List<TipoCliente>();
+            List<TipoCliente> listado = new List<TipoCliente>();
             foreach (Modelo.TIPO_CLIENTE tipoCliente in ConectorDALC.ModeloAlmacen.TIPO_CLIENTE.ToList())
             {
                 TipoCliente tipo = new TipoCliente();
                 tipo.Id = (int)tipoCliente.TIPOCLIENTEID;
                 tipo.Descripcion = tipoCliente.DESCRIPCLIENTE;
-                resultado.Add(tipo);
+                listado.Add(tipo);
             }
-            return resultado;
+            return listado;
         }
         public override string ToString()
         {
