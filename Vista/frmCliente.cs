@@ -131,7 +131,7 @@ namespace Vista
                 TipoCliente tipo = new TipoCliente();
                 tipo.Id = (int)cmbTipoCliente.SelectedValue;
                 Cliente cliente = new Cliente(rut, dv, nombre, apellido, fechaNacimiento, direccion, telefono, estado, tipo);
-                bool modificarCliente = cliente.ModificarCliente(int.Parse(txtRunCliente.Text));
+                bool modificarCliente = cliente.ModificarCliente(cliente);
                 if (modificarCliente)
                 {
                     MessageBox.Show("Cliente Actualizado");

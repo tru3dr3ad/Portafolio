@@ -114,22 +114,22 @@ namespace Controlador
                 throw new ArgumentException("Error al agregar cliente" + ex);
             }
         }
-        public bool ModificarCliente(int runCliente)
+        public bool ModificarCliente(Cliente modificarCliente)
         {
             try
             {
-                if (BuscarCliente(runCliente))
+                if (BuscarCliente(modificarCliente.Run))
                 {
-                    Modelo.CLIENTE cliente = ConectorDALC.ModeloAlmacen.CLIENTE.FirstOrDefault(e => e.RUNCLIENTE == runCliente);
-                    cliente.RUNCLIENTE = Run;
-                    cliente.DVCLIENTE = Dv.ToString();
-                    cliente.NOMBRECLIENTE = Nombre;
-                    cliente.APELLIDOCLIENTE = Apellido;
-                    cliente.FECHANACIMIENTO = FechaNacimiento;
-                    cliente.DIRECCIONCLIENTE = Direccion;
-                    cliente.FONOCLIENTE = Telefono;
-                    cliente.ESTADO_FIADO_ESTADOID = Estado.Id;
-                    cliente.TIPO_CLIENTE_TIPOCLIENTEID = Tipo.Id;
+                    Modelo.CLIENTE cliente = ConectorDALC.ModeloAlmacen.CLIENTE.FirstOrDefault(e => e.RUNCLIENTE == modificarCliente.Run);
+                    cliente.RUNCLIENTE = modificarCliente.Run;
+                    cliente.DVCLIENTE = modificarCliente.Dv.ToString();
+                    cliente.NOMBRECLIENTE = modificarCliente.Nombre;
+                    cliente.APELLIDOCLIENTE = modificarCliente.Apellido;
+                    cliente.FECHANACIMIENTO = modificarCliente.FechaNacimiento;
+                    cliente.DIRECCIONCLIENTE = modificarCliente.Direccion;
+                    cliente.FONOCLIENTE = modificarCliente.Telefono;
+                    cliente.ESTADO_FIADO_ESTADOID = modificarCliente.Estado.Id;
+                    cliente.TIPO_CLIENTE_TIPOCLIENTEID = modificarCliente.Tipo.Id;
 
                     ConectorDALC.ModeloAlmacen.SaveChanges();
                     return true;
