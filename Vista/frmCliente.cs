@@ -62,25 +62,21 @@ namespace Vista
                 return false;
             }
         }
-        public void AgregarCliente()
+        private void LimpiarDatos()
         {
-            int rut = int.Parse(txtRunCliente.Text);
-            char dv = char.Parse(txtDv.Text);
-            string nombre = txtNombre.Text;
-            string apellido = txtApellido.Text;
-            DateTime fechaNacimiento = dtpFechaNacimiento.Value.Date;
-            string direccion = txtDireccion.Text;
-            int telefono = int.Parse(txtTelefono.Text);
-            EstadoFiado estado = new EstadoFiado();
-            estado.Id = (int)cmbEstado.SelectedValue;
-            TipoCliente tipo = new TipoCliente();
-            tipo.Id = (int)cmbTipoCliente.SelectedValue;
-            Cliente cliente = new Cliente(rut, dv, nombre, apellido, fechaNacimiento, direccion, telefono, estado, tipo);
-            if (cliente.AgregarCliente())
-            {
-                MessageBox.Show("Cliente ha sido Agregado");
-            }
+            txtRunCliente.Clear();
+            txtDv.Clear();
+            txtNombre.Clear();
+            txtApellido.Clear();
+            dtpFechaNacimiento.Value = DateTime.Now;
+            txtDireccion.Clear();
+            txtTelefono.Clear();
+            cmbTipoCliente.SelectedIndex = -1;
+            cmbEstado.SelectedIndex = -1;
         }
+        #endregion
+
+        #region Metodos de la clase
         private void BuscarCliente()
         {
             Cliente cliente = new Cliente();
@@ -97,73 +93,107 @@ namespace Vista
                 }
             }
         }
-        private void EliminarCliente()
+        public void AgregarCliente()
         {
-            Cliente cliente = new Cliente();
-            bool eliminarCliente = cliente.EliminarCliente(int.Parse(txtRunCliente.Text));
-            if (eliminarCliente)
+            if (!String.IsNullOrEmpty(txtRunCliente.Text))
             {
-                MessageBox.Show("Cliente Eliminado");
-            }
-            else
-            {
-                MessageBox.Show("Cliente no eliminado");
+                int rut = int.Parse(txtRunCliente.Text);
+                char dv = char.Parse(txtDv.Text);
+                string nombre = txtNombre.Text;
+                string apellido = txtApellido.Text;
+                DateTime fechaNacimiento = dtpFechaNacimiento.Value.Date;
+                string direccion = txtDireccion.Text;
+                int telefono = int.Parse(txtTelefono.Text);
+                EstadoFiado estado = new EstadoFiado();
+                estado.Id = (int)cmbEstado.SelectedValue;
+                TipoCliente tipo = new TipoCliente();
+                tipo.Id = (int)cmbTipoCliente.SelectedValue;
+                Cliente cliente = new Cliente(rut, dv, nombre, apellido, fechaNacimiento, direccion, telefono, estado, tipo);
+                if (cliente.AgregarCliente())
+                {
+                    MessageBox.Show("Cliente ha sido Agregado");
+                }
             }
         }
         private void ModificarCliente()
-        {           
-            int rut = int.Parse(txtRunCliente.Text);
-            char dv = char.Parse(txtDv.Text);
-            string nombre = txtNombre.Text;
-            string apellido = txtApellido.Text;
-            DateTime fechaNacimiento = dtpFechaNacimiento.Value.Date;
-            string direccion = txtDireccion.Text;
-            int telefono = int.Parse(txtTelefono.Text);
-            EstadoFiado estado = new EstadoFiado();
-            estado.Id = (int)cmbEstado.SelectedValue;
-            TipoCliente tipo = new TipoCliente();
-            tipo.Id = (int)cmbTipoCliente.SelectedValue;
-            Cliente cliente = new Cliente(rut, dv, nombre, apellido, fechaNacimiento, direccion, telefono, estado, tipo);
-            bool modificarCliente = cliente.ModificarCliente(int.Parse(txtRunCliente.Text));
-            if (modificarCliente)
+        {
+            if (!String.IsNullOrEmpty(txtRunCliente.Text))
             {
-                MessageBox.Show("Cliente Actualizado");
+                int rut = int.Parse(txtRunCliente.Text);
+                char dv = char.Parse(txtDv.Text);
+                string nombre = txtNombre.Text;
+                string apellido = txtApellido.Text;
+                DateTime fechaNacimiento = dtpFechaNacimiento.Value.Date;
+                string direccion = txtDireccion.Text;
+                int telefono = int.Parse(txtTelefono.Text);
+                EstadoFiado estado = new EstadoFiado();
+                estado.Id = (int)cmbEstado.SelectedValue;
+                TipoCliente tipo = new TipoCliente();
+                tipo.Id = (int)cmbTipoCliente.SelectedValue;
+                Cliente cliente = new Cliente(rut, dv, nombre, apellido, fechaNacimiento, direccion, telefono, estado, tipo);
+                bool modificarCliente = cliente.ModificarCliente(int.Parse(txtRunCliente.Text));
+                if (modificarCliente)
+                {
+                    MessageBox.Show("Cliente Actualizado");
+                }
+                else
+                {
+                    MessageBox.Show("Cliente no se ha actualizado");
+                }
             }
-            else
+        }
+        private void EliminarCliente()
+        {
+            if (!String.IsNullOrEmpty(txtRunCliente.Text))
             {
-                MessageBox.Show("Cliente no se ha actualizado");
+                Cliente cliente = new Cliente();
+                bool eliminarCliente = cliente.EliminarCliente(int.Parse(txtRunCliente.Text));
+                if (eliminarCliente)
+                {
+                    MessageBox.Show("Cliente Eliminado");
+                }
+                else
+                {
+                    MessageBox.Show("Cliente no eliminado");
+                }
             }
         }
         #endregion
+
         #region Botones
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            BuscarCliente();
+            txtBuscarCliente.Clear();
+        }
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
 
             AgregarCliente();
             CargarGrilla();
+            LimpiarDatos();
         }
-        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        private void btnModificarCliente_Click(object sender, EventArgs e)
         {
-            BuscarCliente();
+            ModificarCliente();
+            CargarGrilla();
+            LimpiarDatos();
         }
-        #endregion
-
         private void btnEliminarCliente_Click(object sender, EventArgs e)
         {
             EliminarCliente();
             CargarGrilla();
+            LimpiarDatos();
         }
+        #endregion
+
+        #region MetodoGrilla
         private void grdCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
             int runCliente = int.Parse(grdCliente.Rows[rowIndex].Cells[0].Value.ToString());
             MostrarDatosCliente(runCliente);
         }
-
-        private void btnModificarCliente_Click(object sender, EventArgs e)
-        {
-            ModificarCliente();
-            CargarGrilla();
-        }
+        #endregion
     }
 }

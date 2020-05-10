@@ -36,11 +36,12 @@ namespace Controlador
 
         }
 
+        #region Metodos
         public List<Modelo.CLIENTE> Listar()
         {
-            List<Modelo.CLIENTE> resultado = new List<Modelo.CLIENTE>();
-            resultado = ConectorDALC.ModeloAlmacen.CLIENTE.ToList();
-            return resultado;
+            List<Modelo.CLIENTE> listado = new List<Modelo.CLIENTE>();
+            listado = ConectorDALC.ModeloAlmacen.CLIENTE.ToList();
+            return listado;
         }
         public Cliente ObtenerCliente(int runCliente)
         {
@@ -167,5 +168,6 @@ namespace Controlador
                 throw new ArgumentException("Error al eliminar cliente" + ex);
             }
         }
+        #endregion
     }
 }
