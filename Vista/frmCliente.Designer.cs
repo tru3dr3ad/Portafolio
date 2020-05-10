@@ -80,6 +80,7 @@
             this.btnBuscarCliente.TabIndex = 2;
             this.btnBuscarCliente.Text = "Buscar";
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // txtBuscarCliente
             // 
@@ -293,6 +294,7 @@
             this.btnEliminarCliente.TabIndex = 12;
             this.btnEliminarCliente.Text = "Eliminar";
             this.btnEliminarCliente.UseVisualStyleBackColor = true;
+            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
             // 
             // btnModificarCliente
             // 
@@ -303,6 +305,7 @@
             this.btnModificarCliente.TabIndex = 11;
             this.btnModificarCliente.Text = "Modificar";
             this.btnModificarCliente.UseVisualStyleBackColor = true;
+            this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
             // 
             // btnAgregarCliente
             // 
@@ -323,8 +326,11 @@
             this.grdCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCliente.Location = new System.Drawing.Point(12, 12);
             this.grdCliente.Name = "grdCliente";
+            this.grdCliente.ReadOnly = true;
+            this.grdCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdCliente.Size = new System.Drawing.Size(740, 530);
             this.grdCliente.TabIndex = 23;
+            this.grdCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCliente_CellDoubleClick);
             // 
             // frmCliente
             // 
