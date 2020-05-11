@@ -71,8 +71,8 @@ namespace Vista
             dtpFechaNacimiento.Value = DateTime.Now;
             txtDireccion.Clear();
             txtTelefono.Clear();
-            cmbTipoCliente.SelectedIndex = -1;
-            cmbEstado.SelectedIndex = -1;
+            cmbTipoCliente.SelectedIndex = 0;
+            cmbEstado.SelectedIndex = 0;
         }
         #endregion
 
@@ -85,11 +85,11 @@ namespace Vista
                 bool existeCliente = cliente.BuscarCliente(int.Parse(txtBuscarCliente.Text));
                 if (existeCliente)
                 {
-                    MessageBox.Show("Cliente Encontrado");
+                    MessageBox.Show("Cliente encontrado");
                 }
                 else
                 {
-                    MessageBox.Show("Cliente No Encontrado");
+                    MessageBox.Show("Cliente no encontrado");
                 }
             }
         }
@@ -97,7 +97,7 @@ namespace Vista
         {
             if (!String.IsNullOrEmpty(txtRunCliente.Text))
             {
-                int rut = int.Parse(txtRunCliente.Text);
+                int run = int.Parse(txtRunCliente.Text);
                 char dv = char.Parse(txtDv.Text);
                 string nombre = txtNombre.Text;
                 string apellido = txtApellido.Text;
@@ -108,7 +108,7 @@ namespace Vista
                 estado.Id = (int)cmbEstado.SelectedValue;
                 TipoCliente tipo = new TipoCliente();
                 tipo.Id = (int)cmbTipoCliente.SelectedValue;
-                Cliente cliente = new Cliente(rut, dv, nombre, apellido, fechaNacimiento, direccion, telefono, estado, tipo);
+                Cliente cliente = new Cliente(run, dv, nombre, apellido, fechaNacimiento, direccion, telefono, estado, tipo);
                 if (cliente.AgregarCliente())
                 {
                     MessageBox.Show("Cliente ha sido Agregado");
@@ -119,7 +119,7 @@ namespace Vista
         {
             if (!String.IsNullOrEmpty(txtRunCliente.Text))
             {
-                int rut = int.Parse(txtRunCliente.Text);
+                int run = int.Parse(txtRunCliente.Text);
                 char dv = char.Parse(txtDv.Text);
                 string nombre = txtNombre.Text;
                 string apellido = txtApellido.Text;
@@ -130,7 +130,7 @@ namespace Vista
                 estado.Id = (int)cmbEstado.SelectedValue;
                 TipoCliente tipo = new TipoCliente();
                 tipo.Id = (int)cmbTipoCliente.SelectedValue;
-                Cliente cliente = new Cliente(rut, dv, nombre, apellido, fechaNacimiento, direccion, telefono, estado, tipo);
+                Cliente cliente = new Cliente(run, dv, nombre, apellido, fechaNacimiento, direccion, telefono, estado, tipo);
                 bool modificarCliente = cliente.ModificarCliente(cliente);
                 if (modificarCliente)
                 {
@@ -150,7 +150,7 @@ namespace Vista
                 bool eliminarCliente = cliente.EliminarCliente(int.Parse(txtRunCliente.Text));
                 if (eliminarCliente)
                 {
-                    MessageBox.Show("Cliente Eliminado");
+                    MessageBox.Show("Cliente eliminado");
                 }
                 else
                 {

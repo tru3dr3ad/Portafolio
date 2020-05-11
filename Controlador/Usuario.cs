@@ -135,7 +135,6 @@ namespace Controlador
                     usuario.APELLIDOUSUARIO = modificarUsuario.ApellidoUsuario;
                     usuario.CLAVEUSUARIO = modificarUsuario.ClaveUsuario;
                     usuario.FECHANACIMIENTO = modificarUsuario.FechaNacimiento;
-                    usuario.FECHACREACION = modificarUsuario.FechaCreacionUsuario;
                     usuario.DIRECCIONUSUARIO = modificarUsuario.DireccionUsuario;
                     usuario.TELEFONOUSUARIO = modificarUsuario.TelefonoUsuario;
                     usuario.TIPO_USUARIO_TIPOUSUARIOID = modificarUsuario.Tipo.Id;
