@@ -111,7 +111,7 @@ namespace Vista
                 Cliente cliente = new Cliente(run, dv, nombre, apellido, fechaNacimiento, direccion, telefono, estado, tipo);
                 if (cliente.AgregarCliente())
                 {
-                    MessageBox.Show("Cliente ha sido Agregado");
+                    MessageBox.Show("Cliente ha sido agregado");
                 }
             }
         }
