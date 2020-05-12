@@ -24,7 +24,7 @@ namespace Modelo
         public decimal CODIGOPROD { get; set; }
         public string NOMBREPROD { get; set; }
         public string DESCRIPPROD { get; set; }
-        public string PRECIOVENTA { get; set; }
+        public decimal PRECIOVENTA { get; set; }
         public decimal PRECIOCOMPRA { get; set; }
         public decimal STOCK { get; set; }
         public decimal STOCKCRITICO { get; set; }

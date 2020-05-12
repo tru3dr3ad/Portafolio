@@ -101,7 +101,7 @@
           <Property Name="CODIGOPROD" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NOMBREPROD" Type="varchar2" MaxLength="70" Nullable="false" />
           <Property Name="DESCRIPPROD" Type="varchar2" MaxLength="250" Nullable="false" />
-          <Property Name="PRECIOVENTA" Type="varchar2" MaxLength="6" Nullable="false" />
+          <Property Name="PRECIOVENTA" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="PRECIOCOMPRA" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="STOCK" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="STOCKCRITICO" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -634,7 +634,7 @@
           <Property Name="CODIGOPROD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="NOMBREPROD" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="DESCRIPPROD" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="PRECIOVENTA" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="PRECIOVENTA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="PRECIOCOMPRA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="STOCK" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="STOCKCRITICO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />

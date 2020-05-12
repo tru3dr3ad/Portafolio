@@ -33,6 +33,10 @@
             this.btnAgregarProveedor = new System.Windows.Forms.Button();
             this.btnModificarProveedor = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtIdProveedor = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtDv = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbRubro = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,10 +52,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBuscarProveedor = new System.Windows.Forms.Button();
             this.txtBuscarProveedor = new System.Windows.Forms.TextBox();
-            this.txtDv = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtIdProveedor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdProveedor)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -130,6 +130,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Proveedor:";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(10, 59);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 13);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Id Proveedor:";
+            // 
+            // txtIdProveedor
+            // 
+            this.txtIdProveedor.Location = new System.Drawing.Point(13, 75);
+            this.txtIdProveedor.Name = "txtIdProveedor";
+            this.txtIdProveedor.Size = new System.Drawing.Size(182, 20);
+            this.txtIdProveedor.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(160, 34);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(10, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "-";
+            // 
+            // txtDv
+            // 
+            this.txtDv.Location = new System.Drawing.Point(175, 31);
+            this.txtDv.Name = "txtDv";
+            this.txtDv.Size = new System.Drawing.Size(20, 20);
+            this.txtDv.TabIndex = 4;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -141,6 +173,7 @@
             // 
             // cmbRubro
             // 
+            this.cmbRubro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRubro.FormattingEnabled = true;
             this.cmbRubro.Location = new System.Drawing.Point(13, 295);
             this.cmbRubro.Name = "cmbRubro";
@@ -255,38 +288,6 @@
             this.txtBuscarProveedor.Name = "txtBuscarProveedor";
             this.txtBuscarProveedor.Size = new System.Drawing.Size(182, 20);
             this.txtBuscarProveedor.TabIndex = 1;
-            // 
-            // txtDv
-            // 
-            this.txtDv.Location = new System.Drawing.Point(175, 31);
-            this.txtDv.Name = "txtDv";
-            this.txtDv.Size = new System.Drawing.Size(20, 20);
-            this.txtDv.TabIndex = 4;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(160, 34);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(10, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "-";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 59);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 13);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Id Proveedor:";
-            // 
-            // txtIdProveedor
-            // 
-            this.txtIdProveedor.Location = new System.Drawing.Point(13, 75);
-            this.txtIdProveedor.Name = "txtIdProveedor";
-            this.txtIdProveedor.Size = new System.Drawing.Size(182, 20);
-            this.txtIdProveedor.TabIndex = 17;
             // 
             // frmProveedor
             // 
