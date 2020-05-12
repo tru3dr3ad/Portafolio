@@ -40,8 +40,6 @@
             this.txtDireccionUsuario = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtIdUsuario = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDv = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -121,8 +119,6 @@
             this.groupBox1.Controls.Add(this.txtDireccionUsuario);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.dtpFechaNacimiento);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtIdUsuario);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtDv);
             this.groupBox1.Controls.Add(this.label5);
@@ -196,24 +192,6 @@
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(180, 20);
             this.dtpFechaNacimiento.TabIndex = 10;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(19, 13);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Id:";
-            // 
-            // txtIdUsuario
-            // 
-            this.txtIdUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtIdUsuario.Location = new System.Drawing.Point(38, 26);
-            this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.Size = new System.Drawing.Size(157, 20);
-            this.txtIdUsuario.TabIndex = 3;
             // 
             // label7
             // 
@@ -382,8 +360,6 @@
         private System.Windows.Forms.TextBox txtNombreUsuario;
         private System.Windows.Forms.Button btnModificarUsuario;
         private System.Windows.Forms.DataGridView grdUsuario;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtIdUsuario;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDv;
         private System.Windows.Forms.Label label5;

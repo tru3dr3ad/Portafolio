@@ -25,6 +25,9 @@ namespace Modelo
         public string NOMBREPROD { get; set; }
         public string DESCRIPPROD { get; set; }
         public string PRECIOVENTA { get; set; }
+        public decimal PRECIOCOMPRA { get; set; }
+        public decimal STOCK { get; set; }
+        public decimal STOCKCRITICO { get; set; }
         public System.DateTime FECHAVENCIMIENTO { get; set; }
         public decimal CATEGORIA_CATEGORIAID { get; set; }
     

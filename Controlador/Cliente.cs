@@ -54,7 +54,7 @@ namespace Controlador
                 Apellido = cliente.APELLIDOCLIENTE;
                 FechaNacimiento = cliente.FECHANACIMIENTO;
                 Direccion = cliente.DIRECCIONCLIENTE;
-                Telefono = cliente.FONOCLIENTE;
+                Telefono = cliente.TELEFONOCLIENTE;
                 Estado = new EstadoFiado() { Id = (int)cliente.ESTADO_FIADO.ESTADOID };
                 Tipo = new TipoCliente() { Id = (int)cliente.TIPO_CLIENTE.TIPOCLIENTEID };
                 Cliente clienteEncontrado = new Cliente(Run, Dv, Nombre, Apellido, FechaNacimiento, Direccion, Telefono,
@@ -99,7 +99,7 @@ namespace Controlador
                 cliente.APELLIDOCLIENTE = Apellido;
                 cliente.FECHANACIMIENTO = FechaNacimiento;
                 cliente.DIRECCIONCLIENTE = Direccion;
-                cliente.FONOCLIENTE = Telefono;
+                cliente.TELEFONOCLIENTE = Telefono;
                 cliente.ESTADO_FIADO_ESTADOID = Estado.Id;
                 cliente.TIPO_CLIENTE_TIPOCLIENTEID = Tipo.Id;
 
@@ -127,7 +127,7 @@ namespace Controlador
                     cliente.APELLIDOCLIENTE = modificarCliente.Apellido;
                     cliente.FECHANACIMIENTO = modificarCliente.FechaNacimiento;
                     cliente.DIRECCIONCLIENTE = modificarCliente.Direccion;
-                    cliente.FONOCLIENTE = modificarCliente.Telefono;
+                    cliente.TELEFONOCLIENTE = modificarCliente.Telefono;
                     cliente.ESTADO_FIADO_ESTADOID = modificarCliente.Estado.Id;
                     cliente.TIPO_CLIENTE_TIPOCLIENTEID = modificarCliente.Tipo.Id;
 

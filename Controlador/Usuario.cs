@@ -8,7 +8,6 @@ namespace Controlador
 {
     public class Usuario
     {
-        public int IdUsuario { get; set; }
         public int RunUsuario { get; set; }
         public char DvUsuario { get; set; }
         public string NombreUsuario { get; set; }
@@ -20,10 +19,9 @@ namespace Controlador
         public int TelefonoUsuario { get; set; }
         public TipoUsuario Tipo { get; set; }
 
-        public Usuario(int idUsuario, int run, char dv, string nombre, string apellido, string clave, DateTime fechaNacimiento,
+        public Usuario(int run, char dv, string nombre, string apellido, string clave, DateTime fechaNacimiento,
             DateTime fechaCreacion, string direccion, int telefono, TipoUsuario tipo)
         {
-            IdUsuario = idUsuario;
             RunUsuario = run;
             DvUsuario = dv;
             NombreUsuario = nombre;
@@ -51,7 +49,6 @@ namespace Controlador
             try
             {
                 Modelo.USUARIO usuario = ConectorDALC.ModeloAlmacen.USUARIO.FirstOrDefault(e => e.RUNUSUARIO == runUsuario);
-                IdUsuario = (int)usuario.USUARIOID;
                 RunUsuario = (int)usuario.RUNUSUARIO;
                 DvUsuario = char.Parse(usuario.DVUSUARIO);
                 NombreUsuario = usuario.NOMBREUSUARIO;
@@ -63,7 +60,7 @@ namespace Controlador
                 TelefonoUsuario = (int)usuario.TELEFONOUSUARIO;
                 Tipo = new TipoUsuario() { Id = (int)usuario.TIPO_USUARIO.TIPOUSUARIOID };
 
-                Usuario usuarioEncontrado = new Usuario(IdUsuario, RunUsuario, DvUsuario, NombreUsuario, ApellidoUsuario, ClaveUsuario,
+                Usuario usuarioEncontrado = new Usuario(RunUsuario, DvUsuario, NombreUsuario, ApellidoUsuario, ClaveUsuario,
                     FechaNacimiento, FechaCreacionUsuario, DireccionUsuario, TelefonoUsuario, Tipo);
                 return usuarioEncontrado;
             }
@@ -99,7 +96,6 @@ namespace Controlador
             {
                 Modelo.USUARIO usuario = new Modelo.USUARIO();
 
-                usuario.USUARIOID = IdUsuario;
                 usuario.RUNUSUARIO = RunUsuario;
                 usuario.DVUSUARIO = DvUsuario.ToString();
                 usuario.NOMBREUSUARIO = NombreUsuario;
@@ -128,7 +124,6 @@ namespace Controlador
                 if (BuscarUsuario(modificarUsuario.RunUsuario))
                 {
                     Modelo.USUARIO usuario = ConectorDALC.ModeloAlmacen.USUARIO.FirstOrDefault(e => e.RUNUSUARIO == modificarUsuario.RunUsuario);
-                    usuario.USUARIOID = modificarUsuario.IdUsuario;
                     usuario.RUNUSUARIO = modificarUsuario.RunUsuario;
                     usuario.DVUSUARIO = modificarUsuario.DvUsuario.ToString();
                     usuario.NOMBREUSUARIO = modificarUsuario.NombreUsuario;

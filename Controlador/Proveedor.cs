@@ -49,7 +49,7 @@ namespace Controlador
                 IdProveedor = (int)proveedor.IDPROVEEDOR;
                 Nombre = proveedor.NOMBREPROVEEDOR;
                 CorreoElectronico = proveedor.CORREOPROVEEDOR;
-                Telefono = proveedor.FONOPROVEEDOR;
+                Telefono = proveedor.TELEFONOPROVEEDOR;
                 Direccion = proveedor.DIRECCIONPROVEEDOR;
                 Tipo = new TipoRubro() { Id = (int)proveedor.TIPO_RUBRO.RUBROID };
                 Proveedor proveedorEncontrado = new Proveedor(Rut, Dv, IdProveedor, Nombre, CorreoElectronico, Telefono, Direccion, Tipo);
@@ -92,7 +92,7 @@ namespace Controlador
                 proveedor.IDPROVEEDOR = IdProveedor;
                 proveedor.NOMBREPROVEEDOR = Nombre;
                 proveedor.CORREOPROVEEDOR = CorreoElectronico;
-                proveedor.FONOPROVEEDOR = Telefono;
+                proveedor.TELEFONOPROVEEDOR = Telefono;
                 proveedor.DIRECCIONPROVEEDOR = Direccion;
                 proveedor.TIPO_RUBRO_RUBROID = Tipo.Id;
 
@@ -119,7 +119,7 @@ namespace Controlador
                     proveedor.IDPROVEEDOR = modificarProveedor.IdProveedor;
                     proveedor.NOMBREPROVEEDOR = modificarProveedor.Nombre;
                     proveedor.CORREOPROVEEDOR = modificarProveedor.CorreoElectronico;
-                    proveedor.FONOPROVEEDOR = modificarProveedor.Telefono;
+                    proveedor.TELEFONOPROVEEDOR = modificarProveedor.Telefono;
                     proveedor.DIRECCIONPROVEEDOR = modificarProveedor.Direccion;
                     proveedor.TIPO_RUBRO_RUBROID = modificarProveedor.Tipo.Id;
 

@@ -27,7 +27,7 @@ namespace Modelo
         public string APELLIDOCLIENTE { get; set; }
         public System.DateTime FECHANACIMIENTO { get; set; }
         public string DIRECCIONCLIENTE { get; set; }
-        public int FONOCLIENTE { get; set; }
+        public int TELEFONOCLIENTE { get; set; }
         public decimal ESTADO_FIADO_ESTADOID { get; set; }
         public decimal TIPO_CLIENTE_TIPOCLIENTEID { get; set; }
     

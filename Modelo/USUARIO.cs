@@ -21,7 +21,6 @@ namespace Modelo
             this.ORDEN_PEDIDO = new HashSet<ORDEN_PEDIDO>();
         }
     
-        public decimal USUARIOID { get; set; }
         public decimal RUNUSUARIO { get; set; }
         public string DVUSUARIO { get; set; }
         public string NOMBREUSUARIO { get; set; }

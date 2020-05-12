@@ -22,7 +22,7 @@
           <Property Name="VALORBOLETA" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="MEDIO_PAGO_MEDIOPAGOID" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="CLIENTE_RUNCLIENTE" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="USUARIO_USUARIOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USUARIO_RUNUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="CATEGORIA">
           <Key>
@@ -41,7 +41,7 @@
           <Property Name="APELLIDOCLIENTE" Type="varchar2" MaxLength="70" Nullable="false" />
           <Property Name="FECHANACIMIENTO" Type="date" Nullable="false" />
           <Property Name="DIRECCIONCLIENTE" Type="varchar2" MaxLength="150" Nullable="false" />
-          <Property Name="FONOCLIENTE" Type="number" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="TELEFONOCLIENTE" Type="number" Precision="9" Scale="0" Nullable="false" />
           <Property Name="ESTADO_FIADO_ESTADOID" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="TIPO_CLIENTE_TIPOCLIENTEID" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
@@ -91,8 +91,8 @@
           <Property Name="VALORORDEN" Type="number" Precision="8" Scale="0" Nullable="false" />
           <Property Name="FECHARECEPCION" Type="date" />
           <Property Name="PROVEEDOR_RUTPROVEEDOR" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="USUARIO_USUARIOID" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ESTADO_ORDEN_ESTADOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USUARIO_RUNUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="PRODUCTO">
           <Key>
@@ -102,6 +102,9 @@
           <Property Name="NOMBREPROD" Type="varchar2" MaxLength="70" Nullable="false" />
           <Property Name="DESCRIPPROD" Type="varchar2" MaxLength="250" Nullable="false" />
           <Property Name="PRECIOVENTA" Type="varchar2" MaxLength="6" Nullable="false" />
+          <Property Name="PRECIOCOMPRA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STOCK" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STOCKCRITICO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="FECHAVENCIMIENTO" Type="date" Nullable="false" />
           <Property Name="CATEGORIA_CATEGORIAID" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
@@ -114,7 +117,7 @@
           <Property Name="IDPROVEEDOR" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NOMBREPROVEEDOR" Type="varchar2" MaxLength="70" Nullable="false" />
           <Property Name="CORREOPROVEEDOR" Type="varchar2" MaxLength="250" Nullable="false" />
-          <Property Name="FONOPROVEEDOR" Type="number" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="TELEFONOPROVEEDOR" Type="number" Precision="9" Scale="0" Nullable="false" />
           <Property Name="DIRECCIONPROVEEDOR" Type="varchar2" MaxLength="150" Nullable="false" />
           <Property Name="TIPO_RUBRO_RUBROID" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
@@ -149,9 +152,8 @@
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
-            <PropertyRef Name="USUARIOID" />
+            <PropertyRef Name="RUNUSUARIO" />
           </Key>
-          <Property Name="USUARIOID" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="RUNUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="DVUSUARIO" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="NOMBREUSUARIO" Type="varchar2" MaxLength="70" Nullable="false" />
@@ -192,10 +194,10 @@
           <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="USUARIOID" />
+              <PropertyRef Name="RUNUSUARIO" />
             </Principal>
             <Dependent Role="BOLETA">
-              <PropertyRef Name="USUARIO_USUARIOID" />
+              <PropertyRef Name="USUARIO_RUNUSUARIO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -300,10 +302,10 @@
           <End Role="ORDEN_PEDIDO" Type="Self.ORDEN_PEDIDO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="USUARIOID" />
+              <PropertyRef Name="RUNUSUARIO" />
             </Principal>
             <Dependent Role="ORDEN_PEDIDO">
-              <PropertyRef Name="USUARIO_USUARIOID" />
+              <PropertyRef Name="USUARIO_RUNUSUARIO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -553,7 +555,7 @@
           <Property Name="VALORBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="MEDIO_PAGO_MEDIOPAGOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="CLIENTE_RUNCLIENTE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="USUARIO_USUARIOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USUARIO_RUNUSUARIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="CLIENTE" Relationship="ModeloAlmacen.BOLETA_CLIENTE_FK" FromRole="BOLETA" ToRole="CLIENTE" />
           <NavigationProperty Name="MEDIO_PAGO" Relationship="ModeloAlmacen.BOLETA_MEDIO_PAGO_FK" FromRole="BOLETA" ToRole="MEDIO_PAGO" />
           <NavigationProperty Name="USUARIO" Relationship="ModeloAlmacen.BOLETA_USUARIO_FK" FromRole="BOLETA" ToRole="USUARIO" />
@@ -577,7 +579,7 @@
           <Property Name="APELLIDOCLIENTE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="FECHANACIMIENTO" Type="DateTime" Nullable="false" />
           <Property Name="DIRECCIONCLIENTE" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="FONOCLIENTE" Type="Int32" Nullable="false" />
+          <Property Name="TELEFONOCLIENTE" Type="Int32" Nullable="false" />
           <Property Name="ESTADO_FIADO_ESTADOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="TIPO_CLIENTE_TIPOCLIENTEID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="BOLETA" Relationship="ModeloAlmacen.BOLETA_CLIENTE_FK" FromRole="CLIENTE" ToRole="BOLETA" />
@@ -618,8 +620,8 @@
           <Property Name="VALORORDEN" Type="Int32" Nullable="false" />
           <Property Name="FECHARECEPCION" Type="DateTime" />
           <Property Name="PROVEEDOR_RUTPROVEEDOR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="USUARIO_USUARIOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="ESTADO_ORDEN_ESTADOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USUARIO_RUNUSUARIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="ESTADO_ORDEN" Relationship="ModeloAlmacen.ORDEN_PEDIDO_ESTADO_ORDEN_FK" FromRole="ORDEN_PEDIDO" ToRole="ESTADO_ORDEN" />
           <NavigationProperty Name="PROVEEDOR" Relationship="ModeloAlmacen.ORDEN_PEDIDO_PROVEEDOR_FK" FromRole="ORDEN_PEDIDO" ToRole="PROVEEDOR" />
           <NavigationProperty Name="USUARIO" Relationship="ModeloAlmacen.ORDEN_PEDIDO_USUARIO_FK" FromRole="ORDEN_PEDIDO" ToRole="USUARIO" />
@@ -633,6 +635,9 @@
           <Property Name="NOMBREPROD" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="DESCRIPPROD" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="PRECIOVENTA" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="PRECIOCOMPRA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STOCK" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STOCKCRITICO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="FECHAVENCIMIENTO" Type="DateTime" Nullable="false" />
           <Property Name="CATEGORIA_CATEGORIAID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="CATEGORIA" Relationship="ModeloAlmacen.PRODUCTO_CATEGORIA_FK" FromRole="PRODUCTO" ToRole="CATEGORIA" />
@@ -648,7 +653,7 @@
           <Property Name="IDPROVEEDOR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="NOMBREPROVEEDOR" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="CORREOPROVEEDOR" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="FONOPROVEEDOR" Type="Int32" Nullable="false" />
+          <Property Name="TELEFONOPROVEEDOR" Type="Int32" Nullable="false" />
           <Property Name="DIRECCIONPROVEEDOR" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="TIPO_RUBRO_RUBROID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="ORDEN_PEDIDO" Relationship="ModeloAlmacen.ORDEN_PEDIDO_PROVEEDOR_FK" FromRole="PROVEEDOR" ToRole="ORDEN_PEDIDO" />
@@ -690,9 +695,8 @@
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
-            <PropertyRef Name="USUARIOID" />
+            <PropertyRef Name="RUNUSUARIO" />
           </Key>
-          <Property Name="USUARIOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="RUNUSUARIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="DVUSUARIO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="NOMBREUSUARIO" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
@@ -748,10 +752,10 @@
           <End Type="ModeloAlmacen.BOLETA" Role="BOLETA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="USUARIOID" />
+              <PropertyRef Name="RUNUSUARIO" />
             </Principal>
             <Dependent Role="BOLETA">
-              <PropertyRef Name="USUARIO_USUARIOID" />
+              <PropertyRef Name="USUARIO_RUNUSUARIO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -832,10 +836,10 @@
           <End Type="ModeloAlmacen.ORDEN_PEDIDO" Role="ORDEN_PEDIDO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USUARIO">
-              <PropertyRef Name="USUARIOID" />
+              <PropertyRef Name="RUNUSUARIO" />
             </Principal>
             <Dependent Role="ORDEN_PEDIDO">
-              <PropertyRef Name="USUARIO_USUARIOID" />
+              <PropertyRef Name="USUARIO_RUNUSUARIO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -871,7 +875,7 @@
           <End Type="ModeloAlmacen.ORDEN_PEDIDO" Role="ORDEN_PEDIDO" Multiplicity="*" />
           <End Type="ModeloAlmacen.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -889,7 +893,7 @@
           <EntitySetMapping Name="BOLETA">
             <EntityTypeMapping TypeName="ModeloAlmacen.BOLETA">
               <MappingFragment StoreEntitySet="BOLETA">
-                <ScalarProperty Name="USUARIO_USUARIOID" ColumnName="USUARIO_USUARIOID" />
+                <ScalarProperty Name="USUARIO_RUNUSUARIO" ColumnName="USUARIO_RUNUSUARIO" />
                 <ScalarProperty Name="CLIENTE_RUNCLIENTE" ColumnName="CLIENTE_RUNCLIENTE" />
                 <ScalarProperty Name="MEDIO_PAGO_MEDIOPAGOID" ColumnName="MEDIO_PAGO_MEDIOPAGOID" />
                 <ScalarProperty Name="VALORBOLETA" ColumnName="VALORBOLETA" />
@@ -911,7 +915,7 @@
               <MappingFragment StoreEntitySet="CLIENTE">
                 <ScalarProperty Name="TIPO_CLIENTE_TIPOCLIENTEID" ColumnName="TIPO_CLIENTE_TIPOCLIENTEID" />
                 <ScalarProperty Name="ESTADO_FIADO_ESTADOID" ColumnName="ESTADO_FIADO_ESTADOID" />
-                <ScalarProperty Name="FONOCLIENTE" ColumnName="FONOCLIENTE" />
+                <ScalarProperty Name="TELEFONOCLIENTE" ColumnName="TELEFONOCLIENTE" />
                 <ScalarProperty Name="DIRECCIONCLIENTE" ColumnName="DIRECCIONCLIENTE" />
                 <ScalarProperty Name="FECHANACIMIENTO" ColumnName="FECHANACIMIENTO" />
                 <ScalarProperty Name="APELLIDOCLIENTE" ColumnName="APELLIDOCLIENTE" />
@@ -948,8 +952,8 @@
           <EntitySetMapping Name="ORDEN_PEDIDO">
             <EntityTypeMapping TypeName="ModeloAlmacen.ORDEN_PEDIDO">
               <MappingFragment StoreEntitySet="ORDEN_PEDIDO">
+                <ScalarProperty Name="USUARIO_RUNUSUARIO" ColumnName="USUARIO_RUNUSUARIO" />
                 <ScalarProperty Name="ESTADO_ORDEN_ESTADOID" ColumnName="ESTADO_ORDEN_ESTADOID" />
-                <ScalarProperty Name="USUARIO_USUARIOID" ColumnName="USUARIO_USUARIOID" />
                 <ScalarProperty Name="PROVEEDOR_RUTPROVEEDOR" ColumnName="PROVEEDOR_RUTPROVEEDOR" />
                 <ScalarProperty Name="FECHARECEPCION" ColumnName="FECHARECEPCION" />
                 <ScalarProperty Name="VALORORDEN" ColumnName="VALORORDEN" />
@@ -963,6 +967,9 @@
               <MappingFragment StoreEntitySet="PRODUCTO">
                 <ScalarProperty Name="CATEGORIA_CATEGORIAID" ColumnName="CATEGORIA_CATEGORIAID" />
                 <ScalarProperty Name="FECHAVENCIMIENTO" ColumnName="FECHAVENCIMIENTO" />
+                <ScalarProperty Name="STOCKCRITICO" ColumnName="STOCKCRITICO" />
+                <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+                <ScalarProperty Name="PRECIOCOMPRA" ColumnName="PRECIOCOMPRA" />
                 <ScalarProperty Name="PRECIOVENTA" ColumnName="PRECIOVENTA" />
                 <ScalarProperty Name="DESCRIPPROD" ColumnName="DESCRIPPROD" />
                 <ScalarProperty Name="NOMBREPROD" ColumnName="NOMBREPROD" />
@@ -975,7 +982,7 @@
               <MappingFragment StoreEntitySet="PROVEEDOR">
                 <ScalarProperty Name="TIPO_RUBRO_RUBROID" ColumnName="TIPO_RUBRO_RUBROID" />
                 <ScalarProperty Name="DIRECCIONPROVEEDOR" ColumnName="DIRECCIONPROVEEDOR" />
-                <ScalarProperty Name="FONOPROVEEDOR" ColumnName="FONOPROVEEDOR" />
+                <ScalarProperty Name="TELEFONOPROVEEDOR" ColumnName="TELEFONOPROVEEDOR" />
                 <ScalarProperty Name="CORREOPROVEEDOR" ColumnName="CORREOPROVEEDOR" />
                 <ScalarProperty Name="NOMBREPROVEEDOR" ColumnName="NOMBREPROVEEDOR" />
                 <ScalarProperty Name="IDPROVEEDOR" ColumnName="IDPROVEEDOR" />
@@ -1030,7 +1037,6 @@
                 <ScalarProperty Name="NOMBREUSUARIO" ColumnName="NOMBREUSUARIO" />
                 <ScalarProperty Name="DVUSUARIO" ColumnName="DVUSUARIO" />
                 <ScalarProperty Name="RUNUSUARIO" ColumnName="RUNUSUARIO" />
-                <ScalarProperty Name="USUARIOID" ColumnName="USUARIOID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

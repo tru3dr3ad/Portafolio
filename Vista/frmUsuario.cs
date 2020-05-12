@@ -40,7 +40,6 @@ namespace Vista
                 usuario = usuario.ObtenerUsuario(run);
                 if (usuario != null)
                 {
-                    txtIdUsuario.Text = usuario.IdUsuario.ToString();
                     txtRunUsuario.Text = usuario.RunUsuario.ToString();
                     txtDv.Text = usuario.DvUsuario.ToString();
                     txtNombreUsuario.Text = usuario.NombreUsuario;
@@ -65,7 +64,6 @@ namespace Vista
         }
         private void LimpiarDatos()
         {
-            txtIdUsuario.Clear();
             txtRunUsuario.Clear();
             txtDv.Clear();
             txtNombreUsuario.Clear();
@@ -99,7 +97,6 @@ namespace Vista
         {
             if (!String.IsNullOrEmpty(txtRunUsuario.Text))
             {
-                int id = int.Parse(txtIdUsuario.Text);
                 int run = int.Parse(txtRunUsuario.Text);
                 char dv = char.Parse(txtDv.Text);
                 string nombre = txtNombreUsuario.Text;
@@ -111,7 +108,7 @@ namespace Vista
                 int telefono = int.Parse(txtTelefonoUsuario.Text);
                 TipoUsuario tipo = new TipoUsuario();
                 tipo.Id = (int)cmbTipoUsuario.SelectedValue;
-                Usuario usuario = new Usuario(id, run, dv, nombre, apellido, contrasena, fechaNacimiento, fechaCreacion,
+                Usuario usuario = new Usuario(run, dv, nombre, apellido, contrasena, fechaNacimiento, fechaCreacion,
                     direccion, telefono, tipo);
                 if (usuario.AgregarUsuario())
                 {
@@ -123,7 +120,6 @@ namespace Vista
         {
             if (!String.IsNullOrEmpty(txtRunUsuario.Text))
             {
-                int id = int.Parse(txtIdUsuario.Text);
                 int run = int.Parse(txtRunUsuario.Text);
                 char dv = char.Parse(txtDv.Text);
                 string nombre = txtNombreUsuario.Text;
@@ -135,7 +131,7 @@ namespace Vista
                 int telefono = int.Parse(txtTelefonoUsuario.Text);
                 TipoUsuario tipo = new TipoUsuario();
                 tipo.Id = (int)cmbTipoUsuario.SelectedValue;
-                Usuario usuario = new Usuario(id, run, dv, nombre, apellido, contrasena, fechaNacimiento, fechaCreacion,
+                Usuario usuario = new Usuario(run, dv, nombre, apellido, contrasena, fechaNacimiento, fechaCreacion,
                     direccion, telefono, tipo);
                 bool estaModificado = usuario.ModificarUsuario(usuario);
                 if (estaModificado)

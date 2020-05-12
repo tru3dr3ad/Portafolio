@@ -25,7 +25,7 @@ namespace Modelo
         public decimal IDPROVEEDOR { get; set; }
         public string NOMBREPROVEEDOR { get; set; }
         public string CORREOPROVEEDOR { get; set; }
-        public int FONOPROVEEDOR { get; set; }
+        public int TELEFONOPROVEEDOR { get; set; }
         public string DIRECCIONPROVEEDOR { get; set; }
         public decimal TIPO_RUBRO_RUBROID { get; set; }
     

@@ -25,8 +25,8 @@ namespace Modelo
         public int VALORORDEN { get; set; }
         public Nullable<System.DateTime> FECHARECEPCION { get; set; }
         public decimal PROVEEDOR_RUTPROVEEDOR { get; set; }
-        public decimal USUARIO_USUARIOID { get; set; }
         public decimal ESTADO_ORDEN_ESTADOID { get; set; }
+        public decimal USUARIO_RUNUSUARIO { get; set; }
     
         public virtual ESTADO_ORDEN ESTADO_ORDEN { get; set; }
         public virtual PROVEEDOR PROVEEDOR { get; set; }

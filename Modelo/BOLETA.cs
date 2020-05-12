@@ -25,7 +25,7 @@ namespace Modelo
         public decimal VALORBOLETA { get; set; }
         public decimal MEDIO_PAGO_MEDIOPAGOID { get; set; }
         public decimal CLIENTE_RUNCLIENTE { get; set; }
-        public decimal USUARIO_USUARIOID { get; set; }
+        public decimal USUARIO_RUNUSUARIO { get; set; }
     
         public virtual CLIENTE CLIENTE { get; set; }
         public virtual MEDIO_PAGO MEDIO_PAGO { get; set; }
