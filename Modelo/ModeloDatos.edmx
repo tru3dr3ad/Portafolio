@@ -86,10 +86,10 @@
           <Key>
             <PropertyRef Name="NUMERORDEN" />
           </Key>
-          <Property Name="NUMERORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NUMERORDEN" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FECHAORDEN" Type="date" Nullable="false" />
           <Property Name="VALORORDEN" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="FECHARECEPCION" Type="date" />
+          <Property Name="FECHARECEPCION" Type="date" Nullable="false" />
           <Property Name="PROVEEDOR_RUTPROVEEDOR" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ESTADO_ORDEN_ESTADOID" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="USUARIO_RUNUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -615,10 +615,10 @@
           <Key>
             <PropertyRef Name="NUMERORDEN" />
           </Key>
-          <Property Name="NUMERORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NUMERORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FECHAORDEN" Type="DateTime" Nullable="false" />
           <Property Name="VALORORDEN" Type="Int32" Nullable="false" />
-          <Property Name="FECHARECEPCION" Type="DateTime" />
+          <Property Name="FECHARECEPCION" Type="DateTime" Nullable="false" />
           <Property Name="PROVEEDOR_RUTPROVEEDOR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="ESTADO_ORDEN_ESTADOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="USUARIO_RUNUSUARIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />

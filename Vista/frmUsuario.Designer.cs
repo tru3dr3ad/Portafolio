@@ -133,7 +133,7 @@
             this.groupBox1.Controls.Add(this.txtNombreUsuario);
             this.groupBox1.Location = new System.Drawing.Point(776, 89);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 368);
+            this.groupBox1.Size = new System.Drawing.Size(213, 345);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Usuario:";
@@ -142,7 +142,7 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 323);
+            this.label10.Location = new System.Drawing.Point(10, 291);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 13);
             this.label10.TabIndex = 31;
@@ -151,7 +151,7 @@
             // txtTelefonoUsuario
             // 
             this.txtTelefonoUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTelefonoUsuario.Location = new System.Drawing.Point(15, 339);
+            this.txtTelefonoUsuario.Location = new System.Drawing.Point(13, 307);
             this.txtTelefonoUsuario.Name = "txtTelefonoUsuario";
             this.txtTelefonoUsuario.Size = new System.Drawing.Size(180, 20);
             this.txtTelefonoUsuario.TabIndex = 12;
@@ -160,7 +160,7 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 284);
+            this.label9.Location = new System.Drawing.Point(10, 252);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 13);
             this.label9.TabIndex = 29;
@@ -169,7 +169,7 @@
             // txtDireccionUsuario
             // 
             this.txtDireccionUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDireccionUsuario.Location = new System.Drawing.Point(15, 300);
+            this.txtDireccionUsuario.Location = new System.Drawing.Point(13, 268);
             this.txtDireccionUsuario.Name = "txtDireccionUsuario";
             this.txtDireccionUsuario.Size = new System.Drawing.Size(180, 20);
             this.txtDireccionUsuario.TabIndex = 11;
@@ -178,7 +178,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 245);
+            this.label8.Location = new System.Drawing.Point(11, 213);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(96, 13);
             this.label8.TabIndex = 27;
@@ -188,7 +188,7 @@
             // 
             this.dtpFechaNacimiento.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(15, 261);
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(13, 229);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(180, 20);
             this.dtpFechaNacimiento.TabIndex = 10;
@@ -197,7 +197,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(154, 69);
+            this.label7.Location = new System.Drawing.Point(152, 37);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(10, 13);
             this.label7.TabIndex = 20;
@@ -206,7 +206,7 @@
             // txtDv
             // 
             this.txtDv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDv.Location = new System.Drawing.Point(171, 66);
+            this.txtDv.Location = new System.Drawing.Point(168, 33);
             this.txtDv.Name = "txtDv";
             this.txtDv.Size = new System.Drawing.Size(24, 20);
             this.txtDv.TabIndex = 5;
@@ -215,7 +215,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 49);
+            this.label5.Location = new System.Drawing.Point(11, 17);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 19;
@@ -224,7 +224,7 @@
             // txtRunUsuario
             // 
             this.txtRunUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtRunUsuario.Location = new System.Drawing.Point(15, 65);
+            this.txtRunUsuario.Location = new System.Drawing.Point(13, 33);
             this.txtRunUsuario.Name = "txtRunUsuario";
             this.txtRunUsuario.Size = new System.Drawing.Size(131, 20);
             this.txtRunUsuario.TabIndex = 4;
@@ -233,7 +233,7 @@
             // 
             this.cmbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoUsuario.FormattingEnabled = true;
-            this.cmbTipoUsuario.Location = new System.Drawing.Point(15, 221);
+            this.cmbTipoUsuario.Location = new System.Drawing.Point(13, 189);
             this.cmbTipoUsuario.Name = "cmbTipoUsuario";
             this.cmbTipoUsuario.Size = new System.Drawing.Size(180, 21);
             this.cmbTipoUsuario.TabIndex = 9;
@@ -241,7 +241,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 205);
+            this.label4.Location = new System.Drawing.Point(11, 173);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 10;
@@ -250,7 +250,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 166);
+            this.label3.Location = new System.Drawing.Point(11, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 13);
             this.label3.TabIndex = 8;
@@ -258,7 +258,7 @@
             // 
             // txtContrasena
             // 
-            this.txtContrasena.Location = new System.Drawing.Point(15, 182);
+            this.txtContrasena.Location = new System.Drawing.Point(13, 150);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(180, 20);
             this.txtContrasena.TabIndex = 8;
@@ -266,7 +266,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 127);
+            this.label2.Location = new System.Drawing.Point(10, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 6;
@@ -274,7 +274,7 @@
             // 
             // txtApellidoUsuario
             // 
-            this.txtApellidoUsuario.Location = new System.Drawing.Point(15, 143);
+            this.txtApellidoUsuario.Location = new System.Drawing.Point(13, 111);
             this.txtApellidoUsuario.Name = "txtApellidoUsuario";
             this.txtApellidoUsuario.Size = new System.Drawing.Size(180, 20);
             this.txtApellidoUsuario.TabIndex = 7;
@@ -282,7 +282,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 88);
+            this.label1.Location = new System.Drawing.Point(11, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 4;
@@ -290,7 +290,7 @@
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(15, 104);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(13, 72);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(180, 20);
             this.txtNombreUsuario.TabIndex = 6;

@@ -165,7 +165,7 @@ namespace Controlador
             catch (Exception ex)
             {
                 return false;
-                throw new ArgumentException("Error al eliminar cliente" + ex);
+                throw new ArgumentException("Error al eliminar cliente: " + ex);
             }
         }
         #endregion

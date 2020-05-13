@@ -33,6 +33,18 @@ namespace Controlador
         }
 
         #region Metodos
+        public IList<Proveedor> Listar()
+        {
+            List<Proveedor> listado = new List<Proveedor>();
+            foreach (Modelo.PROVEEDOR proveedor in ConectorDALC.ModeloAlmacen.PROVEEDOR.ToList())
+            {
+                Proveedor proveedor1 = new Proveedor();
+                proveedor1.Rut = (int)proveedor.RUTPROVEEDOR;
+                proveedor1.Nombre = proveedor.NOMBREPROVEEDOR;
+                listado.Add(proveedor1);
+            }
+            return listado;
+        }
         public List<Modelo.PROVEEDOR> ListarProveedor()
         {
             List<Modelo.PROVEEDOR> listado = new List<Modelo.PROVEEDOR>();
