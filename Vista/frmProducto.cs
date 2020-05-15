@@ -73,9 +73,9 @@ namespace Vista
         private void BuscarProducto()
         {
             Producto producto= new Producto();
-            if (!String.IsNullOrEmpty(txtBuscarProductor.Text))
+            if (!String.IsNullOrEmpty(txtBuscarProducto.Text))
             {
-                bool existeProducto = producto.BuscarProducto(int.Parse(txtBuscarProductor.Text));
+                bool existeProducto = producto.BuscarProducto(int.Parse(txtBuscarProducto.Text));
                 if (existeProducto)
                 {
                     MessageBox.Show("Producto encontrado");

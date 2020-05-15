@@ -52,7 +52,7 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
-            this.txtBuscarProductor = new System.Windows.Forms.TextBox();
+            this.txtBuscarProducto = new System.Windows.Forms.TextBox();
             this.grdProducto = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -272,7 +272,7 @@
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.groupBox2.Controls.Add(this.btnBuscarProducto);
-            this.groupBox2.Controls.Add(this.txtBuscarProductor);
+            this.groupBox2.Controls.Add(this.txtBuscarProducto);
             this.groupBox2.Location = new System.Drawing.Point(776, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(212, 73);
@@ -290,12 +290,12 @@
             this.btnBuscarProducto.UseVisualStyleBackColor = true;
             this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
             // 
-            // txtBuscarProductor
+            // txtBuscarProducto
             // 
-            this.txtBuscarProductor.Location = new System.Drawing.Point(13, 19);
-            this.txtBuscarProductor.Name = "txtBuscarProductor";
-            this.txtBuscarProductor.Size = new System.Drawing.Size(182, 20);
-            this.txtBuscarProductor.TabIndex = 1;
+            this.txtBuscarProducto.Location = new System.Drawing.Point(13, 19);
+            this.txtBuscarProducto.Name = "txtBuscarProducto";
+            this.txtBuscarProducto.Size = new System.Drawing.Size(182, 20);
+            this.txtBuscarProducto.TabIndex = 1;
             // 
             // grdProducto
             // 
@@ -355,7 +355,7 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnBuscarProducto;
-        private System.Windows.Forms.TextBox txtBuscarProductor;
+        private System.Windows.Forms.TextBox txtBuscarProducto;
         private System.Windows.Forms.DataGridView grdProducto;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtStockCritico;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,28 @@ namespace Vista
         public frmRevisarVenta()
         {
             InitializeComponent();
+            CargarGrilla();
+            CargarComboboxMedioPago();
+            CargarComboboxUsuario();
+        }
+        private void CargarGrilla()
+        {
+            Boleta boleta = new Boleta();
+            grdBoleta.DataSource = boleta.Listar();
+        }
+        private void CargarComboboxMedioPago()
+        {
+            Controlador.MedioPago medioPago = new Controlador.MedioPago();
+            cmbMedioPago.DataSource = medioPago.Listar();
+            cmbMedioPago.DisplayMember = "Descripcion";
+            cmbMedioPago.ValueMember = "Id";
+        }
+        private void CargarComboboxUsuario()
+        {
+            Controlador.Usuario usuario = new Controlador.Usuario();
+            cmbVendedores.DataSource = usuario.Listar();
+            cmbVendedores.DisplayMember = "NombreUsuario";
+            cmbVendedores.ValueMember = "RunUsuario";
         }
     }
 }

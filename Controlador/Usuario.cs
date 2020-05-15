@@ -38,7 +38,19 @@ namespace Controlador
 
         }
         #region Metodos
-        public List<Modelo.USUARIO> Listar()
+        public IList<Usuario> Listar()
+        {
+            List<Usuario> listado = new List<Usuario>();
+            foreach (Modelo.USUARIO usuario in ConectorDALC.ModeloAlmacen.USUARIO.ToList())
+            {
+                Usuario usuario1 = new Usuario();
+                usuario1.RunUsuario = (int)usuario.RUNUSUARIO;
+                usuario1.NombreUsuario = usuario.NOMBREUSUARIO;
+                listado.Add(usuario1);
+            }
+            return listado;
+        }
+        public List<Modelo.USUARIO> ListarUsuario()
         {
             List<Modelo.USUARIO> listado = new List<Modelo.USUARIO>();
             listado = ConectorDALC.ModeloAlmacen.USUARIO.ToList();
