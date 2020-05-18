@@ -30,29 +30,29 @@
         {
             this.pnlVenta = new System.Windows.Forms.Panel();
             this.pnlBoleta = new System.Windows.Forms.Panel();
+            this.grdBoleta = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnMedioPago = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTotalBoleta = new System.Windows.Forms.TextBox();
             this.txtNumeroBoleta = new System.Windows.Forms.TextBox();
             this.btnQuitarProducto = new System.Windows.Forms.Button();
-            this.grdBoleta = new System.Windows.Forms.DataGridView();
             this.pnlPago = new System.Windows.Forms.Panel();
             this.btnAgregarBoleta = new System.Windows.Forms.Button();
             this.btnRealizarBoleta = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnAgregarPago = new System.Windows.Forms.Button();
             this.cmbMedioPago = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
-            this.btnSeleccionarCliente = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtRunCliente = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnCancelarPago = new System.Windows.Forms.Button();
             this.pnlProducto = new System.Windows.Forms.Panel();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.txtCantidad = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
@@ -66,7 +66,7 @@
             this.btnRealizarBoleta.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlProducto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdProducto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,18 +82,59 @@
             // 
             // pnlBoleta
             // 
+            this.pnlBoleta.Controls.Add(this.grdBoleta);
             this.pnlBoleta.Controls.Add(this.label4);
-            this.pnlBoleta.Controls.Add(this.btnMedioPago);
             this.pnlBoleta.Controls.Add(this.label3);
             this.pnlBoleta.Controls.Add(this.txtTotalBoleta);
             this.pnlBoleta.Controls.Add(this.txtNumeroBoleta);
             this.pnlBoleta.Controls.Add(this.btnQuitarProducto);
-            this.pnlBoleta.Controls.Add(this.grdBoleta);
-            this.pnlBoleta.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlBoleta.Location = new System.Drawing.Point(0, 0);
             this.pnlBoleta.Name = "pnlBoleta";
             this.pnlBoleta.Size = new System.Drawing.Size(350, 550);
             this.pnlBoleta.TabIndex = 19;
+            // 
+            // grdBoleta
+            // 
+            this.grdBoleta.AllowUserToAddRows = false;
+            this.grdBoleta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdBoleta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdBoleta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.CodProducto,
+            this.Cantidad,
+            this.total});
+            this.grdBoleta.Location = new System.Drawing.Point(16, 64);
+            this.grdBoleta.Name = "grdBoleta";
+            this.grdBoleta.ReadOnly = true;
+            this.grdBoleta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdBoleta.Size = new System.Drawing.Size(319, 403);
+            this.grdBoleta.TabIndex = 18;
+            this.grdBoleta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdBoleta_CellClick);
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
+            // CodProducto
+            // 
+            this.CodProducto.HeaderText = "Producto";
+            this.CodProducto.Name = "CodProducto";
+            this.CodProducto.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
             // 
             // label4
             // 
@@ -105,18 +146,6 @@
             this.label4.Size = new System.Drawing.Size(103, 24);
             this.label4.TabIndex = 17;
             this.label4.Text = "Nro Boleta:";
-            // 
-            // btnMedioPago
-            // 
-            this.btnMedioPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMedioPago.Location = new System.Drawing.Point(215, 499);
-            this.btnMedioPago.Name = "btnMedioPago";
-            this.btnMedioPago.Size = new System.Drawing.Size(121, 33);
-            this.btnMedioPago.TabIndex = 16;
-            this.btnMedioPago.Text = "MEDIO PAGO";
-            this.btnMedioPago.UseVisualStyleBackColor = true;
-            this.btnMedioPago.Click += new System.EventHandler(this.btnPagar_Click);
             // 
             // label3
             // 
@@ -137,14 +166,18 @@
             this.txtTotalBoleta.Name = "txtTotalBoleta";
             this.txtTotalBoleta.Size = new System.Drawing.Size(121, 20);
             this.txtTotalBoleta.TabIndex = 14;
+            this.txtTotalBoleta.Text = "0";
+            this.txtTotalBoleta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNumeroBoleta
             // 
             this.txtNumeroBoleta.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txtNumeroBoleta.Location = new System.Drawing.Point(121, 27);
             this.txtNumeroBoleta.Name = "txtNumeroBoleta";
+            this.txtNumeroBoleta.ReadOnly = true;
             this.txtNumeroBoleta.Size = new System.Drawing.Size(121, 20);
             this.txtNumeroBoleta.TabIndex = 16;
+            this.txtNumeroBoleta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnQuitarProducto
             // 
@@ -156,27 +189,15 @@
             this.btnQuitarProducto.TabIndex = 15;
             this.btnQuitarProducto.Text = "Quitar";
             this.btnQuitarProducto.UseVisualStyleBackColor = true;
-            // 
-            // grdBoleta
-            // 
-            this.grdBoleta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdBoleta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdBoleta.Location = new System.Drawing.Point(16, 64);
-            this.grdBoleta.Name = "grdBoleta";
-            this.grdBoleta.ReadOnly = true;
-            this.grdBoleta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdBoleta.Size = new System.Drawing.Size(320, 400);
-            this.grdBoleta.TabIndex = 12;
+            this.btnQuitarProducto.Click += new System.EventHandler(this.btnQuitarProducto_Click);
             // 
             // pnlPago
             // 
             this.pnlPago.Controls.Add(this.btnAgregarBoleta);
             this.pnlPago.Controls.Add(this.btnRealizarBoleta);
             this.pnlPago.Controls.Add(this.groupBox1);
-            this.pnlPago.Controls.Add(this.btnCancelarPago);
             this.pnlPago.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlPago.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.pnlPago.Location = new System.Drawing.Point(350, 0);
             this.pnlPago.Name = "pnlPago";
             this.pnlPago.Size = new System.Drawing.Size(200, 550);
@@ -197,7 +218,6 @@
             // btnRealizarBoleta
             // 
             this.btnRealizarBoleta.Controls.Add(this.label8);
-            this.btnRealizarBoleta.Controls.Add(this.btnAgregarPago);
             this.btnRealizarBoleta.Controls.Add(this.cmbMedioPago);
             this.btnRealizarBoleta.Location = new System.Drawing.Point(8, 23);
             this.btnRealizarBoleta.Name = "btnRealizarBoleta";
@@ -215,17 +235,9 @@
             this.label8.TabIndex = 20;
             this.label8.Text = "Seleccione:";
             // 
-            // btnAgregarPago
-            // 
-            this.btnAgregarPago.Location = new System.Drawing.Point(52, 74);
-            this.btnAgregarPago.Name = "btnAgregarPago";
-            this.btnAgregarPago.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregarPago.TabIndex = 16;
-            this.btnAgregarPago.Text = "Agregar";
-            this.btnAgregarPago.UseVisualStyleBackColor = true;
-            // 
             // cmbMedioPago
             // 
+            this.cmbMedioPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMedioPago.FormattingEnabled = true;
             this.cmbMedioPago.Location = new System.Drawing.Point(30, 47);
             this.cmbMedioPago.Name = "cmbMedioPago";
@@ -235,7 +247,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cmbCliente);
-            this.groupBox1.Controls.Add(this.btnSeleccionarCliente);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtRunCliente);
             this.groupBox1.Controls.Add(this.label6);
@@ -248,20 +259,12 @@
             // 
             // cmbCliente
             // 
+            this.cmbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCliente.FormattingEnabled = true;
             this.cmbCliente.Location = new System.Drawing.Point(30, 40);
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(121, 21);
             this.cmbCliente.TabIndex = 16;
-            // 
-            // btnSeleccionarCliente
-            // 
-            this.btnSeleccionarCliente.Location = new System.Drawing.Point(52, 105);
-            this.btnSeleccionarCliente.Name = "btnSeleccionarCliente";
-            this.btnSeleccionarCliente.Size = new System.Drawing.Size(75, 23);
-            this.btnSeleccionarCliente.TabIndex = 22;
-            this.btnSeleccionarCliente.Text = "Seleccionar";
-            this.btnSeleccionarCliente.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -288,22 +291,12 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "Run:";
             // 
-            // btnCancelarPago
-            // 
-            this.btnCancelarPago.Location = new System.Drawing.Point(60, 509);
-            this.btnCancelarPago.Name = "btnCancelarPago";
-            this.btnCancelarPago.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelarPago.TabIndex = 21;
-            this.btnCancelarPago.Text = "Cancelar";
-            this.btnCancelarPago.UseVisualStyleBackColor = true;
-            this.btnCancelarPago.Click += new System.EventHandler(this.btnCancelarPago_Click);
-            // 
             // pnlProducto
             // 
             this.pnlProducto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlProducto.Controls.Add(this.btnAgregarProducto);
-            this.pnlProducto.Controls.Add(this.numericUpDown1);
+            this.pnlProducto.Controls.Add(this.txtCantidad);
             this.pnlProducto.Controls.Add(this.label2);
             this.pnlProducto.Controls.Add(this.label1);
             this.pnlProducto.Controls.Add(this.cmbCategoria);
@@ -323,13 +316,15 @@
             this.btnAgregarProducto.TabIndex = 15;
             this.btnAgregarProducto.Text = "Agregar Productos";
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
-            // numericUpDown1
+            // txtCantidad
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(203, 473);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 14;
+            this.txtCantidad.Location = new System.Drawing.Point(236, 473);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(87, 20);
+            this.txtCantidad.TabIndex = 14;
+            this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -351,6 +346,7 @@
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(83, 28);
             this.cmbCategoria.Name = "cmbCategoria";
@@ -385,6 +381,7 @@
             this.grdProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdProducto.Size = new System.Drawing.Size(422, 403);
             this.grdProducto.TabIndex = 8;
+            this.grdProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProducto_CellClick);
             // 
             // frmPuntoVenta
             // 
@@ -407,7 +404,7 @@
             this.groupBox1.PerformLayout();
             this.pnlProducto.ResumeLayout(false);
             this.pnlProducto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdProducto)).EndInit();
             this.ResumeLayout(false);
 
@@ -417,7 +414,7 @@
         private System.Windows.Forms.Panel pnlVenta;
         private System.Windows.Forms.Panel pnlProducto;
         private System.Windows.Forms.Button btnAgregarProducto;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown txtCantidad;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbCategoria;
@@ -425,25 +422,25 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView grdProducto;
         private System.Windows.Forms.Panel pnlPago;
-        private System.Windows.Forms.Button btnSeleccionarCliente;
-        private System.Windows.Forms.Button btnCancelarPago;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtRunCliente;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNumeroBoleta;
-        private System.Windows.Forms.Button btnAgregarPago;
         private System.Windows.Forms.ComboBox cmbMedioPago;
         private System.Windows.Forms.Panel pnlBoleta;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnMedioPago;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTotalBoleta;
         private System.Windows.Forms.Button btnQuitarProducto;
-        private System.Windows.Forms.DataGridView grdBoleta;
         private System.Windows.Forms.GroupBox btnRealizarBoleta;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cmbCliente;
         private System.Windows.Forms.Button btnAgregarBoleta;
+        private System.Windows.Forms.DataGridView grdBoleta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
     }
 }

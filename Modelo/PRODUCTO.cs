@@ -17,8 +17,8 @@ namespace Modelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PRODUCTO()
         {
-            this.BOLETA = new HashSet<BOLETA>();
-            this.ORDEN_PEDIDO = new HashSet<ORDEN_PEDIDO>();
+            this.DETALLE_BOLETA = new HashSet<DETALLE_BOLETA>();
+            this.DETALLE_PEDIDO = new HashSet<DETALLE_PEDIDO>();
         }
     
         public decimal CODIGOPROD { get; set; }
@@ -33,8 +33,8 @@ namespace Modelo
     
         public virtual CATEGORIA CATEGORIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BOLETA> BOLETA { get; set; }
+        public virtual ICollection<DETALLE_BOLETA> DETALLE_BOLETA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDEN_PEDIDO> ORDEN_PEDIDO { get; set; }
+        public virtual ICollection<DETALLE_PEDIDO> DETALLE_PEDIDO { get; set; }
     }
 }

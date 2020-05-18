@@ -83,6 +83,7 @@
             // 
             // cmbMedioPago
             // 
+            this.cmbMedioPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMedioPago.FormattingEnabled = true;
             this.cmbMedioPago.Location = new System.Drawing.Point(336, 28);
             this.cmbMedioPago.Name = "cmbMedioPago";
@@ -100,6 +101,7 @@
             // 
             // cmbVendedores
             // 
+            this.cmbVendedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVendedores.FormattingEnabled = true;
             this.cmbVendedores.Location = new System.Drawing.Point(68, 28);
             this.cmbVendedores.Name = "cmbVendedores";

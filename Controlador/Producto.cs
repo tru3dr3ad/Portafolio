@@ -167,6 +167,20 @@ namespace Controlador
                 throw new ArgumentException("Error al eliminar producto: " + ex);
             }
         }
+        public int ObtenerValorVentaProducto(int codigo)
+        {
+            Producto producto = new Producto();
+            producto = producto.ObtenerProducto(codigo);
+            int valorVenta = producto.PrecioVenta;
+            return valorVenta;
+        }
+        public int ObtenerValorCompraProducto(int codigo)
+        {
+            Producto producto = new Producto();
+            producto = producto.ObtenerProducto(codigo);
+            int valorCompra = producto.PrecioCompra;
+            return valorCompra;
+        }
         #endregion
     }
 }

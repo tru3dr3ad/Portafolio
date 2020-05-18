@@ -23,11 +23,20 @@ namespace Controlador
             Cliente = cliente;
             Usuario = usuario;
         }
+        public Boleta(DateTime fechaCreacion, int valor, MedioPago medioPago, Cliente cliente, Usuario usuario)
+        {
+            FechaCreacion = fechaCreacion;
+            Valor = valor;
+            MedioPago = medioPago;
+            Cliente = cliente;
+            Usuario = usuario;
+        }
         public Boleta()
         {
 
         }
 
+        #region Metodos de la clase
         public List<Modelo.BOLETA> Listar()
         {
             List<Modelo.BOLETA> listado = new List<Modelo.BOLETA>();
@@ -52,6 +61,19 @@ namespace Controlador
             {
                 return null;
                 throw new ArgumentException("Error al obtener boleta: " + ex);
+            }
+        }
+        public int ObtenerNumeroMaximoBoleta()
+        {
+            try
+            {
+                int numero = (int)ConectorDALC.ModeloAlmacen.BOLETA.Max(b => b.NUMEROBOLETA);
+                return numero;
+            }
+            catch (Exception)
+            {
+                return 0;
+                throw;
             }
         }
         public bool BuscarBoleta(int numero)
@@ -80,7 +102,6 @@ namespace Controlador
             {
                 Modelo.BOLETA boleta = new Modelo.BOLETA();
 
-                boleta.NUMEROBOLETA = Numero;
                 boleta.FECHABOLETA = FechaCreacion;
                 boleta.VALORBOLETA = Valor;
                 boleta.MEDIO_PAGO_MEDIOPAGOID = MedioPago.Id;
@@ -149,5 +170,6 @@ namespace Controlador
                 throw new ArgumentException("Error al eliminar boleta: " + ex);
             }
         }
+        #endregion
     }
 }

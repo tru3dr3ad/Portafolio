@@ -17,7 +17,7 @@
           <Key>
             <PropertyRef Name="NUMEROBOLETA" />
           </Key>
-          <Property Name="NUMEROBOLETA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NUMEROBOLETA" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FECHABOLETA" Type="date" Nullable="false" />
           <Property Name="VALORBOLETA" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="MEDIO_PAGO_MEDIOPAGOID" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -47,19 +47,25 @@
         </EntityType>
         <EntityType Name="DETALLE_BOLETA">
           <Key>
-            <PropertyRef Name="PRODUCTO_CODIGOPROD" />
+            <PropertyRef Name="IDDETALLEB" />
             <PropertyRef Name="BOLETA_NUMEROBOLETA" />
+            <PropertyRef Name="PRODUCTO_CODIGOPROD" />
           </Key>
-          <Property Name="PRODUCTO_CODIGOPROD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDDETALLEB" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="BOLETA_NUMEROBOLETA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PRODUCTO_CODIGOPROD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="DETALLE_PEDIDO">
           <Key>
+            <PropertyRef Name="IDDETALLEO" />
             <PropertyRef Name="ORDEN_PEDIDO_NUMERORDEN" />
             <PropertyRef Name="PRODUCTO_CODIGOPROD" />
           </Key>
+          <Property Name="IDDETALLEO" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ORDEN_PEDIDO_NUMERORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="PRODUCTO_CODIGOPROD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="ESTADO_FIADO">
           <Key>
@@ -465,6 +471,8 @@
           <EntitySet Name="BOLETA" EntityType="ModeloAlmacen.BOLETA" />
           <EntitySet Name="CATEGORIA" EntityType="ModeloAlmacen.CATEGORIA" />
           <EntitySet Name="CLIENTE" EntityType="ModeloAlmacen.CLIENTE" />
+          <EntitySet Name="DETALLE_BOLETA" EntityType="ModeloAlmacen.DETALLE_BOLETA" />
+          <EntitySet Name="DETALLE_PEDIDO" EntityType="ModeloAlmacen.DETALLE_PEDIDO" />
           <EntitySet Name="ESTADO_FIADO" EntityType="ModeloAlmacen.ESTADO_FIADO" />
           <EntitySet Name="ESTADO_ORDEN" EntityType="ModeloAlmacen.ESTADO_ORDEN" />
           <EntitySet Name="MEDIO_PAGO" EntityType="ModeloAlmacen.MEDIO_PAGO" />
@@ -492,6 +500,10 @@
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="BOLETA" EntitySet="BOLETA" />
           </AssociationSet>
+          <AssociationSet Name="DETALLE_BOLETA_BOLETA_FK" Association="ModeloAlmacen.DETALLE_BOLETA_BOLETA_FK">
+            <End Role="BOLETA" EntitySet="BOLETA" />
+            <End Role="DETALLE_BOLETA" EntitySet="DETALLE_BOLETA" />
+          </AssociationSet>
           <AssociationSet Name="PRODUCTO_CATEGORIA_FK" Association="ModeloAlmacen.PRODUCTO_CATEGORIA_FK">
             <End Role="CATEGORIA" EntitySet="CATEGORIA" />
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
@@ -507,6 +519,18 @@
           <AssociationSet Name="REGISTRO_FIADO_CLIENTE_FK" Association="ModeloAlmacen.REGISTRO_FIADO_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="REGISTRO_FIADO" EntitySet="REGISTRO_FIADO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_BOLETA_PRODUCTO_FK" Association="ModeloAlmacen.DETALLE_BOLETA_PRODUCTO_FK">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="DETALLE_BOLETA" EntitySet="DETALLE_BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_ORDEN_PEDIDO_FK" Association="ModeloAlmacen.DETALLE_PEDIDO_ORDEN_PEDIDO_FK">
+            <End Role="ORDEN_PEDIDO" EntitySet="ORDEN_PEDIDO" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_PRODUCTO_FK" Association="ModeloAlmacen.DETALLE_PEDIDO_PRODUCTO_FK">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
           </AssociationSet>
           <AssociationSet Name="ORDEN_PEDIDO_ESTADO_ORDEN_FK" Association="ModeloAlmacen.ORDEN_PEDIDO_ESTADO_ORDEN_FK">
             <End Role="ESTADO_ORDEN" EntitySet="ESTADO_ORDEN" />
@@ -528,14 +552,6 @@
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
-          <AssociationSet Name="DETALLE_BOLETA" Association="ModeloAlmacen.DETALLE_BOLETA">
-            <End Role="BOLETA" EntitySet="BOLETA" />
-            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
-          </AssociationSet>
-          <AssociationSet Name="DETALLE_PEDIDO" Association="ModeloAlmacen.DETALLE_PEDIDO">
-            <End Role="ORDEN_PEDIDO" EntitySet="ORDEN_PEDIDO" />
-            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ABONO">
           <Key>
@@ -550,7 +566,7 @@
           <Key>
             <PropertyRef Name="NUMEROBOLETA" />
           </Key>
-          <Property Name="NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FECHABOLETA" Type="DateTime" Nullable="false" />
           <Property Name="VALORBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="MEDIO_PAGO_MEDIOPAGOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
@@ -559,7 +575,7 @@
           <NavigationProperty Name="CLIENTE" Relationship="ModeloAlmacen.BOLETA_CLIENTE_FK" FromRole="BOLETA" ToRole="CLIENTE" />
           <NavigationProperty Name="MEDIO_PAGO" Relationship="ModeloAlmacen.BOLETA_MEDIO_PAGO_FK" FromRole="BOLETA" ToRole="MEDIO_PAGO" />
           <NavigationProperty Name="USUARIO" Relationship="ModeloAlmacen.BOLETA_USUARIO_FK" FromRole="BOLETA" ToRole="USUARIO" />
-          <NavigationProperty Name="PRODUCTO" Relationship="ModeloAlmacen.DETALLE_BOLETA" FromRole="BOLETA" ToRole="PRODUCTO" />
+          <NavigationProperty Name="DETALLE_BOLETA" Relationship="ModeloAlmacen.DETALLE_BOLETA_BOLETA_FK" FromRole="BOLETA" ToRole="DETALLE_BOLETA" />
         </EntityType>
         <EntityType Name="CATEGORIA">
           <Key>
@@ -586,6 +602,32 @@
           <NavigationProperty Name="ESTADO_FIADO" Relationship="ModeloAlmacen.CLIENTE_ESTADO_FIADO_FK" FromRole="CLIENTE" ToRole="ESTADO_FIADO" />
           <NavigationProperty Name="TIPO_CLIENTE" Relationship="ModeloAlmacen.CLIENTE_TIPO_CLIENTE_FK" FromRole="CLIENTE" ToRole="TIPO_CLIENTE" />
           <NavigationProperty Name="REGISTRO_FIADO" Relationship="ModeloAlmacen.REGISTRO_FIADO_CLIENTE_FK" FromRole="CLIENTE" ToRole="REGISTRO_FIADO" />
+        </EntityType>
+        <EntityType Name="DETALLE_BOLETA">
+          <Key>
+            <PropertyRef Name="IDDETALLEB" />
+            <PropertyRef Name="BOLETA_NUMEROBOLETA" />
+            <PropertyRef Name="PRODUCTO_CODIGOPROD" />
+          </Key>
+          <Property Name="IDDETALLEB" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BOLETA_NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_CODIGOPROD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="BOLETA" Relationship="ModeloAlmacen.DETALLE_BOLETA_BOLETA_FK" FromRole="DETALLE_BOLETA" ToRole="BOLETA" />
+          <NavigationProperty Name="PRODUCTO" Relationship="ModeloAlmacen.DETALLE_BOLETA_PRODUCTO_FK" FromRole="DETALLE_BOLETA" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="DETALLE_PEDIDO">
+          <Key>
+            <PropertyRef Name="IDDETALLEO" />
+            <PropertyRef Name="ORDEN_PEDIDO_NUMERORDEN" />
+            <PropertyRef Name="PRODUCTO_CODIGOPROD" />
+          </Key>
+          <Property Name="IDDETALLEO" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ORDEN_PEDIDO_NUMERORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_CODIGOPROD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="ORDEN_PEDIDO" Relationship="ModeloAlmacen.DETALLE_PEDIDO_ORDEN_PEDIDO_FK" FromRole="DETALLE_PEDIDO" ToRole="ORDEN_PEDIDO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="ModeloAlmacen.DETALLE_PEDIDO_PRODUCTO_FK" FromRole="DETALLE_PEDIDO" ToRole="PRODUCTO" />
         </EntityType>
         <EntityType Name="ESTADO_FIADO">
           <Key>
@@ -622,10 +664,10 @@
           <Property Name="PROVEEDOR_RUTPROVEEDOR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="ESTADO_ORDEN_ESTADOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="USUARIO_RUNUSUARIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="DETALLE_PEDIDO" Relationship="ModeloAlmacen.DETALLE_PEDIDO_ORDEN_PEDIDO_FK" FromRole="ORDEN_PEDIDO" ToRole="DETALLE_PEDIDO" />
           <NavigationProperty Name="ESTADO_ORDEN" Relationship="ModeloAlmacen.ORDEN_PEDIDO_ESTADO_ORDEN_FK" FromRole="ORDEN_PEDIDO" ToRole="ESTADO_ORDEN" />
           <NavigationProperty Name="PROVEEDOR" Relationship="ModeloAlmacen.ORDEN_PEDIDO_PROVEEDOR_FK" FromRole="ORDEN_PEDIDO" ToRole="PROVEEDOR" />
           <NavigationProperty Name="USUARIO" Relationship="ModeloAlmacen.ORDEN_PEDIDO_USUARIO_FK" FromRole="ORDEN_PEDIDO" ToRole="USUARIO" />
-          <NavigationProperty Name="PRODUCTO" Relationship="ModeloAlmacen.DETALLE_PEDIDO" FromRole="ORDEN_PEDIDO" ToRole="PRODUCTO" />
         </EntityType>
         <EntityType Name="PRODUCTO">
           <Key>
@@ -641,8 +683,8 @@
           <Property Name="FECHAVENCIMIENTO" Type="DateTime" Nullable="false" />
           <Property Name="CATEGORIA_CATEGORIAID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="CATEGORIA" Relationship="ModeloAlmacen.PRODUCTO_CATEGORIA_FK" FromRole="PRODUCTO" ToRole="CATEGORIA" />
-          <NavigationProperty Name="BOLETA" Relationship="ModeloAlmacen.DETALLE_BOLETA" FromRole="PRODUCTO" ToRole="BOLETA" />
-          <NavigationProperty Name="ORDEN_PEDIDO" Relationship="ModeloAlmacen.DETALLE_PEDIDO" FromRole="PRODUCTO" ToRole="ORDEN_PEDIDO" />
+          <NavigationProperty Name="DETALLE_BOLETA" Relationship="ModeloAlmacen.DETALLE_BOLETA_PRODUCTO_FK" FromRole="PRODUCTO" ToRole="DETALLE_BOLETA" />
+          <NavigationProperty Name="DETALLE_PEDIDO" Relationship="ModeloAlmacen.DETALLE_PEDIDO_PRODUCTO_FK" FromRole="PRODUCTO" ToRole="DETALLE_PEDIDO" />
         </EntityType>
         <EntityType Name="PROVEEDOR">
           <Key>
@@ -759,6 +801,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="DETALLE_BOLETA_BOLETA_FK">
+          <End Type="ModeloAlmacen.BOLETA" Role="BOLETA" Multiplicity="1" />
+          <End Type="ModeloAlmacen.DETALLE_BOLETA" Role="DETALLE_BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOLETA">
+              <PropertyRef Name="NUMEROBOLETA" />
+            </Principal>
+            <Dependent Role="DETALLE_BOLETA">
+              <PropertyRef Name="BOLETA_NUMEROBOLETA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="PRODUCTO_CATEGORIA_FK">
           <End Type="ModeloAlmacen.CATEGORIA" Role="CATEGORIA" Multiplicity="1" />
           <End Type="ModeloAlmacen.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
@@ -804,6 +858,42 @@
             </Principal>
             <Dependent Role="REGISTRO_FIADO">
               <PropertyRef Name="CLIENTE_RUNCLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_BOLETA_PRODUCTO_FK">
+          <End Type="ModeloAlmacen.PRODUCTO" Role="PRODUCTO" Multiplicity="1" />
+          <End Type="ModeloAlmacen.DETALLE_BOLETA" Role="DETALLE_BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="CODIGOPROD" />
+            </Principal>
+            <Dependent Role="DETALLE_BOLETA">
+              <PropertyRef Name="PRODUCTO_CODIGOPROD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_ORDEN_PEDIDO_FK">
+          <End Type="ModeloAlmacen.ORDEN_PEDIDO" Role="ORDEN_PEDIDO" Multiplicity="1" />
+          <End Type="ModeloAlmacen.DETALLE_PEDIDO" Role="DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDEN_PEDIDO">
+              <PropertyRef Name="NUMERORDEN" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="ORDEN_PEDIDO_NUMERORDEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_PRODUCTO_FK">
+          <End Type="ModeloAlmacen.PRODUCTO" Role="PRODUCTO" Multiplicity="1" />
+          <End Type="ModeloAlmacen.DETALLE_PEDIDO" Role="DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="CODIGOPROD" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="PRODUCTO_CODIGOPROD" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -867,14 +957,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="DETALLE_BOLETA">
-          <End Type="ModeloAlmacen.BOLETA" Role="BOLETA" Multiplicity="*" />
-          <End Type="ModeloAlmacen.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
-        </Association>
-        <Association Name="DETALLE_PEDIDO">
-          <End Type="ModeloAlmacen.ORDEN_PEDIDO" Role="ORDEN_PEDIDO" Multiplicity="*" />
-          <End Type="ModeloAlmacen.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -922,6 +1004,26 @@
                 <ScalarProperty Name="NOMBRECLIENTE" ColumnName="NOMBRECLIENTE" />
                 <ScalarProperty Name="DVCLIENTE" ColumnName="DVCLIENTE" />
                 <ScalarProperty Name="RUNCLIENTE" ColumnName="RUNCLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_BOLETA">
+            <EntityTypeMapping TypeName="ModeloAlmacen.DETALLE_BOLETA">
+              <MappingFragment StoreEntitySet="DETALLE_BOLETA">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="PRODUCTO_CODIGOPROD" ColumnName="PRODUCTO_CODIGOPROD" />
+                <ScalarProperty Name="BOLETA_NUMEROBOLETA" ColumnName="BOLETA_NUMEROBOLETA" />
+                <ScalarProperty Name="IDDETALLEB" ColumnName="IDDETALLEB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_PEDIDO">
+            <EntityTypeMapping TypeName="ModeloAlmacen.DETALLE_PEDIDO">
+              <MappingFragment StoreEntitySet="DETALLE_PEDIDO">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="PRODUCTO_CODIGOPROD" ColumnName="PRODUCTO_CODIGOPROD" />
+                <ScalarProperty Name="ORDEN_PEDIDO_NUMERORDEN" ColumnName="ORDEN_PEDIDO_NUMERORDEN" />
+                <ScalarProperty Name="IDDETALLEO" ColumnName="IDDETALLEO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1040,22 +1142,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="DETALLE_BOLETA" TypeName="ModeloAlmacen.DETALLE_BOLETA" StoreEntitySet="DETALLE_BOLETA">
-            <EndProperty Name="PRODUCTO">
-              <ScalarProperty Name="CODIGOPROD" ColumnName="PRODUCTO_CODIGOPROD" />
-            </EndProperty>
-            <EndProperty Name="BOLETA">
-              <ScalarProperty Name="NUMEROBOLETA" ColumnName="BOLETA_NUMEROBOLETA" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="DETALLE_PEDIDO" TypeName="ModeloAlmacen.DETALLE_PEDIDO" StoreEntitySet="DETALLE_PEDIDO">
-            <EndProperty Name="PRODUCTO">
-              <ScalarProperty Name="CODIGOPROD" ColumnName="PRODUCTO_CODIGOPROD" />
-            </EndProperty>
-            <EndProperty Name="ORDEN_PEDIDO">
-              <ScalarProperty Name="NUMERORDEN" ColumnName="ORDEN_PEDIDO_NUMERORDEN" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

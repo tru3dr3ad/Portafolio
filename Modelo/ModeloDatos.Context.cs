@@ -29,6 +29,8 @@ namespace Modelo
         public virtual DbSet<BOLETA> BOLETA { get; set; }
         public virtual DbSet<CATEGORIA> CATEGORIA { get; set; }
         public virtual DbSet<CLIENTE> CLIENTE { get; set; }
+        public virtual DbSet<DETALLE_BOLETA> DETALLE_BOLETA { get; set; }
+        public virtual DbSet<DETALLE_PEDIDO> DETALLE_PEDIDO { get; set; }
         public virtual DbSet<ESTADO_FIADO> ESTADO_FIADO { get; set; }
         public virtual DbSet<ESTADO_ORDEN> ESTADO_ORDEN { get; set; }
         public virtual DbSet<MEDIO_PAGO> MEDIO_PAGO { get; set; }

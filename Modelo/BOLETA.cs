@@ -17,7 +17,7 @@ namespace Modelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BOLETA()
         {
-            this.PRODUCTO = new HashSet<PRODUCTO>();
+            this.DETALLE_BOLETA = new HashSet<DETALLE_BOLETA>();
         }
     
         public decimal NUMEROBOLETA { get; set; }
@@ -31,6 +31,6 @@ namespace Modelo
         public virtual MEDIO_PAGO MEDIO_PAGO { get; set; }
         public virtual USUARIO USUARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRODUCTO> PRODUCTO { get; set; }
+        public virtual ICollection<DETALLE_BOLETA> DETALLE_BOLETA { get; set; }
     }
 }

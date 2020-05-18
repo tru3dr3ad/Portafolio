@@ -23,7 +23,7 @@ namespace Vista
         public void CargarGrilla()
         {
             Usuario usuario = new Usuario();
-            grdUsuario.DataSource = usuario.Listar();
+            grdUsuario.DataSource = usuario.ListarUsuario();
         }
         private void CargarComboboxTipoUsuario()
         {

@@ -22,14 +22,7 @@ namespace Vista
             CargarComboboxEstadoOrden();
             CargarComboboxProveedor();
         }
-        private void EscondeGroupRecepcionar()
-        {
-            grpRecepcion.Visible = false;
-        }
-        private void btnMostrarRecepcion_Click(object sender, EventArgs e)
-        {
-            grpRecepcion.Visible = true;
-        }
+        
         #region Metodos
         private void CargarGrillaOrden()
         {
@@ -54,6 +47,10 @@ namespace Vista
             cmbProveedor.DataSource = proveedor.Listar();
             cmbProveedor.DisplayMember = "Nombre";
             cmbProveedor.ValueMember = "Rut";
+        }
+        private void EscondeGroupRecepcionar()
+        {
+            grpRecepcion.Visible = false;
         }
         public bool MostrarDatosOrden(int numero)
         {
@@ -188,6 +185,10 @@ namespace Vista
             EliminarOrdenPedido();
             CargarGrillaOrden();
             LimpiarDatos();
+        }
+        private void btnMostrarRecepcion_Click(object sender, EventArgs e)
+        {
+            grpRecepcion.Visible = true;
         }
         #endregion
 
