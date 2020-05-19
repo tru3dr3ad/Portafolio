@@ -19,6 +19,7 @@ namespace Controlador
         public int TelefonoUsuario { get; set; }
         public TipoUsuario Tipo { get; set; }
 
+        #region Constructores
         public Usuario(int run, char dv, string nombre, string apellido, string clave, DateTime fechaNacimiento,
             DateTime fechaCreacion, string direccion, int telefono, TipoUsuario tipo)
         {
@@ -37,6 +38,8 @@ namespace Controlador
         {
 
         }
+        #endregion
+
         #region Metodos
         public IList<Usuario> Listar()
         {
@@ -184,5 +187,6 @@ namespace Controlador
             }
         }
         #endregion
+
     }
 }

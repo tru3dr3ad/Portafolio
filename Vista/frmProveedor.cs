@@ -176,14 +176,12 @@ namespace Vista
         #endregion
 
         #region Metodo Grilla
-
-        #endregion
-
         private void grdProveedor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
             int rutProveedor = int.Parse(grdProveedor.Rows[rowIndex].Cells[0].Value.ToString());
             MostrarDatosProveedor(rutProveedor);
         }
+        #endregion
     }
 }

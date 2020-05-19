@@ -16,6 +16,8 @@ namespace Controlador
         public int Telefono { get; set; }
         public string Direccion { get; set; }
         public TipoRubro Tipo { get; set; }
+
+        #region Constructores
         public Proveedor(int rut, char dv, int id, string nombre, string correo, int telefono, string direccion, TipoRubro tipo)
         {
             Rut = rut;
@@ -31,6 +33,7 @@ namespace Controlador
         {
 
         }
+        #endregion
 
         #region Metodos
         public IList<Proveedor> Listar()
@@ -173,5 +176,6 @@ namespace Controlador
             }
         }
         #endregion
+
     }
 }

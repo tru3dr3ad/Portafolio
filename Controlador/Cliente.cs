@@ -18,6 +18,8 @@ namespace Controlador
         public int Telefono { get; set; }
         public EstadoFiado Estado { get; set; }
         public TipoCliente Tipo { get; set; }
+
+        #region Constructores
         public Cliente(int run, char dv, string nombre, string apellido, DateTime fechaNacimiento, string direccion,
                     int telefono, EstadoFiado estado, TipoCliente tipo)
         {
@@ -35,6 +37,7 @@ namespace Controlador
         {
 
         }
+        #endregion
 
         #region Metodos
         public IList<Cliente> ListarCombobox()
@@ -181,5 +184,6 @@ namespace Controlador
             }
         }
         #endregion
+
     }
 }

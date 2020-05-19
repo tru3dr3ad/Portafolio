@@ -20,6 +20,7 @@ namespace Vista
             CargarComboboxEstadoFiado();
             CargarGrilla();
         }
+
         #region Metodos
         private void CargarGrilla()
         {

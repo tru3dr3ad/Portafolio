@@ -10,15 +10,20 @@ namespace Controlador
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
-        public TipoCliente()
-        {
 
-        }
+        #region Constructores
         public TipoCliente(int id, string descripcion)
         {
             Id = id;
             Descripcion = descripcion;
         }
+        public TipoCliente()
+        {
+
+        }
+        #endregion
+
+        #region Metodos
         public IList<TipoCliente> Listar()
         {
             List<TipoCliente> listado = new List<TipoCliente>();
@@ -35,5 +40,7 @@ namespace Controlador
         {
             return Descripcion;
         }
+        #endregion
+
     }
 }

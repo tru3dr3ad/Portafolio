@@ -15,6 +15,8 @@ namespace Controlador
         public Proveedor Proveedor { get; set; }
         public EstadoOrden Estado { get; set; }
         public Usuario Usuario { get; set; }
+
+        #region Constructores
         public OrdenPedido(int numero, DateTime fechaCreacion, int valor, DateTime fechaRecepcion, Proveedor proveedor, 
             EstadoOrden estado, Usuario usuario)
         {
@@ -40,6 +42,7 @@ namespace Controlador
         {
 
         }
+        #endregion
 
         #region Metodos
         public List<Modelo.ORDEN_PEDIDO> Listar()
@@ -177,5 +180,6 @@ namespace Controlador
             }
         }
         #endregion
+
     }
 }

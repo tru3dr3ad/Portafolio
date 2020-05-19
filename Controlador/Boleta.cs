@@ -14,6 +14,8 @@ namespace Controlador
         public MedioPago MedioPago { get; set; }
         public Cliente Cliente { get; set; }
         public Usuario Usuario { get; set; }
+
+        #region Constructores
         public Boleta(int numero, DateTime fechaCreacion, int valor, MedioPago medioPago, Cliente cliente, Usuario usuario)
         {
             Numero = numero;
@@ -35,6 +37,7 @@ namespace Controlador
         {
 
         }
+        #endregion
 
         #region Metodos de la clase
         public List<Modelo.BOLETA> Listar()
@@ -171,5 +174,6 @@ namespace Controlador
             }
         }
         #endregion
+
     }
 }

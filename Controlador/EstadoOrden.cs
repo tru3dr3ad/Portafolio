@@ -10,15 +10,20 @@ namespace Controlador
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
-        public EstadoOrden()
-        {
 
-        }
+        #region Constructores
         public EstadoOrden(int id, string descripcion)
         {
             Id = id;
             Descripcion = descripcion;
         }
+        public EstadoOrden()
+        {
+
+        }
+        #endregion
+
+        #region Metodos
         public IList<EstadoOrden> Listar()
         {
             List<EstadoOrden> listado = new List<EstadoOrden>();
@@ -35,5 +40,7 @@ namespace Controlador
         {
             return Descripcion;
         }
+        #endregion
+
     }
 }

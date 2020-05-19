@@ -17,6 +17,8 @@ namespace Controlador
         public int StockCritico { get; set; }
         public DateTime FechaVencimiento { get; set; }
         public Categoria Categoria { get; set; }
+
+        #region Constructores
         public Producto(string codigo, string nombre, string descripcion, int precioVenta, int precioCompra, int stock,
             int stockCritico, DateTime fechaVencimiento, Categoria categoria)
         {
@@ -34,6 +36,7 @@ namespace Controlador
         {
 
         }
+        #endregion
 
         #region Metodos
         public List<Modelo.PRODUCTO> Listar()
@@ -182,5 +185,6 @@ namespace Controlador
             return valorCompra;
         }
         #endregion
+
     }
 }

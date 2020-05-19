@@ -10,15 +10,20 @@ namespace Controlador
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
-        public EstadoFiado()
-        {
 
-        }
+        #region Constructores
         public EstadoFiado(int id, string descripcion)
         {
             Id = id;
             Descripcion = descripcion;
         }
+        public EstadoFiado()
+        {
+
+        }
+        #endregion
+
+        #region Metodos
         public IList<EstadoFiado> Listar()
         {
             List<EstadoFiado> listado = new List<EstadoFiado>();
@@ -35,5 +40,7 @@ namespace Controlador
         {
             return Descripcion;
         }
+        #endregion
+
     }
 }

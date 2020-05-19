@@ -10,15 +10,20 @@ namespace Controlador
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
-        public MedioPago()
-        {
 
-        }
+        #region Constructores
         public MedioPago(int id, string descripcion)
         {
             Id = id;
             Descripcion = descripcion;
         }
+        public MedioPago()
+        {
+
+        }
+        #endregion
+
+        #region Metodos
         public IList<MedioPago> Listar()
         {
             List<MedioPago> listado = new List<MedioPago>();
@@ -35,5 +40,7 @@ namespace Controlador
         {
             return Descripcion;
         }
+        #endregion
+
     }
 }

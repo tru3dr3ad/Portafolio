@@ -18,6 +18,7 @@ namespace Vista
             InitializeComponent();
             PersonalizarDiseño();
         }
+        #region Metodos Diseño
         //CONFIGURACIONES PARA HACER VENTANA MOVIBLE
         [System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -116,7 +117,9 @@ namespace Vista
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        #endregion
 
+        #region Botones
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -191,5 +194,6 @@ namespace Vista
             OcultarSubMenu();
             this.Dispose();
         }
+        #endregion
     }
 }

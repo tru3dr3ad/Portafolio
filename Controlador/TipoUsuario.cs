@@ -10,6 +10,8 @@ namespace Controlador
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
+
+        #region Constructores
         public TipoUsuario(int id, string descripcion)
         {
             Id = id;
@@ -19,6 +21,9 @@ namespace Controlador
         {
 
         }
+        #endregion
+
+        #region Metodos
         public IList<TipoUsuario> Listar()
         {
             List<TipoUsuario> listado = new List<TipoUsuario>();
@@ -35,5 +40,7 @@ namespace Controlador
         {
             return Descripcion;
         }
+        #endregion
+
     }
 }

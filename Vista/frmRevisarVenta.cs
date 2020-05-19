@@ -20,6 +20,8 @@ namespace Vista
             CargarComboboxMedioPago();
             CargarComboboxUsuario();
         }
+
+        #region Metodos
         private void CargarGrilla()
         {
             Boleta boleta = new Boleta();
@@ -39,5 +41,7 @@ namespace Vista
             cmbVendedores.DisplayMember = "NombreUsuario";
             cmbVendedores.ValueMember = "RunUsuario";
         }
+        #endregion
+
     }
 }

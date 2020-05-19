@@ -254,20 +254,19 @@ namespace Vista
             OcultarSubMenu();
             this.Dispose();
         }
-        #endregion
-
         private void btnHacerPedido_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             AbrirFormInPanel(new frmOrdenPedido());
             NombreFormularioAbierto("Orden de Pedido");
         }
-
         private void btnRevisarPedido_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             AbrirFormInPanel(new frmRevisarPedido());
             NombreFormularioAbierto("Orden de Pedido");
         }
+
+        #endregion
     }
 }
