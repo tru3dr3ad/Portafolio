@@ -48,6 +48,19 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.ToList();
             return listado;
         }
+        public int ObtenerNumeroMaximoOrden()
+        {
+            try
+            {
+                int numero = (int)ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.Max(o =>o.NUMERORDEN);
+                return numero;
+            }
+            catch (Exception)
+            {
+                return 0;
+                throw;
+            }
+        }
         public OrdenPedido ObtenerOrdenPedido(int numero)
         {
             try

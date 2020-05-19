@@ -21,7 +21,7 @@ namespace Modelo
             this.DETALLE_PEDIDO = new HashSet<DETALLE_PEDIDO>();
         }
     
-        public decimal CODIGOPROD { get; set; }
+        public string CODIGOPROD { get; set; }
         public string NOMBREPROD { get; set; }
         public string DESCRIPPROD { get; set; }
         public decimal PRECIOVENTA { get; set; }

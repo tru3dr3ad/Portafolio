@@ -61,6 +61,7 @@
     <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="ConectorDALC.cs" />
+    <Compile Include="DetallePedido.cs" />
     <Compile Include="EstadoFiado.cs" />
     <Compile Include="EstadoOrden.cs" />
     <Compile Include="MedioPago.cs" />

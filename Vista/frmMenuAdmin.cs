@@ -45,6 +45,7 @@ namespace Vista
             pnlReporteSubMenu.Visible = false;
             pnlClienteSubMenu.Visible = false;
             pnlVentaSubMenu.Visible = false;
+            pnlPedidoSubMenu.Visible = false;
         }
         private void OcultarSubMenu()
         {
@@ -59,6 +60,10 @@ namespace Vista
             if (pnlClienteSubMenu.Visible)
             {
                 pnlClienteSubMenu.Visible = false;
+            }
+            if (pnlPedidoSubMenu.Visible)
+            {
+                pnlPedidoSubMenu.Visible = false;
             }
         }
         private void MostrarSubMenu(Panel subMenu)
@@ -79,6 +84,8 @@ namespace Vista
             btnCliente.Text = "";
             btnVentas.Text = "";
             btnPedidos.Text = "";
+            btnHacerPedido.Text = "";
+            btnRevisarPedido.Text = "";
             btnProveedor.Text = "";
             btnProducto.Text = "";
             btnUsuarios.Text = "";
@@ -97,6 +104,8 @@ namespace Vista
             btnCliente.Text = "Clientes";
             btnVentas.Text = "Ventas";
             btnPedidos.Text = "Pedidos";
+            btnHacerPedido.Text = "Hacer Pedido";
+            btnRevisarPedido.Text = "Revision";
             btnProveedor.Text = "Proveedores";
             btnProducto.Text = "Productos";
             btnUsuarios.Text = "Usuarios";
@@ -204,9 +213,7 @@ namespace Vista
 
         private void btnPedidos_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu();
-            AbrirFormInPanel(new frmPedido());
-            NombreFormularioAbierto("Orden de Pedido");
+            MostrarSubMenu(pnlPedidoSubMenu);
         }
 
         private void btnProveedor_Click(object sender, EventArgs e)
@@ -248,5 +255,19 @@ namespace Vista
             this.Dispose();
         }
         #endregion
+
+        private void btnHacerPedido_Click(object sender, EventArgs e)
+        {
+            OcultarSubMenu();
+            AbrirFormInPanel(new frmOrdenPedido());
+            NombreFormularioAbierto("Orden de Pedido");
+        }
+
+        private void btnRevisarPedido_Click(object sender, EventArgs e)
+        {
+            OcultarSubMenu();
+            AbrirFormInPanel(new frmRevisarPedido());
+            NombreFormularioAbierto("Orden de Pedido");
+        }
     }
 }

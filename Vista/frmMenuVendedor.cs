@@ -182,7 +182,7 @@ namespace Vista
         private void btnPedido_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
-            AbrirFormInPanel(new frmPedido());
+            AbrirFormInPanel(new frmRevisarPedido());
             NombreFormularioAbierto("Orden de Pedido");
         }
 

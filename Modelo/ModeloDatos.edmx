@@ -53,7 +53,7 @@
           </Key>
           <Property Name="IDDETALLEB" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="BOLETA_NUMEROBOLETA" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="PRODUCTO_CODIGOPROD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PRODUCTO_CODIGOPROD" Type="nvarchar2" MaxLength="17" Nullable="false" />
           <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="DETALLE_PEDIDO">
@@ -64,7 +64,7 @@
           </Key>
           <Property Name="IDDETALLEO" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ORDEN_PEDIDO_NUMERORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="PRODUCTO_CODIGOPROD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PRODUCTO_CODIGOPROD" Type="nvarchar2" MaxLength="17" Nullable="false" />
           <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="ESTADO_FIADO">
@@ -104,7 +104,7 @@
           <Key>
             <PropertyRef Name="CODIGOPROD" />
           </Key>
-          <Property Name="CODIGOPROD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CODIGOPROD" Type="nvarchar2" MaxLength="17" Nullable="false" />
           <Property Name="NOMBREPROD" Type="varchar2" MaxLength="70" Nullable="false" />
           <Property Name="DESCRIPPROD" Type="varchar2" MaxLength="250" Nullable="false" />
           <Property Name="PRECIOVENTA" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -566,7 +566,7 @@
           <Key>
             <PropertyRef Name="NUMEROBOLETA" />
           </Key>
-          <Property Name="NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FECHABOLETA" Type="DateTime" Nullable="false" />
           <Property Name="VALORBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="MEDIO_PAGO_MEDIOPAGOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
@@ -609,9 +609,9 @@
             <PropertyRef Name="BOLETA_NUMEROBOLETA" />
             <PropertyRef Name="PRODUCTO_CODIGOPROD" />
           </Key>
-          <Property Name="IDDETALLEB" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDETALLEB" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BOLETA_NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="PRODUCTO_CODIGOPROD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_CODIGOPROD" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="true" />
           <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="BOLETA" Relationship="ModeloAlmacen.DETALLE_BOLETA_BOLETA_FK" FromRole="DETALLE_BOLETA" ToRole="BOLETA" />
           <NavigationProperty Name="PRODUCTO" Relationship="ModeloAlmacen.DETALLE_BOLETA_PRODUCTO_FK" FromRole="DETALLE_BOLETA" ToRole="PRODUCTO" />
@@ -622,9 +622,9 @@
             <PropertyRef Name="ORDEN_PEDIDO_NUMERORDEN" />
             <PropertyRef Name="PRODUCTO_CODIGOPROD" />
           </Key>
-          <Property Name="IDDETALLEO" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDETALLEO" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ORDEN_PEDIDO_NUMERORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="PRODUCTO_CODIGOPROD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_CODIGOPROD" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="true" />
           <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="ORDEN_PEDIDO" Relationship="ModeloAlmacen.DETALLE_PEDIDO_ORDEN_PEDIDO_FK" FromRole="DETALLE_PEDIDO" ToRole="ORDEN_PEDIDO" />
           <NavigationProperty Name="PRODUCTO" Relationship="ModeloAlmacen.DETALLE_PEDIDO_PRODUCTO_FK" FromRole="DETALLE_PEDIDO" ToRole="PRODUCTO" />
@@ -657,7 +657,7 @@
           <Key>
             <PropertyRef Name="NUMERORDEN" />
           </Key>
-          <Property Name="NUMERORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NUMERORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FECHAORDEN" Type="DateTime" Nullable="false" />
           <Property Name="VALORORDEN" Type="Int32" Nullable="false" />
           <Property Name="FECHARECEPCION" Type="DateTime" Nullable="false" />
@@ -673,7 +673,7 @@
           <Key>
             <PropertyRef Name="CODIGOPROD" />
           </Key>
-          <Property Name="CODIGOPROD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="CODIGOPROD" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="true" />
           <Property Name="NOMBREPROD" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="DESCRIPPROD" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="PRECIOVENTA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />

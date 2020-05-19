@@ -10,21 +10,21 @@ namespace Controlador
     {
         public int IdDetalle { get; set; }
         public int NumeroBoleta { get; set; }
-        public int CodigoProducto{ get; set; }
+        public string CodigoProducto { get; set; }
         public int Cantidad { get; set; }
 
         #region Constructores
-        public DetalleBoleta(int idDetalle, int numeroBoleta, int producto, int cantidad)
+        public DetalleBoleta(int idDetalle, int numeroBoleta, string codProducto, int cantidad)
         {
             IdDetalle = idDetalle;
             NumeroBoleta = numeroBoleta;
-            CodigoProducto = producto;
+            CodigoProducto = codProducto;
             Cantidad = cantidad;
         }
-        public DetalleBoleta(int numeroBoleta, int producto, int cantidad)
+        public DetalleBoleta(int numeroBoleta, string codProducto, int cantidad)
         {
             NumeroBoleta = numeroBoleta;
-            CodigoProducto = producto;
+            CodigoProducto = codProducto;
             Cantidad = cantidad;
         }
         public DetalleBoleta()
@@ -34,11 +34,6 @@ namespace Controlador
         #endregion
 
         #region Metodos de la clase
-        //public List<DetalleBoleta> ListarDetalles()
-        //{
-        //    List<DetalleBoleta> listado = new List<DetalleBoleta>();
-            
-        //}
 
         public List<Modelo.DETALLE_BOLETA> Listar()
         {

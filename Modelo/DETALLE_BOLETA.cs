@@ -16,7 +16,7 @@ namespace Modelo
     {
         public decimal IDDETALLEB { get; set; }
         public decimal BOLETA_NUMEROBOLETA { get; set; }
-        public decimal PRODUCTO_CODIGOPROD { get; set; }
+        public string PRODUCTO_CODIGOPROD { get; set; }
         public decimal CANTIDAD { get; set; }
     
         public virtual BOLETA BOLETA { get; set; }

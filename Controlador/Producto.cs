@@ -8,7 +8,7 @@ namespace Controlador
 {
     public class Producto
     {
-        public int Codigo { get; set; }
+        public string Codigo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public int PrecioVenta { get; set; }
@@ -17,7 +17,7 @@ namespace Controlador
         public int StockCritico { get; set; }
         public DateTime FechaVencimiento { get; set; }
         public Categoria Categoria { get; set; }
-        public Producto(int codigo, string nombre, string descripcion, int precioVenta, int precioCompra, int stock,
+        public Producto(string codigo, string nombre, string descripcion, int precioVenta, int precioCompra, int stock,
             int stockCritico, DateTime fechaVencimiento, Categoria categoria)
         {
             Codigo = codigo;
@@ -42,12 +42,12 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.PRODUCTO.ToList();
             return listado;
         }
-        public Producto ObtenerProducto(int codigo)
+        public Producto ObtenerProducto(string codigo)
         {
             try
             {
                 Modelo.PRODUCTO producto = ConectorDALC.ModeloAlmacen.PRODUCTO.FirstOrDefault(e => e.CODIGOPROD == codigo);
-                Codigo = (int)producto.CODIGOPROD;
+                Codigo = producto.CODIGOPROD;
                 Nombre = producto.NOMBREPROD;
                 Descripcion = producto.DESCRIPPROD;
                 PrecioVenta = (int)producto.PRECIOVENTA;
@@ -66,7 +66,7 @@ namespace Controlador
                 throw new ArgumentException("Error al obtener producto: " + ex);
             }
         }
-        public bool BuscarProducto(int codigo)
+        public bool BuscarProducto(string codigo)
         {
             try
             {
@@ -144,7 +144,7 @@ namespace Controlador
                 throw new ArgumentException("Error al modificar producto: " + ex);
             }
         }
-        public bool EliminarProducto(int codigo)
+        public bool EliminarProducto(string codigo)
         {
             try
             {
@@ -167,14 +167,14 @@ namespace Controlador
                 throw new ArgumentException("Error al eliminar producto: " + ex);
             }
         }
-        public int ObtenerValorVentaProducto(int codigo)
+        public int ObtenerValorVentaProducto(string codigo)
         {
             Producto producto = new Producto();
             producto = producto.ObtenerProducto(codigo);
             int valorVenta = producto.PrecioVenta;
             return valorVenta;
         }
-        public int ObtenerValorCompraProducto(int codigo)
+        public int ObtenerValorCompraProducto(string codigo)
         {
             Producto producto = new Producto();
             producto = producto.ObtenerProducto(codigo);

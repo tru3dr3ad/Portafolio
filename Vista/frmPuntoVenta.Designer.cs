@@ -40,7 +40,6 @@
             this.txtTotalBoleta = new System.Windows.Forms.TextBox();
             this.txtNumeroBoleta = new System.Windows.Forms.TextBox();
             this.btnQuitarProducto = new System.Windows.Forms.Button();
-            this.pnlPago = new System.Windows.Forms.Panel();
             this.btnAgregarBoleta = new System.Windows.Forms.Button();
             this.btnRealizarBoleta = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,7 +61,6 @@
             this.pnlVenta.SuspendLayout();
             this.pnlBoleta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdBoleta)).BeginInit();
-            this.pnlPago.SuspendLayout();
             this.btnRealizarBoleta.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlProducto.SuspendLayout();
@@ -73,7 +71,6 @@
             // pnlVenta
             // 
             this.pnlVenta.Controls.Add(this.pnlBoleta);
-            this.pnlVenta.Controls.Add(this.pnlPago);
             this.pnlVenta.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlVenta.Location = new System.Drawing.Point(450, 0);
             this.pnlVenta.Name = "pnlVenta";
@@ -88,9 +85,13 @@
             this.pnlBoleta.Controls.Add(this.txtTotalBoleta);
             this.pnlBoleta.Controls.Add(this.txtNumeroBoleta);
             this.pnlBoleta.Controls.Add(this.btnQuitarProducto);
+            this.pnlBoleta.Controls.Add(this.btnAgregarBoleta);
+            this.pnlBoleta.Controls.Add(this.btnRealizarBoleta);
+            this.pnlBoleta.Controls.Add(this.groupBox1);
+            this.pnlBoleta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBoleta.Location = new System.Drawing.Point(0, 0);
             this.pnlBoleta.Name = "pnlBoleta";
-            this.pnlBoleta.Size = new System.Drawing.Size(350, 550);
+            this.pnlBoleta.Size = new System.Drawing.Size(550, 550);
             this.pnlBoleta.TabIndex = 19;
             // 
             // grdBoleta
@@ -104,12 +105,12 @@
             this.CodProducto,
             this.Cantidad,
             this.total});
-            this.grdBoleta.Location = new System.Drawing.Point(16, 64);
+            this.grdBoleta.Location = new System.Drawing.Point(22, 64);
             this.grdBoleta.Name = "grdBoleta";
             this.grdBoleta.ReadOnly = true;
             this.grdBoleta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdBoleta.Size = new System.Drawing.Size(319, 403);
-            this.grdBoleta.TabIndex = 18;
+            this.grdBoleta.TabIndex = 31;
             this.grdBoleta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdBoleta_CellClick);
             // 
             // Codigo
@@ -141,10 +142,10 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 23);
+            this.label4.Location = new System.Drawing.Point(21, 25);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 24);
-            this.label4.TabIndex = 17;
+            this.label4.TabIndex = 30;
             this.label4.Text = "Nro Boleta:";
             // 
             // label3
@@ -152,65 +153,54 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(175, 476);
+            this.label3.Location = new System.Drawing.Point(180, 473);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
-            this.label3.TabIndex = 13;
+            this.label3.TabIndex = 26;
             this.label3.Text = "Total:";
             // 
             // txtTotalBoleta
             // 
             this.txtTotalBoleta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotalBoleta.Location = new System.Drawing.Point(215, 473);
+            this.txtTotalBoleta.Enabled = false;
+            this.txtTotalBoleta.Location = new System.Drawing.Point(220, 470);
             this.txtTotalBoleta.Name = "txtTotalBoleta";
             this.txtTotalBoleta.Size = new System.Drawing.Size(121, 20);
-            this.txtTotalBoleta.TabIndex = 14;
+            this.txtTotalBoleta.TabIndex = 27;
             this.txtTotalBoleta.Text = "0";
             this.txtTotalBoleta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNumeroBoleta
             // 
             this.txtNumeroBoleta.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtNumeroBoleta.Location = new System.Drawing.Point(121, 27);
+            this.txtNumeroBoleta.Enabled = false;
+            this.txtNumeroBoleta.Location = new System.Drawing.Point(130, 29);
             this.txtNumeroBoleta.Name = "txtNumeroBoleta";
-            this.txtNumeroBoleta.ReadOnly = true;
             this.txtNumeroBoleta.Size = new System.Drawing.Size(121, 20);
-            this.txtNumeroBoleta.TabIndex = 16;
+            this.txtNumeroBoleta.TabIndex = 29;
             this.txtNumeroBoleta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnQuitarProducto
             // 
             this.btnQuitarProducto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQuitarProducto.Location = new System.Drawing.Point(24, 470);
+            this.btnQuitarProducto.Location = new System.Drawing.Point(22, 470);
             this.btnQuitarProducto.Name = "btnQuitarProducto";
             this.btnQuitarProducto.Size = new System.Drawing.Size(75, 23);
-            this.btnQuitarProducto.TabIndex = 15;
+            this.btnQuitarProducto.TabIndex = 28;
             this.btnQuitarProducto.Text = "Quitar";
             this.btnQuitarProducto.UseVisualStyleBackColor = true;
             this.btnQuitarProducto.Click += new System.EventHandler(this.btnQuitarProducto_Click);
-            // 
-            // pnlPago
-            // 
-            this.pnlPago.Controls.Add(this.btnAgregarBoleta);
-            this.pnlPago.Controls.Add(this.btnRealizarBoleta);
-            this.pnlPago.Controls.Add(this.groupBox1);
-            this.pnlPago.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlPago.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.pnlPago.Location = new System.Drawing.Point(350, 0);
-            this.pnlPago.Name = "pnlPago";
-            this.pnlPago.Size = new System.Drawing.Size(200, 550);
-            this.pnlPago.TabIndex = 18;
             // 
             // btnAgregarBoleta
             // 
             this.btnAgregarBoleta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregarBoleta.Location = new System.Drawing.Point(38, 370);
+            this.btnAgregarBoleta.Location = new System.Drawing.Point(388, 356);
             this.btnAgregarBoleta.Name = "btnAgregarBoleta";
             this.btnAgregarBoleta.Size = new System.Drawing.Size(121, 33);
-            this.btnAgregarBoleta.TabIndex = 25;
+            this.btnAgregarBoleta.TabIndex = 34;
             this.btnAgregarBoleta.Text = "REALIZAR BOLETA";
             this.btnAgregarBoleta.UseVisualStyleBackColor = true;
             this.btnAgregarBoleta.Click += new System.EventHandler(this.btnAgregarBoleta_Click);
@@ -219,10 +209,10 @@
             // 
             this.btnRealizarBoleta.Controls.Add(this.label8);
             this.btnRealizarBoleta.Controls.Add(this.cmbMedioPago);
-            this.btnRealizarBoleta.Location = new System.Drawing.Point(8, 23);
+            this.btnRealizarBoleta.Location = new System.Drawing.Point(358, 47);
             this.btnRealizarBoleta.Name = "btnRealizarBoleta";
             this.btnRealizarBoleta.Size = new System.Drawing.Size(180, 128);
-            this.btnRealizarBoleta.TabIndex = 24;
+            this.btnRealizarBoleta.TabIndex = 33;
             this.btnRealizarBoleta.TabStop = false;
             this.btnRealizarBoleta.Text = "Medio Pago";
             // 
@@ -250,10 +240,10 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtRunCliente);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(8, 157);
+            this.groupBox1.Location = new System.Drawing.Point(358, 181);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(180, 150);
-            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cliente";
             // 
@@ -397,7 +387,6 @@
             this.pnlBoleta.ResumeLayout(false);
             this.pnlBoleta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdBoleta)).EndInit();
-            this.pnlPago.ResumeLayout(false);
             this.btnRealizarBoleta.ResumeLayout(false);
             this.btnRealizarBoleta.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -421,26 +410,25 @@
         private System.Windows.Forms.TextBox txtBuscarProducto;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView grdProducto;
-        private System.Windows.Forms.Panel pnlPago;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtRunCliente;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtNumeroBoleta;
-        private System.Windows.Forms.ComboBox cmbMedioPago;
         private System.Windows.Forms.Panel pnlBoleta;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTotalBoleta;
-        private System.Windows.Forms.Button btnQuitarProducto;
-        private System.Windows.Forms.GroupBox btnRealizarBoleta;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cmbCliente;
-        private System.Windows.Forms.Button btnAgregarBoleta;
         private System.Windows.Forms.DataGridView grdBoleta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtTotalBoleta;
+        private System.Windows.Forms.TextBox txtNumeroBoleta;
+        private System.Windows.Forms.Button btnQuitarProducto;
+        private System.Windows.Forms.Button btnAgregarBoleta;
+        private System.Windows.Forms.GroupBox btnRealizarBoleta;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbMedioPago;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cmbCliente;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtRunCliente;
+        private System.Windows.Forms.Label label6;
     }
 }

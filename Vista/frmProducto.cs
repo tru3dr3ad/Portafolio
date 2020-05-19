@@ -32,7 +32,7 @@ namespace Vista
             cmbCategoria.DisplayMember = "Descripcion";
             cmbCategoria.ValueMember = "Id";
         }
-        public bool MostrarDatosProducto(int codigo)
+        public bool MostrarDatosProducto(string codigo)
         {
             Producto producto = new Producto();
             producto = producto.ObtenerProducto(codigo);
@@ -75,7 +75,7 @@ namespace Vista
             Producto producto= new Producto();
             if (!String.IsNullOrEmpty(txtBuscarProducto.Text))
             {
-                bool existeProducto = producto.BuscarProducto(int.Parse(txtBuscarProducto.Text));
+                bool existeProducto = producto.BuscarProducto(txtBuscarProducto.Text);
                 if (existeProducto)
                 {
                     MessageBox.Show("Producto encontrado");
@@ -90,7 +90,7 @@ namespace Vista
         {
             if (!String.IsNullOrEmpty(txtCodigo.Text))
             {
-                int codigo = int.Parse(txtCodigo.Text);
+                string codigo = txtCodigo.Text;
                 string nombre = txtNombre.Text;
                 string descripcion = txtDescripcion.Text;
                 int precioVenta = int.Parse(txtPrecioVenta.Text);
@@ -112,7 +112,7 @@ namespace Vista
         {
             if (!String.IsNullOrEmpty(txtCodigo.Text))
             {
-                int codigo = int.Parse(txtCodigo.Text);
+                string codigo = txtCodigo.Text;
                 string nombre = txtNombre.Text;
                 string descripcion = txtDescripcion.Text;
                 int precioVenta = int.Parse(txtPrecioVenta.Text);
@@ -140,7 +140,7 @@ namespace Vista
             if (!String.IsNullOrEmpty(txtCodigo.Text))
             {
                 Producto producto= new Producto();
-                bool eliminarProducto = producto.EliminarProducto(int.Parse(txtCodigo.Text));
+                bool eliminarProducto = producto.EliminarProducto(txtCodigo.Text);
                 if (eliminarProducto)
                 {
                     MessageBox.Show("Producto eliminado");
@@ -186,7 +186,7 @@ namespace Vista
         private void grdProducto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            int codigo = int.Parse(grdProducto.Rows[rowIndex].Cells[0].Value.ToString());
+            string codigo = grdProducto.Rows[rowIndex].Cells[0].Value.ToString();
             MostrarDatosProducto(codigo);
         }
         #endregion

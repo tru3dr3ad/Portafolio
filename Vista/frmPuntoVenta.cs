@@ -13,8 +13,8 @@ namespace Vista
 {
     public partial class frmPuntoVenta : Form
     {
-        int _codProductoSeleccionado = 0;
-        int _codProductoQuitar = 0;
+        string _codProductoSeleccionado = "";
+        string _codProductoQuitar = "";
         public frmPuntoVenta()
         {
             InitializeComponent();
@@ -97,69 +97,9 @@ namespace Vista
         #endregion
 
         #region Metodos de la clase
-        //Metodos Productos
-        //private void BuscarProducto()
-        //{
-        //    Producto producto = new Producto();
-        //    if (!String.IsNullOrEmpty(txtBuscarProducto.Text))
-        //    {
-        //        bool existeProducto = producto.BuscarProducto(int.Parse(txtBuscarProducto.Text));
-        //        if (existeProducto)
-        //        {
-        //            MessageBox.Show("Producto encontrado");
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Producto no encontrado");
-        //        }
-        //    }
-        //}
-        //Metodos Boletas
-        //private void ModificarBoleta()
-        //{
-        //    if (!String.IsNullOrEmpty(txtNumeroBoleta.Text))
-        //    {
-        //        int numero = int.Parse(txtNumeroBoleta.Text);
-        //        DateTime fechaCreacion = DateTime.Now.Date;
-        //        int total = int.Parse(txtTotalBoleta.Text);
-        //        MedioPago medioPago = new MedioPago();
-        //        medioPago.Id = (int)cmbMedioPago.SelectedValue;
-        //        Cliente cliente = new Cliente();
-        //        cliente.Run = (int)cmbCliente.SelectedValue;
-        //        Usuario usuario = new Usuario();
-        //        usuario.RunUsuario = 7769287;
-        //        Boleta boleta = new Boleta(numero, fechaCreacion, total, medioPago, cliente, usuario);
-        //        bool modificarBoleta = boleta.ModificarBoleta(boleta);
-        //        if (modificarBoleta)
-        //        {
-        //            MessageBox.Show("Boleta actualizada");
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Boleta no se ha actualizada");
-        //        }
-        //    }
-        //}
-        //private void EliminarBoleta()
-        //{
-        //    if (!String.IsNullOrEmpty(txtNumeroBoleta.Text))
-        //    {
-        //        Boleta boleta = new Boleta();
-        //        bool eliminarBoleta = boleta.EliminarBoleta(int.Parse(txtRunCliente.Text));
-        //        if (eliminarBoleta)
-        //        {
-        //            MessageBox.Show("Boleta eliminada");
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Boleta no eliminada");
-        //        }
-        //    }
-        //}
-        //Metodos Detalle Boleta
         public void AgregarBoleta()
         {
-            if (!String.IsNullOrEmpty(txtTotalBoleta.Text))
+            if (int.Parse(txtTotalBoleta.Text)>0)
             {
                 DateTime fechaCreacion = DateTime.Now.Date;
                 int total = int.Parse(txtTotalBoleta.Text);
@@ -175,11 +115,12 @@ namespace Vista
                     int numeroBoleta = boleta.ObtenerNumeroMaximoBoleta();
                     foreach (DataGridViewRow row in grdBoleta.Rows)
                     {
-                        int codigo = int.Parse(row.Cells[0].Value.ToString());
+                        string codigo = row.Cells[0].Value.ToString();
                         int cantidad = int.Parse(row.Cells[2].Value.ToString());
                         DetalleBoleta detalle = new DetalleBoleta(numeroBoleta, codigo, cantidad);
                         detalle.AgregarDetalleBoleta();
                     }
+                    MessageBox.Show("Boleta "+ numeroBoleta + " ha sido agregada.");
                 }
             }
         }
@@ -198,20 +139,23 @@ namespace Vista
                     totalBoleta = totalBoleta + totalProductos;
                     txtTotalBoleta.Text = totalBoleta.ToString();
                     grdBoleta.Rows.Add(_codProductoSeleccionado, nombreProducto, cantidad, totalProductos);
-                    MessageBox.Show("Productos han sido agregados");
                 }
             }
         }
         private void QuitarDetalleBoleta()
         {
-            Producto producto = new Producto();
-            int valorVenta = producto.ObtenerValorVentaProducto(_codProductoQuitar);
-            int cantidad = int.Parse(grdBoleta.Rows[grdBoleta.CurrentRow.Index].Cells[2].Value.ToString());
-            int totalBoleta = int.Parse(txtTotalBoleta.Text);
-            totalBoleta = totalBoleta - (valorVenta * cantidad);
-            txtTotalBoleta.Text = totalBoleta.ToString();
+            if (_codProductoQuitar != "")
+            {
+                Producto producto = new Producto();
+                int valorVenta = producto.ObtenerValorVentaProducto(_codProductoQuitar);
+                int cantidad = int.Parse(grdBoleta.Rows[grdBoleta.CurrentRow.Index].Cells[2].Value.ToString());
+                int totalBoleta = int.Parse(txtTotalBoleta.Text);
+                totalBoleta = totalBoleta - (valorVenta * cantidad);
+                txtTotalBoleta.Text = totalBoleta.ToString();
 
-            grdBoleta.Rows.Remove(grdBoleta.CurrentRow);
+                grdBoleta.Rows.Remove(grdBoleta.CurrentRow);
+                _codProductoQuitar = "";
+            }
         }
         #endregion
 
@@ -239,19 +183,18 @@ namespace Vista
         {
             if (e.RowIndex > -1)
             {
-                int codigo = int.Parse(this.grdProducto[0, e.RowIndex].Value.ToString());
+                string codigo = this.grdProducto[0, e.RowIndex].Value.ToString();
                 _codProductoSeleccionado = codigo;
             }
         }
-        #endregion
-
         private void grdBoleta_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
-                int codigo = int.Parse(this.grdBoleta[0, e.RowIndex].Value.ToString());
+                string codigo = this.grdBoleta[0, e.RowIndex].Value.ToString();
                 _codProductoQuitar = codigo;
             }
         }
+        #endregion
     }
 }
