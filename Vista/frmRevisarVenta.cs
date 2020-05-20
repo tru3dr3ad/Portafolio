@@ -42,6 +42,5 @@ namespace Vista
             cmbVendedores.ValueMember = "RunUsuario";
         }
         #endregion
-
     }
 }

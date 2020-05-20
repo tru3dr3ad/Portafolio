@@ -35,6 +35,7 @@
             this.btnBuscarUsuario = new System.Windows.Forms.Button();
             this.txtBuscarUsuario = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -45,7 +46,6 @@
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnModificarUsuario = new System.Windows.Forms.Button();
-            this.cmbCliente = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdVentaFiadas)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -58,6 +58,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grdVentaFiadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdVentaFiadas.Location = new System.Drawing.Point(12, 10);
+            this.grdVentaFiadas.MultiSelect = false;
             this.grdVentaFiadas.Name = "grdVentaFiadas";
             this.grdVentaFiadas.Size = new System.Drawing.Size(740, 530);
             this.grdVentaFiadas.TabIndex = 37;
@@ -129,6 +130,15 @@
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingresar Abono:";
+            // 
+            // cmbCliente
+            // 
+            this.cmbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCliente.FormattingEnabled = true;
+            this.cmbCliente.Location = new System.Drawing.Point(13, 31);
+            this.cmbCliente.Name = "cmbCliente";
+            this.cmbCliente.Size = new System.Drawing.Size(182, 21);
+            this.cmbCliente.TabIndex = 17;
             // 
             // radioButton2
             // 
@@ -218,15 +228,6 @@
             this.btnModificarUsuario.TabIndex = 33;
             this.btnModificarUsuario.Text = "Modificar";
             this.btnModificarUsuario.UseVisualStyleBackColor = true;
-            // 
-            // cmbCliente
-            // 
-            this.cmbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(13, 31);
-            this.cmbCliente.Name = "cmbCliente";
-            this.cmbCliente.Size = new System.Drawing.Size(182, 21);
-            this.cmbCliente.TabIndex = 17;
             // 
             // frmFiado
             // 

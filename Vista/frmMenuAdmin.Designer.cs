@@ -34,7 +34,16 @@
             this.lblTituloForm = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlMenuVertical = new System.Windows.Forms.Panel();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.pnlReporteSubMenu = new System.Windows.Forms.Panel();
+            this.btnInforme = new System.Windows.Forms.Button();
+            this.btnEstadisticas = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
+            this.btnUsuarios = new System.Windows.Forms.Button();
+            this.btnProveedor = new System.Windows.Forms.Button();
             this.pnlPedidoSubMenu = new System.Windows.Forms.Panel();
+            this.btnRevisarPedido = new System.Windows.Forms.Button();
+            this.btnHacerPedido = new System.Windows.Forms.Button();
             this.btnPedidos = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
             this.pnlClienteSubMenu = new System.Windows.Forms.Panel();
@@ -52,22 +61,13 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnConfiguracion = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnHacerPedido = new System.Windows.Forms.Button();
-            this.btnRevisarPedido = new System.Windows.Forms.Button();
-            this.btnProveedor = new System.Windows.Forms.Button();
-            this.btnUsuarios = new System.Windows.Forms.Button();
-            this.btnReportes = new System.Windows.Forms.Button();
-            this.pnlReporteSubMenu = new System.Windows.Forms.Panel();
-            this.btnEstadisticas = new System.Windows.Forms.Button();
-            this.btnInforme = new System.Windows.Forms.Button();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.pnlBarraTitulo.SuspendLayout();
             this.pnlMenuVertical.SuspendLayout();
+            this.pnlReporteSubMenu.SuspendLayout();
             this.pnlPedidoSubMenu.SuspendLayout();
             this.pnlClienteSubMenu.SuspendLayout();
             this.pnlVentaSubMenu.SuspendLayout();
             this.pnlBarraSuperior.SuspendLayout();
-            this.pnlReporteSubMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContenedor
@@ -136,6 +136,131 @@
             this.pnlMenuVertical.Size = new System.Drawing.Size(200, 600);
             this.pnlMenuVertical.TabIndex = 5;
             // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
+            this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
+            this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 640);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(183, 40);
+            this.btnCerrarSesion.TabIndex = 56;
+            this.btnCerrarSesion.Text = "Cerrar Sesion";
+            this.btnCerrarSesion.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            // 
+            // pnlReporteSubMenu
+            // 
+            this.pnlReporteSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(150)))), ((int)(((byte)(141)))));
+            this.pnlReporteSubMenu.Controls.Add(this.btnInforme);
+            this.pnlReporteSubMenu.Controls.Add(this.btnEstadisticas);
+            this.pnlReporteSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlReporteSubMenu.Location = new System.Drawing.Point(0, 560);
+            this.pnlReporteSubMenu.Name = "pnlReporteSubMenu";
+            this.pnlReporteSubMenu.Size = new System.Drawing.Size(183, 80);
+            this.pnlReporteSubMenu.TabIndex = 55;
+            // 
+            // btnInforme
+            // 
+            this.btnInforme.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInforme.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInforme.FlatAppearance.BorderSize = 0;
+            this.btnInforme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInforme.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInforme.ForeColor = System.Drawing.Color.White;
+            this.btnInforme.Image = ((System.Drawing.Image)(resources.GetObject("btnInforme.Image")));
+            this.btnInforme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInforme.Location = new System.Drawing.Point(0, 40);
+            this.btnInforme.Name = "btnInforme";
+            this.btnInforme.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnInforme.Size = new System.Drawing.Size(183, 40);
+            this.btnInforme.TabIndex = 50;
+            this.btnInforme.Text = "Informes";
+            this.btnInforme.UseVisualStyleBackColor = true;
+            this.btnInforme.Click += new System.EventHandler(this.btnInforme_Click);
+            // 
+            // btnEstadisticas
+            // 
+            this.btnEstadisticas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEstadisticas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
+            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadisticas.ForeColor = System.Drawing.Color.White;
+            this.btnEstadisticas.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadisticas.Image")));
+            this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstadisticas.Location = new System.Drawing.Point(0, 0);
+            this.btnEstadisticas.Name = "btnEstadisticas";
+            this.btnEstadisticas.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnEstadisticas.Size = new System.Drawing.Size(183, 40);
+            this.btnEstadisticas.TabIndex = 49;
+            this.btnEstadisticas.Text = "Estadisticas";
+            this.btnEstadisticas.UseVisualStyleBackColor = true;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.Color.White;
+            this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
+            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.Location = new System.Drawing.Point(0, 520);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnReportes.Size = new System.Drawing.Size(183, 40);
+            this.btnReportes.TabIndex = 53;
+            this.btnReportes.Text = "Reportes";
+            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
+            // btnUsuarios
+            // 
+            this.btnUsuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuarios.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
+            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 480);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnUsuarios.Size = new System.Drawing.Size(183, 40);
+            this.btnUsuarios.TabIndex = 52;
+            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
+            // 
+            // btnProveedor
+            // 
+            this.btnProveedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnProveedor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProveedor.FlatAppearance.BorderSize = 0;
+            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedor.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedor.ForeColor = System.Drawing.Color.White;
+            this.btnProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedor.Image")));
+            this.btnProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProveedor.Location = new System.Drawing.Point(0, 440);
+            this.btnProveedor.Name = "btnProveedor";
+            this.btnProveedor.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnProveedor.Size = new System.Drawing.Size(183, 40);
+            this.btnProveedor.TabIndex = 51;
+            this.btnProveedor.Text = "Proveedores";
+            this.btnProveedor.UseVisualStyleBackColor = true;
+            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
+            // 
             // pnlPedidoSubMenu
             // 
             this.pnlPedidoSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(150)))), ((int)(((byte)(141)))));
@@ -146,6 +271,44 @@
             this.pnlPedidoSubMenu.Name = "pnlPedidoSubMenu";
             this.pnlPedidoSubMenu.Size = new System.Drawing.Size(183, 80);
             this.pnlPedidoSubMenu.TabIndex = 46;
+            // 
+            // btnRevisarPedido
+            // 
+            this.btnRevisarPedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRevisarPedido.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRevisarPedido.FlatAppearance.BorderSize = 0;
+            this.btnRevisarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRevisarPedido.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRevisarPedido.ForeColor = System.Drawing.Color.White;
+            this.btnRevisarPedido.Image = ((System.Drawing.Image)(resources.GetObject("btnRevisarPedido.Image")));
+            this.btnRevisarPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRevisarPedido.Location = new System.Drawing.Point(0, 40);
+            this.btnRevisarPedido.Name = "btnRevisarPedido";
+            this.btnRevisarPedido.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnRevisarPedido.Size = new System.Drawing.Size(183, 40);
+            this.btnRevisarPedido.TabIndex = 54;
+            this.btnRevisarPedido.Text = "Revision";
+            this.btnRevisarPedido.UseVisualStyleBackColor = true;
+            this.btnRevisarPedido.Click += new System.EventHandler(this.btnRevisarPedido_Click);
+            // 
+            // btnHacerPedido
+            // 
+            this.btnHacerPedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHacerPedido.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHacerPedido.FlatAppearance.BorderSize = 0;
+            this.btnHacerPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHacerPedido.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHacerPedido.ForeColor = System.Drawing.Color.White;
+            this.btnHacerPedido.Image = ((System.Drawing.Image)(resources.GetObject("btnHacerPedido.Image")));
+            this.btnHacerPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHacerPedido.Location = new System.Drawing.Point(0, 0);
+            this.btnHacerPedido.Name = "btnHacerPedido";
+            this.btnHacerPedido.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnHacerPedido.Size = new System.Drawing.Size(183, 40);
+            this.btnHacerPedido.TabIndex = 53;
+            this.btnHacerPedido.Text = "Hacer Pedido";
+            this.btnHacerPedido.UseVisualStyleBackColor = true;
+            this.btnHacerPedido.Click += new System.EventHandler(this.btnHacerPedido_Click);
             // 
             // btnPedidos
             // 
@@ -420,169 +583,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Administrador";
             // 
-            // btnHacerPedido
-            // 
-            this.btnHacerPedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHacerPedido.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHacerPedido.FlatAppearance.BorderSize = 0;
-            this.btnHacerPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHacerPedido.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHacerPedido.ForeColor = System.Drawing.Color.White;
-            this.btnHacerPedido.Image = ((System.Drawing.Image)(resources.GetObject("btnHacerPedido.Image")));
-            this.btnHacerPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHacerPedido.Location = new System.Drawing.Point(0, 0);
-            this.btnHacerPedido.Name = "btnHacerPedido";
-            this.btnHacerPedido.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnHacerPedido.Size = new System.Drawing.Size(183, 40);
-            this.btnHacerPedido.TabIndex = 53;
-            this.btnHacerPedido.Text = "Hacer Pedido";
-            this.btnHacerPedido.UseVisualStyleBackColor = true;
-            this.btnHacerPedido.Click += new System.EventHandler(this.btnHacerPedido_Click);
-            // 
-            // btnRevisarPedido
-            // 
-            this.btnRevisarPedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRevisarPedido.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRevisarPedido.FlatAppearance.BorderSize = 0;
-            this.btnRevisarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRevisarPedido.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRevisarPedido.ForeColor = System.Drawing.Color.White;
-            this.btnRevisarPedido.Image = ((System.Drawing.Image)(resources.GetObject("btnRevisarPedido.Image")));
-            this.btnRevisarPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRevisarPedido.Location = new System.Drawing.Point(0, 40);
-            this.btnRevisarPedido.Name = "btnRevisarPedido";
-            this.btnRevisarPedido.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnRevisarPedido.Size = new System.Drawing.Size(183, 40);
-            this.btnRevisarPedido.TabIndex = 54;
-            this.btnRevisarPedido.Text = "Revision";
-            this.btnRevisarPedido.UseVisualStyleBackColor = true;
-            this.btnRevisarPedido.Click += new System.EventHandler(this.btnRevisarPedido_Click);
-            // 
-            // btnProveedor
-            // 
-            this.btnProveedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnProveedor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProveedor.FlatAppearance.BorderSize = 0;
-            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProveedor.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedor.Image")));
-            this.btnProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedor.Location = new System.Drawing.Point(0, 440);
-            this.btnProveedor.Name = "btnProveedor";
-            this.btnProveedor.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnProveedor.Size = new System.Drawing.Size(183, 40);
-            this.btnProveedor.TabIndex = 51;
-            this.btnProveedor.Text = "Proveedores";
-            this.btnProveedor.UseVisualStyleBackColor = true;
-            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
-            // 
-            // btnUsuarios
-            // 
-            this.btnUsuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUsuarios.FlatAppearance.BorderSize = 0;
-            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuarios.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
-            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(0, 480);
-            this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnUsuarios.Size = new System.Drawing.Size(183, 40);
-            this.btnUsuarios.TabIndex = 52;
-            this.btnUsuarios.Text = "Usuarios";
-            this.btnUsuarios.UseVisualStyleBackColor = true;
-            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
-            // 
-            // btnReportes
-            // 
-            this.btnReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReportes.FlatAppearance.BorderSize = 0;
-            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportes.ForeColor = System.Drawing.Color.White;
-            this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
-            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 520);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnReportes.Size = new System.Drawing.Size(183, 40);
-            this.btnReportes.TabIndex = 53;
-            this.btnReportes.Text = "Reportes";
-            this.btnReportes.UseVisualStyleBackColor = true;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
-            // 
-            // pnlReporteSubMenu
-            // 
-            this.pnlReporteSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(150)))), ((int)(((byte)(141)))));
-            this.pnlReporteSubMenu.Controls.Add(this.btnInforme);
-            this.pnlReporteSubMenu.Controls.Add(this.btnEstadisticas);
-            this.pnlReporteSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlReporteSubMenu.Location = new System.Drawing.Point(0, 560);
-            this.pnlReporteSubMenu.Name = "pnlReporteSubMenu";
-            this.pnlReporteSubMenu.Size = new System.Drawing.Size(183, 80);
-            this.pnlReporteSubMenu.TabIndex = 55;
-            // 
-            // btnEstadisticas
-            // 
-            this.btnEstadisticas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEstadisticas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
-            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadisticas.ForeColor = System.Drawing.Color.White;
-            this.btnEstadisticas.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadisticas.Image")));
-            this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticas.Location = new System.Drawing.Point(0, 0);
-            this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnEstadisticas.Size = new System.Drawing.Size(183, 40);
-            this.btnEstadisticas.TabIndex = 49;
-            this.btnEstadisticas.Text = "Estadisticas";
-            this.btnEstadisticas.UseVisualStyleBackColor = true;
-            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
-            // 
-            // btnInforme
-            // 
-            this.btnInforme.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnInforme.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInforme.FlatAppearance.BorderSize = 0;
-            this.btnInforme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInforme.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInforme.ForeColor = System.Drawing.Color.White;
-            this.btnInforme.Image = ((System.Drawing.Image)(resources.GetObject("btnInforme.Image")));
-            this.btnInforme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInforme.Location = new System.Drawing.Point(0, 40);
-            this.btnInforme.Name = "btnInforme";
-            this.btnInforme.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnInforme.Size = new System.Drawing.Size(183, 40);
-            this.btnInforme.TabIndex = 50;
-            this.btnInforme.Text = "Informes";
-            this.btnInforme.UseVisualStyleBackColor = true;
-            this.btnInforme.Click += new System.EventHandler(this.btnInforme_Click);
-            // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
-            this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 640);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnCerrarSesion.Size = new System.Drawing.Size(183, 40);
-            this.btnCerrarSesion.TabIndex = 56;
-            this.btnCerrarSesion.Text = "Cerrar Sesion";
-            this.btnCerrarSesion.UseVisualStyleBackColor = true;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
-            // 
             // frmMenuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,12 +599,12 @@
             this.pnlBarraTitulo.ResumeLayout(false);
             this.pnlBarraTitulo.PerformLayout();
             this.pnlMenuVertical.ResumeLayout(false);
+            this.pnlReporteSubMenu.ResumeLayout(false);
             this.pnlPedidoSubMenu.ResumeLayout(false);
             this.pnlClienteSubMenu.ResumeLayout(false);
             this.pnlVentaSubMenu.ResumeLayout(false);
             this.pnlBarraSuperior.ResumeLayout(false);
             this.pnlBarraSuperior.PerformLayout();
-            this.pnlReporteSubMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

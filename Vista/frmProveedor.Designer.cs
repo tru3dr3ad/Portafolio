@@ -64,6 +64,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grdProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdProveedor.Location = new System.Drawing.Point(12, 8);
+            this.grdProveedor.MultiSelect = false;
             this.grdProveedor.Name = "grdProveedor";
             this.grdProveedor.ReadOnly = true;
             this.grdProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

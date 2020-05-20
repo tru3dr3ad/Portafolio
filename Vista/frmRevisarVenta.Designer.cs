@@ -48,11 +48,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grdBoleta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdBoleta.Location = new System.Drawing.Point(12, 129);
+            this.grdBoleta.Location = new System.Drawing.Point(12, 104);
+            this.grdBoleta.MultiSelect = false;
             this.grdBoleta.Name = "grdBoleta";
             this.grdBoleta.ReadOnly = true;
             this.grdBoleta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdBoleta.Size = new System.Drawing.Size(787, 409);
+            this.grdBoleta.Size = new System.Drawing.Size(787, 434);
             this.grdBoleta.TabIndex = 32;
             // 
             // btnEliminarBoleta

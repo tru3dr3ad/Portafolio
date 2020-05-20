@@ -179,6 +179,31 @@ namespace Controlador
                 throw new ArgumentException("Error al eliminar orden de pedido: " + ex);
             }
         }
+        public bool RecepcionarOrdenPedido(OrdenPedido recepcionarOrden)
+        {
+            try
+            {
+                if (BuscarOrden(recepcionarOrden.Numero))
+                {
+                    Modelo.ORDEN_PEDIDO ordenRecepcionar = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMERORDEN == recepcionarOrden.Numero);
+
+                    ordenRecepcionar.FECHARECEPCION = recepcionarOrden.FechaRecepcion;
+                    ordenRecepcionar.ESTADO_ORDEN_ESTADOID = recepcionarOrden.Estado.Id;
+
+                    ConectorDALC.ModeloAlmacen.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw new ArgumentException("Error al recepcionar orden de pedido: " + ex);
+            }
+        }
         #endregion
 
     }

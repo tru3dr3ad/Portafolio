@@ -34,9 +34,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbSeleccionarInforme = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbFormato = new System.Windows.Forms.ComboBox();
             this.btnExportarInforme = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbFormato = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgrInforme)).BeginInit();
             this.grpInforme.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -49,6 +49,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgrInforme.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrInforme.Location = new System.Drawing.Point(30, 50);
+            this.dgrInforme.MultiSelect = false;
             this.dgrInforme.Name = "dgrInforme";
             this.dgrInforme.Size = new System.Drawing.Size(700, 450);
             this.dgrInforme.TabIndex = 10;
@@ -105,6 +106,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Exportar";
             // 
+            // cmbFormato
+            // 
+            this.cmbFormato.FormattingEnabled = true;
+            this.cmbFormato.Location = new System.Drawing.Point(25, 58);
+            this.cmbFormato.Name = "cmbFormato";
+            this.cmbFormato.Size = new System.Drawing.Size(179, 21);
+            this.cmbFormato.TabIndex = 4;
+            // 
             // btnExportarInforme
             // 
             this.btnExportarInforme.Location = new System.Drawing.Point(56, 85);
@@ -122,14 +131,6 @@
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Formato:";
-            // 
-            // cmbFormato
-            // 
-            this.cmbFormato.FormattingEnabled = true;
-            this.cmbFormato.Location = new System.Drawing.Point(25, 58);
-            this.cmbFormato.Name = "cmbFormato";
-            this.cmbFormato.Size = new System.Drawing.Size(179, 21);
-            this.cmbFormato.TabIndex = 4;
             // 
             // frmInforme
             // 

@@ -106,6 +106,7 @@
             this.Cantidad,
             this.total});
             this.grdBoleta.Location = new System.Drawing.Point(22, 64);
+            this.grdBoleta.MultiSelect = false;
             this.grdBoleta.Name = "grdBoleta";
             this.grdBoleta.ReadOnly = true;
             this.grdBoleta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -366,6 +367,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grdProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdProducto.Location = new System.Drawing.Point(12, 64);
+            this.grdProducto.MultiSelect = false;
             this.grdProducto.Name = "grdProducto";
             this.grdProducto.ReadOnly = true;
             this.grdProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

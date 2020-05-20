@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnMostrarRecepcion = new System.Windows.Forms.Button();
             this.btnEliminarOrden = new System.Windows.Forms.Button();
             this.btnModificarOrden = new System.Windows.Forms.Button();
             this.grdOrden = new System.Windows.Forms.DataGridView();
@@ -36,7 +35,7 @@
             this.grpRecepcion = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cmbEstadoOrden = new System.Windows.Forms.ComboBox();
-            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.btnRecepcionar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbProveedores = new System.Windows.Forms.ComboBox();
             this.btnBuscarOrden = new System.Windows.Forms.Button();
@@ -46,16 +45,6 @@
             this.grpRecepcion.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnMostrarRecepcion
-            // 
-            this.btnMostrarRecepcion.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnMostrarRecepcion.Location = new System.Drawing.Point(816, 303);
-            this.btnMostrarRecepcion.Name = "btnMostrarRecepcion";
-            this.btnMostrarRecepcion.Size = new System.Drawing.Size(128, 62);
-            this.btnMostrarRecepcion.TabIndex = 38;
-            this.btnMostrarRecepcion.Text = "Recepcionar Orden";
-            this.btnMostrarRecepcion.UseVisualStyleBackColor = true;
             // 
             // btnEliminarOrden
             // 
@@ -84,12 +73,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grdOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdOrden.Location = new System.Drawing.Point(12, 103);
+            this.grdOrden.MultiSelect = false;
             this.grdOrden.Name = "grdOrden";
             this.grdOrden.ReadOnly = true;
             this.grdOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdOrden.Size = new System.Drawing.Size(758, 424);
             this.grdOrden.TabIndex = 41;
-            this.grdOrden.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOrden_CellDoubleClick);
+            this.grdOrden.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOrden_CellClick);
             // 
             // btnDescargarOrden
             // 
@@ -106,7 +96,7 @@
             this.grpRecepcion.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.grpRecepcion.Controls.Add(this.label9);
             this.grpRecepcion.Controls.Add(this.cmbEstadoOrden);
-            this.grpRecepcion.Controls.Add(this.btnConfirmar);
+            this.grpRecepcion.Controls.Add(this.btnRecepcionar);
             this.grpRecepcion.Location = new System.Drawing.Point(776, 12);
             this.grpRecepcion.Name = "grpRecepcion";
             this.grpRecepcion.Size = new System.Drawing.Size(212, 135);
@@ -133,14 +123,15 @@
             this.cmbEstadoOrden.Size = new System.Drawing.Size(181, 21);
             this.cmbEstadoOrden.TabIndex = 3;
             // 
-            // btnConfirmar
+            // btnRecepcionar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(40, 100);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(128, 21);
-            this.btnConfirmar.TabIndex = 2;
-            this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnRecepcionar.Location = new System.Drawing.Point(40, 100);
+            this.btnRecepcionar.Name = "btnRecepcionar";
+            this.btnRecepcionar.Size = new System.Drawing.Size(128, 21);
+            this.btnRecepcionar.TabIndex = 2;
+            this.btnRecepcionar.Text = "Confirmar";
+            this.btnRecepcionar.UseVisualStyleBackColor = true;
+            this.btnRecepcionar.Click += new System.EventHandler(this.btnRecepcionar_Click);
             // 
             // groupBox1
             // 
@@ -154,7 +145,7 @@
             this.groupBox1.Size = new System.Drawing.Size(758, 73);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Buscar Boleta:";
+            this.groupBox1.Text = "Buscar Orden de pedido:";
             // 
             // cmbProveedores
             // 
@@ -190,7 +181,7 @@
             this.txtBuscarOrden.Size = new System.Drawing.Size(182, 20);
             this.txtBuscarOrden.TabIndex = 1;
             // 
-            // frmPedido
+            // frmRevisarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -199,11 +190,10 @@
             this.Controls.Add(this.grpRecepcion);
             this.Controls.Add(this.btnDescargarOrden);
             this.Controls.Add(this.grdOrden);
-            this.Controls.Add(this.btnMostrarRecepcion);
             this.Controls.Add(this.btnEliminarOrden);
             this.Controls.Add(this.btnModificarOrden);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmPedido";
+            this.Name = "frmRevisarPedido";
             this.Text = "frmPedido";
             ((System.ComponentModel.ISupportInitialize)(this.grdOrden)).EndInit();
             this.grpRecepcion.ResumeLayout(false);
@@ -215,14 +205,13 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnMostrarRecepcion;
         private System.Windows.Forms.Button btnEliminarOrden;
         private System.Windows.Forms.Button btnModificarOrden;
         private System.Windows.Forms.DataGridView grdOrden;
         private System.Windows.Forms.Button btnDescargarOrden;
         private System.Windows.Forms.GroupBox grpRecepcion;
         private System.Windows.Forms.ComboBox cmbEstadoOrden;
-        private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.Button btnRecepcionar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cmbProveedores;

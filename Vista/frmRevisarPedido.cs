@@ -13,6 +13,7 @@ namespace Vista
 {
     public partial class frmRevisarPedido : Form
     {
+        int _numeroOrdenSeleccionado = 0;
         public frmRevisarPedido()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace Vista
             CargarComboboxEstadoOrden();
             CargarComboboxProveedor();
         }
-        
+
         #region Metodos
         private void CargarGrillaOrden()
         {
@@ -66,7 +67,7 @@ namespace Vista
                 }
             }
         }
-        
+
         private void EliminarOrdenPedido()
         {
             if (!String.IsNullOrEmpty(txtBuscarOrden.Text))
@@ -80,6 +81,29 @@ namespace Vista
                 else
                 {
                     MessageBox.Show("Orden de pedido no eliminado");
+                }
+            }
+        }
+        public void RecepcionarOrden()
+        {
+            if (_numeroOrdenSeleccionado != 0)
+            {
+                OrdenPedido orden = new OrdenPedido();
+                orden = orden.ObtenerOrdenPedido(_numeroOrdenSeleccionado);
+                EstadoOrden estado = new EstadoOrden();
+                estado.Id = (int)cmbEstadoOrden.SelectedValue;
+                DateTime fechaRecepcion = DateTime.Now.Date;
+                orden.Estado = estado;
+                orden.FechaRecepcion = fechaRecepcion;
+                bool ordenRecepcionada = orden.RecepcionarOrdenPedido(orden);
+                if (ordenRecepcionada)
+                {
+                    MessageBox.Show("Orden Recepcionada");
+                    _numeroOrdenSeleccionado = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Orden no se ha recepcionado.");
                 }
             }
         }
@@ -98,15 +122,23 @@ namespace Vista
             CargarGrillaOrden();
             LimpiarDatos();
         }
+        private void btnRecepcionar_Click(object sender, EventArgs e)
+        {
+            RecepcionarOrden();
+            CargarGrillaOrden();
+        }
         #endregion
 
         #region MetodoGrilla
-        private void grdOrden_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void grdOrden_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int rowIndex = e.RowIndex;
-            int numero = int.Parse(grdOrden.Rows[rowIndex].Cells[0].Value.ToString());
-            //MostrarDatosOrden(numero);
+            if (e.RowIndex > -1)
+            {
+                int numeroOrden = int.Parse(this.grdOrden[0, e.RowIndex].Value.ToString());
+                _numeroOrdenSeleccionado = numeroOrden;
+            }
         }
         #endregion
+        
     }
 }

@@ -313,6 +313,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grdUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdUsuario.Location = new System.Drawing.Point(12, 8);
+            this.grdUsuario.MultiSelect = false;
             this.grdUsuario.Name = "grdUsuario";
             this.grdUsuario.ReadOnly = true;
             this.grdUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
