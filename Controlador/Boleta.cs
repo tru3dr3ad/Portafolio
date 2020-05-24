@@ -207,7 +207,6 @@ namespace Controlador
 
                 OracleCommand command = connection.CreateCommand();
                 command.CommandText = sql;
-                //command.BindByName = true;
                 command.Parameters.Add(new OracleParameter("MONTO", monto));
                 OracleDataReader reader = command.ExecuteReader();
                 reader.Close();
@@ -219,6 +218,32 @@ namespace Controlador
 
                 throw;
             }            
+        }
+
+        public void ProcedimientoDevuelveParametro()
+        {
+            try
+            {
+                Conexion conexion = new Conexion();
+                OracleConnection connection = conexion.ConexionBd();
+                connection.Open();
+
+                OracleCommand command = connection.CreateCommand();
+                command.CommandText = "BEGIN SP_ACTUALIZARPRECIO(:ESTADO); end; ";
+
+                OracleParameter outval = new OracleParameter("ESTADO", OracleDbType.Varchar2, 50);
+                outval.Direction = ParameterDirection.Output;
+                command.Parameters.Add(outval);
+
+                command.ExecuteNonQuery();
+                string resultado = outval.Value.ToString();
+                connection.Close();
+            }
+            catch (Exception ex)
+             {
+
+                throw;
+            }
         }
     }
 }

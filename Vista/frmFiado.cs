@@ -17,8 +17,13 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        private void btnBuscarUsuario_Click(object sender, EventArgs e)
+        {
+            Boleta boleta = new Boleta();
+            boleta.ProcedimientoDevuelveParametro();
+        }
         //boleta.EjecutarSP();TODO
         //boleta.EjecutarConParametro(int.Parse(txtBuscarUsuario.Text));TODO        
-        
     }
 }
