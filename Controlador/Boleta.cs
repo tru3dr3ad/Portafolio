@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Modelo;
+using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,9 +57,9 @@ namespace Controlador
                 Numero = (int)boleta.NUMEROBOLETA;
                 FechaCreacion = boleta.FECHABOLETA;
                 Valor = (int)boleta.VALORBOLETA;
-                MedioPago = new MedioPago() { Id = (int)boleta.MEDIO_PAGO.MEDIOPAGOID};
-                Cliente = new Cliente() { Run = (int)boleta.CLIENTE.RUNCLIENTE};
-                Usuario = new Usuario() { RunUsuario = (int)boleta.USUARIO.RUNUSUARIO};
+                MedioPago = new MedioPago() { Id = (int)boleta.MEDIO_PAGO.MEDIOPAGOID };
+                Cliente = new Cliente() { Run = (int)boleta.CLIENTE.RUNCLIENTE };
+                Usuario = new Usuario() { RunUsuario = (int)boleta.USUARIO.RUNUSUARIO };
                 Boleta boletaEncontrada = new Boleta(Numero, FechaCreacion, Valor, MedioPago, Cliente, Usuario);
                 return boletaEncontrada;
             }
@@ -83,7 +86,7 @@ namespace Controlador
         {
             try
             {
-                Modelo.BOLETA boleta = ConectorDALC.ModeloAlmacen.BOLETA.FirstOrDefault(e => e.NUMEROBOLETA== numero);
+                Modelo.BOLETA boleta = ConectorDALC.ModeloAlmacen.BOLETA.FirstOrDefault(e => e.NUMEROBOLETA == numero);
                 if (boleta != null)
                 {
                     return true;
@@ -128,7 +131,7 @@ namespace Controlador
             {
                 if (BuscarBoleta(modificarBoleta.Numero))
                 {
-                    Modelo.BOLETA boleta = ConectorDALC.ModeloAlmacen.BOLETA.FirstOrDefault(e => e.NUMEROBOLETA== modificarBoleta.Numero);
+                    Modelo.BOLETA boleta = ConectorDALC.ModeloAlmacen.BOLETA.FirstOrDefault(e => e.NUMEROBOLETA == modificarBoleta.Numero);
                     boleta.NUMEROBOLETA = modificarBoleta.Numero;
                     boleta.FECHABOLETA = modificarBoleta.FechaCreacion;
                     boleta.VALORBOLETA = modificarBoleta.Valor;
@@ -175,5 +178,47 @@ namespace Controlador
         }
         #endregion
 
+        public void EjecutarSP()
+        {
+            try
+            {
+                Conexion conexion = new Conexion();
+                OracleDataReader reader = conexion.EjecutarQuery("BEGIN SP_ACTUALIZARPRECIO2(); END;");
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
+        }
+
+        public void EjecutarConParametro(int monto)
+        {
+            try
+            {
+                string sql = "BEGIN SP_ACTUALIZARPRECIO(:MONTO); end; ";
+                Conexion conexion = new Conexion();
+                OracleConnection connection = conexion.ConexionBd();
+                connection.Open();
+
+
+                OracleCommand command = connection.CreateCommand();
+                command.CommandText = sql;
+                //command.BindByName = true;
+                command.Parameters.Add(new OracleParameter("MONTO", monto));
+                OracleDataReader reader = command.ExecuteReader();
+                reader.Close();
+                command.Dispose();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }            
+        }
     }
 }

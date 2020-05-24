@@ -12,6 +12,8 @@ namespace Modelo
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class AlmacenEntities : DbContext
     {
@@ -42,5 +44,10 @@ namespace Modelo
         public virtual DbSet<TIPO_RUBRO> TIPO_RUBRO { get; set; }
         public virtual DbSet<TIPO_USUARIO> TIPO_USUARIO { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
+    
+        public virtual int SP_ACTUALIZARPRECIO2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ACTUALIZARPRECIO2");
+        }
     }
 }

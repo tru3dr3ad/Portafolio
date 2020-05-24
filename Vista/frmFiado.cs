@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,8 @@ namespace Vista
         {
             InitializeComponent();
         }
+        //boleta.EjecutarSP();TODO
+        //boleta.EjecutarConParametro(int.Parse(txtBuscarUsuario.Text));TODO        
+        
     }
 }

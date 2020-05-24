@@ -375,6 +375,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SP_ACTUALIZARPRECIO2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ALMACEN" />
         <EntityContainer Name="ModeloAlmacenStoreContainer">
           <EntitySet Name="ABONO" EntityType="Self.ABONO" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="BOLETA" EntityType="Self.BOLETA" Schema="ALMACEN" store:Type="Tables" />
@@ -552,6 +553,7 @@
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
+          <FunctionImport Name="SP_ACTUALIZARPRECIO2" />
         </EntityContainer>
         <EntityType Name="ABONO">
           <Key>
@@ -1142,6 +1144,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_ACTUALIZARPRECIO2" FunctionName="ModeloAlmacen.Store.SP_ACTUALIZARPRECIO2" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
