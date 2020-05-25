@@ -90,6 +90,7 @@
             this.cmbMedioPago.Name = "cmbMedioPago";
             this.cmbMedioPago.Size = new System.Drawing.Size(181, 21);
             this.cmbMedioPago.TabIndex = 50;
+            this.cmbMedioPago.SelectedValueChanged += new System.EventHandler(this.cmbMedioPago_SelectedValueChanged);
             // 
             // label1
             // 
@@ -143,6 +144,7 @@
             this.btnModificarBoleta.TabIndex = 34;
             this.btnModificarBoleta.Text = "Modificar";
             this.btnModificarBoleta.UseVisualStyleBackColor = true;
+            this.btnModificarBoleta.Click += new System.EventHandler(this.btnModificarBoleta_Click);
             // 
             // frmRevisarVenta
             // 

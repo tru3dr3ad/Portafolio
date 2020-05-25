@@ -15,8 +15,11 @@ namespace Modelo
     public partial class REGISTRO_FIADO
     {
         public decimal REGISTROID { get; set; }
-        public Nullable<decimal> ABONO_ABONOID { get; set; }
+        public System.DateTime FECHAABONO { get; set; }
+        public decimal MONTO { get; set; }
+        public System.DateTime FECHALIMITE { get; set; }
         public Nullable<decimal> CLIENTE_RUNCLIENTE { get; set; }
+        public Nullable<decimal> ABONO_ABONOID { get; set; }
     
         public virtual ABONO ABONO { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }

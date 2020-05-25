@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="ABONOID" />
           </Key>
-          <Property Name="ABONOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ABONOID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FECHAABONO" Type="date" Nullable="false" />
           <Property Name="VALORABONO" Type="number" Precision="6" Scale="0" Nullable="false" />
         </EntityType>
@@ -131,9 +131,12 @@
           <Key>
             <PropertyRef Name="REGISTROID" />
           </Key>
-          <Property Name="REGISTROID" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ABONO_ABONOID" Type="number" Precision="38" Scale="0" />
+          <Property Name="REGISTROID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FECHAABONO" Type="date" Nullable="false" />
+          <Property Name="MONTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHALIMITE" Type="date" Nullable="false" />
           <Property Name="CLIENTE_RUNCLIENTE" Type="number" Precision="38" Scale="0" />
+          <Property Name="ABONO_ABONOID" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="TIPO_CLIENTE">
           <Key>
@@ -468,6 +471,7 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ModeloAlmacen" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="AlmacenEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="SP_ACTUALIZARPRECIO2" />
           <EntitySet Name="ABONO" EntityType="ModeloAlmacen.ABONO" />
           <EntitySet Name="BOLETA" EntityType="ModeloAlmacen.BOLETA" />
           <EntitySet Name="CATEGORIA" EntityType="ModeloAlmacen.CATEGORIA" />
@@ -553,13 +557,12 @@
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
-          <FunctionImport Name="SP_ACTUALIZARPRECIO2" />
         </EntityContainer>
         <EntityType Name="ABONO">
           <Key>
             <PropertyRef Name="ABONOID" />
           </Key>
-          <Property Name="ABONOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ABONOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FECHAABONO" Type="DateTime" Nullable="false" />
           <Property Name="VALORABONO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="REGISTRO_FIADO" Relationship="ModeloAlmacen.REGISTRO_FIADO_ABONO_FK" FromRole="ABONO" ToRole="REGISTRO_FIADO" />
@@ -568,7 +571,7 @@
           <Key>
             <PropertyRef Name="NUMEROBOLETA" />
           </Key>
-          <Property Name="NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FECHABOLETA" Type="DateTime" Nullable="false" />
           <Property Name="VALORBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="MEDIO_PAGO_MEDIOPAGOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
@@ -611,7 +614,7 @@
             <PropertyRef Name="BOLETA_NUMEROBOLETA" />
             <PropertyRef Name="PRODUCTO_CODIGOPROD" />
           </Key>
-          <Property Name="IDDETALLEB" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDETALLEB" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BOLETA_NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="PRODUCTO_CODIGOPROD" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="true" />
           <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
@@ -624,7 +627,7 @@
             <PropertyRef Name="ORDEN_PEDIDO_NUMERORDEN" />
             <PropertyRef Name="PRODUCTO_CODIGOPROD" />
           </Key>
-          <Property Name="IDDETALLEO" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDETALLEO" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ORDEN_PEDIDO_NUMERORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="PRODUCTO_CODIGOPROD" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="true" />
           <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
@@ -659,7 +662,7 @@
           <Key>
             <PropertyRef Name="NUMERORDEN" />
           </Key>
-          <Property Name="NUMERORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NUMERORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FECHAORDEN" Type="DateTime" Nullable="false" />
           <Property Name="VALORORDEN" Type="Int32" Nullable="false" />
           <Property Name="FECHARECEPCION" Type="DateTime" Nullable="false" />
@@ -707,9 +710,12 @@
           <Key>
             <PropertyRef Name="REGISTROID" />
           </Key>
-          <Property Name="REGISTROID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="ABONO_ABONOID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="REGISTROID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FECHAABONO" Type="DateTime" Nullable="false" />
+          <Property Name="MONTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="FECHALIMITE" Type="DateTime" Nullable="false" />
           <Property Name="CLIENTE_RUNCLIENTE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ABONO_ABONOID" Type="Decimal" Precision="38" Scale="0" />
           <NavigationProperty Name="ABONO" Relationship="ModeloAlmacen.REGISTRO_FIADO_ABONO_FK" FromRole="REGISTRO_FIADO" ToRole="ABONO" />
           <NavigationProperty Name="CLIENTE" Relationship="ModeloAlmacen.REGISTRO_FIADO_CLIENTE_FK" FromRole="REGISTRO_FIADO" ToRole="CLIENTE" />
         </EntityType>
@@ -965,6 +971,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModeloAlmacenStoreContainer" CdmEntityContainer="AlmacenEntities">
+          <FunctionImportMapping FunctionImportName="SP_ACTUALIZARPRECIO2" FunctionName="ModeloAlmacen.Store.SP_ACTUALIZARPRECIO2" />
           <EntitySetMapping Name="ABONO">
             <EntityTypeMapping TypeName="ModeloAlmacen.ABONO">
               <MappingFragment StoreEntitySet="ABONO">
@@ -1098,8 +1105,11 @@
           <EntitySetMapping Name="REGISTRO_FIADO">
             <EntityTypeMapping TypeName="ModeloAlmacen.REGISTRO_FIADO">
               <MappingFragment StoreEntitySet="REGISTRO_FIADO">
-                <ScalarProperty Name="CLIENTE_RUNCLIENTE" ColumnName="CLIENTE_RUNCLIENTE" />
                 <ScalarProperty Name="ABONO_ABONOID" ColumnName="ABONO_ABONOID" />
+                <ScalarProperty Name="CLIENTE_RUNCLIENTE" ColumnName="CLIENTE_RUNCLIENTE" />
+                <ScalarProperty Name="FECHALIMITE" ColumnName="FECHALIMITE" />
+                <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+                <ScalarProperty Name="FECHAABONO" ColumnName="FECHAABONO" />
                 <ScalarProperty Name="REGISTROID" ColumnName="REGISTROID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1144,7 +1154,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SP_ACTUALIZARPRECIO2" FunctionName="ModeloAlmacen.Store.SP_ACTUALIZARPRECIO2" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

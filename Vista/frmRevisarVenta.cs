@@ -16,7 +16,7 @@ namespace Vista
         public frmRevisarVenta()
         {
             InitializeComponent();
-            CargarGrilla();
+            
             CargarComboboxMedioPago();
             CargarComboboxUsuario();
         }
@@ -30,17 +30,31 @@ namespace Vista
         private void CargarComboboxMedioPago()
         {
             Controlador.MedioPago medioPago = new Controlador.MedioPago();
-            cmbMedioPago.DataSource = medioPago.Listar();
             cmbMedioPago.DisplayMember = "Descripcion";
             cmbMedioPago.ValueMember = "Id";
+            cmbMedioPago.DataSource = medioPago.Listar();
         }
         private void CargarComboboxUsuario()
         {
             Controlador.Usuario usuario = new Controlador.Usuario();
-            cmbVendedores.DataSource = usuario.Listar();
             cmbVendedores.DisplayMember = "NombreUsuario";
             cmbVendedores.ValueMember = "RunUsuario";
+            cmbVendedores.DataSource = usuario.Listar();
         }
         #endregion
+
+        private void cmbMedioPago_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbMedioPago.SelectedValue != null)
+            {
+                Boleta boleta = new Boleta();
+                grdBoleta.DataSource = boleta.ListarPorMedioPago((int)cmbMedioPago.SelectedValue);
+            }
+        }
+
+        private void btnModificarBoleta_Click(object sender, EventArgs e)
+        {
+            CargarGrilla();
+        }
     }
 }
