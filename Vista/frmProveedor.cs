@@ -23,7 +23,7 @@ namespace Vista
         private void CargarGrilla()
         {
             Proveedor proveedor = new Proveedor();
-            grdProveedor.DataSource = proveedor.ListarProveedor();
+            grdProveedor.DataSource = proveedor.Listar();
         }
         private void CargarComboboxTipoRubro()
         {

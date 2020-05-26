@@ -18,6 +18,7 @@ namespace Modelo
         public BOLETA()
         {
             this.DETALLE_BOLETA = new HashSet<DETALLE_BOLETA>();
+            this.DETALLE_ABONO = new HashSet<DETALLE_ABONO>();
         }
     
         public decimal NUMEROBOLETA { get; set; }
@@ -32,5 +33,7 @@ namespace Modelo
         public virtual USUARIO USUARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DETALLE_BOLETA> DETALLE_BOLETA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DETALLE_ABONO> DETALLE_ABONO { get; set; }
     }
 }

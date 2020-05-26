@@ -58,6 +58,12 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.CLIENTE.ToList();
             return listado;
         }
+        public List<V_CLIENTES> ListarVistaCliente()
+        {
+            List<V_CLIENTES> listado = new List<V_CLIENTES>();
+            listado = ConectorDALC.ModeloAlmacen.V_CLIENTES.ToList();
+            return listado;
+        }
         public Cliente ObtenerCliente(int runCliente)
         {
             try

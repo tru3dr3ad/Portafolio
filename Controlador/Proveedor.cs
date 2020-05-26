@@ -36,19 +36,31 @@ namespace Controlador
         #endregion
 
         #region Metodos
-        public IList<Proveedor> Listar()
+        public IList<Proveedor> ListarCombobox()
         {
             List<Proveedor> listado = new List<Proveedor>();
             foreach (Modelo.PROVEEDOR proveedor in ConectorDALC.ModeloAlmacen.PROVEEDOR.ToList())
             {
-                Proveedor proveedor1 = new Proveedor();
-                proveedor1.Rut = (int)proveedor.RUTPROVEEDOR;
-                proveedor1.Nombre = proveedor.NOMBREPROVEEDOR;
-                listado.Add(proveedor1);
+                Proveedor proveedors = new Proveedor();
+                proveedors.Rut = (int)proveedor.RUTPROVEEDOR;
+                proveedors.Nombre = proveedor.NOMBREPROVEEDOR;
+                listado.Add(proveedors);
             }
             return listado;
         }
-        public List<Modelo.PROVEEDOR> ListarProveedor()
+        public IList<Proveedor> ListarComboboxId()
+        {
+            List<Proveedor> listado = new List<Proveedor>();
+            foreach (Modelo.PROVEEDOR proveedor in ConectorDALC.ModeloAlmacen.PROVEEDOR.ToList())
+            {
+                Proveedor proveedors = new Proveedor();
+                proveedors.IdProveedor = (int)proveedor.IDPROVEEDOR;
+                proveedors.Nombre = proveedor.NOMBREPROVEEDOR;
+                listado.Add(proveedors);
+            }
+            return listado;
+        }
+        public List<Modelo.PROVEEDOR> Listar()
         {
             List<Modelo.PROVEEDOR> listado = new List<Modelo.PROVEEDOR>();
             listado = ConectorDALC.ModeloAlmacen.PROVEEDOR.ToList();

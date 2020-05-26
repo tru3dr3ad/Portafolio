@@ -31,6 +31,7 @@ namespace Modelo
         public virtual DbSet<BOLETA> BOLETA { get; set; }
         public virtual DbSet<CATEGORIA> CATEGORIA { get; set; }
         public virtual DbSet<CLIENTE> CLIENTE { get; set; }
+        public virtual DbSet<DETALLE_ABONO> DETALLE_ABONO { get; set; }
         public virtual DbSet<DETALLE_BOLETA> DETALLE_BOLETA { get; set; }
         public virtual DbSet<DETALLE_PEDIDO> DETALLE_PEDIDO { get; set; }
         public virtual DbSet<ESTADO_FIADO> ESTADO_FIADO { get; set; }
@@ -39,11 +40,11 @@ namespace Modelo
         public virtual DbSet<ORDEN_PEDIDO> ORDEN_PEDIDO { get; set; }
         public virtual DbSet<PRODUCTO> PRODUCTO { get; set; }
         public virtual DbSet<PROVEEDOR> PROVEEDOR { get; set; }
-        public virtual DbSet<REGISTRO_FIADO> REGISTRO_FIADO { get; set; }
         public virtual DbSet<TIPO_CLIENTE> TIPO_CLIENTE { get; set; }
         public virtual DbSet<TIPO_RUBRO> TIPO_RUBRO { get; set; }
         public virtual DbSet<TIPO_USUARIO> TIPO_USUARIO { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
+        public virtual DbSet<V_CLIENTES> V_CLIENTES { get; set; }
     
         public virtual int SP_ACTUALIZARPRECIO2()
         {

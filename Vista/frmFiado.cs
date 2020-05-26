@@ -13,16 +13,23 @@ namespace Vista
 {
     public partial class frmFiado : Form
     {
+        int _numeroBoleta = 0;
         public frmFiado()
         {
             InitializeComponent();
             CargarGrillaVentasFiadas();
             CargarComboboxCliente();
+            CargarGrillaAbono();
         }
         private void CargarGrillaVentasFiadas()
         {
-            Boleta boleta = new Boleta(); 
+            Boleta boleta = new Boleta();
             grdVentaFiadas.DataSource = boleta.ListarPorMedioPago(4);
+        }
+        private void CargarGrillaAbono()
+        {
+            Abono abono = new Abono();
+            grdAbono.DataSource = abono.Listar();
         }
         private void CargarComboboxCliente()
         {
@@ -44,10 +51,10 @@ namespace Vista
         private void grdVentaFiadas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            int numeroBoleta = int.Parse(grdVentaFiadas.Rows[rowIndex].Cells[0].Value.ToString());
-            MostrarDeuda(numeroBoleta);
+            _numeroBoleta = int.Parse(grdVentaFiadas.Rows[rowIndex].Cells[0].Value.ToString());
+            MostrarDeuda(_numeroBoleta);
         }
-        
+
         public bool MostrarDeuda(int numeroBoleta)
         {
             Boleta boleta = new Boleta();
@@ -81,8 +88,37 @@ namespace Vista
             }
         }
 
-        //boleta.EjecutarSP();TODO
-        //boleta.EjecutarConParametro(int.Parse(txtBuscarUsuario.Text));TODO        
-        //boleta.ProcedimientoDevuelveParametro();TODO
+        public void AgregarAbono()
+        {
+            if (int.Parse(txtMontoAbono.Text) > 0)
+            {
+                DateTime fechaAbono = DateTime.Now.Date;
+                int montoAbono = int.Parse(txtMontoAbono.Text);
+
+                Abono abono = new Abono(fechaAbono, montoAbono);
+                if (abono.AgregarAbono())
+                {
+                    int idAbono = abono.ObtenerIdMaximoAbono();
+
+                    Boleta boleta = new Boleta();
+                    boleta = boleta.ObtenerBoleta(_numeroBoleta);
+                    DateTime fechaDetalleAbono = DateTime.Now.Date;
+                    DateTime fechaLimite = boleta.FechaCreacion.AddMonths(1);
+                    DetalleAbono detalleAbono = new DetalleAbono(boleta, abono, fechaDetalleAbono, abono.ValorAbono, fechaLimite);
+                    if (detalleAbono != null)
+                    {
+                        MessageBox.Show("Abono N°" + idAbono + " agregado.");
+                    }
+                }
+            }
+            _numeroBoleta = 0;
+        }
+
+        private void btnAgregarAbono_Click(object sender, EventArgs e)
+        {
+            AgregarAbono();
+            CargarGrillaVentasFiadas();
+            txtMontoAbono.Clear();
+        }
     }
 }

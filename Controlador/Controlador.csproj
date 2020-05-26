@@ -57,11 +57,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abono.cs" />
     <Compile Include="Boleta.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="ConectorDALC.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="DetalleAbono.cs" />
     <Compile Include="DetallePedido.cs" />
     <Compile Include="EstadoFiado.cs" />
     <Compile Include="EstadoOrden.cs" />

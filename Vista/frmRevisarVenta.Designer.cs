@@ -144,7 +144,6 @@
             this.btnModificarBoleta.TabIndex = 34;
             this.btnModificarBoleta.Text = "Modificar";
             this.btnModificarBoleta.UseVisualStyleBackColor = true;
-            this.btnModificarBoleta.Click += new System.EventHandler(this.btnModificarBoleta_Click);
             // 
             // frmRevisarVenta
             // 

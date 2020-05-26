@@ -22,10 +22,16 @@ namespace Vista
         }
 
         #region Metodos
+        private void EsconderColumnasAutogeneradas()
+        {
+            grdCliente.Columns["BOLETA"].Visible = false;
+            grdCliente.Columns["ESTADO_FIADO"].Visible = false;
+            grdCliente.Columns["TIPO_CLIENTE"].Visible = false;
+        }
         private void CargarGrilla()
         {
             Cliente cliente = new Cliente();
-            grdCliente.DataSource = cliente.Listar();
+            grdCliente.DataSource = cliente.ListarVistaCliente();
         }
         private void CargarComboboxTipoCliente()
         {
@@ -166,6 +172,8 @@ namespace Vista
         {
             BuscarCliente();
             txtBuscarCliente.Clear();
+            //Cliente cliente = new Cliente();
+            //grdCliente.DataSource = cliente.ListarConDescripcionPrueba();
         }
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {

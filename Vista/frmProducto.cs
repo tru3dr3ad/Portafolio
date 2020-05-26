@@ -1,12 +1,5 @@
 ﻿using Controlador;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Vista
@@ -16,21 +9,29 @@ namespace Vista
         public frmProducto()
         {
             InitializeComponent();
-            CargarGrilla();
             CargarComboboxCategoria();
+            CargarComboboxProveedorId();
+            CargarGrilla();
         }
         #region Metodos
         private void CargarGrilla()
         {
-            Producto producto= new Producto();
+            Producto producto = new Producto();
             grdProducto.DataSource = producto.Listar();
         }
         private void CargarComboboxCategoria()
         {
-            Controlador.Categoria categoria= new Controlador.Categoria();
-            cmbCategoria.DataSource = categoria.Listar();
+            Controlador.Categoria categoria = new Controlador.Categoria();
             cmbCategoria.DisplayMember = "Descripcion";
             cmbCategoria.ValueMember = "Id";
+            cmbCategoria.DataSource = categoria.Listar();
+        }
+        private void CargarComboboxProveedorId()
+        {
+            Controlador.Proveedor proveedor = new Controlador.Proveedor();
+            cmbProveedor.DisplayMember = "Nombre";
+            cmbProveedor.ValueMember = "IdProveedor";
+            cmbProveedor.DataSource = proveedor.ListarComboboxId();
         }
         public bool MostrarDatosProducto(string codigo)
         {
@@ -67,12 +68,25 @@ namespace Vista
             txtStockCritico.Clear();
             cmbCategoria.SelectedIndex = 0;
         }
+        private string GenerarCodigoProducto()
+        {
+            string idProveedor = cmbProveedor.SelectedValue.ToString();
+            string idCategoria = cmbCategoria.SelectedValue.ToString();
+            string fechaVencimiento = dtpFechaVencimiento.Value.ToShortDateString();
+            if (DateTime.Now.Date == dtpFechaVencimiento.Value.Date)
+            {
+                fechaVencimiento = "00000000";
+            }
+            string idSecuencial = "159";
+            string codigoProducto = idProveedor + idCategoria + fechaVencimiento + idSecuencial;
+            return codigoProducto;
+        }
         #endregion
 
         #region Metodos de la clase
         private void BuscarProducto()
         {
-            Producto producto= new Producto();
+            Producto producto = new Producto();
             if (!String.IsNullOrEmpty(txtBuscarProducto.Text))
             {
                 bool existeProducto = producto.BuscarProducto(txtBuscarProducto.Text);
@@ -88,9 +102,9 @@ namespace Vista
         }
         public void AgregarProducto()
         {
-            if (!String.IsNullOrEmpty(txtCodigo.Text))
+            if (!String.IsNullOrEmpty(txtNombre.Text))
             {
-                string codigo = txtCodigo.Text;
+                string codigo = GenerarCodigoProducto();
                 string nombre = txtNombre.Text;
                 string descripcion = txtDescripcion.Text;
                 int precioVenta = int.Parse(txtPrecioVenta.Text);
@@ -139,7 +153,7 @@ namespace Vista
         {
             if (!String.IsNullOrEmpty(txtCodigo.Text))
             {
-                Producto producto= new Producto();
+                Producto producto = new Producto();
                 bool eliminarProducto = producto.EliminarProducto(txtCodigo.Text);
                 if (eliminarProducto)
                 {

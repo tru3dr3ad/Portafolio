@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.grdVentaFiadas = new System.Windows.Forms.DataGridView();
-            this.btnEliminarUsuario = new System.Windows.Forms.Button();
-            this.btnAgregarUsuario = new System.Windows.Forms.Button();
+            this.btnEliminarAbono = new System.Windows.Forms.Button();
+            this.btnAgregarAbono = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBuscarUsuario = new System.Windows.Forms.Button();
             this.txtBuscarUsuario = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
+            this.rdbDeudaParcial = new System.Windows.Forms.RadioButton();
+            this.rdbDeudaTotal = new System.Windows.Forms.RadioButton();
             this.txtMontoAbono = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,12 +45,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtRunCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnModificarUsuario = new System.Windows.Forms.Button();
-            this.rdbDeudaTotal = new System.Windows.Forms.RadioButton();
-            this.rdbDeudaParcial = new System.Windows.Forms.RadioButton();
+            this.btnModificarAbono = new System.Windows.Forms.Button();
+            this.grdAbono = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.grdVentaFiadas)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAbono)).BeginInit();
             this.SuspendLayout();
             // 
             // grdVentaFiadas
@@ -62,29 +64,30 @@
             this.grdVentaFiadas.Name = "grdVentaFiadas";
             this.grdVentaFiadas.ReadOnly = true;
             this.grdVentaFiadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdVentaFiadas.Size = new System.Drawing.Size(740, 530);
+            this.grdVentaFiadas.Size = new System.Drawing.Size(740, 266);
             this.grdVentaFiadas.TabIndex = 37;
             this.grdVentaFiadas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdVentaFiadas_CellDoubleClick);
             // 
-            // btnEliminarUsuario
+            // btnEliminarAbono
             // 
-            this.btnEliminarUsuario.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnEliminarUsuario.Location = new System.Drawing.Point(816, 496);
-            this.btnEliminarUsuario.Name = "btnEliminarUsuario";
-            this.btnEliminarUsuario.Size = new System.Drawing.Size(128, 21);
-            this.btnEliminarUsuario.TabIndex = 34;
-            this.btnEliminarUsuario.Text = "Eliminar";
-            this.btnEliminarUsuario.UseVisualStyleBackColor = true;
+            this.btnEliminarAbono.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnEliminarAbono.Location = new System.Drawing.Point(816, 496);
+            this.btnEliminarAbono.Name = "btnEliminarAbono";
+            this.btnEliminarAbono.Size = new System.Drawing.Size(128, 21);
+            this.btnEliminarAbono.TabIndex = 34;
+            this.btnEliminarAbono.Text = "Eliminar";
+            this.btnEliminarAbono.UseVisualStyleBackColor = true;
             // 
-            // btnAgregarUsuario
+            // btnAgregarAbono
             // 
-            this.btnAgregarUsuario.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAgregarUsuario.Location = new System.Drawing.Point(816, 420);
-            this.btnAgregarUsuario.Name = "btnAgregarUsuario";
-            this.btnAgregarUsuario.Size = new System.Drawing.Size(128, 21);
-            this.btnAgregarUsuario.TabIndex = 32;
-            this.btnAgregarUsuario.Text = "Agregar";
-            this.btnAgregarUsuario.UseVisualStyleBackColor = true;
+            this.btnAgregarAbono.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAgregarAbono.Location = new System.Drawing.Point(816, 420);
+            this.btnAgregarAbono.Name = "btnAgregarAbono";
+            this.btnAgregarAbono.Size = new System.Drawing.Size(128, 21);
+            this.btnAgregarAbono.TabIndex = 32;
+            this.btnAgregarAbono.Text = "Agregar";
+            this.btnAgregarAbono.UseVisualStyleBackColor = true;
+            this.btnAgregarAbono.Click += new System.EventHandler(this.btnAgregarAbono_Click);
             // 
             // groupBox2
             // 
@@ -144,6 +147,28 @@
             this.cmbCliente.TabIndex = 17;
             this.cmbCliente.SelectedValueChanged += new System.EventHandler(this.cmbCliente_SelectedValueChanged);
             // 
+            // rdbDeudaParcial
+            // 
+            this.rdbDeudaParcial.AutoSize = true;
+            this.rdbDeudaParcial.Location = new System.Drawing.Point(110, 180);
+            this.rdbDeudaParcial.Name = "rdbDeudaParcial";
+            this.rdbDeudaParcial.Size = new System.Drawing.Size(57, 17);
+            this.rdbDeudaParcial.TabIndex = 13;
+            this.rdbDeudaParcial.Text = "Parcial";
+            this.rdbDeudaParcial.UseVisualStyleBackColor = true;
+            this.rdbDeudaParcial.CheckedChanged += new System.EventHandler(this.rdbDeudaParcial_CheckedChanged);
+            // 
+            // rdbDeudaTotal
+            // 
+            this.rdbDeudaTotal.AutoSize = true;
+            this.rdbDeudaTotal.Location = new System.Drawing.Point(35, 180);
+            this.rdbDeudaTotal.Name = "rdbDeudaTotal";
+            this.rdbDeudaTotal.Size = new System.Drawing.Size(49, 17);
+            this.rdbDeudaTotal.TabIndex = 12;
+            this.rdbDeudaTotal.Text = "Total";
+            this.rdbDeudaTotal.UseVisualStyleBackColor = true;
+            this.rdbDeudaTotal.CheckedChanged += new System.EventHandler(this.rdbDeudaTotal_CheckedChanged);
+            // 
             // txtMontoAbono
             // 
             this.txtMontoAbono.Location = new System.Drawing.Point(14, 239);
@@ -201,49 +226,42 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Run:";
             // 
-            // btnModificarUsuario
+            // btnModificarAbono
             // 
-            this.btnModificarUsuario.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnModificarUsuario.Location = new System.Drawing.Point(816, 457);
-            this.btnModificarUsuario.Name = "btnModificarUsuario";
-            this.btnModificarUsuario.Size = new System.Drawing.Size(128, 21);
-            this.btnModificarUsuario.TabIndex = 33;
-            this.btnModificarUsuario.Text = "Modificar";
-            this.btnModificarUsuario.UseVisualStyleBackColor = true;
+            this.btnModificarAbono.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnModificarAbono.Location = new System.Drawing.Point(816, 457);
+            this.btnModificarAbono.Name = "btnModificarAbono";
+            this.btnModificarAbono.Size = new System.Drawing.Size(128, 21);
+            this.btnModificarAbono.TabIndex = 33;
+            this.btnModificarAbono.Text = "Modificar";
+            this.btnModificarAbono.UseVisualStyleBackColor = true;
             // 
-            // rdbDeudaTotal
+            // grdAbono
             // 
-            this.rdbDeudaTotal.AutoSize = true;
-            this.rdbDeudaTotal.Location = new System.Drawing.Point(35, 180);
-            this.rdbDeudaTotal.Name = "rdbDeudaTotal";
-            this.rdbDeudaTotal.Size = new System.Drawing.Size(49, 17);
-            this.rdbDeudaTotal.TabIndex = 12;
-            this.rdbDeudaTotal.Text = "Total";
-            this.rdbDeudaTotal.UseVisualStyleBackColor = true;
-            this.rdbDeudaTotal.CheckedChanged += new System.EventHandler(this.rdbDeudaTotal_CheckedChanged);
-            // 
-            // rdbDeudaParcial
-            // 
-            this.rdbDeudaParcial.AutoSize = true;
-            this.rdbDeudaParcial.Location = new System.Drawing.Point(110, 180);
-            this.rdbDeudaParcial.Name = "rdbDeudaParcial";
-            this.rdbDeudaParcial.Size = new System.Drawing.Size(57, 17);
-            this.rdbDeudaParcial.TabIndex = 13;
-            this.rdbDeudaParcial.Text = "Parcial";
-            this.rdbDeudaParcial.UseVisualStyleBackColor = true;
-            this.rdbDeudaParcial.CheckedChanged += new System.EventHandler(this.rdbDeudaParcial_CheckedChanged);
+            this.grdAbono.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdAbono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdAbono.Location = new System.Drawing.Point(12, 294);
+            this.grdAbono.MultiSelect = false;
+            this.grdAbono.Name = "grdAbono";
+            this.grdAbono.ReadOnly = true;
+            this.grdAbono.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdAbono.Size = new System.Drawing.Size(740, 236);
+            this.grdAbono.TabIndex = 38;
             // 
             // frmFiado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.grdAbono);
             this.Controls.Add(this.grdVentaFiadas);
-            this.Controls.Add(this.btnEliminarUsuario);
-            this.Controls.Add(this.btnAgregarUsuario);
+            this.Controls.Add(this.btnEliminarAbono);
+            this.Controls.Add(this.btnAgregarAbono);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnModificarUsuario);
+            this.Controls.Add(this.btnModificarAbono);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmFiado";
             this.Text = "frmFiado";
@@ -252,6 +270,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAbono)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -259,8 +278,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView grdVentaFiadas;
-        private System.Windows.Forms.Button btnEliminarUsuario;
-        private System.Windows.Forms.Button btnAgregarUsuario;
+        private System.Windows.Forms.Button btnEliminarAbono;
+        private System.Windows.Forms.Button btnAgregarAbono;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnBuscarUsuario;
         private System.Windows.Forms.TextBox txtBuscarUsuario;
@@ -272,9 +291,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtRunCliente;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnModificarUsuario;
+        private System.Windows.Forms.Button btnModificarAbono;
         private System.Windows.Forms.ComboBox cmbCliente;
         private System.Windows.Forms.RadioButton rdbDeudaParcial;
         private System.Windows.Forms.RadioButton rdbDeudaTotal;
+        private System.Windows.Forms.DataGridView grdAbono;
     }
 }

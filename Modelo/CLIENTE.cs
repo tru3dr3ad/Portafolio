@@ -18,7 +18,6 @@ namespace Modelo
         public CLIENTE()
         {
             this.BOLETA = new HashSet<BOLETA>();
-            this.REGISTRO_FIADO = new HashSet<REGISTRO_FIADO>();
         }
     
         public decimal RUNCLIENTE { get; set; }
@@ -35,7 +34,5 @@ namespace Modelo
         public virtual ICollection<BOLETA> BOLETA { get; set; }
         public virtual ESTADO_FIADO ESTADO_FIADO { get; set; }
         public virtual TIPO_CLIENTE TIPO_CLIENTE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<REGISTRO_FIADO> REGISTRO_FIADO { get; set; }
     }
 }

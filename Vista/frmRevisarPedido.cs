@@ -17,9 +17,9 @@ namespace Vista
         public frmRevisarPedido()
         {
             InitializeComponent();
-            CargarGrillaOrden();
             CargarComboboxEstadoOrden();
             CargarComboboxProveedor();
+            CargarGrillaOrden();
         }
 
         #region Metodos
@@ -38,7 +38,7 @@ namespace Vista
         private void CargarComboboxProveedor()
         {
             Controlador.Proveedor proveedor = new Controlador.Proveedor();
-            cmbProveedores.DataSource = proveedor.Listar();
+            cmbProveedores.DataSource = proveedor.ListarCombobox();
             cmbProveedores.DisplayMember = "Nombre";
             cmbProveedores.ValueMember = "Rut";
         }

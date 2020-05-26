@@ -12,16 +12,16 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class REGISTRO_FIADO
+    public partial class V_CLIENTES
     {
-        public decimal REGISTROID { get; set; }
-        public System.DateTime FECHAABONO { get; set; }
-        public decimal MONTO { get; set; }
-        public System.DateTime FECHALIMITE { get; set; }
-        public Nullable<decimal> CLIENTE_RUNCLIENTE { get; set; }
-        public Nullable<decimal> ABONO_ABONOID { get; set; }
-    
-        public virtual ABONO ABONO { get; set; }
-        public virtual CLIENTE CLIENTE { get; set; }
+        public decimal RUNCLIENTE { get; set; }
+        public string DVCLIENTE { get; set; }
+        public string NOMBRECLIENTE { get; set; }
+        public string APELLIDOCLIENTE { get; set; }
+        public System.DateTime FECHANACIMIENTO { get; set; }
+        public string DIRECCIONCLIENTE { get; set; }
+        public int TELEFONOCLIENTE { get; set; }
+        public string DESCRIPCLIENTE { get; set; }
+        public string DESCRIPESTADO { get; set; }
     }
 }

@@ -22,9 +22,8 @@ namespace Vista
             CargarComboboxCliente();
             CargarComboboxMedioPago();
             CargarComboboxCategoria();
-            CargarGrillaProducto();
             CargarNumeroSiguienteBoleta();
-            
+            CargarGrillaProducto();
         }
         #region Metodos
         private void PersonalizarDiseño()
@@ -39,23 +38,23 @@ namespace Vista
         private void CargarComboboxMedioPago()
         {
             Controlador.MedioPago medioPago = new Controlador.MedioPago();
-            cmbMedioPago.DataSource = medioPago.Listar();
             cmbMedioPago.DisplayMember = "Descripcion";
             cmbMedioPago.ValueMember = "Id";
+            cmbMedioPago.DataSource = medioPago.Listar();
         }
         private void CargarComboboxCliente()
         {
             Controlador.Cliente cliente = new Controlador.Cliente();
-            cmbCliente.DataSource = cliente.ListarCombobox();
             cmbCliente.DisplayMember = "Nombre";
             cmbCliente.ValueMember = "Run";
+            cmbCliente.DataSource = cliente.ListarCombobox();
         }
         private void CargarComboboxCategoria()
         {
             Controlador.Categoria categoria = new Controlador.Categoria();
-            cmbCategoria.DataSource = categoria.Listar();
             cmbCategoria.DisplayMember = "Descripcion";
             cmbCategoria.ValueMember = "Id";
+            cmbCategoria.DataSource = categoria.Listar();
         }
         private void CargarNumeroSiguienteBoleta()
         {
@@ -196,5 +195,14 @@ namespace Vista
             }
         }
         #endregion
+
+        private void cmbCategoria_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbCategoria.SelectedValue != null)
+            {
+                Producto producto = new Producto();
+                grdProducto.DataSource = producto.ListarPorCategoria((int)cmbCategoria.SelectedValue);
+            }
+        }
     }
 }

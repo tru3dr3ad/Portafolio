@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="ABONOID" />
           </Key>
-          <Property Name="ABONOID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ABONOID" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="FECHAABONO" Type="date" Nullable="false" />
           <Property Name="VALORABONO" Type="number" Precision="6" Scale="0" Nullable="false" />
         </EntityType>
@@ -45,15 +45,28 @@
           <Property Name="ESTADO_FIADO_ESTADOID" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="TIPO_CLIENTE_TIPOCLIENTEID" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
+        <EntityType Name="DETALLE_ABONO">
+          <Key>
+            <PropertyRef Name="IDDETALLEA" />
+            <PropertyRef Name="NUMEROBOLETA" />
+            <PropertyRef Name="ABONOID" />
+          </Key>
+          <Property Name="IDDETALLEA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NUMEROBOLETA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ABONOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHAABONO" Type="date" Nullable="false" />
+          <Property Name="MONTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHALIMITE" Type="date" Nullable="false" />
+        </EntityType>
         <EntityType Name="DETALLE_BOLETA">
           <Key>
             <PropertyRef Name="IDDETALLEB" />
-            <PropertyRef Name="BOLETA_NUMEROBOLETA" />
             <PropertyRef Name="PRODUCTO_CODIGOPROD" />
+            <PropertyRef Name="BOLETA_NUMEROBOLETA" />
           </Key>
-          <Property Name="IDDETALLEB" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDDETALLEB" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PRODUCTO_CODIGOPROD" Type="varchar2" MaxLength="17" Nullable="false" />
           <Property Name="BOLETA_NUMEROBOLETA" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="PRODUCTO_CODIGOPROD" Type="nvarchar2" MaxLength="17" Nullable="false" />
           <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="DETALLE_PEDIDO">
@@ -62,9 +75,9 @@
             <PropertyRef Name="ORDEN_PEDIDO_NUMERORDEN" />
             <PropertyRef Name="PRODUCTO_CODIGOPROD" />
           </Key>
-          <Property Name="IDDETALLEO" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDDETALLEO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ORDEN_PEDIDO_NUMERORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="PRODUCTO_CODIGOPROD" Type="nvarchar2" MaxLength="17" Nullable="false" />
+          <Property Name="PRODUCTO_CODIGOPROD" Type="varchar2" MaxLength="17" Nullable="false" />
           <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="ESTADO_FIADO">
@@ -92,7 +105,7 @@
           <Key>
             <PropertyRef Name="NUMERORDEN" />
           </Key>
-          <Property Name="NUMERORDEN" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NUMERORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="FECHAORDEN" Type="date" Nullable="false" />
           <Property Name="VALORORDEN" Type="number" Precision="8" Scale="0" Nullable="false" />
           <Property Name="FECHARECEPCION" Type="date" Nullable="false" />
@@ -104,7 +117,7 @@
           <Key>
             <PropertyRef Name="CODIGOPROD" />
           </Key>
-          <Property Name="CODIGOPROD" Type="nvarchar2" MaxLength="17" Nullable="false" />
+          <Property Name="CODIGOPROD" Type="varchar2" MaxLength="17" Nullable="false" />
           <Property Name="NOMBREPROD" Type="varchar2" MaxLength="70" Nullable="false" />
           <Property Name="DESCRIPPROD" Type="varchar2" MaxLength="250" Nullable="false" />
           <Property Name="PRECIOVENTA" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -126,17 +139,6 @@
           <Property Name="TELEFONOPROVEEDOR" Type="number" Precision="9" Scale="0" Nullable="false" />
           <Property Name="DIRECCIONPROVEEDOR" Type="varchar2" MaxLength="150" Nullable="false" />
           <Property Name="TIPO_RUBRO_RUBROID" Type="number" Precision="38" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="REGISTRO_FIADO">
-          <Key>
-            <PropertyRef Name="REGISTROID" />
-          </Key>
-          <Property Name="REGISTROID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="FECHAABONO" Type="date" Nullable="false" />
-          <Property Name="MONTO" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="FECHALIMITE" Type="date" Nullable="false" />
-          <Property Name="CLIENTE_RUNCLIENTE" Type="number" Precision="38" Scale="0" />
-          <Property Name="ABONO_ABONOID" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="TIPO_CLIENTE">
           <Key>
@@ -173,6 +175,30 @@
           <Property Name="DIRECCIONUSUARIO" Type="varchar2" MaxLength="250" Nullable="false" />
           <Property Name="TELEFONOUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="TIPO_USUARIO_TIPOUSUARIOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ALMACEN.V_CLIENTES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_CLIENTES">
+          <Key>
+            <PropertyRef Name="RUNCLIENTE" />
+            <PropertyRef Name="DVCLIENTE" />
+            <PropertyRef Name="NOMBRECLIENTE" />
+            <PropertyRef Name="APELLIDOCLIENTE" />
+            <PropertyRef Name="FECHANACIMIENTO" />
+            <PropertyRef Name="DIRECCIONCLIENTE" />
+            <PropertyRef Name="TELEFONOCLIENTE" />
+            <PropertyRef Name="DESCRIPCLIENTE" />
+            <PropertyRef Name="DESCRIPESTADO" />
+          </Key>
+          <Property Name="RUNCLIENTE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DVCLIENTE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="NOMBRECLIENTE" Type="varchar2" MaxLength="70" Nullable="false" />
+          <Property Name="APELLIDOCLIENTE" Type="varchar2" MaxLength="70" Nullable="false" />
+          <Property Name="FECHANACIMIENTO" Type="date" Nullable="false" />
+          <Property Name="DIRECCIONCLIENTE" Type="varchar2" MaxLength="150" Nullable="false" />
+          <Property Name="TELEFONOCLIENTE" Type="number" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCLIENTE" Type="varchar2" MaxLength="70" Nullable="false" />
+          <Property Name="DESCRIPESTADO" Type="varchar2" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="BOLETA_CLIENTE_FK">
           <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
@@ -342,27 +368,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="REGISTRO_FIADO_ABONO_FK">
-          <End Role="ABONO" Type="Self.ABONO" Multiplicity="0..1" />
-          <End Role="REGISTRO_FIADO" Type="Self.REGISTRO_FIADO" Multiplicity="*" />
+        <Association Name="RELATION_21_ABONO_FK">
+          <End Role="ABONO" Type="Self.ABONO" Multiplicity="1" />
+          <End Role="DETALLE_ABONO" Type="Self.DETALLE_ABONO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ABONO">
               <PropertyRef Name="ABONOID" />
             </Principal>
-            <Dependent Role="REGISTRO_FIADO">
-              <PropertyRef Name="ABONO_ABONOID" />
+            <Dependent Role="DETALLE_ABONO">
+              <PropertyRef Name="ABONOID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="REGISTRO_FIADO_CLIENTE_FK">
-          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
-          <End Role="REGISTRO_FIADO" Type="Self.REGISTRO_FIADO" Multiplicity="*" />
+        <Association Name="RELATION_21_BOLETA_FK">
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="1" />
+          <End Role="DETALLE_ABONO" Type="Self.DETALLE_ABONO" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CLIENTE">
-              <PropertyRef Name="RUNCLIENTE" />
+            <Principal Role="BOLETA">
+              <PropertyRef Name="NUMEROBOLETA" />
             </Principal>
-            <Dependent Role="REGISTRO_FIADO">
-              <PropertyRef Name="CLIENTE_RUNCLIENTE" />
+            <Dependent Role="DETALLE_ABONO">
+              <PropertyRef Name="NUMEROBOLETA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -384,6 +410,7 @@
           <EntitySet Name="BOLETA" EntityType="Self.BOLETA" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="DETALLE_ABONO" EntityType="Self.DETALLE_ABONO" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="DETALLE_BOLETA" EntityType="Self.DETALLE_BOLETA" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="DETALLE_PEDIDO" EntityType="Self.DETALLE_PEDIDO" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="ESTADO_FIADO" EntityType="Self.ESTADO_FIADO" Schema="ALMACEN" store:Type="Tables" />
@@ -392,11 +419,23 @@
           <EntitySet Name="ORDEN_PEDIDO" EntityType="Self.ORDEN_PEDIDO" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="ALMACEN" store:Type="Tables" />
-          <EntitySet Name="REGISTRO_FIADO" EntityType="Self.REGISTRO_FIADO" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="TIPO_CLIENTE" EntityType="Self.TIPO_CLIENTE" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="TIPO_RUBRO" EntityType="Self.TIPO_RUBRO" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="V_CLIENTES" EntityType="Self.V_CLIENTES" store:Type="Views" store:Schema="ALMACEN">
+            <DefiningQuery>SELECT 
+"V_CLIENTES"."RUNCLIENTE" AS "RUNCLIENTE", 
+"V_CLIENTES"."DVCLIENTE" AS "DVCLIENTE", 
+"V_CLIENTES"."NOMBRECLIENTE" AS "NOMBRECLIENTE", 
+"V_CLIENTES"."APELLIDOCLIENTE" AS "APELLIDOCLIENTE", 
+"V_CLIENTES"."FECHANACIMIENTO" AS "FECHANACIMIENTO", 
+"V_CLIENTES"."DIRECCIONCLIENTE" AS "DIRECCIONCLIENTE", 
+"V_CLIENTES"."TELEFONOCLIENTE" AS "TELEFONOCLIENTE", 
+"V_CLIENTES"."DESCRIPCLIENTE" AS "DESCRIPCLIENTE", 
+"V_CLIENTES"."DESCRIPESTADO" AS "DESCRIPESTADO"
+FROM "ALMACEN"."V_CLIENTES" "V_CLIENTES"</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="BOLETA_CLIENTE_FK" Association="Self.BOLETA_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="BOLETA" EntitySet="BOLETA" />
@@ -453,13 +492,13 @@
             <End Role="TIPO_RUBRO" EntitySet="TIPO_RUBRO" />
             <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
           </AssociationSet>
-          <AssociationSet Name="REGISTRO_FIADO_ABONO_FK" Association="Self.REGISTRO_FIADO_ABONO_FK">
+          <AssociationSet Name="RELATION_21_ABONO_FK" Association="Self.RELATION_21_ABONO_FK">
             <End Role="ABONO" EntitySet="ABONO" />
-            <End Role="REGISTRO_FIADO" EntitySet="REGISTRO_FIADO" />
+            <End Role="DETALLE_ABONO" EntitySet="DETALLE_ABONO" />
           </AssociationSet>
-          <AssociationSet Name="REGISTRO_FIADO_CLIENTE_FK" Association="Self.REGISTRO_FIADO_CLIENTE_FK">
-            <End Role="CLIENTE" EntitySet="CLIENTE" />
-            <End Role="REGISTRO_FIADO" EntitySet="REGISTRO_FIADO" />
+          <AssociationSet Name="RELATION_21_BOLETA_FK" Association="Self.RELATION_21_BOLETA_FK">
+            <End Role="BOLETA" EntitySet="BOLETA" />
+            <End Role="DETALLE_ABONO" EntitySet="DETALLE_ABONO" />
           </AssociationSet>
           <AssociationSet Name="USUARIO_TIPO_USUARIO_FK" Association="Self.USUARIO_TIPO_USUARIO_FK">
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
@@ -476,6 +515,7 @@
           <EntitySet Name="BOLETA" EntityType="ModeloAlmacen.BOLETA" />
           <EntitySet Name="CATEGORIA" EntityType="ModeloAlmacen.CATEGORIA" />
           <EntitySet Name="CLIENTE" EntityType="ModeloAlmacen.CLIENTE" />
+          <EntitySet Name="DETALLE_ABONO" EntityType="ModeloAlmacen.DETALLE_ABONO" />
           <EntitySet Name="DETALLE_BOLETA" EntityType="ModeloAlmacen.DETALLE_BOLETA" />
           <EntitySet Name="DETALLE_PEDIDO" EntityType="ModeloAlmacen.DETALLE_PEDIDO" />
           <EntitySet Name="ESTADO_FIADO" EntityType="ModeloAlmacen.ESTADO_FIADO" />
@@ -484,14 +524,13 @@
           <EntitySet Name="ORDEN_PEDIDO" EntityType="ModeloAlmacen.ORDEN_PEDIDO" />
           <EntitySet Name="PRODUCTO" EntityType="ModeloAlmacen.PRODUCTO" />
           <EntitySet Name="PROVEEDOR" EntityType="ModeloAlmacen.PROVEEDOR" />
-          <EntitySet Name="REGISTRO_FIADO" EntityType="ModeloAlmacen.REGISTRO_FIADO" />
           <EntitySet Name="TIPO_CLIENTE" EntityType="ModeloAlmacen.TIPO_CLIENTE" />
           <EntitySet Name="TIPO_RUBRO" EntityType="ModeloAlmacen.TIPO_RUBRO" />
           <EntitySet Name="TIPO_USUARIO" EntityType="ModeloAlmacen.TIPO_USUARIO" />
           <EntitySet Name="USUARIO" EntityType="ModeloAlmacen.USUARIO" />
-          <AssociationSet Name="REGISTRO_FIADO_ABONO_FK" Association="ModeloAlmacen.REGISTRO_FIADO_ABONO_FK">
+          <AssociationSet Name="RELATION_21_ABONO_FK" Association="ModeloAlmacen.RELATION_21_ABONO_FK">
             <End Role="ABONO" EntitySet="ABONO" />
-            <End Role="REGISTRO_FIADO" EntitySet="REGISTRO_FIADO" />
+            <End Role="DETALLE_ABONO" EntitySet="DETALLE_ABONO" />
           </AssociationSet>
           <AssociationSet Name="BOLETA_CLIENTE_FK" Association="ModeloAlmacen.BOLETA_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
@@ -509,6 +548,10 @@
             <End Role="BOLETA" EntitySet="BOLETA" />
             <End Role="DETALLE_BOLETA" EntitySet="DETALLE_BOLETA" />
           </AssociationSet>
+          <AssociationSet Name="RELATION_21_BOLETA_FK" Association="ModeloAlmacen.RELATION_21_BOLETA_FK">
+            <End Role="BOLETA" EntitySet="BOLETA" />
+            <End Role="DETALLE_ABONO" EntitySet="DETALLE_ABONO" />
+          </AssociationSet>
           <AssociationSet Name="PRODUCTO_CATEGORIA_FK" Association="ModeloAlmacen.PRODUCTO_CATEGORIA_FK">
             <End Role="CATEGORIA" EntitySet="CATEGORIA" />
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
@@ -520,10 +563,6 @@
           <AssociationSet Name="CLIENTE_TIPO_CLIENTE_FK" Association="ModeloAlmacen.CLIENTE_TIPO_CLIENTE_FK">
             <End Role="TIPO_CLIENTE" EntitySet="TIPO_CLIENTE" />
             <End Role="CLIENTE" EntitySet="CLIENTE" />
-          </AssociationSet>
-          <AssociationSet Name="REGISTRO_FIADO_CLIENTE_FK" Association="ModeloAlmacen.REGISTRO_FIADO_CLIENTE_FK">
-            <End Role="CLIENTE" EntitySet="CLIENTE" />
-            <End Role="REGISTRO_FIADO" EntitySet="REGISTRO_FIADO" />
           </AssociationSet>
           <AssociationSet Name="DETALLE_BOLETA_PRODUCTO_FK" Association="ModeloAlmacen.DETALLE_BOLETA_PRODUCTO_FK">
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
@@ -557,21 +596,22 @@
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="V_CLIENTES" EntityType="ModeloAlmacen.V_CLIENTES" />
+          </EntityContainer>
         <EntityType Name="ABONO">
           <Key>
             <PropertyRef Name="ABONOID" />
           </Key>
-          <Property Name="ABONOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ABONOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="FECHAABONO" Type="DateTime" Nullable="false" />
           <Property Name="VALORABONO" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="REGISTRO_FIADO" Relationship="ModeloAlmacen.REGISTRO_FIADO_ABONO_FK" FromRole="ABONO" ToRole="REGISTRO_FIADO" />
+          <NavigationProperty Name="DETALLE_ABONO" Relationship="ModeloAlmacen.RELATION_21_ABONO_FK" FromRole="ABONO" ToRole="DETALLE_ABONO" />
         </EntityType>
         <EntityType Name="BOLETA">
           <Key>
             <PropertyRef Name="NUMEROBOLETA" />
           </Key>
-          <Property Name="NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FECHABOLETA" Type="DateTime" Nullable="false" />
           <Property Name="VALORBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="MEDIO_PAGO_MEDIOPAGOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
@@ -581,6 +621,7 @@
           <NavigationProperty Name="MEDIO_PAGO" Relationship="ModeloAlmacen.BOLETA_MEDIO_PAGO_FK" FromRole="BOLETA" ToRole="MEDIO_PAGO" />
           <NavigationProperty Name="USUARIO" Relationship="ModeloAlmacen.BOLETA_USUARIO_FK" FromRole="BOLETA" ToRole="USUARIO" />
           <NavigationProperty Name="DETALLE_BOLETA" Relationship="ModeloAlmacen.DETALLE_BOLETA_BOLETA_FK" FromRole="BOLETA" ToRole="DETALLE_BOLETA" />
+          <NavigationProperty Name="DETALLE_ABONO" Relationship="ModeloAlmacen.RELATION_21_BOLETA_FK" FromRole="BOLETA" ToRole="DETALLE_ABONO" />
         </EntityType>
         <EntityType Name="CATEGORIA">
           <Key>
@@ -606,17 +647,31 @@
           <NavigationProperty Name="BOLETA" Relationship="ModeloAlmacen.BOLETA_CLIENTE_FK" FromRole="CLIENTE" ToRole="BOLETA" />
           <NavigationProperty Name="ESTADO_FIADO" Relationship="ModeloAlmacen.CLIENTE_ESTADO_FIADO_FK" FromRole="CLIENTE" ToRole="ESTADO_FIADO" />
           <NavigationProperty Name="TIPO_CLIENTE" Relationship="ModeloAlmacen.CLIENTE_TIPO_CLIENTE_FK" FromRole="CLIENTE" ToRole="TIPO_CLIENTE" />
-          <NavigationProperty Name="REGISTRO_FIADO" Relationship="ModeloAlmacen.REGISTRO_FIADO_CLIENTE_FK" FromRole="CLIENTE" ToRole="REGISTRO_FIADO" />
+        </EntityType>
+        <EntityType Name="DETALLE_ABONO">
+          <Key>
+            <PropertyRef Name="IDDETALLEA" />
+            <PropertyRef Name="NUMEROBOLETA" />
+            <PropertyRef Name="ABONOID" />
+          </Key>
+          <Property Name="IDDETALLEA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ABONOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="FECHAABONO" Type="DateTime" Nullable="false" />
+          <Property Name="MONTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="FECHALIMITE" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ABONO" Relationship="ModeloAlmacen.RELATION_21_ABONO_FK" FromRole="DETALLE_ABONO" ToRole="ABONO" />
+          <NavigationProperty Name="BOLETA" Relationship="ModeloAlmacen.RELATION_21_BOLETA_FK" FromRole="DETALLE_ABONO" ToRole="BOLETA" />
         </EntityType>
         <EntityType Name="DETALLE_BOLETA">
           <Key>
             <PropertyRef Name="IDDETALLEB" />
-            <PropertyRef Name="BOLETA_NUMEROBOLETA" />
             <PropertyRef Name="PRODUCTO_CODIGOPROD" />
+            <PropertyRef Name="BOLETA_NUMEROBOLETA" />
           </Key>
-          <Property Name="IDDETALLEB" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDETALLEB" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_CODIGOPROD" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
           <Property Name="BOLETA_NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="PRODUCTO_CODIGOPROD" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="true" />
           <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="BOLETA" Relationship="ModeloAlmacen.DETALLE_BOLETA_BOLETA_FK" FromRole="DETALLE_BOLETA" ToRole="BOLETA" />
           <NavigationProperty Name="PRODUCTO" Relationship="ModeloAlmacen.DETALLE_BOLETA_PRODUCTO_FK" FromRole="DETALLE_BOLETA" ToRole="PRODUCTO" />
@@ -627,9 +682,9 @@
             <PropertyRef Name="ORDEN_PEDIDO_NUMERORDEN" />
             <PropertyRef Name="PRODUCTO_CODIGOPROD" />
           </Key>
-          <Property Name="IDDETALLEO" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDETALLEO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="ORDEN_PEDIDO_NUMERORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="PRODUCTO_CODIGOPROD" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="true" />
+          <Property Name="PRODUCTO_CODIGOPROD" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
           <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="ORDEN_PEDIDO" Relationship="ModeloAlmacen.DETALLE_PEDIDO_ORDEN_PEDIDO_FK" FromRole="DETALLE_PEDIDO" ToRole="ORDEN_PEDIDO" />
           <NavigationProperty Name="PRODUCTO" Relationship="ModeloAlmacen.DETALLE_PEDIDO_PRODUCTO_FK" FromRole="DETALLE_PEDIDO" ToRole="PRODUCTO" />
@@ -662,7 +717,7 @@
           <Key>
             <PropertyRef Name="NUMERORDEN" />
           </Key>
-          <Property Name="NUMERORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NUMERORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="FECHAORDEN" Type="DateTime" Nullable="false" />
           <Property Name="VALORORDEN" Type="Int32" Nullable="false" />
           <Property Name="FECHARECEPCION" Type="DateTime" Nullable="false" />
@@ -678,7 +733,7 @@
           <Key>
             <PropertyRef Name="CODIGOPROD" />
           </Key>
-          <Property Name="CODIGOPROD" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="true" />
+          <Property Name="CODIGOPROD" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
           <Property Name="NOMBREPROD" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="DESCRIPPROD" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="PRECIOVENTA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
@@ -705,19 +760,6 @@
           <Property Name="TIPO_RUBRO_RUBROID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="ORDEN_PEDIDO" Relationship="ModeloAlmacen.ORDEN_PEDIDO_PROVEEDOR_FK" FromRole="PROVEEDOR" ToRole="ORDEN_PEDIDO" />
           <NavigationProperty Name="TIPO_RUBRO" Relationship="ModeloAlmacen.PROVEEDOR_TIPO_RUBRO_FK" FromRole="PROVEEDOR" ToRole="TIPO_RUBRO" />
-        </EntityType>
-        <EntityType Name="REGISTRO_FIADO">
-          <Key>
-            <PropertyRef Name="REGISTROID" />
-          </Key>
-          <Property Name="REGISTROID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FECHAABONO" Type="DateTime" Nullable="false" />
-          <Property Name="MONTO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="FECHALIMITE" Type="DateTime" Nullable="false" />
-          <Property Name="CLIENTE_RUNCLIENTE" Type="Decimal" Precision="38" Scale="0" />
-          <Property Name="ABONO_ABONOID" Type="Decimal" Precision="38" Scale="0" />
-          <NavigationProperty Name="ABONO" Relationship="ModeloAlmacen.REGISTRO_FIADO_ABONO_FK" FromRole="REGISTRO_FIADO" ToRole="ABONO" />
-          <NavigationProperty Name="CLIENTE" Relationship="ModeloAlmacen.REGISTRO_FIADO_CLIENTE_FK" FromRole="REGISTRO_FIADO" ToRole="CLIENTE" />
         </EntityType>
         <EntityType Name="TIPO_CLIENTE">
           <Key>
@@ -761,15 +803,15 @@
           <NavigationProperty Name="ORDEN_PEDIDO" Relationship="ModeloAlmacen.ORDEN_PEDIDO_USUARIO_FK" FromRole="USUARIO" ToRole="ORDEN_PEDIDO" />
           <NavigationProperty Name="TIPO_USUARIO" Relationship="ModeloAlmacen.USUARIO_TIPO_USUARIO_FK" FromRole="USUARIO" ToRole="TIPO_USUARIO" />
         </EntityType>
-        <Association Name="REGISTRO_FIADO_ABONO_FK">
-          <End Type="ModeloAlmacen.ABONO" Role="ABONO" Multiplicity="0..1" />
-          <End Type="ModeloAlmacen.REGISTRO_FIADO" Role="REGISTRO_FIADO" Multiplicity="*" />
+        <Association Name="RELATION_21_ABONO_FK">
+          <End Type="ModeloAlmacen.ABONO" Role="ABONO" Multiplicity="1" />
+          <End Type="ModeloAlmacen.DETALLE_ABONO" Role="DETALLE_ABONO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ABONO">
               <PropertyRef Name="ABONOID" />
             </Principal>
-            <Dependent Role="REGISTRO_FIADO">
-              <PropertyRef Name="ABONO_ABONOID" />
+            <Dependent Role="DETALLE_ABONO">
+              <PropertyRef Name="ABONOID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -821,6 +863,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="RELATION_21_BOLETA_FK">
+          <End Type="ModeloAlmacen.BOLETA" Role="BOLETA" Multiplicity="1" />
+          <End Type="ModeloAlmacen.DETALLE_ABONO" Role="DETALLE_ABONO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOLETA">
+              <PropertyRef Name="NUMEROBOLETA" />
+            </Principal>
+            <Dependent Role="DETALLE_ABONO">
+              <PropertyRef Name="NUMEROBOLETA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="PRODUCTO_CATEGORIA_FK">
           <End Type="ModeloAlmacen.CATEGORIA" Role="CATEGORIA" Multiplicity="1" />
           <End Type="ModeloAlmacen.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
@@ -854,18 +908,6 @@
             </Principal>
             <Dependent Role="CLIENTE">
               <PropertyRef Name="TIPO_CLIENTE_TIPOCLIENTEID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="REGISTRO_FIADO_CLIENTE_FK">
-          <End Type="ModeloAlmacen.CLIENTE" Role="CLIENTE" Multiplicity="0..1" />
-          <End Type="ModeloAlmacen.REGISTRO_FIADO" Role="REGISTRO_FIADO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTE">
-              <PropertyRef Name="RUNCLIENTE" />
-            </Principal>
-            <Dependent Role="REGISTRO_FIADO">
-              <PropertyRef Name="CLIENTE_RUNCLIENTE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -965,6 +1007,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="V_CLIENTES">
+          <Key>
+            <PropertyRef Name="RUNCLIENTE" />
+            <PropertyRef Name="DVCLIENTE" />
+            <PropertyRef Name="NOMBRECLIENTE" />
+            <PropertyRef Name="APELLIDOCLIENTE" />
+            <PropertyRef Name="FECHANACIMIENTO" />
+            <PropertyRef Name="DIRECCIONCLIENTE" />
+            <PropertyRef Name="TELEFONOCLIENTE" />
+            <PropertyRef Name="DESCRIPCLIENTE" />
+            <PropertyRef Name="DESCRIPESTADO" />
+          </Key>
+          <Property Name="RUNCLIENTE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DVCLIENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NOMBRECLIENTE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDOCLIENTE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="FECHANACIMIENTO" Type="DateTime" Nullable="false" />
+          <Property Name="DIRECCIONCLIENTE" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONOCLIENTE" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPCLIENTE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPESTADO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1016,12 +1080,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_ABONO">
+            <EntityTypeMapping TypeName="ModeloAlmacen.DETALLE_ABONO">
+              <MappingFragment StoreEntitySet="DETALLE_ABONO">
+                <ScalarProperty Name="FECHALIMITE" ColumnName="FECHALIMITE" />
+                <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+                <ScalarProperty Name="FECHAABONO" ColumnName="FECHAABONO" />
+                <ScalarProperty Name="ABONOID" ColumnName="ABONOID" />
+                <ScalarProperty Name="NUMEROBOLETA" ColumnName="NUMEROBOLETA" />
+                <ScalarProperty Name="IDDETALLEA" ColumnName="IDDETALLEA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="DETALLE_BOLETA">
             <EntityTypeMapping TypeName="ModeloAlmacen.DETALLE_BOLETA">
               <MappingFragment StoreEntitySet="DETALLE_BOLETA">
                 <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-                <ScalarProperty Name="PRODUCTO_CODIGOPROD" ColumnName="PRODUCTO_CODIGOPROD" />
                 <ScalarProperty Name="BOLETA_NUMEROBOLETA" ColumnName="BOLETA_NUMEROBOLETA" />
+                <ScalarProperty Name="PRODUCTO_CODIGOPROD" ColumnName="PRODUCTO_CODIGOPROD" />
                 <ScalarProperty Name="IDDETALLEB" ColumnName="IDDETALLEB" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1102,18 +1178,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="REGISTRO_FIADO">
-            <EntityTypeMapping TypeName="ModeloAlmacen.REGISTRO_FIADO">
-              <MappingFragment StoreEntitySet="REGISTRO_FIADO">
-                <ScalarProperty Name="ABONO_ABONOID" ColumnName="ABONO_ABONOID" />
-                <ScalarProperty Name="CLIENTE_RUNCLIENTE" ColumnName="CLIENTE_RUNCLIENTE" />
-                <ScalarProperty Name="FECHALIMITE" ColumnName="FECHALIMITE" />
-                <ScalarProperty Name="MONTO" ColumnName="MONTO" />
-                <ScalarProperty Name="FECHAABONO" ColumnName="FECHAABONO" />
-                <ScalarProperty Name="REGISTROID" ColumnName="REGISTROID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TIPO_CLIENTE">
             <EntityTypeMapping TypeName="ModeloAlmacen.TIPO_CLIENTE">
               <MappingFragment StoreEntitySet="TIPO_CLIENTE">
@@ -1154,7 +1218,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="V_CLIENTES">
+            <EntityTypeMapping TypeName="ModeloAlmacen.V_CLIENTES">
+              <MappingFragment StoreEntitySet="V_CLIENTES">
+                <ScalarProperty Name="DESCRIPESTADO" ColumnName="DESCRIPESTADO" />
+                <ScalarProperty Name="DESCRIPCLIENTE" ColumnName="DESCRIPCLIENTE" />
+                <ScalarProperty Name="TELEFONOCLIENTE" ColumnName="TELEFONOCLIENTE" />
+                <ScalarProperty Name="DIRECCIONCLIENTE" ColumnName="DIRECCIONCLIENTE" />
+                <ScalarProperty Name="FECHANACIMIENTO" ColumnName="FECHANACIMIENTO" />
+                <ScalarProperty Name="APELLIDOCLIENTE" ColumnName="APELLIDOCLIENTE" />
+                <ScalarProperty Name="NOMBRECLIENTE" ColumnName="NOMBRECLIENTE" />
+                <ScalarProperty Name="DVCLIENTE" ColumnName="DVCLIENTE" />
+                <ScalarProperty Name="RUNCLIENTE" ColumnName="RUNCLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

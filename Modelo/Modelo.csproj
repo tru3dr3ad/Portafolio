@@ -71,6 +71,9 @@
     <Compile Include="CLIENTE.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="DETALLE_ABONO.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="DETALLE_BOLETA.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
@@ -111,9 +114,6 @@
     <Compile Include="PROVEEDOR.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
-    <Compile Include="REGISTRO_FIADO.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
     <Compile Include="TIPO_CLIENTE.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
@@ -124,6 +124,9 @@
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="USUARIO.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_CLIENTES.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
   </ItemGroup>

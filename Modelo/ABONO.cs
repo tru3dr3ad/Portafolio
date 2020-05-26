@@ -17,7 +17,7 @@ namespace Modelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ABONO()
         {
-            this.REGISTRO_FIADO = new HashSet<REGISTRO_FIADO>();
+            this.DETALLE_ABONO = new HashSet<DETALLE_ABONO>();
         }
     
         public decimal ABONOID { get; set; }
@@ -25,6 +25,6 @@ namespace Modelo
         public int VALORABONO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<REGISTRO_FIADO> REGISTRO_FIADO { get; set; }
+        public virtual ICollection<DETALLE_ABONO> DETALLE_ABONO { get; set; }
     }
 }

@@ -16,9 +16,9 @@ namespace Vista
         public frmRevisarVenta()
         {
             InitializeComponent();
-            
             CargarComboboxMedioPago();
             CargarComboboxUsuario();
+            CargarGrilla();
         }
 
         #region Metodos
@@ -50,11 +50,6 @@ namespace Vista
                 Boleta boleta = new Boleta();
                 grdBoleta.DataSource = boleta.ListarPorMedioPago((int)cmbMedioPago.SelectedValue);
             }
-        }
-
-        private void btnModificarBoleta_Click(object sender, EventArgs e)
-        {
-            CargarGrilla();
         }
     }
 }

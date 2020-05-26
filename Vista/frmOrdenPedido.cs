@@ -19,9 +19,9 @@ namespace Vista
         {
             InitializeComponent();
             PersonalizarDiseño();
-            CargarGrillaProducto();
             CargarComboboxProveedor();
             CargarComboboxCategoria();
+            CargarGrillaProducto();
             CargarNumeroSiguienteOrden();
         }
         #region Metodos
@@ -37,16 +37,16 @@ namespace Vista
         private void CargarComboboxProveedor()
         {
             Controlador.Proveedor proveedor = new Controlador.Proveedor();
-            cmbProveedor.DataSource = proveedor.Listar();
             cmbProveedor.DisplayMember = "Nombre";
             cmbProveedor.ValueMember = "Rut";
+            cmbProveedor.DataSource = proveedor.ListarCombobox();
         }
         private void CargarComboboxCategoria()
         {
             Controlador.Categoria categoria = new Controlador.Categoria();
-            cmbCategoria.DataSource = categoria.Listar();
             cmbCategoria.DisplayMember = "Descripcion";
             cmbCategoria.ValueMember = "Id";
+            cmbCategoria.DataSource = categoria.Listar();
         }
         private void CargarNumeroSiguienteOrden()
         {
@@ -67,6 +67,7 @@ namespace Vista
         {
             txtCantidad.Value = 0;
         }
+
         #endregion
 
         #region Metodos de la clase
@@ -176,5 +177,15 @@ namespace Vista
             QuitarDetallePedido();
         }
         #endregion
+
+
+        private void cmbCategoria_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbCategoria.SelectedValue != null)
+            {
+                Producto producto = new Producto();
+                grdProducto.DataSource = producto.ListarPorCategoria((int)cmbCategoria.SelectedValue);
+            }
+        }
     }
 }
