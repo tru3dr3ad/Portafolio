@@ -24,6 +24,7 @@ namespace Vista
             CargarGrillaProducto();
             CargarNumeroSiguienteOrden();
         }
+
         #region Metodos
         private void PersonalizarDiseño()
         {
@@ -32,8 +33,9 @@ namespace Vista
         private void CargarGrillaProducto()
         {
             Producto producto = new Producto();
-            grdProducto.DataSource = producto.Listar();
+            grdProducto.DataSource = producto.ListarProductosCompra();
         }
+
         private void CargarComboboxProveedor()
         {
             Controlador.Proveedor proveedor = new Controlador.Proveedor();

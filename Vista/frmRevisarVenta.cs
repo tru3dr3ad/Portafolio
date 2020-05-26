@@ -25,7 +25,7 @@ namespace Vista
         private void CargarGrilla()
         {
             Boleta boleta = new Boleta();
-            grdBoleta.DataSource = boleta.Listar();
+            grdBoleta.DataSource = boleta.ListarBoletas();
         }
         private void CargarComboboxMedioPago()
         {
@@ -39,7 +39,7 @@ namespace Vista
             Controlador.Usuario usuario = new Controlador.Usuario();
             cmbVendedores.DisplayMember = "NombreUsuario";
             cmbVendedores.ValueMember = "RunUsuario";
-            cmbVendedores.DataSource = usuario.Listar();
+            cmbVendedores.DataSource = usuario.ListarCombobox();
         }
         #endregion
 

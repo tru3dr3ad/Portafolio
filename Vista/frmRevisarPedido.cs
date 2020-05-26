@@ -26,7 +26,7 @@ namespace Vista
         private void CargarGrillaOrden()
         {
             OrdenPedido orden = new OrdenPedido();
-            grdOrden.DataSource = orden.Listar();
+            grdOrden.DataSource = orden.ListarOrdenPedido();
         }
         private void CargarComboboxEstadoOrden()
         {

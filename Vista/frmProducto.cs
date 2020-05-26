@@ -17,7 +17,7 @@ namespace Vista
         private void CargarGrilla()
         {
             Producto producto = new Producto();
-            grdProducto.DataSource = producto.Listar();
+            grdProducto.DataSource = producto.ListarProductos();
         }
         private void CargarComboboxCategoria()
         {
@@ -72,12 +72,12 @@ namespace Vista
         {
             string idProveedor = cmbProveedor.SelectedValue.ToString();
             string idCategoria = cmbCategoria.SelectedValue.ToString();
-            string fechaVencimiento = dtpFechaVencimiento.Value.ToShortDateString();
+            string fechaVencimiento = dtpFechaVencimiento.Value.ToString("ddmmyyyy");
             if (DateTime.Now.Date == dtpFechaVencimiento.Value.Date)
             {
                 fechaVencimiento = "00000000";
             }
-            string idSecuencial = "159";
+            string idSecuencial = txtCodigo.Text;
             string codigoProducto = idProveedor + idCategoria + fechaVencimiento + idSecuencial;
             return codigoProducto;
         }

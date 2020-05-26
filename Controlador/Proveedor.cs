@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,6 +65,12 @@ namespace Controlador
         {
             List<Modelo.PROVEEDOR> listado = new List<Modelo.PROVEEDOR>();
             listado = ConectorDALC.ModeloAlmacen.PROVEEDOR.ToList();
+            return listado;
+        }
+        public List<V_PROVEEDORES> ListarProveedor()
+        {
+            List<V_PROVEEDORES> listado = new List<V_PROVEEDORES>();
+            listado = ConectorDALC.ModeloAlmacen.V_PROVEEDORES.ToList();
             return listado;
         }
         public Proveedor ObtenerProveedor(int rutProveedor)

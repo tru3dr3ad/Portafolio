@@ -17,14 +17,14 @@ namespace Vista
         public frmFiado()
         {
             InitializeComponent();
-            CargarGrillaVentasFiadas();
             CargarComboboxCliente();
             CargarGrillaAbono();
+            CargarGrillaVentasFiadas();
         }
         private void CargarGrillaVentasFiadas()
         {
             Boleta boleta = new Boleta();
-            grdVentaFiadas.DataSource = boleta.ListarPorMedioPago(4);
+            grdVentaFiadas.DataSource = boleta.ListarBoletasFiadas();
         }
         private void CargarGrillaAbono()
         {

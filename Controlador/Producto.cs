@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,11 +46,36 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.PRODUCTO.ToList();
             return listado;
         }
+        public List<V_PRODUCTOS> ListarProductos()
+        {
+            List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();
+            listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.OrderBy(p => p.CODIGO).ToList();
+            return listado;
+        }
+        public List<V_PRODUCTOS_VENDER> ListarProductosVenta()
+        {
+            List<V_PRODUCTOS_VENDER> listado = new List<V_PRODUCTOS_VENDER>();
+            listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS_VENDER.ToList();
+            return listado;
+        }
+        public List<V_PRODUCTOS_COMPRAR> ListarProductosCompra()
+        {
+            List<V_PRODUCTOS_COMPRAR> listado = new List<V_PRODUCTOS_COMPRAR>();
+            listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS_COMPRAR.ToList();
+            return listado;
+        }
         public List<Modelo.PRODUCTO> ListarPorCategoria(int idCategoria)
         {
             List<Modelo.PRODUCTO> listado = new List<Modelo.PRODUCTO>();
             listado = ConectorDALC.ModeloAlmacen.PRODUCTO.Where(p => p.CATEGORIA_CATEGORIAID == idCategoria).
                 OrderBy(p => p.NOMBREPROD).ToList();
+            return listado;
+        }
+        public List<Modelo.V_PRODUCTOS_VENDER> VistaPorCategoria(int idCategoria)
+        {
+            List<Modelo.V_PRODUCTOS_VENDER> listado = new List<Modelo.V_PRODUCTOS_VENDER>();
+            listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS_VENDER.Where(p => p.CATEGORIAID == idCategoria).
+                OrderBy(p => p.NOMBRE).ToList();
             return listado;
         }
         public Producto ObtenerProducto(string codigo)

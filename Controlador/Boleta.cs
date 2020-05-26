@@ -49,6 +49,33 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.BOLETA.ToList();
             return listado;
         }
+        public List<BOLETA> ListarPorMedioPago(int idMedio)
+        {
+            List<Modelo.BOLETA> listado = new List<Modelo.BOLETA>();
+            listado = ConectorDALC.ModeloAlmacen.BOLETA.Where(b => b.MEDIO_PAGO_MEDIOPAGOID == idMedio).
+                OrderByDescending(b => b.NUMEROBOLETA).ToList();
+            return listado;
+        }
+
+        public List<BOLETA> ListarPorClienteFiados(int runCliente)
+        {
+            List<Modelo.BOLETA> listado = new List<Modelo.BOLETA>();
+            listado = ConectorDALC.ModeloAlmacen.BOLETA.Where(b => b.CLIENTE_RUNCLIENTE == runCliente).Where(b => b.MEDIO_PAGO_MEDIOPAGOID == 4).
+                OrderByDescending(b => b.NUMEROBOLETA).ToList();
+            return listado;
+        }
+        public List<V_BOLETAS> ListarBoletas()
+        {
+            List<V_BOLETAS> listado = new List<V_BOLETAS>();
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.ToList();
+            return listado;
+        }
+        public List<V_VENTAS_FIADAS> ListarBoletasFiadas()
+        {
+            List<V_VENTAS_FIADAS> listado = new List<V_VENTAS_FIADAS>();
+            listado = ConectorDALC.ModeloAlmacen.V_VENTAS_FIADAS.ToList();
+            return listado;
+        }
         public Boleta ObtenerBoleta(int numero)
         {
             try
@@ -175,22 +202,6 @@ namespace Controlador
                 return false;
                 throw new ArgumentException("Error al eliminar boleta: " + ex);
             }
-        }
-
-        public List<BOLETA> ListarPorMedioPago(int idMedio)
-        {
-            List<Modelo.BOLETA> listado = new List<Modelo.BOLETA>();
-            listado = ConectorDALC.ModeloAlmacen.BOLETA.Where( b => b.MEDIO_PAGO_MEDIOPAGOID == idMedio).
-                OrderByDescending(b => b.NUMEROBOLETA).ToList();
-            return listado;
-        }
-
-        public List<BOLETA> ListarPorClienteFiados(int runCliente)
-        {
-            List<Modelo.BOLETA> listado = new List<Modelo.BOLETA>();
-            listado = ConectorDALC.ModeloAlmacen.BOLETA.Where(b => b.CLIENTE_RUNCLIENTE == runCliente).Where(b => b.MEDIO_PAGO_MEDIOPAGOID == 4).
-                OrderByDescending(b => b.NUMEROBOLETA).ToList();
-            return listado;
         }
 
         #endregion

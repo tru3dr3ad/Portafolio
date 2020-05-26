@@ -1,4 +1,5 @@
 ﻿using System;
+using Modelo;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,6 +50,12 @@ namespace Controlador
         {
             List<Modelo.ORDEN_PEDIDO> listado = new List<Modelo.ORDEN_PEDIDO>();
             listado = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.ToList();
+            return listado;
+        }
+        public List<Modelo.V_ORDEN_PEDIDO> ListarOrdenPedido()
+        {
+            List<Modelo.V_ORDEN_PEDIDO> listado = new List<Modelo.V_ORDEN_PEDIDO>();
+            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.ToList();
             return listado;
         }
         public int ObtenerNumeroMaximoOrden()

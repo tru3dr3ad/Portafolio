@@ -16,14 +16,14 @@ namespace Vista
         public frmProveedor()
         {
             InitializeComponent();
-            CargarGrilla();
             CargarComboboxTipoRubro();
+            CargarGrilla();
         }
         #region Metodos
         private void CargarGrilla()
         {
             Proveedor proveedor = new Proveedor();
-            grdProveedor.DataSource = proveedor.Listar();
+            grdProveedor.DataSource = proveedor.ListarProveedor();
         }
         private void CargarComboboxTipoRubro()
         {

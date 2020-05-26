@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,19 +42,25 @@ namespace Controlador
         #endregion
 
         #region Metodos
-        public IList<Usuario> Listar()
+        public IList<Usuario> ListarCombobox()
         {
             List<Usuario> listado = new List<Usuario>();
             foreach (Modelo.USUARIO usuario in ConectorDALC.ModeloAlmacen.USUARIO.ToList())
             {
-                Usuario usuario1 = new Usuario();
-                usuario1.RunUsuario = (int)usuario.RUNUSUARIO;
-                usuario1.NombreUsuario = usuario.NOMBREUSUARIO;
-                listado.Add(usuario1);
+                Usuario usuarios = new Usuario();
+                usuarios.RunUsuario = (int)usuario.RUNUSUARIO;
+                usuarios.NombreUsuario = usuario.NOMBREUSUARIO;
+                listado.Add(usuarios);
             }
             return listado;
         }
-        public List<Modelo.USUARIO> ListarUsuario()
+        public List<V_USUARIOS> ListarUsuarios()
+        {
+            List<V_USUARIOS> listado = new List<V_USUARIOS>();
+            listado = ConectorDALC.ModeloAlmacen.V_USUARIOS.ToList();
+            return listado;
+        }
+        public List<Modelo.USUARIO> Listar()
         {
             List<Modelo.USUARIO> listado = new List<Modelo.USUARIO>();
             listado = ConectorDALC.ModeloAlmacen.USUARIO.ToList();

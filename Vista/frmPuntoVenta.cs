@@ -33,7 +33,12 @@ namespace Vista
         private void CargarGrillaProducto()
         {
             Producto producto = new Producto();
-            grdProducto.DataSource = producto.Listar();
+            grdProducto.DataSource = producto.ListarProductosVenta();
+            OcultarColumnasAutogeneradas();
+        }
+        private void OcultarColumnasAutogeneradas()
+        {
+            grdProducto.Columns["CATEGORIAID"].Visible = false;
         }
         private void CargarComboboxMedioPago()
         {
@@ -201,7 +206,8 @@ namespace Vista
             if (cmbCategoria.SelectedValue != null)
             {
                 Producto producto = new Producto();
-                grdProducto.DataSource = producto.ListarPorCategoria((int)cmbCategoria.SelectedValue);
+                grdProducto.DataSource = producto.VistaPorCategoria((int)cmbCategoria.SelectedValue);
+                OcultarColumnasAutogeneradas();
             }
         }
     }

@@ -16,14 +16,14 @@ namespace Vista
         public frmUsuario()
         {
             InitializeComponent();
-            CargarGrilla();
             CargarComboboxTipoUsuario();
+            CargarGrilla();
         }
         #region Metodos
         public void CargarGrilla()
         {
             Usuario usuario = new Usuario();
-            grdUsuario.DataSource = usuario.ListarUsuario();
+            grdUsuario.DataSource = usuario.ListarUsuarios();
         }
         private void CargarComboboxTipoUsuario()
         {
