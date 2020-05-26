@@ -143,6 +143,7 @@
             // txtIdProveedor
             // 
             this.txtIdProveedor.Location = new System.Drawing.Point(13, 75);
+            this.txtIdProveedor.MaxLength = 3;
             this.txtIdProveedor.Name = "txtIdProveedor";
             this.txtIdProveedor.Size = new System.Drawing.Size(182, 20);
             this.txtIdProveedor.TabIndex = 17;
@@ -159,6 +160,7 @@
             // txtDv
             // 
             this.txtDv.Location = new System.Drawing.Point(175, 31);
+            this.txtDv.MaxLength = 1;
             this.txtDv.Name = "txtDv";
             this.txtDv.Size = new System.Drawing.Size(20, 20);
             this.txtDv.TabIndex = 4;
@@ -225,6 +227,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(13, 163);
+            this.txtTelefono.MaxLength = 13;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(182, 20);
             this.txtTelefono.TabIndex = 6;
@@ -257,6 +260,7 @@
             // txtRutProveedor
             // 
             this.txtRutProveedor.Location = new System.Drawing.Point(13, 31);
+            this.txtRutProveedor.MaxLength = 8;
             this.txtRutProveedor.Name = "txtRutProveedor";
             this.txtRutProveedor.Size = new System.Drawing.Size(139, 20);
             this.txtRutProveedor.TabIndex = 3;

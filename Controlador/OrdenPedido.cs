@@ -45,7 +45,7 @@ namespace Controlador
         }
         #endregion
 
-        #region Metodos
+        #region Metodos para listar
         public List<Modelo.ORDEN_PEDIDO> Listar()
         {
             List<Modelo.ORDEN_PEDIDO> listado = new List<Modelo.ORDEN_PEDIDO>();
@@ -70,6 +70,10 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.Where(o => o.ESTADOID == idEstado).ToList();
             return listado;
         }
+
+        #endregion
+
+        #region Metodos
         public int ObtenerNumeroMaximoOrden()
         {
             try

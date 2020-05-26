@@ -41,7 +41,7 @@ namespace Controlador
         }
         #endregion
 
-        #region Metodos
+        #region Metodos para listar
         public IList<Usuario> ListarCombobox()
         {
             List<Usuario> listado = new List<Usuario>();
@@ -66,6 +66,9 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.USUARIO.ToList();
             return listado;
         }
+        #endregion
+
+        #region Metodos
         public Usuario ObtenerUsuario(int runUsuario)
         {
             try

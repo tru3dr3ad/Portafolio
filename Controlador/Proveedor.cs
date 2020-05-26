@@ -36,7 +36,7 @@ namespace Controlador
         }
         #endregion
 
-        #region Metodos
+        #region Metodos para listar
         public IList<Proveedor> ListarCombobox()
         {
             List<Proveedor> listado = new List<Proveedor>();
@@ -73,6 +73,9 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_PROVEEDORES.ToList();
             return listado;
         }
+        #endregion
+
+        #region Metodos
         public Proveedor ObtenerProveedor(int rutProveedor)
         {
             try

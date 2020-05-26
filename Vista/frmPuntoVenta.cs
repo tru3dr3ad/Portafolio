@@ -24,6 +24,7 @@ namespace Vista
             CargarNumeroSiguienteBoleta();
             CargarGrillaProducto();
         }
+
         #region Metodos
         private void CargarGrillaProducto()
         {
@@ -124,7 +125,7 @@ namespace Vista
                         DetalleBoleta detalle = new DetalleBoleta(numeroBoleta, codigo, cantidad);
                         detalle.AgregarDetalleBoleta();
                     }
-                    MessageBox.Show("Boleta "+ numeroBoleta + " ha sido agregada.");
+                    MessageBox.Show("Boleta N°"+ numeroBoleta + " ha sido agregada.");
                 }
             }
         }

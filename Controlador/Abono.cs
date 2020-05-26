@@ -11,6 +11,8 @@ namespace Controlador
         public int Id { get; set; }
         public DateTime FechaAbono { get; set; }
         public int ValorAbono { get; set; }
+
+        #region Constructores
         public Abono(int id, DateTime fechaAbono, int valorAbono)
         {
             Id = id;
@@ -26,7 +28,9 @@ namespace Controlador
         {
 
         }
+        #endregion
 
+        #region Metodos
         public List<Modelo.ABONO> Listar()
         {
             List<Modelo.ABONO> listado = new List<Modelo.ABONO>();
@@ -63,6 +67,9 @@ namespace Controlador
                 throw;
             }
         }
+        #endregion
+
+        #region Metodos de la clase
         public bool BuscarAbono(int id)
         {
             try
@@ -151,8 +158,7 @@ namespace Controlador
                 throw new ArgumentException("Error al eliminar abono: " + ex);
             }
         }
-
-
+        #endregion
 
     }
 }

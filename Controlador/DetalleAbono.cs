@@ -14,6 +14,8 @@ namespace Controlador
         public DateTime FechaAbono { get; set; }
         public int Monto { get; set; }
         public DateTime FechaLimite { get; set; }
+
+        #region Constructores
         public DetalleAbono(int id, Boleta boleta, Abono abono, DateTime fechaAbono, int monto, DateTime fechaLimite)
         {
             Id = id;
@@ -35,7 +37,9 @@ namespace Controlador
         {
 
         }
+        #endregion
 
+        #region Metodos
         public List<Modelo.DETALLE_ABONO> Listar()
         {
             List<Modelo.DETALLE_ABONO> listado = new List<Modelo.DETALLE_ABONO>();
@@ -108,6 +112,7 @@ namespace Controlador
                 throw new ArgumentException("Error al eliminar detalle de fiado: " + ex);
             }
         }
+        #endregion
 
     }
 }

@@ -330,6 +330,7 @@
             // 
             // txtRutProveedor
             // 
+            this.txtRutProveedor.Enabled = false;
             this.txtRutProveedor.Location = new System.Drawing.Point(30, 79);
             this.txtRutProveedor.Name = "txtRutProveedor";
             this.txtRutProveedor.Size = new System.Drawing.Size(121, 20);

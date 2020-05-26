@@ -154,6 +154,7 @@
             // txtStockCritico
             // 
             this.txtStockCritico.Location = new System.Drawing.Point(119, 346);
+            this.txtStockCritico.MaxLength = 5;
             this.txtStockCritico.Name = "txtStockCritico";
             this.txtStockCritico.Size = new System.Drawing.Size(77, 20);
             this.txtStockCritico.TabIndex = 11;
@@ -170,6 +171,7 @@
             // txtStock
             // 
             this.txtStock.Location = new System.Drawing.Point(15, 346);
+            this.txtStock.MaxLength = 5;
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(77, 20);
             this.txtStock.TabIndex = 10;
@@ -222,6 +224,7 @@
             // txtPrecioCompra
             // 
             this.txtPrecioCompra.Location = new System.Drawing.Point(14, 307);
+            this.txtPrecioCompra.MaxLength = 6;
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(182, 20);
             this.txtPrecioCompra.TabIndex = 9;
@@ -238,6 +241,7 @@
             // txtPrecioVenta
             // 
             this.txtPrecioVenta.Location = new System.Drawing.Point(14, 268);
+            this.txtPrecioVenta.MaxLength = 6;
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(182, 20);
             this.txtPrecioVenta.TabIndex = 8;

@@ -39,7 +39,7 @@ namespace Controlador
         }
         #endregion
 
-        #region Metodos Listar
+        #region Metodos para listar
         public List<Modelo.PRODUCTO> Listar()
         {
             List<Modelo.PRODUCTO> listado = new List<Modelo.PRODUCTO>();

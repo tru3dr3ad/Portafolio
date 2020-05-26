@@ -268,6 +268,7 @@
             // 
             // txtRunCliente
             // 
+            this.txtRunCliente.Enabled = false;
             this.txtRunCliente.Location = new System.Drawing.Point(30, 79);
             this.txtRunCliente.Name = "txtRunCliente";
             this.txtRunCliente.Size = new System.Drawing.Size(121, 20);

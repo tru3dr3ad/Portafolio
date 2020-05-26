@@ -13,6 +13,7 @@ namespace Vista
             CargarComboboxProveedorId();
             CargarGrilla();
         }
+
         #region Metodos
         private void CargarGrilla()
         {

@@ -152,6 +152,7 @@
             // 
             this.txtTelefonoUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTelefonoUsuario.Location = new System.Drawing.Point(13, 307);
+            this.txtTelefonoUsuario.MaxLength = 13;
             this.txtTelefonoUsuario.Name = "txtTelefonoUsuario";
             this.txtTelefonoUsuario.Size = new System.Drawing.Size(180, 20);
             this.txtTelefonoUsuario.TabIndex = 12;
@@ -207,6 +208,7 @@
             // 
             this.txtDv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDv.Location = new System.Drawing.Point(168, 33);
+            this.txtDv.MaxLength = 1;
             this.txtDv.Name = "txtDv";
             this.txtDv.Size = new System.Drawing.Size(24, 20);
             this.txtDv.TabIndex = 5;
@@ -225,6 +227,7 @@
             // 
             this.txtRunUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtRunUsuario.Location = new System.Drawing.Point(13, 33);
+            this.txtRunUsuario.MaxLength = 8;
             this.txtRunUsuario.Name = "txtRunUsuario";
             this.txtRunUsuario.Size = new System.Drawing.Size(131, 20);
             this.txtRunUsuario.TabIndex = 4;

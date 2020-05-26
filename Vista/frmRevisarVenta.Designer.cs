@@ -37,7 +37,6 @@
             this.btnBuscarBoleta = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBuscarBoleta = new System.Windows.Forms.TextBox();
-            this.btnModificarBoleta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdBoleta)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -136,16 +135,6 @@
             this.txtBuscarBoleta.Size = new System.Drawing.Size(182, 20);
             this.txtBuscarBoleta.TabIndex = 1;
             // 
-            // btnModificarBoleta
-            // 
-            this.btnModificarBoleta.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnModificarBoleta.Location = new System.Drawing.Point(832, 454);
-            this.btnModificarBoleta.Name = "btnModificarBoleta";
-            this.btnModificarBoleta.Size = new System.Drawing.Size(128, 21);
-            this.btnModificarBoleta.TabIndex = 34;
-            this.btnModificarBoleta.Text = "Modificar";
-            this.btnModificarBoleta.UseVisualStyleBackColor = true;
-            // 
             // frmRevisarVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,7 +142,6 @@
             this.ClientSize = new System.Drawing.Size(1000, 550);
             this.Controls.Add(this.btnEliminarBoleta);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btnModificarBoleta);
             this.Controls.Add(this.grdBoleta);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRevisarVenta";
@@ -172,7 +160,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnBuscarBoleta;
         private System.Windows.Forms.TextBox txtBuscarBoleta;
-        private System.Windows.Forms.Button btnModificarBoleta;
         private System.Windows.Forms.ComboBox cmbVendedores;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbMedioPago;

@@ -19,6 +19,7 @@ namespace Vista
             CargarComboboxTipoRubro();
             CargarGrilla();
         }
+
         #region Metodos
         private void CargarGrilla()
         {

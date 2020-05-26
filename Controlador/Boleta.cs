@@ -42,7 +42,7 @@ namespace Controlador
         }
         #endregion
 
-        #region Metodos de la clase
+        #region Metodos para listar
         public List<Modelo.BOLETA> Listar()
         {
             List<Modelo.BOLETA> listado = new List<Modelo.BOLETA>();
@@ -56,7 +56,6 @@ namespace Controlador
                 OrderByDescending(b => b.NUMEROBOLETA).ToList();
             return listado;
         }
-
         public List<BOLETA> ListarPorClienteFiados(int runCliente)
         {
             List<Modelo.BOLETA> listado = new List<Modelo.BOLETA>();
@@ -82,6 +81,9 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.MEDIOPAGOID == idMedioPago).ToList();
             return listado;
         }
+        #endregion
+
+        #region Metodos
         public Boleta ObtenerBoleta(int numero)
         {
             try
