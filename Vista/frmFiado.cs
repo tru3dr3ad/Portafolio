@@ -24,7 +24,7 @@ namespace Vista
         private void CargarGrillaVentasFiadas()
         {
             Boleta boleta = new Boleta();
-            grdVentaFiadas.DataSource = boleta.ListarBoletasFiadas();
+            grdVentaFiadas.DataSource = boleta.ListarBoletasPorMedioPago(4);
         }
         private void CargarGrillaAbono()
         {

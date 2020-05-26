@@ -24,6 +24,11 @@ namespace Vista
         {
             Proveedor proveedor = new Proveedor();
             grdProveedor.DataSource = proveedor.ListarProveedor();
+            EsconderColumnasAutogeneradas();
+        }
+        private void EsconderColumnasAutogeneradas()
+        {
+            grdProveedor.Columns["RUBROID"].Visible = false;
         }
         private void CargarComboboxTipoRubro()
         {

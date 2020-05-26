@@ -27,20 +27,21 @@ namespace Vista
         {
             OrdenPedido orden = new OrdenPedido();
             grdOrden.DataSource = orden.ListarOrdenPedido();
+            EsconderColumnasAutogeneradas();
         }
         private void CargarComboboxEstadoOrden()
         {
             Controlador.EstadoOrden estadoOrden = new Controlador.EstadoOrden();
-            cmbEstadoOrden.DataSource = estadoOrden.Listar();
             cmbEstadoOrden.DisplayMember = "Descripcion";
             cmbEstadoOrden.ValueMember = "Id";
+            cmbEstadoOrden.DataSource = estadoOrden.Listar();
         }
         private void CargarComboboxProveedor()
         {
             Controlador.Proveedor proveedor = new Controlador.Proveedor();
-            cmbProveedores.DataSource = proveedor.ListarCombobox();
             cmbProveedores.DisplayMember = "Nombre";
             cmbProveedores.ValueMember = "Rut";
+            cmbProveedores.DataSource = proveedor.ListarCombobox();
         }
         private void LimpiarDatos()
         {
@@ -48,6 +49,12 @@ namespace Vista
             cmbProveedores.SelectedIndex = 0;
             cmbEstadoOrden.SelectedIndex = 0;
         }
+        private void EsconderColumnasAutogeneradas()
+        {
+            grdOrden.Columns["RUTPROVEEDOR"].Visible = false;
+            grdOrden.Columns["ESTADOID"].Visible = false;
+        }
+
         #endregion
 
         #region Metodos de la clase
@@ -140,5 +147,14 @@ namespace Vista
         }
         #endregion
         
+        private void cmbProveedores_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbProveedores.SelectedValue != null)
+            {
+                OrdenPedido ordenPedido = new OrdenPedido();
+                grdOrden.DataSource = ordenPedido.ListarOrdenPedidoPorProveedor((int)cmbProveedores.SelectedValue);
+                EsconderColumnasAutogeneradas();
+            }
+        }
     }
 }

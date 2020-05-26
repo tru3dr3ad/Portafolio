@@ -70,10 +70,16 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.ToList();
             return listado;
         }
-        public List<V_VENTAS_FIADAS> ListarBoletasFiadas()
+        public List<V_BOLETAS> ListarBoletasPorUsuario(int runUsuario)
         {
-            List<V_VENTAS_FIADAS> listado = new List<V_VENTAS_FIADAS>();
-            listado = ConectorDALC.ModeloAlmacen.V_VENTAS_FIADAS.ToList();
+            List<V_BOLETAS> listado = new List<V_BOLETAS>();
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.RUN_USUARIO == runUsuario).ToList();
+            return listado;
+        }
+        public List<V_BOLETAS> ListarBoletasPorMedioPago(int idMedioPago)
+        {
+            List<V_BOLETAS> listado = new List<V_BOLETAS>();
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.MEDIOPAGOID == idMedioPago).ToList();
             return listado;
         }
         public Boleta ObtenerBoleta(int numero)

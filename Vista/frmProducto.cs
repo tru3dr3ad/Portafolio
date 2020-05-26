@@ -18,6 +18,11 @@ namespace Vista
         {
             Producto producto = new Producto();
             grdProducto.DataSource = producto.ListarProductos();
+            EsconderColumnasAutogeneradas();
+        }
+        private void EsconderColumnasAutogeneradas()
+        {
+            grdProducto.Columns["CATEGORIAID"].Visible = false;
         }
         private void CargarComboboxCategoria()
         {

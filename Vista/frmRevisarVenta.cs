@@ -26,6 +26,7 @@ namespace Vista
         {
             Boleta boleta = new Boleta();
             grdBoleta.DataSource = boleta.ListarBoletas();
+            EsconderColumnasAutogeneradas();
         }
         private void CargarComboboxMedioPago()
         {
@@ -41,6 +42,12 @@ namespace Vista
             cmbVendedores.ValueMember = "RunUsuario";
             cmbVendedores.DataSource = usuario.ListarCombobox();
         }
+        private void EsconderColumnasAutogeneradas()
+        {
+            grdBoleta.Columns["MEDIOPAGOID"].Visible = false;
+            grdBoleta.Columns["RUN_USUARIO"].Visible = false;
+            grdBoleta.Columns["RUN_CLIENTE"].Visible = false;
+        }
         #endregion
 
         private void cmbMedioPago_SelectedValueChanged(object sender, EventArgs e)
@@ -48,7 +55,18 @@ namespace Vista
             if (cmbMedioPago.SelectedValue != null)
             {
                 Boleta boleta = new Boleta();
-                grdBoleta.DataSource = boleta.ListarPorMedioPago((int)cmbMedioPago.SelectedValue);
+                grdBoleta.DataSource = boleta.ListarBoletasPorMedioPago((int)cmbMedioPago.SelectedValue);
+                EsconderColumnasAutogeneradas();
+            }
+        }
+
+        private void cmbVendedores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMedioPago.SelectedValue != null)
+            {
+                Boleta boleta = new Boleta();
+                grdBoleta.DataSource = boleta.ListarBoletasPorUsuario((int)cmbVendedores.SelectedValue);
+                EsconderColumnasAutogeneradas();
             }
         }
     }

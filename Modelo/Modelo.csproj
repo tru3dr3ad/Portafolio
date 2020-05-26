@@ -138,19 +138,10 @@
     <Compile Include="V_PRODUCTOS.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
-    <Compile Include="V_PRODUCTOS_COMPRAR.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="V_PRODUCTOS_VENDER.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
     <Compile Include="V_PROVEEDORES.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="V_USUARIOS.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="V_VENTAS_FIADAS.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
   </ItemGroup>

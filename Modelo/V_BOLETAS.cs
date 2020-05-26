@@ -17,8 +17,11 @@ namespace Modelo
         public decimal NUMERO { get; set; }
         public System.DateTime FECHA { get; set; }
         public decimal VALOR { get; set; }
+        public decimal MEDIOPAGOID { get; set; }
         public string MEDIO_PAGO { get; set; }
+        public decimal RUN_CLIENTE { get; set; }
         public string NOMBRE_CLIENTE { get; set; }
+        public decimal RUN_USUARIO { get; set; }
         public string NOMBRE_VENDEDOR { get; set; }
     }
 }

@@ -109,6 +109,7 @@
             this.cmbVendedores.Name = "cmbVendedores";
             this.cmbVendedores.Size = new System.Drawing.Size(181, 21);
             this.cmbVendedores.TabIndex = 48;
+            this.cmbVendedores.SelectedIndexChanged += new System.EventHandler(this.cmbVendedores_SelectedIndexChanged);
             // 
             // btnBuscarBoleta
             // 

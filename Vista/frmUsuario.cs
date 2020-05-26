@@ -19,18 +19,24 @@ namespace Vista
             CargarComboboxTipoUsuario();
             CargarGrilla();
         }
+
         #region Metodos
         public void CargarGrilla()
         {
             Usuario usuario = new Usuario();
             grdUsuario.DataSource = usuario.ListarUsuarios();
+            EsconderColumnasAutogeneradas();
+        }
+        private void EsconderColumnasAutogeneradas()
+        {
+            grdUsuario.Columns["TIPOUSUARIOID"].Visible = false;
         }
         private void CargarComboboxTipoUsuario()
         {
             Controlador.TipoUsuario tipoUsuario = new Controlador.TipoUsuario();
-            cmbTipoUsuario.DataSource = tipoUsuario.Listar();
             cmbTipoUsuario.DisplayMember = "Descripcion";
             cmbTipoUsuario.ValueMember = "Id";
+            cmbTipoUsuario.DataSource = tipoUsuario.Listar();
         }
         public bool MostrarDatosUsuario(int run)
         {

@@ -21,6 +21,7 @@ namespace Modelo
         public string CORREO { get; set; }
         public int TELEFONO { get; set; }
         public string DIRECCION { get; set; }
+        public decimal RUBROID { get; set; }
         public string RUBRO { get; set; }
     }
 }

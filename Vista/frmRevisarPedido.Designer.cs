@@ -155,6 +155,7 @@
             this.cmbProveedores.Name = "cmbProveedores";
             this.cmbProveedores.Size = new System.Drawing.Size(181, 21);
             this.cmbProveedores.TabIndex = 48;
+            this.cmbProveedores.SelectedValueChanged += new System.EventHandler(this.cmbProveedores_SelectedValueChanged);
             // 
             // btnBuscarOrden
             // 

@@ -58,6 +58,18 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.ToList();
             return listado;
         }
+        public List<Modelo.V_ORDEN_PEDIDO> ListarOrdenPedidoPorProveedor(int rutProveedor)
+        {
+            List<Modelo.V_ORDEN_PEDIDO> listado = new List<Modelo.V_ORDEN_PEDIDO>();
+            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.Where(o => o.RUTPROVEEDOR == rutProveedor).ToList();
+            return listado;
+        }
+        public List<Modelo.V_ORDEN_PEDIDO> ListarOrdenPedidoPorEstadoRecepcion(int idEstado)
+        {
+            List<Modelo.V_ORDEN_PEDIDO> listado = new List<Modelo.V_ORDEN_PEDIDO>();
+            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.Where(o => o.ESTADOID == idEstado).ToList();
+            return listado;
+        }
         public int ObtenerNumeroMaximoOrden()
         {
             try

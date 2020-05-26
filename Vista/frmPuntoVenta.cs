@@ -18,7 +18,6 @@ namespace Vista
         public frmPuntoVenta()
         {
             InitializeComponent();
-            PersonalizarDiseño();
             CargarComboboxCliente();
             CargarComboboxMedioPago();
             CargarComboboxCategoria();
@@ -26,18 +25,19 @@ namespace Vista
             CargarGrillaProducto();
         }
         #region Metodos
-        private void PersonalizarDiseño()
-        {
-            this.grdBoleta.Columns["Codigo"].Visible = false;
-        }
         private void CargarGrillaProducto()
         {
             Producto producto = new Producto();
-            grdProducto.DataSource = producto.ListarProductosVenta();
+            grdProducto.DataSource = producto.ListarProductos();
             OcultarColumnasAutogeneradas();
         }
         private void OcultarColumnasAutogeneradas()
         {
+            grdBoleta.Columns["Codigo"].Visible = false;
+            grdProducto.Columns["PRECIO_COMPRA"].Visible = false;
+            grdProducto.Columns["STOCK"].Visible = false;
+            grdProducto.Columns["STOCK_CRITICO"].Visible = false;
+            grdProducto.Columns["FECHA_VENCIMIENTO"].Visible = false;
             grdProducto.Columns["CATEGORIAID"].Visible = false;
         }
         private void CargarComboboxMedioPago()
@@ -206,7 +206,7 @@ namespace Vista
             if (cmbCategoria.SelectedValue != null)
             {
                 Producto producto = new Producto();
-                grdProducto.DataSource = producto.VistaPorCategoria((int)cmbCategoria.SelectedValue);
+                grdProducto.DataSource = producto.ListarProductosPorCategoria((int)cmbCategoria.SelectedValue);
                 OcultarColumnasAutogeneradas();
             }
         }

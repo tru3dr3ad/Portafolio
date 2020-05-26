@@ -39,7 +39,7 @@ namespace Controlador
         }
         #endregion
 
-        #region Metodos
+        #region Metodos Listar
         public List<Modelo.PRODUCTO> Listar()
         {
             List<Modelo.PRODUCTO> listado = new List<Modelo.PRODUCTO>();
@@ -52,32 +52,16 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.OrderBy(p => p.CODIGO).ToList();
             return listado;
         }
-        public List<V_PRODUCTOS_VENDER> ListarProductosVenta()
+        public List<V_PRODUCTOS> ListarProductosPorCategoria(int idCategoria)
         {
-            List<V_PRODUCTOS_VENDER> listado = new List<V_PRODUCTOS_VENDER>();
-            listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS_VENDER.ToList();
+            List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();
+            listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.Where(p => p.CATEGORIAID == idCategoria).
+                OrderBy(p => p.CODIGO).ToList();
             return listado;
         }
-        public List<V_PRODUCTOS_COMPRAR> ListarProductosCompra()
-        {
-            List<V_PRODUCTOS_COMPRAR> listado = new List<V_PRODUCTOS_COMPRAR>();
-            listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS_COMPRAR.ToList();
-            return listado;
-        }
-        public List<Modelo.PRODUCTO> ListarPorCategoria(int idCategoria)
-        {
-            List<Modelo.PRODUCTO> listado = new List<Modelo.PRODUCTO>();
-            listado = ConectorDALC.ModeloAlmacen.PRODUCTO.Where(p => p.CATEGORIA_CATEGORIAID == idCategoria).
-                OrderBy(p => p.NOMBREPROD).ToList();
-            return listado;
-        }
-        public List<Modelo.V_PRODUCTOS_VENDER> VistaPorCategoria(int idCategoria)
-        {
-            List<Modelo.V_PRODUCTOS_VENDER> listado = new List<Modelo.V_PRODUCTOS_VENDER>();
-            listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS_VENDER.Where(p => p.CATEGORIAID == idCategoria).
-                OrderBy(p => p.NOMBRE).ToList();
-            return listado;
-        }
+        #endregion
+
+        #region Metodos
         public Producto ObtenerProducto(string codigo)
         {
             try

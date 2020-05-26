@@ -18,10 +18,11 @@ namespace Modelo
         public string NOMBRE { get; set; }
         public string DESCRIPCION { get; set; }
         public decimal PRECIO_VENTA { get; set; }
-        public decimal PRECIOCOMPRA { get; set; }
+        public decimal PRECIO_COMPRA { get; set; }
         public decimal STOCK { get; set; }
         public decimal STOCK_CRITICO { get; set; }
         public System.DateTime FECHA_VENCIMIENTO { get; set; }
+        public decimal CATEGORIAID { get; set; }
         public string CATEGORIA { get; set; }
     }
 }

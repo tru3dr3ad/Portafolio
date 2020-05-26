@@ -18,7 +18,6 @@ namespace Vista
         public frmOrdenPedido()
         {
             InitializeComponent();
-            PersonalizarDiseño();
             CargarComboboxProveedor();
             CargarComboboxCategoria();
             CargarGrillaProducto();
@@ -26,16 +25,21 @@ namespace Vista
         }
 
         #region Metodos
-        private void PersonalizarDiseño()
-        {
-            this.grdOrden.Columns["Codigo"].Visible = false;
-        }
         private void CargarGrillaProducto()
         {
             Producto producto = new Producto();
-            grdProducto.DataSource = producto.ListarProductosCompra();
+            grdProducto.DataSource = producto.ListarProductos();
+            EsconderColumnasAutogeneradas();
         }
-
+        private void EsconderColumnasAutogeneradas()
+        {
+            grdOrden.Columns["Codigo"].Visible = false;
+            grdProducto.Columns["PRECIO_VENTA"].Visible = false;
+            grdProducto.Columns["STOCK"].Visible = false;
+            grdProducto.Columns["STOCK_CRITICO"].Visible = false;
+            grdProducto.Columns["FECHA_VENCIMIENTO"].Visible = false;
+            grdProducto.Columns["CATEGORIAID"].Visible = false;
+        }
         private void CargarComboboxProveedor()
         {
             Controlador.Proveedor proveedor = new Controlador.Proveedor();
@@ -179,14 +183,13 @@ namespace Vista
             QuitarDetallePedido();
         }
         #endregion
-
-
         private void cmbCategoria_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cmbCategoria.SelectedValue != null)
             {
                 Producto producto = new Producto();
-                grdProducto.DataSource = producto.ListarPorCategoria((int)cmbCategoria.SelectedValue);
+                grdProducto.DataSource = producto.ListarProductosPorCategoria((int)cmbCategoria.SelectedValue);
+                EsconderColumnasAutogeneradas();
             }
         }
     }
