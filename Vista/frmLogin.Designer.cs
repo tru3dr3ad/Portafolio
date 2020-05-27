@@ -138,7 +138,7 @@
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(219, 22);
             this.txtNombreUsuario.TabIndex = 2;
-            this.txtNombreUsuario.Text = "Kristal";
+            this.txtNombreUsuario.Text = "KRISTAL";
             // 
             // pictureBox1
             // 

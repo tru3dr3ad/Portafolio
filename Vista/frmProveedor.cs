@@ -22,7 +22,7 @@ namespace Vista
         }
         private void EsconderColumnasAutogeneradas()
         {
-            grdProveedor.Columns["RUBROID"].Visible = false;
+            grdProveedor.Columns["IDRUBRO"].Visible = false;
         }
         private void CargarComboboxTipoRubro()
         {

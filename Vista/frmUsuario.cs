@@ -22,7 +22,7 @@ namespace Vista
         }
         private void EsconderColumnasAutogeneradas()
         {
-            grdUsuario.Columns["TIPOUSUARIOID"].Visible = false;
+            grdUsuario.Columns["IDTIPO"].Visible = false;
         }
         private void CargarComboboxTipoUsuario()
         {
@@ -43,7 +43,7 @@ namespace Vista
                     txtDv.Text = usuario.DvUsuario.ToString();
                     txtNombreUsuario.Text = usuario.NombreUsuario;
                     txtApellidoUsuario.Text = usuario.ApellidoUsuario;
-                    txtContrasena.Text = usuario.ClaveUsuario;
+                    txtContrasena.Text = usuario.Contrasena;
                     cmbTipoUsuario.SelectedValue = usuario.Tipo.Id;
                     dtpFechaNacimiento.Value = usuario.FechaNacimiento;
                     txtDireccionUsuario.Text = usuario.DireccionUsuario;

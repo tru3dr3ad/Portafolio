@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4b3f0b789b5740569f97a6b03d97ff48" Name="Diagram1" ZoomLevel="82">
+      <Diagram DiagramId="4b3f0b789b5740569f97a6b03d97ff48" Name="Diagram1" ZoomLevel="40">
         <EntityTypeShape EntityType="ModeloAlmacen.ABONO" Width="1.5" PointX="10.5" PointY="8.25" />
         <EntityTypeShape EntityType="ModeloAlmacen.BOLETA" Width="1.5" PointX="8.25" PointY="4.875" />
         <EntityTypeShape EntityType="ModeloAlmacen.CATEGORIA" Width="1.5" PointX="6" PointY="15.625" />
@@ -21,11 +21,8 @@
         <EntityTypeShape EntityType="ModeloAlmacen.TIPO_RUBRO" Width="1.5" PointX="0.75" PointY="1.375" />
         <EntityTypeShape EntityType="ModeloAlmacen.TIPO_USUARIO" Width="1.5" PointX="0.75" PointY="5.625" />
         <EntityTypeShape EntityType="ModeloAlmacen.USUARIO" Width="1.5" PointX="3" PointY="4.625" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_CLIENTES" Width="1.5" PointX="10.75" PointY="11.375" />
         <EntityTypeShape EntityType="ModeloAlmacen.V_ORDEN_PEDIDO" Width="1.5" PointX="12.75" PointY="1.375" />
         <EntityTypeShape EntityType="ModeloAlmacen.V_PRODUCTOS" Width="1.5" PointX="12.75" PointY="5.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_PROVEEDORES" Width="1.5" PointX="12.75" PointY="9.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_USUARIOS" Width="1.5" PointX="12.75" PointY="13.375" />
         <AssociationConnector Association="ModeloAlmacen.ABONO_BOLETA_FK" />
         <AssociationConnector Association="ModeloAlmacen.BOLETA_CLIENTE_FK" />
         <AssociationConnector Association="ModeloAlmacen.BOLETA_MEDIO_PAGO_FK" />
@@ -43,6 +40,9 @@
         <AssociationConnector Association="ModeloAlmacen.PROVEEDOR_TIPO_RUBRO_FK" />
         <AssociationConnector Association="ModeloAlmacen.USUARIO_TIPO_USUARIO_FK" />
         <EntityTypeShape EntityType="ModeloAlmacen.V_BOLETAS" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_CLIENTES" Width="1.5" PointX="10.375" PointY="11.75" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_PROVEEDORES" Width="1.5" PointX="12.375" PointY="11.75" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_USUARIOS" Width="1.5" PointX="14.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

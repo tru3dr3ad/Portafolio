@@ -13,7 +13,7 @@ namespace Controlador
         public char DvUsuario { get; set; }
         public string NombreUsuario { get; set; }
         public string ApellidoUsuario { get; set; }
-        public string ClaveUsuario { get; set; }
+        public string Contrasena { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public DateTime FechaCreacionUsuario { get; set; }
         public string DireccionUsuario { get; set; }
@@ -28,7 +28,7 @@ namespace Controlador
             DvUsuario = dv;
             NombreUsuario = nombre;
             ApellidoUsuario = apellido;
-            ClaveUsuario = clave;
+            Contrasena = clave;
             FechaNacimiento = fechaNacimiento;
             FechaCreacionUsuario = fechaCreacion;
             DireccionUsuario = direccion;
@@ -78,14 +78,14 @@ namespace Controlador
                 DvUsuario = char.Parse(usuario.DV);
                 NombreUsuario = usuario.NOMBRE;
                 ApellidoUsuario = usuario.APELLIDO;
-                ClaveUsuario = usuario.CONTRASENA;
+                Contrasena = usuario.CONTRASENA;
                 FechaNacimiento = usuario.FECHANACIMIENTO;
                 FechaCreacionUsuario = usuario.FECHACREACION;
                 DireccionUsuario = usuario.DIRECCION;
                 TelefonoUsuario = (int)usuario.TELEFONO;
                 Tipo = new TipoUsuario() { Id = (int)usuario.TIPO_USUARIO.IDTIPO };
 
-                Usuario usuarioEncontrado = new Usuario(RunUsuario, DvUsuario, NombreUsuario, ApellidoUsuario, ClaveUsuario,
+                Usuario usuarioEncontrado = new Usuario(RunUsuario, DvUsuario, NombreUsuario, ApellidoUsuario, Contrasena,
                     FechaNacimiento, FechaCreacionUsuario, DireccionUsuario, TelefonoUsuario, Tipo);
                 return usuarioEncontrado;
             }
@@ -125,7 +125,7 @@ namespace Controlador
                 usuario.DV = DvUsuario.ToString();
                 usuario.NOMBRE= NombreUsuario;
                 usuario.APELLIDO= ApellidoUsuario;
-                usuario.CONTRASENA= GenerateSHA256String(ClaveUsuario);
+                usuario.CONTRASENA= GenerateSHA256String(Contrasena);
                 usuario.FECHANACIMIENTO = FechaNacimiento;
                 usuario.FECHACREACION = FechaCreacionUsuario;
                 usuario.DIRECCION= DireccionUsuario;
@@ -153,7 +153,7 @@ namespace Controlador
                     usuario.DV = modificarUsuario.DvUsuario.ToString();
                     usuario.NOMBRE = modificarUsuario.NombreUsuario;
                     usuario.APELLIDO= modificarUsuario.ApellidoUsuario;
-                    usuario.CONTRASENA= modificarUsuario.ClaveUsuario;
+                    usuario.CONTRASENA= GenerateSHA256String(Contrasena);
                     usuario.FECHANACIMIENTO = modificarUsuario.FechaNacimiento;
                     usuario.DIRECCION= modificarUsuario.DireccionUsuario;
                     usuario.TELEFONO= modificarUsuario.TelefonoUsuario;
@@ -213,7 +213,7 @@ namespace Controlador
                     Usuario usuario = new Usuario();
                     usuario.RunUsuario = (int)usuarioDB.RUNUSUARIO;
                     usuario.NombreUsuario = usuarioDB.NOMBRE;
-                    usuario.ClaveUsuario = usuarioDB.CONTRASENA;
+                    usuario.Contrasena = usuarioDB.CONTRASENA;
                     TipoUsuario tipo = new TipoUsuario() { Id = (int)usuarioDB.TIPO_USUARIO.IDTIPO, 
                         Descripcion = usuarioDB.TIPO_USUARIO.DESCRIPCION };
                     usuario.Tipo = tipo;
@@ -230,7 +230,11 @@ namespace Controlador
                 throw new ArgumentException("Error al iniciar sesion: " + ex);
             }
         }
-
+        public string VerCodigoContrasena(string contrasena)
+        {
+            string codigo = GenerateSHA256String(contrasena);
+            return codigo;
+        }
         public static string GenerateSHA256String(string inputString)
         {
             SHA256 sha256 = SHA256Managed.Create();

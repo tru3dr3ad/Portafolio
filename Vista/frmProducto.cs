@@ -23,7 +23,7 @@ namespace Vista
         }
         private void EsconderColumnasAutogeneradas()
         {
-            grdProducto.Columns["CATEGORIAID"].Visible = false;
+            grdProducto.Columns["IDCATEGORIA"].Visible = false;
         }
         private void CargarComboboxCategoria()
         {

@@ -31,7 +31,7 @@ namespace Vista
             grdProducto.Columns["STOCK"].Visible = false;
             grdProducto.Columns["STOCK_CRITICO"].Visible = false;
             grdProducto.Columns["FECHA_VENCIMIENTO"].Visible = false;
-            grdProducto.Columns["CATEGORIAID"].Visible = false;
+            grdProducto.Columns["IDCATEGORIA"].Visible = false;
         }
         private void CargarComboboxProveedor()
         {

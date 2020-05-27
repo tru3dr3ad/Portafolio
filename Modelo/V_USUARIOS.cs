@@ -14,7 +14,8 @@ namespace Modelo
     
     public partial class V_USUARIOS
     {
-        public string RUN_USUARIO { get; set; }
+        public decimal RUN { get; set; }
+        public string DV { get; set; }
         public string NOMBRE_USUARIO { get; set; }
         public string CONTRASENA { get; set; }
         public System.DateTime FECHANACIMIENTO { get; set; }

@@ -14,7 +14,8 @@ namespace Modelo
     
     public partial class V_CLIENTES
     {
-        public string RUN { get; set; }
+        public decimal RUN { get; set; }
+        public string DV { get; set; }
         public string NOMBRE_CLIENTE { get; set; }
         public System.DateTime FECHANACIMIENTO { get; set; }
         public string DIRECCION { get; set; }

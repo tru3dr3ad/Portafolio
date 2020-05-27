@@ -37,7 +37,7 @@ namespace Vista
         }
         private void EsconderColumnasAutogeneradas()
         {
-            grdBoleta.Columns["MEDIOPAGOID"].Visible = false;
+            grdBoleta.Columns["IDMEDIOPAGO"].Visible = false;
             grdBoleta.Columns["RUN_USUARIO"].Visible = false;
             grdBoleta.Columns["RUN_CLIENTE"].Visible = false;
         }

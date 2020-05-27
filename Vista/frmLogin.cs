@@ -31,7 +31,7 @@ namespace Vista
         }
         private void MostrarMenu(int idTipoUsuario)
         {
-            this.Hide();
+            //this.Hide();
             if (idTipoUsuario == 1)
             {
                 frmMenuAdmin frmAdministrador = new frmMenuAdmin();

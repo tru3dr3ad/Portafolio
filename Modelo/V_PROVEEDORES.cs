@@ -14,7 +14,8 @@ namespace Modelo
     
     public partial class V_PROVEEDORES
     {
-        public string RUT_PROVEEDOR { get; set; }
+        public decimal RUT { get; set; }
+        public string DV { get; set; }
         public decimal ID { get; set; }
         public string NOMBRE { get; set; }
         public string CORREO { get; set; }
