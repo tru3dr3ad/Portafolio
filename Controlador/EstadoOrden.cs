@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controlador
 {
@@ -30,7 +27,7 @@ namespace Controlador
             foreach (Modelo.ESTADO_ORDEN estadoOrden in ConectorDALC.ModeloAlmacen.ESTADO_ORDEN.ToList())
             {
                 EstadoOrden estado = new EstadoOrden();
-                estado.Id = (int)estadoOrden.ESTADOID;
+                estado.Id = (int)estadoOrden.IDESTADO;
                 estado.Descripcion = estadoOrden.DESCRIPCION;
                 listado.Add(estado);
             }

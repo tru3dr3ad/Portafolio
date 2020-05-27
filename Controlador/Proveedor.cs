@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controlador
 {
@@ -43,8 +41,8 @@ namespace Controlador
             foreach (Modelo.PROVEEDOR proveedor in ConectorDALC.ModeloAlmacen.PROVEEDOR.ToList())
             {
                 Proveedor proveedors = new Proveedor();
-                proveedors.Rut = (int)proveedor.RUTPROVEEDOR;
-                proveedors.Nombre = proveedor.NOMBREPROVEEDOR;
+                proveedors.Rut = (int)proveedor.RUT;
+                proveedors.Nombre = proveedor.NOMBRE;
                 listado.Add(proveedors);
             }
             return listado;
@@ -55,8 +53,8 @@ namespace Controlador
             foreach (Modelo.PROVEEDOR proveedor in ConectorDALC.ModeloAlmacen.PROVEEDOR.ToList())
             {
                 Proveedor proveedors = new Proveedor();
-                proveedors.IdProveedor = (int)proveedor.IDPROVEEDOR;
-                proveedors.Nombre = proveedor.NOMBREPROVEEDOR;
+                proveedors.IdProveedor = (int)proveedor.ID;
+                proveedors.Nombre = proveedor.NOMBRE;
                 listado.Add(proveedors);
             }
             return listado;
@@ -80,15 +78,15 @@ namespace Controlador
         {
             try
             {
-                Modelo.PROVEEDOR proveedor = ConectorDALC.ModeloAlmacen.PROVEEDOR.FirstOrDefault(e => e.RUTPROVEEDOR == rutProveedor);
-                Rut = (int)proveedor.RUTPROVEEDOR;
-                Dv = char.Parse(proveedor.DVPROVEEDOR);
-                IdProveedor = (int)proveedor.IDPROVEEDOR;
-                Nombre = proveedor.NOMBREPROVEEDOR;
-                CorreoElectronico = proveedor.CORREOPROVEEDOR;
-                Telefono = proveedor.TELEFONOPROVEEDOR;
-                Direccion = proveedor.DIRECCIONPROVEEDOR;
-                Tipo = new TipoRubro() { Id = (int)proveedor.TIPO_RUBRO.RUBROID };
+                Modelo.PROVEEDOR proveedor = ConectorDALC.ModeloAlmacen.PROVEEDOR.FirstOrDefault(e => e.RUT == rutProveedor);
+                Rut = (int)proveedor.RUT;
+                Dv = char.Parse(proveedor.DV);
+                IdProveedor = (int)proveedor.ID;
+                Nombre = proveedor.NOMBRE;
+                CorreoElectronico = proveedor.CORREO;
+                Telefono = proveedor.TELEFONO;
+                Direccion = proveedor.DIRECCION;
+                Tipo = new TipoRubro() { Id = (int)proveedor.TIPO_RUBRO.IDRUBRO };
                 Proveedor proveedorEncontrado = new Proveedor(Rut, Dv, IdProveedor, Nombre, CorreoElectronico, Telefono, Direccion, Tipo);
                 return proveedorEncontrado;
             }
@@ -102,7 +100,7 @@ namespace Controlador
         {
             try
             {
-                Modelo.PROVEEDOR proveedor = ConectorDALC.ModeloAlmacen.PROVEEDOR.FirstOrDefault(e => e.RUTPROVEEDOR == rutProveedor);
+                Modelo.PROVEEDOR proveedor = ConectorDALC.ModeloAlmacen.PROVEEDOR.FirstOrDefault(e => e.RUT == rutProveedor);
                 if (proveedor != null)
                 {
                     return true;
@@ -124,14 +122,14 @@ namespace Controlador
             {
                 Modelo.PROVEEDOR proveedor = new Modelo.PROVEEDOR();
 
-                proveedor.RUTPROVEEDOR = Rut;
-                proveedor.DVPROVEEDOR = Dv.ToString();
-                proveedor.IDPROVEEDOR = IdProveedor;
-                proveedor.NOMBREPROVEEDOR = Nombre;
-                proveedor.CORREOPROVEEDOR = CorreoElectronico;
-                proveedor.TELEFONOPROVEEDOR = Telefono;
-                proveedor.DIRECCIONPROVEEDOR = Direccion;
-                proveedor.TIPO_RUBRO_RUBROID = Tipo.Id;
+                proveedor.RUT = Rut;
+                proveedor.DV = Dv.ToString();
+                proveedor.ID = IdProveedor;
+                proveedor.NOMBRE = Nombre;
+                proveedor.CORREO = CorreoElectronico;
+                proveedor.TELEFONO = Telefono;
+                proveedor.DIRECCION = Direccion;
+                proveedor.TIPO_RUBRO_IDRUBRO= Tipo.Id;
 
                 ConectorDALC.ModeloAlmacen.PROVEEDOR.Add(proveedor);
                 ConectorDALC.ModeloAlmacen.SaveChanges();
@@ -150,15 +148,15 @@ namespace Controlador
             {
                 if (BuscarProveedor(modificarProveedor.Rut))
                 {
-                    Modelo.PROVEEDOR proveedor = ConectorDALC.ModeloAlmacen.PROVEEDOR.FirstOrDefault(e => e.RUTPROVEEDOR == modificarProveedor.Rut);
-                    proveedor.RUTPROVEEDOR = modificarProveedor.Rut;
-                    proveedor.DVPROVEEDOR = modificarProveedor.Dv.ToString();
-                    proveedor.IDPROVEEDOR = modificarProveedor.IdProveedor;
-                    proveedor.NOMBREPROVEEDOR = modificarProveedor.Nombre;
-                    proveedor.CORREOPROVEEDOR = modificarProveedor.CorreoElectronico;
-                    proveedor.TELEFONOPROVEEDOR = modificarProveedor.Telefono;
-                    proveedor.DIRECCIONPROVEEDOR = modificarProveedor.Direccion;
-                    proveedor.TIPO_RUBRO_RUBROID = modificarProveedor.Tipo.Id;
+                    Modelo.PROVEEDOR proveedor = ConectorDALC.ModeloAlmacen.PROVEEDOR.FirstOrDefault(e => e.RUT == modificarProveedor.Rut);
+                    proveedor.RUT = modificarProveedor.Rut;
+                    proveedor.DV = modificarProveedor.Dv.ToString();
+                    proveedor.ID= modificarProveedor.IdProveedor;
+                    proveedor.NOMBRE = modificarProveedor.Nombre;
+                    proveedor.CORREO = modificarProveedor.CorreoElectronico;
+                    proveedor.TELEFONO = modificarProveedor.Telefono;
+                    proveedor.DIRECCION= modificarProveedor.Direccion;
+                    proveedor.TIPO_RUBRO_IDRUBRO = modificarProveedor.Tipo.Id;
 
                     ConectorDALC.ModeloAlmacen.SaveChanges();
                     return true;
@@ -180,7 +178,7 @@ namespace Controlador
             {
                 if (BuscarProveedor(rutProveedor))
                 {
-                    Modelo.PROVEEDOR proveedor = ConectorDALC.ModeloAlmacen.PROVEEDOR.FirstOrDefault(e => e.RUTPROVEEDOR == rutProveedor);
+                    Modelo.PROVEEDOR proveedor = ConectorDALC.ModeloAlmacen.PROVEEDOR.FirstOrDefault(e => e.RUT == rutProveedor);
                     ConectorDALC.ModeloAlmacen.PROVEEDOR.Remove(proveedor);
                     ConectorDALC.ModeloAlmacen.SaveChanges();
 

@@ -63,10 +63,10 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="ConectorDALC.cs" />
     <Compile Include="Conexion.cs" />
-    <Compile Include="DetalleAbono.cs" />
     <Compile Include="DetallePedido.cs" />
     <Compile Include="EstadoFiado.cs" />
     <Compile Include="EstadoOrden.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="MedioPago.cs" />
     <Compile Include="OrdenPedido.cs" />
     <Compile Include="Producto.cs" />

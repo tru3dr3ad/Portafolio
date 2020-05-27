@@ -20,8 +20,8 @@ namespace Modelo
             this.PROVEEDOR = new HashSet<PROVEEDOR>();
         }
     
-        public decimal RUBROID { get; set; }
-        public string DESCRIPRUBRO { get; set; }
+        public decimal IDRUBRO { get; set; }
+        public string DESCRIPCION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PROVEEDOR> PROVEEDOR { get; set; }

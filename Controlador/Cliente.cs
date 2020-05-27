@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Modelo;
 
 namespace Controlador
 {
@@ -47,7 +45,7 @@ namespace Controlador
             {
                 Cliente cliente = new Cliente();
                 cliente.Run = (int)clienteEncontrados.RUNCLIENTE;
-                cliente.Nombre = clienteEncontrados.NOMBRECLIENTE;
+                cliente.Nombre = clienteEncontrados.NOMBRE;
                 listado.Add(cliente);
             }
             return listado;
@@ -70,14 +68,14 @@ namespace Controlador
             {
                 Modelo.CLIENTE cliente = ConectorDALC.ModeloAlmacen.CLIENTE.FirstOrDefault(e => e.RUNCLIENTE == runCliente);
                 Run = (int)cliente.RUNCLIENTE;
-                Dv = char.Parse(cliente.DVCLIENTE);
-                Nombre = cliente.NOMBRECLIENTE;
-                Apellido = cliente.APELLIDOCLIENTE;
+                Dv = char.Parse(cliente.DV);
+                Nombre = cliente.NOMBRE;
+                Apellido = cliente.APELLIDO;
                 FechaNacimiento = cliente.FECHANACIMIENTO;
-                Direccion = cliente.DIRECCIONCLIENTE;
-                Telefono = cliente.TELEFONOCLIENTE;
-                Estado = new EstadoFiado() { Id = (int)cliente.ESTADO_FIADO.ESTADOID };
-                Tipo = new TipoCliente() { Id = (int)cliente.TIPO_CLIENTE.TIPOCLIENTEID };
+                Direccion = cliente.DIRECCION;
+                Telefono = cliente.TELEFONO;
+                Estado = new EstadoFiado() { Id = (int)cliente.ESTADO_FIADO.IDESTADO };
+                Tipo = new TipoCliente() { Id = (int)cliente.TIPO_CLIENTE.IDTIPO };
                 Cliente clienteEncontrado = new Cliente(Run, Dv, Nombre, Apellido, FechaNacimiento, Direccion, Telefono,
                     Estado, Tipo);
                 return clienteEncontrado;
@@ -115,14 +113,14 @@ namespace Controlador
                 Modelo.CLIENTE cliente = new Modelo.CLIENTE();
 
                 cliente.RUNCLIENTE = Run;
-                cliente.DVCLIENTE = Dv.ToString();
-                cliente.NOMBRECLIENTE = Nombre;
-                cliente.APELLIDOCLIENTE = Apellido;
-                cliente.FECHANACIMIENTO = FechaNacimiento;
-                cliente.DIRECCIONCLIENTE = Direccion;
-                cliente.TELEFONOCLIENTE = Telefono;
-                cliente.ESTADO_FIADO_ESTADOID = Estado.Id;
-                cliente.TIPO_CLIENTE_TIPOCLIENTEID = Tipo.Id;
+                cliente.DV = Dv.ToString();
+                cliente.NOMBRE= Nombre;
+                cliente.APELLIDO= Apellido;
+                cliente.FECHANACIMIENTO= FechaNacimiento;
+                cliente.DIRECCION= Direccion;
+                cliente.TELEFONO = Telefono;
+                cliente.ESTADO_FIADO_IDESTADO = Estado.Id;
+                cliente.TIPO_CLIENTE_IDTIPO= Tipo.Id;
 
                 ConectorDALC.ModeloAlmacen.CLIENTE.Add(cliente);
                 ConectorDALC.ModeloAlmacen.SaveChanges();
@@ -143,14 +141,14 @@ namespace Controlador
                 {
                     Modelo.CLIENTE cliente = ConectorDALC.ModeloAlmacen.CLIENTE.FirstOrDefault(e => e.RUNCLIENTE == modificarCliente.Run);
                     cliente.RUNCLIENTE = modificarCliente.Run;
-                    cliente.DVCLIENTE = modificarCliente.Dv.ToString();
-                    cliente.NOMBRECLIENTE = modificarCliente.Nombre;
-                    cliente.APELLIDOCLIENTE = modificarCliente.Apellido;
+                    cliente.DV = modificarCliente.Dv.ToString();
+                    cliente.NOMBRE = modificarCliente.Nombre;
+                    cliente.APELLIDO = modificarCliente.Apellido;
                     cliente.FECHANACIMIENTO = modificarCliente.FechaNacimiento;
-                    cliente.DIRECCIONCLIENTE = modificarCliente.Direccion;
-                    cliente.TELEFONOCLIENTE = modificarCliente.Telefono;
-                    cliente.ESTADO_FIADO_ESTADOID = modificarCliente.Estado.Id;
-                    cliente.TIPO_CLIENTE_TIPOCLIENTEID = modificarCliente.Tipo.Id;
+                    cliente.DIRECCION = modificarCliente.Direccion;
+                    cliente.TELEFONO = modificarCliente.Telefono;
+                    cliente.ESTADO_FIADO_IDESTADO = modificarCliente.Estado.Id;
+                    cliente.TIPO_CLIENTE_IDTIPO = modificarCliente.Tipo.Id;
 
                     ConectorDALC.ModeloAlmacen.SaveChanges();
                     return true;

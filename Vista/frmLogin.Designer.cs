@@ -116,7 +116,7 @@
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(219, 22);
             this.txtContrasena.TabIndex = 6;
-            this.txtContrasena.Text = "Admin";
+            this.txtContrasena.Text = "123";
             // 
             // pictureBox2
             // 
@@ -138,7 +138,7 @@
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(219, 22);
             this.txtNombreUsuario.TabIndex = 2;
-            this.txtNombreUsuario.Text = "Admin";
+            this.txtNombreUsuario.Text = "Kristal";
             // 
             // pictureBox1
             // 

@@ -14,14 +14,13 @@ namespace Modelo
     
     public partial class V_PROVEEDORES
     {
-        public decimal RUT { get; set; }
-        public string DV { get; set; }
+        public string RUT_PROVEEDOR { get; set; }
         public decimal ID { get; set; }
         public string NOMBRE { get; set; }
         public string CORREO { get; set; }
         public int TELEFONO { get; set; }
         public string DIRECCION { get; set; }
-        public decimal RUBROID { get; set; }
+        public decimal IDRUBRO { get; set; }
         public string RUBRO { get; set; }
     }
 }

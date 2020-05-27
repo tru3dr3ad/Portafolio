@@ -22,7 +22,7 @@ namespace Modelo
         public decimal STOCK { get; set; }
         public decimal STOCK_CRITICO { get; set; }
         public System.DateTime FECHA_VENCIMIENTO { get; set; }
-        public decimal CATEGORIAID { get; set; }
+        public decimal IDCATEGORIA { get; set; }
         public string CATEGORIA { get; set; }
     }
 }

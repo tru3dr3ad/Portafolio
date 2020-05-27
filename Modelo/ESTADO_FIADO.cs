@@ -20,8 +20,8 @@ namespace Modelo
             this.CLIENTE = new HashSet<CLIENTE>();
         }
     
-        public decimal ESTADOID { get; set; }
-        public string DESCRIPESTADO { get; set; }
+        public decimal IDESTADO { get; set; }
+        public string DESCRIPCION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CLIENTE> CLIENTE { get; set; }

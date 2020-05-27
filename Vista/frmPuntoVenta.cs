@@ -1,12 +1,5 @@
 ﻿using Controlador;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Vista
@@ -15,6 +8,7 @@ namespace Vista
     {
         string _codProductoSeleccionado = "";
         string _codProductoQuitar = "";
+
         public frmPuntoVenta()
         {
             InitializeComponent();
@@ -76,7 +70,7 @@ namespace Vista
             if (boleta != null)
             {
                 txtNumeroBoleta.Text = boleta.Numero.ToString();
-                txtTotalBoleta.Text = boleta.Valor.ToString();
+                txtTotalBoleta.Text = boleta.Total.ToString();
                 txtRunCliente.Text = boleta.Cliente.Run.ToString();
                 cmbCliente.SelectedValue = boleta.Cliente.Run;
                 cmbMedioPago.SelectedValue = boleta.MedioPago.Id;
@@ -113,7 +107,7 @@ namespace Vista
                 Cliente cliente = new Cliente();
                 cliente.Run = (int)cmbCliente.SelectedValue;
                 Usuario usuario = new Usuario();
-                usuario.RunUsuario = 7769287;
+                usuario.RunUsuario = Global.RunUsuarioActivo;
                 Boleta boleta = new Boleta(fechaCreacion, total, medioPago, cliente, usuario);
                 if (boleta.AgregarBoleta())
                 {

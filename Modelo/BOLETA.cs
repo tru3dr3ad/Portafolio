@@ -17,23 +17,23 @@ namespace Modelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BOLETA()
         {
+            this.ABONO = new HashSet<ABONO>();
             this.DETALLE_BOLETA = new HashSet<DETALLE_BOLETA>();
-            this.DETALLE_ABONO = new HashSet<DETALLE_ABONO>();
         }
     
         public decimal NUMEROBOLETA { get; set; }
-        public System.DateTime FECHABOLETA { get; set; }
-        public decimal VALORBOLETA { get; set; }
-        public decimal MEDIO_PAGO_MEDIOPAGOID { get; set; }
+        public System.DateTime FECHACREACION { get; set; }
+        public decimal TOTAL { get; set; }
+        public decimal MEDIO_PAGO_IDMEDIO { get; set; }
         public decimal CLIENTE_RUNCLIENTE { get; set; }
         public decimal USUARIO_RUNUSUARIO { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ABONO> ABONO { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
         public virtual MEDIO_PAGO MEDIO_PAGO { get; set; }
         public virtual USUARIO USUARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DETALLE_BOLETA> DETALLE_BOLETA { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_ABONO> DETALLE_ABONO { get; set; }
     }
 }

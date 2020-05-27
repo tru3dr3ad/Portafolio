@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using Controlador;
+using System;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Vista
@@ -252,6 +246,7 @@ namespace Vista
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
+            Global.RunUsuarioActivo = 0;
             this.Dispose();
         }
         private void btnHacerPedido_Click(object sender, EventArgs e)

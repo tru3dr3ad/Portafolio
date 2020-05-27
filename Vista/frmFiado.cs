@@ -1,12 +1,5 @@
 ﻿using Controlador;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Vista
@@ -62,7 +55,7 @@ namespace Vista
             if (boleta != null)
             {
                 txtRunCliente.Text = boleta.Cliente.Run.ToString();
-                txtDeuda.Text = boleta.Valor.ToString();
+                txtDeuda.Text = boleta.Total.ToString();
                 return true;
             }
             else
@@ -94,21 +87,16 @@ namespace Vista
             {
                 DateTime fechaAbono = DateTime.Now.Date;
                 int montoAbono = int.Parse(txtMontoAbono.Text);
+                Boleta boleta = new Boleta();
+                boleta = boleta.ObtenerBoleta(_numeroBoleta);
+                DateTime fechaDetalleAbono = DateTime.Now.Date;
+                DateTime fechaLimite = boleta.FechaCreacion.AddMonths(1);
 
-                Abono abono = new Abono(fechaAbono, montoAbono);
+                Abono abono = new Abono(boleta, montoAbono, fechaAbono, fechaLimite);
                 if (abono.AgregarAbono())
                 {
                     int idAbono = abono.ObtenerIdMaximoAbono();
-
-                    Boleta boleta = new Boleta();
-                    boleta = boleta.ObtenerBoleta(_numeroBoleta);
-                    DateTime fechaDetalleAbono = DateTime.Now.Date;
-                    DateTime fechaLimite = boleta.FechaCreacion.AddMonths(1);
-                    DetalleAbono detalleAbono = new DetalleAbono(boleta, abono, fechaDetalleAbono, abono.ValorAbono, fechaLimite);
-                    if (detalleAbono != null)
-                    {
-                        MessageBox.Show("Abono N°" + idAbono + " agregado.");
-                    }
+                    MessageBox.Show("Abono N°" + idAbono + " agregado.");
                 }
             }
             _numeroBoleta = 0;

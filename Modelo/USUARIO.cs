@@ -22,15 +22,15 @@ namespace Modelo
         }
     
         public decimal RUNUSUARIO { get; set; }
-        public string DVUSUARIO { get; set; }
-        public string NOMBREUSUARIO { get; set; }
-        public string APELLIDOUSUARIO { get; set; }
-        public string CLAVEUSUARIO { get; set; }
+        public string DV { get; set; }
+        public string NOMBRE { get; set; }
+        public string APELLIDO { get; set; }
+        public string CONTRASENA { get; set; }
         public System.DateTime FECHANACIMIENTO { get; set; }
         public System.DateTime FECHACREACION { get; set; }
-        public string DIRECCIONUSUARIO { get; set; }
-        public decimal TELEFONOUSUARIO { get; set; }
-        public decimal TIPO_USUARIO_TIPOUSUARIOID { get; set; }
+        public string DIRECCION { get; set; }
+        public decimal TELEFONO { get; set; }
+        public decimal TIPO_USUARIO_IDTIPO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BOLETA> BOLETA { get; set; }

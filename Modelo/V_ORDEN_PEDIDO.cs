@@ -16,11 +16,11 @@ namespace Modelo
     {
         public decimal NUMERO { get; set; }
         public System.DateTime FECHA_CREACION { get; set; }
-        public int VALOR { get; set; }
+        public int TOTAL { get; set; }
         public System.DateTime FECHA_RECEPCION { get; set; }
-        public decimal RUTPROVEEDOR { get; set; }
+        public decimal PROVEEDOR_RUT { get; set; }
         public string PROVEEDOR { get; set; }
-        public decimal ESTADOID { get; set; }
+        public decimal IDESTADO { get; set; }
         public string ESTADO_ORDEN { get; set; }
         public string USUARIO { get; set; }
     }

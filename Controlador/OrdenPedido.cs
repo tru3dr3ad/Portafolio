@@ -1,9 +1,6 @@
 ﻿using System;
-using Modelo;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controlador
 {
@@ -11,29 +8,29 @@ namespace Controlador
     {
         public int Numero { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public int Valor { get; set; }
+        public int Total { get; set; }
         public DateTime FechaRecepcion { get; set; }
         public Proveedor Proveedor { get; set; }
         public EstadoOrden Estado { get; set; }
         public Usuario Usuario { get; set; }
 
         #region Constructores
-        public OrdenPedido(int numero, DateTime fechaCreacion, int valor, DateTime fechaRecepcion, Proveedor proveedor, 
+        public OrdenPedido(int numero, DateTime fechaCreacion, int total, DateTime fechaRecepcion, Proveedor proveedor, 
             EstadoOrden estado, Usuario usuario)
         {
             Numero = numero;
             FechaCreacion = fechaCreacion;
-            Valor = valor;
+            Total = total;
             FechaRecepcion = fechaRecepcion;
             Proveedor = proveedor;
             Estado = estado;
             Usuario = usuario;
         }
-        public OrdenPedido(DateTime fechaCreacion, int valor, DateTime fechaRecepcion, Proveedor proveedor,
+        public OrdenPedido(DateTime fechaCreacion, int total, DateTime fechaRecepcion, Proveedor proveedor,
             EstadoOrden estado, Usuario usuario)
         {
             FechaCreacion = fechaCreacion;
-            Valor = valor;
+            Total = total;
             FechaRecepcion = fechaRecepcion;
             Proveedor = proveedor;
             Estado = estado;
@@ -61,13 +58,13 @@ namespace Controlador
         public List<Modelo.V_ORDEN_PEDIDO> ListarOrdenPedidoPorProveedor(int rutProveedor)
         {
             List<Modelo.V_ORDEN_PEDIDO> listado = new List<Modelo.V_ORDEN_PEDIDO>();
-            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.Where(o => o.RUTPROVEEDOR == rutProveedor).ToList();
+            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.Where(o => o.PROVEEDOR_RUT == rutProveedor).ToList();
             return listado;
         }
         public List<Modelo.V_ORDEN_PEDIDO> ListarOrdenPedidoPorEstadoRecepcion(int idEstado)
         {
             List<Modelo.V_ORDEN_PEDIDO> listado = new List<Modelo.V_ORDEN_PEDIDO>();
-            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.Where(o => o.ESTADOID == idEstado).ToList();
+            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.Where(o => o.IDESTADO == idEstado).ToList();
             return listado;
         }
 
@@ -78,7 +75,7 @@ namespace Controlador
         {
             try
             {
-                int numero = (int)ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.Max(o =>o.NUMERORDEN);
+                int numero = (int)ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.Max(o =>o.NUMEROORDEN);
                 return numero;
             }
             catch (Exception)
@@ -91,15 +88,15 @@ namespace Controlador
         {
             try
             {
-                Modelo.ORDEN_PEDIDO ordenPedido = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMERORDEN == numero);
-                Numero = (int)ordenPedido.NUMERORDEN;
-                FechaCreacion = ordenPedido.FECHAORDEN;
-                Valor = ordenPedido.VALORORDEN;
+                Modelo.ORDEN_PEDIDO ordenPedido = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMEROORDEN == numero);
+                Numero = (int)ordenPedido.NUMEROORDEN;
+                FechaCreacion = ordenPedido.FECHACREACION;
+                Total = ordenPedido.TOTAL;
                 FechaRecepcion = ordenPedido.FECHARECEPCION;
-                Proveedor = new Proveedor() { Rut = (int)ordenPedido.PROVEEDOR.RUTPROVEEDOR};
-                Estado = new EstadoOrden() { Id = (int)ordenPedido.ESTADO_ORDEN.ESTADOID};
+                Proveedor = new Proveedor() { Rut = (int)ordenPedido.PROVEEDOR.RUT};
+                Estado = new EstadoOrden() { Id = (int)ordenPedido.ESTADO_ORDEN.IDESTADO};
                 Usuario = new Usuario() { RunUsuario = (int)ordenPedido.USUARIO.RUNUSUARIO};
-                OrdenPedido ordenEncontrada = new OrdenPedido(Numero, FechaCreacion, Valor, FechaRecepcion, Proveedor, Estado, Usuario);
+                OrdenPedido ordenEncontrada = new OrdenPedido(Numero, FechaCreacion, Total, FechaRecepcion, Proveedor, Estado, Usuario);
                 return ordenEncontrada;
             }
             catch (Exception ex)
@@ -112,7 +109,7 @@ namespace Controlador
         {
             try
             {
-                Modelo.ORDEN_PEDIDO orden = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMERORDEN == numero);
+                Modelo.ORDEN_PEDIDO orden = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMEROORDEN == numero);
                 if (orden != null)
                 {
                     return true;
@@ -134,11 +131,11 @@ namespace Controlador
             {
                 Modelo.ORDEN_PEDIDO orden = new Modelo.ORDEN_PEDIDO();
 
-                orden.FECHAORDEN = FechaCreacion;
-                orden.VALORORDEN = Valor;
+                orden.FECHACREACION = FechaCreacion;
+                orden.TOTAL = Total;
                 orden.FECHARECEPCION = FechaRecepcion;
-                orden.PROVEEDOR_RUTPROVEEDOR = Proveedor.Rut;
-                orden.ESTADO_ORDEN_ESTADOID = Estado.Id;
+                orden.PROVEEDOR_RUT = Proveedor.Rut;
+                orden.ESTADO_ORDEN_IDESTADO = Estado.Id;
                 orden.USUARIO_RUNUSUARIO = Usuario.RunUsuario;
 
                 ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.Add(orden);
@@ -158,11 +155,11 @@ namespace Controlador
             {
                 if (BuscarOrden(modificarOrden.Numero))
                 {
-                    Modelo.ORDEN_PEDIDO orden = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMERORDEN == modificarOrden.Numero);
+                    Modelo.ORDEN_PEDIDO orden = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMEROORDEN == modificarOrden.Numero);
 
-                    orden.VALORORDEN = Valor;
-                    orden.PROVEEDOR_RUTPROVEEDOR = Proveedor.Rut;
-                    orden.ESTADO_ORDEN_ESTADOID = Estado.Id;
+                    orden.TOTAL = Total;
+                    orden.PROVEEDOR_RUT = Proveedor.Rut;
+                    orden.ESTADO_ORDEN_IDESTADO = Estado.Id;
                     orden.USUARIO_RUNUSUARIO = Usuario.RunUsuario;
 
                     ConectorDALC.ModeloAlmacen.SaveChanges();
@@ -185,7 +182,7 @@ namespace Controlador
             {
                 if (BuscarOrden(numero))
                 {
-                    Modelo.ORDEN_PEDIDO orden = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMERORDEN == numero);
+                    Modelo.ORDEN_PEDIDO orden = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMEROORDEN == numero);
                     ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.Remove(orden);
                     ConectorDALC.ModeloAlmacen.SaveChanges();
 
@@ -208,10 +205,10 @@ namespace Controlador
             {
                 if (BuscarOrden(recepcionarOrden.Numero))
                 {
-                    Modelo.ORDEN_PEDIDO ordenRecepcionar = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMERORDEN == recepcionarOrden.Numero);
+                    Modelo.ORDEN_PEDIDO ordenRecepcionar = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMEROORDEN == recepcionarOrden.Numero);
 
                     ordenRecepcionar.FECHARECEPCION = recepcionarOrden.FechaRecepcion;
-                    ordenRecepcionar.ESTADO_ORDEN_ESTADOID = recepcionarOrden.Estado.Id;
+                    ordenRecepcionar.ESTADO_ORDEN_IDESTADO = recepcionarOrden.Estado.Id;
 
                     ConectorDALC.ModeloAlmacen.SaveChanges();
                     return true;

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controlador
 {
@@ -30,8 +27,8 @@ namespace Controlador
             foreach (Modelo.TIPO_USUARIO tipoUsuario in ConectorDALC.ModeloAlmacen.TIPO_USUARIO.ToList())
             {
                 TipoUsuario tipo = new TipoUsuario();
-                tipo.Id = (int)tipoUsuario.TIPOUSUARIOID;
-                tipo.Descripcion = tipoUsuario.DESCRIPUSUARIO;
+                tipo.Id = (int)tipoUsuario.IDTIPO;
+                tipo.Descripcion = tipoUsuario.DESCRIPCION;
                 listado.Add(tipo);
             }
             return listado;

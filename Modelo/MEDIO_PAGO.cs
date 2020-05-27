@@ -20,8 +20,8 @@ namespace Modelo
             this.BOLETA = new HashSet<BOLETA>();
         }
     
-        public decimal MEDIOPAGOID { get; set; }
-        public string DESCRIPMEDIO { get; set; }
+        public decimal IDMEDIO { get; set; }
+        public string DESCRIPCION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BOLETA> BOLETA { get; set; }

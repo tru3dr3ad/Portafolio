@@ -1,12 +1,5 @@
 ﻿using Controlador;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Vista
@@ -89,7 +82,7 @@ namespace Vista
                 EstadoOrden estadoOrden = new EstadoOrden();
                 estadoOrden.Id = 1;//<--debe ser No Recepcionada
                 Usuario usuario = new Usuario();
-                usuario.RunUsuario = 7769287;
+                usuario.RunUsuario = Global.RunUsuarioActivo;
                 OrdenPedido orden = new OrdenPedido(fechaCreacion, total, fechaRecepcion, proveedor, estadoOrden, usuario);
                 if (orden.AgregarOrdenPedido())
                 {

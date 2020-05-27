@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controlador
 {
@@ -68,7 +66,7 @@ namespace Controlador
                 Modelo.DETALLE_BOLETA detalleBoleta = new Modelo.DETALLE_BOLETA();
 
                 detalleBoleta.BOLETA_NUMEROBOLETA = NumeroBoleta;
-                detalleBoleta.PRODUCTO_CODIGOPROD = CodigoProducto;
+                detalleBoleta.PRODUCTO_CODIGO = CodigoProducto;
                 detalleBoleta.CANTIDAD = Cantidad;
 
                 ConectorDALC.ModeloAlmacen.DETALLE_BOLETA.Add(detalleBoleta);

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controlador
 {
@@ -30,8 +27,8 @@ namespace Controlador
             foreach (Modelo.CATEGORIA categoriaP in ConectorDALC.ModeloAlmacen.CATEGORIA.ToList())
             {
                 Categoria categoria = new Categoria();
-                categoria.Id = (int)categoriaP.CATEGORIAID;
-                categoria.Descripcion = categoriaP.DESCRIPCATEGORIA;
+                categoria.Id = (int)categoriaP.IDCATEGORIA;
+                categoria.Descripcion = categoriaP.DESCRIPCION;
                 listado.Add(categoria);
             }
             return listado;

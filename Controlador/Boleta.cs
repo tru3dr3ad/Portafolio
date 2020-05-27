@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controlador
 {
@@ -13,25 +11,25 @@ namespace Controlador
     {
         public int Numero { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public int Valor { get; set; }
+        public int Total { get; set; }
         public MedioPago MedioPago { get; set; }
         public Cliente Cliente { get; set; }
         public Usuario Usuario { get; set; }
 
         #region Constructores
-        public Boleta(int numero, DateTime fechaCreacion, int valor, MedioPago medioPago, Cliente cliente, Usuario usuario)
+        public Boleta(int numero, DateTime fechaCreacion, int total, MedioPago medioPago, Cliente cliente, Usuario usuario)
         {
             Numero = numero;
             FechaCreacion = fechaCreacion;
-            Valor = valor;
+            Total = total;
             MedioPago = medioPago;
             Cliente = cliente;
             Usuario = usuario;
         }
-        public Boleta(DateTime fechaCreacion, int valor, MedioPago medioPago, Cliente cliente, Usuario usuario)
+        public Boleta(DateTime fechaCreacion, int total, MedioPago medioPago, Cliente cliente, Usuario usuario)
         {
             FechaCreacion = fechaCreacion;
-            Valor = valor;
+            Total = total;
             MedioPago = medioPago;
             Cliente = cliente;
             Usuario = usuario;
@@ -52,14 +50,14 @@ namespace Controlador
         public List<BOLETA> ListarPorMedioPago(int idMedio)
         {
             List<Modelo.BOLETA> listado = new List<Modelo.BOLETA>();
-            listado = ConectorDALC.ModeloAlmacen.BOLETA.Where(b => b.MEDIO_PAGO_MEDIOPAGOID == idMedio).
+            listado = ConectorDALC.ModeloAlmacen.BOLETA.Where(b => b.MEDIO_PAGO_IDMEDIO == idMedio).
                 OrderByDescending(b => b.NUMEROBOLETA).ToList();
             return listado;
         }
         public List<BOLETA> ListarPorClienteFiados(int runCliente)
         {
             List<Modelo.BOLETA> listado = new List<Modelo.BOLETA>();
-            listado = ConectorDALC.ModeloAlmacen.BOLETA.Where(b => b.CLIENTE_RUNCLIENTE == runCliente).Where(b => b.MEDIO_PAGO_MEDIOPAGOID == 4).
+            listado = ConectorDALC.ModeloAlmacen.BOLETA.Where(b => b.CLIENTE_RUNCLIENTE == runCliente).Where(b => b.MEDIO_PAGO_IDMEDIO == 4).
                 OrderByDescending(b => b.NUMEROBOLETA).ToList();
             return listado;
         }
@@ -78,7 +76,7 @@ namespace Controlador
         public List<V_BOLETAS> ListarBoletasPorMedioPago(int idMedioPago)
         {
             List<V_BOLETAS> listado = new List<V_BOLETAS>();
-            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.MEDIOPAGOID == idMedioPago).ToList();
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.IDMEDIOPAGO == idMedioPago).ToList();
             return listado;
         }
         #endregion
@@ -90,12 +88,12 @@ namespace Controlador
             {
                 Modelo.BOLETA boleta = ConectorDALC.ModeloAlmacen.BOLETA.FirstOrDefault(e => e.NUMEROBOLETA == numero);
                 Numero = (int)boleta.NUMEROBOLETA;
-                FechaCreacion = boleta.FECHABOLETA;
-                Valor = (int)boleta.VALORBOLETA;
-                MedioPago = new MedioPago() { Id = (int)boleta.MEDIO_PAGO.MEDIOPAGOID };
+                FechaCreacion = boleta.FECHACREACION;
+                Total = (int)boleta.TOTAL;
+                MedioPago = new MedioPago() { Id = (int)boleta.MEDIO_PAGO.IDMEDIO };
                 Cliente = new Cliente() { Run = (int)boleta.CLIENTE.RUNCLIENTE };
                 Usuario = new Usuario() { RunUsuario = (int)boleta.USUARIO.RUNUSUARIO };
-                Boleta boletaEncontrada = new Boleta(Numero, FechaCreacion, Valor, MedioPago, Cliente, Usuario);
+                Boleta boletaEncontrada = new Boleta(Numero, FechaCreacion, Total, MedioPago, Cliente, Usuario);
                 return boletaEncontrada;
             }
             catch (Exception ex)
@@ -143,9 +141,9 @@ namespace Controlador
             {
                 Modelo.BOLETA boleta = new Modelo.BOLETA();
 
-                boleta.FECHABOLETA = FechaCreacion;
-                boleta.VALORBOLETA = Valor;
-                boleta.MEDIO_PAGO_MEDIOPAGOID = MedioPago.Id;
+                boleta.FECHACREACION = FechaCreacion;
+                boleta.TOTAL = Total;
+                boleta.MEDIO_PAGO_IDMEDIO = MedioPago.Id;
                 boleta.CLIENTE_RUNCLIENTE = Cliente.Run;
                 boleta.USUARIO_RUNUSUARIO = Usuario.RunUsuario;
 
@@ -168,9 +166,9 @@ namespace Controlador
                 {
                     Modelo.BOLETA boleta = ConectorDALC.ModeloAlmacen.BOLETA.FirstOrDefault(e => e.NUMEROBOLETA == modificarBoleta.Numero);
                     boleta.NUMEROBOLETA = modificarBoleta.Numero;
-                    boleta.FECHABOLETA = modificarBoleta.FechaCreacion;
-                    boleta.VALORBOLETA = modificarBoleta.Valor;
-                    boleta.MEDIO_PAGO_MEDIOPAGOID = modificarBoleta.MedioPago.Id;
+                    boleta.FECHACREACION = modificarBoleta.FechaCreacion;
+                    boleta.TOTAL = modificarBoleta.Total;
+                    boleta.MEDIO_PAGO_IDMEDIO = modificarBoleta.MedioPago.Id;
                     boleta.CLIENTE_RUNCLIENTE = modificarBoleta.Cliente.Run;
                     boleta.USUARIO_RUNUSUARIO = modificarBoleta.Usuario.RunUsuario;
 

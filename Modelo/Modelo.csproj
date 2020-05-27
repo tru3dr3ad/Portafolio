@@ -71,9 +71,6 @@
     <Compile Include="CLIENTE.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
-    <Compile Include="DETALLE_ABONO.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
     <Compile Include="DETALLE_BOLETA.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>

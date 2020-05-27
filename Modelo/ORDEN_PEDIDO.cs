@@ -20,12 +20,12 @@ namespace Modelo
             this.DETALLE_PEDIDO = new HashSet<DETALLE_PEDIDO>();
         }
     
-        public decimal NUMERORDEN { get; set; }
-        public System.DateTime FECHAORDEN { get; set; }
-        public int VALORORDEN { get; set; }
+        public decimal NUMEROORDEN { get; set; }
+        public System.DateTime FECHACREACION { get; set; }
+        public int TOTAL { get; set; }
         public System.DateTime FECHARECEPCION { get; set; }
-        public decimal PROVEEDOR_RUTPROVEEDOR { get; set; }
-        public decimal ESTADO_ORDEN_ESTADOID { get; set; }
+        public decimal PROVEEDOR_RUT { get; set; }
+        public decimal ESTADO_ORDEN_IDESTADO { get; set; }
         public decimal USUARIO_RUNUSUARIO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

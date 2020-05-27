@@ -15,7 +15,7 @@ namespace Modelo
     public partial class DETALLE_BOLETA
     {
         public decimal IDDETALLEB { get; set; }
-        public string PRODUCTO_CODIGOPROD { get; set; }
+        public string PRODUCTO_CODIGO { get; set; }
         public decimal BOLETA_NUMEROBOLETA { get; set; }
         public decimal CANTIDAD { get; set; }
     

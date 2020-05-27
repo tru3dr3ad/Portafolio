@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controlador
 {
@@ -66,8 +64,8 @@ namespace Controlador
             {
                 Modelo.DETALLE_PEDIDO detallePedido = new Modelo.DETALLE_PEDIDO();
 
-                detallePedido.ORDEN_PEDIDO_NUMERORDEN = NumeroOrden;
-                detallePedido.PRODUCTO_CODIGOPROD = CodigoProducto;
+                detallePedido.ORDEN_PEDIDO_NUMEROORDEN = NumeroOrden;
+                detallePedido.PRODUCTO_CODIGO = CodigoProducto;
                 detallePedido.CANTIDAD = Cantidad;
 
                 ConectorDALC.ModeloAlmacen.DETALLE_PEDIDO.Add(detallePedido);

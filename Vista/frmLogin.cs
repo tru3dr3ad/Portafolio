@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Controlador;
+using System;
 using System.Windows.Forms;
 
 namespace Vista
@@ -17,28 +11,53 @@ namespace Vista
             InitializeComponent();
         }
 
-        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        #region Metodos
+        private void IniciarSesion()
         {
-            if (txtNombreUsuario.Text == "Admin" && txtContrasena.Text == "Admin")
+            string nombreUsuario = txtNombreUsuario.Text;
+            string clave = txtContrasena.Text;
+            Usuario usuario = new Usuario();
+            usuario = usuario.Login(nombreUsuario, clave);
+
+            if (usuario != null)
+            {
+                Global.RunUsuarioActivo = usuario.RunUsuario;
+                MostrarMenu(usuario.Tipo.Id);
+            }
+            else
+            {
+                MessageBox.Show("Nombre o Contraseña invalidos");
+            }
+        }
+        private void MostrarMenu(int idTipoUsuario)
+        {
+            this.Hide();
+            if (idTipoUsuario == 1)
             {
                 frmMenuAdmin frmAdministrador = new frmMenuAdmin();
                 frmAdministrador.ShowDialog();
             }
-            else if (txtNombreUsuario.Text == "Vendedor" && txtContrasena.Text == "Vendedor")
+            else if (idTipoUsuario == 2)
             {
                 frmMenuVendedor frmVendedor = new frmMenuVendedor();
                 frmVendedor.ShowDialog();
             }
         }
+        #endregion
 
+        #region Botones
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        {
+            IniciarSesion();
+        }
+        #endregion
     }
 }

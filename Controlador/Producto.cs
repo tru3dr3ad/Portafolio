@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controlador
 {
@@ -55,7 +53,7 @@ namespace Controlador
         public List<V_PRODUCTOS> ListarProductosPorCategoria(int idCategoria)
         {
             List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();
-            listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.Where(p => p.CATEGORIAID == idCategoria).
+            listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.Where(p => p.IDCATEGORIA == idCategoria).
                 OrderBy(p => p.CODIGO).ToList();
             return listado;
         }
@@ -66,16 +64,16 @@ namespace Controlador
         {
             try
             {
-                Modelo.PRODUCTO producto = ConectorDALC.ModeloAlmacen.PRODUCTO.FirstOrDefault(e => e.CODIGOPROD == codigo);
-                Codigo = producto.CODIGOPROD;
-                Nombre = producto.NOMBREPROD;
-                Descripcion = producto.DESCRIPPROD;
+                Modelo.PRODUCTO producto = ConectorDALC.ModeloAlmacen.PRODUCTO.FirstOrDefault(e => e.CODIGO == codigo);
+                Codigo = producto.CODIGO;
+                Nombre = producto.NOMBRE;
+                Descripcion = producto.DESCRIPCION;
                 PrecioVenta = (int)producto.PRECIOVENTA;
                 PrecioCompra = (int)producto.PRECIOCOMPRA;
                 Stock = (int)producto.STOCK;
                 StockCritico = (int)producto.STOCKCRITICO;
                 FechaVencimiento = producto.FECHAVENCIMIENTO;
-                Categoria = new Categoria() { Id = (int)producto.CATEGORIA.CATEGORIAID };
+                Categoria = new Categoria() { Id = (int)producto.CATEGORIA.IDCATEGORIA };
                 Producto productoEncontrado = new Producto(Codigo, Nombre, Descripcion, PrecioVenta, PrecioCompra, Stock, StockCritico,
                         FechaVencimiento, Categoria);
                 return productoEncontrado;
@@ -90,7 +88,7 @@ namespace Controlador
         {
             try
             {
-                Modelo.PRODUCTO producto = ConectorDALC.ModeloAlmacen.PRODUCTO.FirstOrDefault(e => e.CODIGOPROD == codigo);
+                Modelo.PRODUCTO producto = ConectorDALC.ModeloAlmacen.PRODUCTO.FirstOrDefault(e => e.CODIGO == codigo);
                 if (producto != null)
                 {
                     return true;
@@ -112,15 +110,15 @@ namespace Controlador
             {
                 Modelo.PRODUCTO producto = new Modelo.PRODUCTO();
 
-                producto.CODIGOPROD = Codigo;
-                producto.NOMBREPROD = Nombre;
-                producto.DESCRIPPROD = Descripcion;
+                producto.CODIGO = Codigo;
+                producto.NOMBRE = Nombre;
+                producto.DESCRIPCION= Descripcion;
                 producto.PRECIOVENTA = PrecioVenta;
                 producto.PRECIOCOMPRA = PrecioCompra;
                 producto.STOCK = Stock;
                 producto.STOCKCRITICO = StockCritico;
                 producto.FECHAVENCIMIENTO = FechaVencimiento;
-                producto.CATEGORIA_CATEGORIAID = Categoria.Id;
+                producto.CATEGORIA_IDCATEGORIA= Categoria.Id;
 
                 ConectorDALC.ModeloAlmacen.PRODUCTO.Add(producto);
                 ConectorDALC.ModeloAlmacen.SaveChanges();
@@ -139,16 +137,16 @@ namespace Controlador
             {
                 if (BuscarProducto(modificarProducto.Codigo))
                 {
-                    Modelo.PRODUCTO producto = ConectorDALC.ModeloAlmacen.PRODUCTO.FirstOrDefault(e => e.CODIGOPROD == modificarProducto.Codigo);
-                    producto.CODIGOPROD = modificarProducto.Codigo;
-                    producto.NOMBREPROD = modificarProducto.Nombre;
-                    producto.DESCRIPPROD = modificarProducto.Descripcion;
+                    Modelo.PRODUCTO producto = ConectorDALC.ModeloAlmacen.PRODUCTO.FirstOrDefault(e => e.CODIGO == modificarProducto.Codigo);
+                    producto.CODIGO = modificarProducto.Codigo;
+                    producto.NOMBRE = modificarProducto.Nombre;
+                    producto.DESCRIPCION= modificarProducto.Descripcion;
                     producto.PRECIOVENTA = modificarProducto.PrecioVenta;
                     producto.PRECIOCOMPRA = modificarProducto.PrecioCompra;
                     producto.STOCK = modificarProducto.Stock;
                     producto.STOCKCRITICO = modificarProducto.StockCritico;
                     producto.FECHAVENCIMIENTO = FechaVencimiento;
-                    producto.CATEGORIA_CATEGORIAID = modificarProducto.Categoria.Id;
+                    producto.CATEGORIA_IDCATEGORIA= modificarProducto.Categoria.Id;
 
                     ConectorDALC.ModeloAlmacen.SaveChanges();
                     return true;
@@ -170,7 +168,7 @@ namespace Controlador
             {
                 if (BuscarProducto(codigo))
                 {
-                    Modelo.PRODUCTO producto = ConectorDALC.ModeloAlmacen.PRODUCTO.FirstOrDefault(e => e.CODIGOPROD == codigo);
+                    Modelo.PRODUCTO producto = ConectorDALC.ModeloAlmacen.PRODUCTO.FirstOrDefault(e => e.CODIGO == codigo);
                     ConectorDALC.ModeloAlmacen.PRODUCTO.Remove(producto);
                     ConectorDALC.ModeloAlmacen.SaveChanges();
 

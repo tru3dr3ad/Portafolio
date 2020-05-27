@@ -14,17 +14,12 @@ namespace Modelo
     
     public partial class ABONO
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ABONO()
-        {
-            this.DETALLE_ABONO = new HashSet<DETALLE_ABONO>();
-        }
-    
-        public decimal ABONOID { get; set; }
+        public decimal IDABONO { get; set; }
+        public decimal BOLETA_NUMEROBOLETA { get; set; }
+        public int VALOR { get; set; }
         public System.DateTime FECHAABONO { get; set; }
-        public int VALORABONO { get; set; }
+        public System.DateTime FECHALIMITE { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_ABONO> DETALLE_ABONO { get; set; }
+        public virtual BOLETA BOLETA { get; set; }
     }
 }

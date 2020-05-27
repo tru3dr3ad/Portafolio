@@ -14,13 +14,14 @@ namespace Modelo
     
     public partial class V_CLIENTES
     {
-        public decimal RUNCLIENTE { get; set; }
-        public string DVCLIENTE { get; set; }
+        public string RUN { get; set; }
         public string NOMBRE_CLIENTE { get; set; }
         public System.DateTime FECHANACIMIENTO { get; set; }
-        public string DIRECCIONCLIENTE { get; set; }
-        public int TELEFONOCLIENTE { get; set; }
-        public string DESCRIPCLIENTE { get; set; }
-        public string DESCRIPESTADO { get; set; }
+        public string DIRECCION { get; set; }
+        public int TELEFONO { get; set; }
+        public decimal IDTIPO { get; set; }
+        public string TIPO_CLIENTE { get; set; }
+        public decimal IDESTADO { get; set; }
+        public string ESTADO_FIADO { get; set; }
     }
 }

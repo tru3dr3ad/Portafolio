@@ -21,14 +21,14 @@ namespace Modelo
         }
     
         public decimal RUNCLIENTE { get; set; }
-        public string DVCLIENTE { get; set; }
-        public string NOMBRECLIENTE { get; set; }
-        public string APELLIDOCLIENTE { get; set; }
+        public string DV { get; set; }
+        public string NOMBRE { get; set; }
+        public string APELLIDO { get; set; }
         public System.DateTime FECHANACIMIENTO { get; set; }
-        public string DIRECCIONCLIENTE { get; set; }
-        public int TELEFONOCLIENTE { get; set; }
-        public decimal ESTADO_FIADO_ESTADOID { get; set; }
-        public decimal TIPO_CLIENTE_TIPOCLIENTEID { get; set; }
+        public string DIRECCION { get; set; }
+        public int TELEFONO { get; set; }
+        public decimal ESTADO_FIADO_IDESTADO { get; set; }
+        public decimal TIPO_CLIENTE_IDTIPO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BOLETA> BOLETA { get; set; }

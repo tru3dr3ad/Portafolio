@@ -20,8 +20,8 @@ namespace Modelo
             this.PRODUCTO = new HashSet<PRODUCTO>();
         }
     
-        public decimal CATEGORIAID { get; set; }
-        public string DESCRIPCATEGORIA { get; set; }
+        public decimal IDCATEGORIA { get; set; }
+        public string DESCRIPCION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCTO> PRODUCTO { get; set; }

@@ -15,8 +15,8 @@ namespace Modelo
     public partial class DETALLE_PEDIDO
     {
         public decimal IDDETALLEO { get; set; }
-        public decimal ORDEN_PEDIDO_NUMERORDEN { get; set; }
-        public string PRODUCTO_CODIGOPROD { get; set; }
+        public decimal ORDEN_PEDIDO_NUMEROORDEN { get; set; }
+        public string PRODUCTO_CODIGO { get; set; }
         public decimal CANTIDAD { get; set; }
     
         public virtual ORDEN_PEDIDO ORDEN_PEDIDO { get; set; }

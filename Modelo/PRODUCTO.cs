@@ -21,15 +21,15 @@ namespace Modelo
             this.DETALLE_PEDIDO = new HashSet<DETALLE_PEDIDO>();
         }
     
-        public string CODIGOPROD { get; set; }
-        public string NOMBREPROD { get; set; }
-        public string DESCRIPPROD { get; set; }
+        public string CODIGO { get; set; }
+        public string NOMBRE { get; set; }
+        public string DESCRIPCION { get; set; }
         public decimal PRECIOVENTA { get; set; }
         public decimal PRECIOCOMPRA { get; set; }
         public decimal STOCK { get; set; }
         public decimal STOCKCRITICO { get; set; }
         public System.DateTime FECHAVENCIMIENTO { get; set; }
-        public decimal CATEGORIA_CATEGORIAID { get; set; }
+        public decimal CATEGORIA_IDCATEGORIA { get; set; }
     
         public virtual CATEGORIA CATEGORIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

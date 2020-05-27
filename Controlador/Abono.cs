@@ -1,28 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controlador
 {
     public class Abono
     {
         public int Id { get; set; }
-        public DateTime FechaAbono { get; set; }
+        public Boleta Boleta { get; set; }
         public int ValorAbono { get; set; }
+        public DateTime FechaAbono { get; set; }
+        public DateTime FechaLimite { get; set; }
 
         #region Constructores
-        public Abono(int id, DateTime fechaAbono, int valorAbono)
+        public Abono(int id, Boleta boleta, int valorAbono, DateTime fechaAbono, DateTime fechaLimite)
         {
             Id = id;
-            FechaAbono = fechaAbono;
+            Boleta = boleta;
             ValorAbono = valorAbono;
+            FechaAbono = fechaAbono;
+            FechaLimite = fechaLimite;
         }
-        public Abono(DateTime fechaAbono, int valorAbono)
+        public Abono(Boleta boleta, int valorAbono, DateTime fechaAbono, DateTime fechaLimite)
         {
-            FechaAbono = fechaAbono;
+            Boleta = boleta;
             ValorAbono = valorAbono;
+            FechaAbono = fechaAbono;
+            FechaLimite = fechaLimite;
         }
         public Abono()
         {
@@ -41,11 +45,13 @@ namespace Controlador
         {
             try
             {
-                Modelo.ABONO abono = ConectorDALC.ModeloAlmacen.ABONO.FirstOrDefault(a => a.ABONOID == id);
-                Id = (int)abono.ABONOID;
+                Modelo.ABONO abono = ConectorDALC.ModeloAlmacen.ABONO.FirstOrDefault(a => a.IDABONO == id);
+                Id = (int)abono.IDABONO;
+                Boleta = new Boleta() { Numero = (int)abono.BOLETA.NUMEROBOLETA};
+                ValorAbono = (int)abono.VALOR;
                 FechaAbono = abono.FECHAABONO;
-                ValorAbono = (int)abono.VALORABONO;
-                Abono abonoEncontrado = new Abono(Id, FechaAbono, ValorAbono);
+                FechaLimite = abono.FECHALIMITE;
+                Abono abonoEncontrado = new Abono(Id, Boleta, ValorAbono, FechaAbono, FechaLimite);
                 return abonoEncontrado;
             }
             catch (Exception ex)
@@ -58,7 +64,7 @@ namespace Controlador
         {
             try
             {
-                int id = (int)ConectorDALC.ModeloAlmacen.ABONO.Max(a => a.ABONOID);
+                int id = (int)ConectorDALC.ModeloAlmacen.ABONO.Max(a => a.IDABONO);
                 return id;
             }
             catch (Exception)
@@ -74,7 +80,7 @@ namespace Controlador
         {
             try
             {
-                Modelo.ABONO abono = ConectorDALC.ModeloAlmacen.ABONO.FirstOrDefault(a => a.ABONOID == id);
+                Modelo.ABONO abono = ConectorDALC.ModeloAlmacen.ABONO.FirstOrDefault(a => a.IDABONO == id);
                 if (abono != null)
                 {
                     return true;
@@ -97,7 +103,7 @@ namespace Controlador
                 Modelo.ABONO abono = new Modelo.ABONO();
 
                 abono.FECHAABONO = FechaAbono;
-                abono.VALORABONO = ValorAbono;
+                abono.VALOR = ValorAbono;
 
                 ConectorDALC.ModeloAlmacen.ABONO.Add(abono);
                 ConectorDALC.ModeloAlmacen.SaveChanges();
@@ -116,10 +122,10 @@ namespace Controlador
             {
                 if (BuscarAbono(modificarAbono.Id))
                 {
-                    Modelo.ABONO abono = ConectorDALC.ModeloAlmacen.ABONO.FirstOrDefault(a => a.ABONOID == modificarAbono.Id);
-                    abono.ABONOID = modificarAbono.Id;
+                    Modelo.ABONO abono = ConectorDALC.ModeloAlmacen.ABONO.FirstOrDefault(a => a.IDABONO == modificarAbono.Id);
+                    abono.IDABONO = modificarAbono.Id;
                     abono.FECHAABONO= modificarAbono.FechaAbono;
-                    abono.VALORABONO = modificarAbono.ValorAbono;
+                    abono.VALOR = modificarAbono.ValorAbono;
 
                     ConectorDALC.ModeloAlmacen.SaveChanges();
                     return true;
@@ -141,7 +147,7 @@ namespace Controlador
             {
                 if (BuscarAbono(id))
                 {
-                    Modelo.ABONO abono = ConectorDALC.ModeloAlmacen.ABONO.FirstOrDefault(a => a.ABONOID == id);
+                    Modelo.ABONO abono = ConectorDALC.ModeloAlmacen.ABONO.FirstOrDefault(a => a.IDABONO == id);
                     ConectorDALC.ModeloAlmacen.ABONO.Remove(abono);
                     ConectorDALC.ModeloAlmacen.SaveChanges();
 

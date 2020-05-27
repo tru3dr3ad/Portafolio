@@ -15,9 +15,9 @@ namespace Modelo
     public partial class V_BOLETAS
     {
         public decimal NUMERO { get; set; }
-        public System.DateTime FECHA { get; set; }
-        public decimal VALOR { get; set; }
-        public decimal MEDIOPAGOID { get; set; }
+        public System.DateTime FECHA_CREACION { get; set; }
+        public decimal TOTAL { get; set; }
+        public decimal IDMEDIOPAGO { get; set; }
         public string MEDIO_PAGO { get; set; }
         public decimal RUN_CLIENTE { get; set; }
         public string NOMBRE_CLIENTE { get; set; }

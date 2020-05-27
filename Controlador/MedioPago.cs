@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controlador
 {
@@ -30,8 +27,8 @@ namespace Controlador
             foreach (Modelo.MEDIO_PAGO estadoFiado in ConectorDALC.ModeloAlmacen.MEDIO_PAGO.ToList())
             {
                 MedioPago medio = new MedioPago();
-                medio.Id = (int)estadoFiado.MEDIOPAGOID;
-                medio.Descripcion = estadoFiado.DESCRIPMEDIO;
+                medio.Id = (int)estadoFiado.IDMEDIO;
+                medio.Descripcion = estadoFiado.DESCRIPCION;
                 listado.Add(medio);
             }
             return listado;

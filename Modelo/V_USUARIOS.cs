@@ -14,15 +14,14 @@ namespace Modelo
     
     public partial class V_USUARIOS
     {
-        public decimal RUN { get; set; }
-        public string DV { get; set; }
+        public string RUN_USUARIO { get; set; }
         public string NOMBRE_USUARIO { get; set; }
-        public string CLAVE { get; set; }
+        public string CONTRASENA { get; set; }
         public System.DateTime FECHANACIMIENTO { get; set; }
         public System.DateTime FECHACREACION { get; set; }
         public string DIRECCION { get; set; }
         public decimal TELEFONO { get; set; }
-        public decimal TIPOUSUARIOID { get; set; }
-        public string DESCRIPUSUARIO { get; set; }
+        public decimal IDTIPO { get; set; }
+        public string DESCRIPCION { get; set; }
     }
 }

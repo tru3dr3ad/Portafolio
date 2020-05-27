@@ -20,7 +20,7 @@ namespace Modelo
             this.ORDEN_PEDIDO = new HashSet<ORDEN_PEDIDO>();
         }
     
-        public decimal ESTADOID { get; set; }
+        public decimal IDESTADO { get; set; }
         public string DESCRIPCION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
