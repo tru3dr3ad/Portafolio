@@ -123,6 +123,9 @@
     <Compile Include="USUARIO.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="V_ABONO.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="V_BOLETAS.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>

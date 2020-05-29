@@ -12,14 +12,12 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class ABONO
+    public partial class V_ABONO
     {
         public decimal IDABONO { get; set; }
         public decimal BOLETA_NUMEROBOLETA { get; set; }
         public int TOTAL { get; set; }
         public System.DateTime FECHAABONO { get; set; }
         public System.DateTime FECHALIMITE { get; set; }
-    
-        public virtual BOLETA BOLETA { get; set; }
     }
 }

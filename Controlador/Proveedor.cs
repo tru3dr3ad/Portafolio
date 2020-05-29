@@ -71,6 +71,13 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_PROVEEDORES.ToList();
             return listado;
         }
+        public List<V_PROVEEDORES> ListarProveedorPorNombre(string nombre)
+        {
+            List<V_PROVEEDORES> listado = new List<V_PROVEEDORES>();
+            listado = ConectorDALC.ModeloAlmacen.V_PROVEEDORES.Where(p => p.NOMBRE.Contains(nombre))
+                .OrderBy(p => p.NOMBRE).ToList();
+            return listado;
+        }
         #endregion
 
         #region Metodos

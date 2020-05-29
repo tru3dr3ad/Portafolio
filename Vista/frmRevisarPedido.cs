@@ -44,8 +44,8 @@ namespace Vista
         }
         private void EsconderColumnasAutogeneradas()
         {
-            grdOrden.Columns["RUTPROVEEDOR"].Visible = false;
-            grdOrden.Columns["ESTADOID"].Visible = false;
+            grdOrden.Columns["PROVEEDOR_RUT"].Visible = false;
+            grdOrden.Columns["IDESTADO"].Visible = false;
         }
 
         #endregion
@@ -139,7 +139,8 @@ namespace Vista
             }
         }
         #endregion
-        
+
+        #region Eventos
         private void cmbProveedores_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cmbProveedores.SelectedValue != null)
@@ -149,5 +150,6 @@ namespace Vista
                 EsconderColumnasAutogeneradas();
             }
         }
+        #endregion
     }
 }

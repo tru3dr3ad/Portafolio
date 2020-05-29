@@ -118,6 +118,7 @@
             this.btnBuscarBoleta.TabIndex = 2;
             this.btnBuscarBoleta.Text = "Buscar";
             this.btnBuscarBoleta.UseVisualStyleBackColor = true;
+            this.btnBuscarBoleta.Click += new System.EventHandler(this.btnBuscarBoleta_Click);
             // 
             // label4
             // 

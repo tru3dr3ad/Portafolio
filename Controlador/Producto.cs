@@ -50,6 +50,13 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.OrderBy(p => p.CODIGO).ToList();
             return listado;
         }
+        public List<V_PRODUCTOS> ListarProductosPorNombre(string nombre)
+        {
+            List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();
+            listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.Where(p => p.NOMBRE.Contains(nombre)).
+                OrderBy(p => p.NOMBRE).ToList();
+            return listado;
+        }
         public List<V_PRODUCTOS> ListarProductosPorCategoria(int idCategoria)
         {
             List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();

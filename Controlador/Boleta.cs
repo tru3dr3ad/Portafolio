@@ -47,20 +47,6 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.BOLETA.ToList();
             return listado;
         }
-        public List<BOLETA> ListarPorMedioPago(int idMedio)
-        {
-            List<Modelo.BOLETA> listado = new List<Modelo.BOLETA>();
-            listado = ConectorDALC.ModeloAlmacen.BOLETA.Where(b => b.MEDIO_PAGO_IDMEDIO == idMedio).
-                OrderByDescending(b => b.NUMEROBOLETA).ToList();
-            return listado;
-        }
-        public List<BOLETA> ListarPorClienteFiados(int runCliente)
-        {
-            List<Modelo.BOLETA> listado = new List<Modelo.BOLETA>();
-            listado = ConectorDALC.ModeloAlmacen.BOLETA.Where(b => b.CLIENTE_RUNCLIENTE == runCliente).Where(b => b.MEDIO_PAGO_IDMEDIO == 4).
-                OrderByDescending(b => b.NUMEROBOLETA).ToList();
-            return listado;
-        }
         public List<V_BOLETAS> ListarBoletas()
         {
             List<V_BOLETAS> listado = new List<V_BOLETAS>();
@@ -77,6 +63,18 @@ namespace Controlador
         {
             List<V_BOLETAS> listado = new List<V_BOLETAS>();
             listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.IDMEDIOPAGO == idMedioPago).ToList();
+            return listado;
+        }
+        public List<V_BOLETAS> ListarBoletasPorNombreCliente(string nombre)
+        {
+            List<V_BOLETAS> listado = new List<V_BOLETAS>();
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.NOMBRE_CLIENTE.Contains(nombre)).ToList();
+            return listado;
+        }
+        public List<V_BOLETAS> ListarBoletasPorClienteFiador(int runCliente)
+        {
+            List<V_BOLETAS> listado = new List<V_BOLETAS>();
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.RUN_CLIENTE == runCliente).Where(b => b.IDMEDIOPAGO == 4).ToList();
             return listado;
         }
         #endregion

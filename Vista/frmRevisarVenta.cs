@@ -41,8 +41,23 @@ namespace Vista
             grdBoleta.Columns["RUN_USUARIO"].Visible = false;
             grdBoleta.Columns["RUN_CLIENTE"].Visible = false;
         }
+        private void BuscarBoletasPorNombreCliente()
+        {
+            string nombre = txtBuscarBoleta.Text.ToUpper();
+            Boleta boleta = new Boleta();
+            grdBoleta.DataSource = boleta.ListarBoletasPorNombreCliente(nombre);
+            EsconderColumnasAutogeneradas();
+        }
         #endregion
 
+        #region Botones
+        private void btnBuscarBoleta_Click(object sender, EventArgs e)
+        {
+            BuscarBoletasPorNombreCliente();
+        }
+        #endregion
+
+        #region Eventos
         private void cmbMedioPago_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cmbMedioPago.SelectedValue != null)
@@ -52,7 +67,6 @@ namespace Vista
                 EsconderColumnasAutogeneradas();
             }
         }
-
         private void cmbVendedores_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbMedioPago.SelectedValue != null)
@@ -62,5 +76,6 @@ namespace Vista
                 EsconderColumnasAutogeneradas();
             }
         }
+        #endregion
     }
 }

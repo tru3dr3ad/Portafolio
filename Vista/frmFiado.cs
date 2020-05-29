@@ -11,18 +11,26 @@ namespace Vista
         {
             InitializeComponent();
             CargarComboboxCliente();
-            CargarGrillaAbono();
             CargarGrillaVentasFiadas();
         }
+
+        #region Metodos
         private void CargarGrillaVentasFiadas()
         {
             Boleta boleta = new Boleta();
             grdVentaFiadas.DataSource = boleta.ListarBoletasPorMedioPago(4);
+            OcultarColumnasAutogeneradas();
         }
-        private void CargarGrillaAbono()
+        private void CargarGrillaAbonoPorBoleta(int nroBoleta)
         {
             Abono abono = new Abono();
-            grdAbono.DataSource = abono.Listar();
+            grdAbono.DataSource = abono.ListarAbonosPorBoleta(nroBoleta);
+        }
+        private void OcultarColumnasAutogeneradas()
+        {
+            grdVentaFiadas.Columns["RUN_USUARIO"].Visible = false;
+            grdVentaFiadas.Columns["RUN_CLIENTE"].Visible = false;
+            grdVentaFiadas.Columns["IDMEDIOPAGO"].Visible = false;
         }
         private void CargarComboboxCliente()
         {
@@ -31,65 +39,49 @@ namespace Vista
             cmbCliente.ValueMember = "Run";
             cmbCliente.DataSource = cliente.ListarCombobox();
         }
-
-        private void cmbCliente_SelectedValueChanged(object sender, EventArgs e)
+        public void MostrarDeuda(int numeroBoleta)
         {
-            if (cmbCliente.SelectedValue != null)
-            {
-                Boleta boleta = new Boleta();
-                grdVentaFiadas.DataSource = boleta.ListarPorClienteFiados((int)cmbCliente.SelectedValue);
-            }
+            Abono abono = new Abono();
+            int deuda = abono.ObtenerDeuda(numeroBoleta);
+            txtDeuda.Text = deuda.ToString();
         }
-
-        private void grdVentaFiadas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int rowIndex = e.RowIndex;
-            _numeroBoleta = int.Parse(grdVentaFiadas.Rows[rowIndex].Cells[0].Value.ToString());
-            MostrarDeuda(_numeroBoleta);
-        }
-
-        public bool MostrarDeuda(int numeroBoleta)
+        private void DatosClienteBoleta(int nroBoleta)
         {
             Boleta boleta = new Boleta();
-            boleta = boleta.ObtenerBoleta(numeroBoleta);
-            if (boleta != null)
+            boleta = boleta.ObtenerBoleta(nroBoleta);
+            txtRunCliente.Text = boleta.Cliente.Run.ToString();
+            cmbCliente.SelectedValue = boleta.Cliente.Run;
+        }
+        private void LimpiarGrillaAbono()
+        {
+            grdAbono.DataSource = null;
+        }
+        #endregion
+
+        #region Metodos de la clase
+        public void BuscarBoletasPorNombreCliente()
+        {
+            string nombre = txtBuscarUsuario.Text.ToUpper();
+            Boleta boleta = new Boleta();
+            if (nombre == "")
             {
-                txtRunCliente.Text = boleta.Cliente.Run.ToString();
-                txtDeuda.Text = boleta.Total.ToString();
-                return true;
+                grdVentaFiadas.DataSource = boleta.ListarBoletasPorMedioPago(4);
             }
             else
             {
-                return false;
+                grdVentaFiadas.DataSource = boleta.ListarBoletasPorNombreCliente(nombre);
             }
+            txtBuscarUsuario.Clear();
+            OcultarColumnasAutogeneradas();
         }
-
-        private void rdbDeudaTotal_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdbDeudaTotal.Checked)
-            {
-                txtMontoAbono.Enabled = false;
-                txtMontoAbono.Text = txtDeuda.Text;
-            }
-        }
-
-        private void rdbDeudaParcial_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdbDeudaParcial.Checked)
-            {
-                txtMontoAbono.Enabled = true;
-            }
-        }
-
         public void AgregarAbono()
         {
-            if (int.Parse(txtMontoAbono.Text) > 0)
+            if (int.Parse(txtMontoAbono.Text) <= int.Parse(txtDeuda.Text))
             {
                 DateTime fechaAbono = DateTime.Now.Date;
                 int montoAbono = int.Parse(txtMontoAbono.Text);
                 Boleta boleta = new Boleta();
                 boleta = boleta.ObtenerBoleta(_numeroBoleta);
-                DateTime fechaDetalleAbono = DateTime.Now.Date;
                 DateTime fechaLimite = boleta.FechaCreacion.AddMonths(1);
 
                 Abono abono = new Abono(boleta, montoAbono, fechaAbono, fechaLimite);
@@ -99,14 +91,67 @@ namespace Vista
                     MessageBox.Show("Abono N°" + idAbono + " agregado.");
                 }
             }
+            else
+            {
+                MessageBox.Show("Monto del abono no puede ser mayor a lo adeudado.");
+            }
             _numeroBoleta = 0;
         }
+        #endregion
 
+        #region Botones
+        private void btnBuscarUsuario_Click(object sender, EventArgs e)
+        {
+            BuscarBoletasPorNombreCliente();
+            LimpiarGrillaAbono();
+        }
         private void btnAgregarAbono_Click(object sender, EventArgs e)
         {
             AgregarAbono();
             CargarGrillaVentasFiadas();
+            LimpiarGrillaAbono();
             txtMontoAbono.Clear();
         }
+        #endregion
+
+        #region Eventos
+        private void rdbDeudaTotal_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbDeudaTotal.Checked)
+            {
+                txtMontoAbono.Enabled = false;
+                txtMontoAbono.Text = txtDeuda.Text;
+            }
+        }
+        private void rdbDeudaParcial_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbDeudaParcial.Checked)
+            {
+                txtMontoAbono.Enabled = true;
+            }
+        }
+        private void cmbCliente_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbCliente.SelectedValue != null)
+            {
+                Boleta boleta = new Boleta();
+                grdVentaFiadas.DataSource = boleta.ListarBoletasPorClienteFiador((int)cmbCliente.SelectedValue);
+                txtRunCliente.Text = cmbCliente.SelectedValue.ToString();
+                LimpiarGrillaAbono();
+            }
+        }
+        #endregion
+
+        #region Metodos Grilla
+        private void grdVentaFiadas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            _numeroBoleta = int.Parse(grdVentaFiadas.Rows[rowIndex].Cells[0].Value.ToString());
+            MostrarDeuda(_numeroBoleta);
+            CargarGrillaAbonoPorBoleta(_numeroBoleta);
+            DatosClienteBoleta(_numeroBoleta);
+        }     
+        #endregion
+
     }
 }

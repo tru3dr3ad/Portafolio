@@ -24,9 +24,9 @@ namespace Vista
         {
             Producto producto = new Producto();
             grdProducto.DataSource = producto.ListarProductos();
-            OcultarColumnasAutogeneradas();
+            EsconderColumnasAutogeneradas();
         }
-        private void OcultarColumnasAutogeneradas()
+        private void EsconderColumnasAutogeneradas()
         {
             grdBoleta.Columns["Codigo"].Visible = false;
             grdProducto.Columns["PRECIO_COMPRA"].Visible = false;
@@ -85,8 +85,8 @@ namespace Vista
         {
             txtTotalBoleta.Text = "0";
             txtRunCliente.Clear();
-            cmbCliente.SelectedValue = 0;
-            cmbMedioPago.SelectedValue = 0;
+            cmbCliente.SelectedValue = 11111111;
+            cmbMedioPago.SelectedValue = 1;
             grdBoleta.Rows.Clear();
         }
         private void LimpiarCantidad()
@@ -96,6 +96,13 @@ namespace Vista
         #endregion
 
         #region Metodos de la clase
+        private void BuscarProductoPorNombre()
+        {
+            string nombre = txtBuscarProducto.Text.ToUpper();
+            Producto producto = new Producto();
+            grdProducto.DataSource = producto.ListarProductosPorNombre(nombre);
+            EsconderColumnasAutogeneradas();
+        }
         public void AgregarBoleta()
         {
             if (int.Parse(txtTotalBoleta.Text)>0)
@@ -159,6 +166,10 @@ namespace Vista
         #endregion
 
         #region Botones
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            BuscarProductoPorNombre();
+        }
         private void btnAgregarBoleta_Click(object sender, EventArgs e)
         {
             AgregarBoleta();
@@ -196,14 +207,25 @@ namespace Vista
         }
         #endregion
 
+        #region Eventos
         private void cmbCategoria_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cmbCategoria.SelectedValue != null)
             {
                 Producto producto = new Producto();
                 grdProducto.DataSource = producto.ListarProductosPorCategoria((int)cmbCategoria.SelectedValue);
-                OcultarColumnasAutogeneradas();
+                EsconderColumnasAutogeneradas();
             }
         }
+
+        private void cmbCliente_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbCliente.SelectedValue != null)
+            {
+                txtRunCliente.Text = cmbCliente.SelectedValue.ToString();
+            }
+        }
+        #endregion
+
     }
 }

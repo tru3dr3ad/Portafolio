@@ -17,14 +17,14 @@ namespace Vista
         #region Metodos
         private void EsconderColumnasAutogeneradas()
         {
-            grdCliente.Columns["BOLETA"].Visible = false;
-            grdCliente.Columns["ESTADO_FIADO"].Visible = false;
-            grdCliente.Columns["TIPO_CLIENTE"].Visible = false;
+            grdCliente.Columns["IDTIPO"].Visible = false;
+            grdCliente.Columns["IDESTADO"].Visible = false;
         }
         private void CargarGrilla()
         {
             Cliente cliente = new Cliente();
             grdCliente.DataSource = cliente.ListarVistaCliente();
+            EsconderColumnasAutogeneradas();
         }
         private void CargarComboboxTipoCliente()
         {
@@ -77,21 +77,13 @@ namespace Vista
         #endregion
 
         #region Metodos de la clase
-        private void BuscarCliente()
+        private void BuscarClientePorNombre()
         {
+            string nombre = txtBuscarCliente.Text.ToUpper();
             Cliente cliente = new Cliente();
-            if (!String.IsNullOrEmpty(txtBuscarCliente.Text))
-            {
-                bool existeCliente = cliente.BuscarCliente(int.Parse(txtBuscarCliente.Text));
-                if (existeCliente)
-                {
-                    MessageBox.Show("Cliente encontrado");
-                }
-                else
-                {
-                    MessageBox.Show("Cliente no encontrado");
-                }
-            }
+            grdCliente.DataSource = cliente.ListarClientePorNombre(nombre);
+            txtBuscarCliente.Clear();
+            EsconderColumnasAutogeneradas();
         }
         public void AgregarCliente()
         {
@@ -99,10 +91,10 @@ namespace Vista
             {
                 int run = int.Parse(txtRunCliente.Text);
                 char dv = char.Parse(txtDv.Text);
-                string nombre = txtNombre.Text;
-                string apellido = txtApellido.Text;
+                string nombre = txtNombre.Text.ToUpper();
+                string apellido = txtApellido.Text.ToUpper(); ;
                 DateTime fechaNacimiento = dtpFechaNacimiento.Value.Date;
-                string direccion = txtDireccion.Text;
+                string direccion = txtDireccion.Text.ToUpper();
                 int telefono = int.Parse(txtTelefono.Text);
                 EstadoFiado estado = new EstadoFiado();
                 estado.Id = (int)cmbEstado.SelectedValue;
@@ -121,10 +113,10 @@ namespace Vista
             {
                 int run = int.Parse(txtRunCliente.Text);
                 char dv = char.Parse(txtDv.Text);
-                string nombre = txtNombre.Text;
-                string apellido = txtApellido.Text;
+                string nombre = txtNombre.Text.ToUpper();
+                string apellido = txtApellido.Text.ToUpper();
                 DateTime fechaNacimiento = dtpFechaNacimiento.Value.Date;
-                string direccion = txtDireccion.Text;
+                string direccion = txtDireccion.Text.ToUpper();
                 int telefono = int.Parse(txtTelefono.Text);
                 EstadoFiado estado = new EstadoFiado();
                 estado.Id = (int)cmbEstado.SelectedValue;
@@ -163,10 +155,7 @@ namespace Vista
         #region Botones
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            BuscarCliente();
-            txtBuscarCliente.Clear();
-            //Cliente cliente = new Cliente();
-            //grdCliente.DataSource = cliente.ListarConDescripcionPrueba();
+            BuscarClientePorNombre();
         }
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {

@@ -58,7 +58,7 @@ namespace Vista
         {
             txtTotalOrden.Text = "0";
             txtRutProveedor.Clear();
-            cmbCategoria.SelectedValue = 0;
+            cmbCategoria.SelectedValue = 100;
             cmbProveedor.SelectedValue = 0;
             grdOrden.Rows.Clear();
         }
@@ -70,6 +70,14 @@ namespace Vista
         #endregion
 
         #region Metodos de la clase
+        private void BuscarProductoPorNombre()
+        {
+            string nombre = txtBuscarProducto.Text.ToUpper(); 
+            Producto producto = new Producto();
+            grdProducto.DataSource = producto.ListarProductosPorNombre(nombre);
+            txtBuscarProducto.Clear();
+            EsconderColumnasAutogeneradas();
+        }
         public void AgregarOrdenPedido()
         {
             if (int.Parse(txtTotalOrden.Text) > 0)
@@ -158,24 +166,28 @@ namespace Vista
         #endregion
 
         #region Botones
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            BuscarProductoPorNombre();
+        }
         private void btnAgregarOrden_Click(object sender, EventArgs e)
         {
             AgregarOrdenPedido();
             LimpiarDatos();
             CargarNumeroSiguienteOrden();
         }
-
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             AgregarDetallePedido();
             LimpiarCantidad();
         }
-
         private void btnQuitarProducto_Click(object sender, EventArgs e)
         {
             QuitarDetallePedido();
         }
         #endregion
+
+        #region Eventos
         private void cmbCategoria_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cmbCategoria.SelectedValue != null)
@@ -185,5 +197,13 @@ namespace Vista
                 EsconderColumnasAutogeneradas();
             }
         }
+        private void cmbProveedor_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbProveedor.SelectedValue != null)
+            {
+                txtRutProveedor.Text = cmbProveedor.SelectedValue.ToString();
+            }
+        }
+        #endregion
     }
 }

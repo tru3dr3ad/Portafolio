@@ -141,6 +141,7 @@
             this.btnBuscarProducto.TabIndex = 9;
             this.btnBuscarProducto.Text = "Buscar";
             this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
             // 
             // grdProducto
             // 
@@ -318,6 +319,7 @@
             this.cmbProveedor.Name = "cmbProveedor";
             this.cmbProveedor.Size = new System.Drawing.Size(121, 21);
             this.cmbProveedor.TabIndex = 16;
+            this.cmbProveedor.SelectedValueChanged += new System.EventHandler(this.cmbProveedor_SelectedValueChanged);
             // 
             // label7
             // 

@@ -56,7 +56,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.grdProducto = new System.Windows.Forms.DataGridView();
             this.pnlVenta.SuspendLayout();
             this.pnlBoleta.SuspendLayout();
@@ -256,6 +256,7 @@
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(121, 21);
             this.cmbCliente.TabIndex = 16;
+            this.cmbCliente.SelectedValueChanged += new System.EventHandler(this.cmbCliente_SelectedValueChanged);
             // 
             // label7
             // 
@@ -293,7 +294,7 @@
             this.pnlProducto.Controls.Add(this.label1);
             this.pnlProducto.Controls.Add(this.cmbCategoria);
             this.pnlProducto.Controls.Add(this.txtBuscarProducto);
-            this.pnlProducto.Controls.Add(this.button1);
+            this.pnlProducto.Controls.Add(this.btnBuscarProducto);
             this.pnlProducto.Controls.Add(this.grdProducto);
             this.pnlProducto.Location = new System.Drawing.Point(0, 0);
             this.pnlProducto.Name = "pnlProducto";
@@ -353,14 +354,15 @@
             this.txtBuscarProducto.Size = new System.Drawing.Size(121, 20);
             this.txtBuscarProducto.TabIndex = 10;
             // 
-            // button1
+            // btnBuscarProducto
             // 
-            this.button1.Location = new System.Drawing.Point(363, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(363, 27);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarProducto.TabIndex = 9;
+            this.btnBuscarProducto.Text = "Buscar";
+            this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
             // 
             // grdProducto
             // 
@@ -412,7 +414,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.TextBox txtBuscarProducto;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.DataGridView grdProducto;
         private System.Windows.Forms.Panel pnlBoleta;
         private System.Windows.Forms.DataGridView grdBoleta;

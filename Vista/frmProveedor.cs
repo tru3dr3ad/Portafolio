@@ -66,21 +66,13 @@ namespace Vista
         #endregion
 
         #region Metodos de la clase
-        private void BuscarProveedor()
+        private void BuscarProveedorPorNombre()
         {
+            string nombre = txtBuscarProveedor.Text.ToUpper();
             Proveedor proveedor = new Proveedor();
-            if (!String.IsNullOrEmpty(txtBuscarProveedor.Text))
-            {
-                bool existeProveedor = proveedor.BuscarProveedor(int.Parse(txtBuscarProveedor.Text));
-                if (existeProveedor)
-                {
-                    MessageBox.Show("Proveedor encontrado");
-                }
-                else
-                {
-                    MessageBox.Show("Proveedor no encontrado");
-                }
-            }
+            grdProveedor.DataSource = proveedor.ListarProveedorPorNombre(nombre);
+            txtBuscarProveedor.Clear();
+            EsconderColumnasAutogeneradas();
         }
         public void AgregarProveedor()
         {
@@ -89,10 +81,10 @@ namespace Vista
                 int rut = int.Parse(txtRutProveedor.Text);
                 char dv = char.Parse(txtDv.Text);
                 int id = int.Parse(txtIdProveedor.Text);
-                string nombre = txtNombre.Text;
+                string nombre = txtNombre.Text.ToUpper();
                 int telefono = int.Parse(txtTelefono.Text);
-                string correo = txtCorreo.Text;
-                string direccion = txtDireccion.Text;
+                string correo = txtCorreo.Text.ToUpper();
+                string direccion = txtDireccion.Text.ToUpper();
                 TipoRubro tipo = new TipoRubro();
                 tipo.Id = (int)cmbRubro.SelectedValue;
                 Proveedor proveedor = new Proveedor(rut, dv, id, nombre, correo, telefono, direccion, tipo);
@@ -109,10 +101,10 @@ namespace Vista
                 int rut = int.Parse(txtRutProveedor.Text);
                 char dv = char.Parse(txtDv.Text);
                 int id = int.Parse(txtIdProveedor.Text);
-                string nombre = txtNombre.Text;
+                string nombre = txtNombre.Text.ToUpper();
                 int telefono = int.Parse(txtTelefono.Text);
-                string correo = txtCorreo.Text;
-                string direccion = txtDireccion.Text;
+                string correo = txtCorreo.Text.ToUpper();
+                string direccion = txtDireccion.Text.ToUpper();
                 TipoRubro tipo = new TipoRubro();
                 tipo.Id = (int)cmbRubro.SelectedValue;
                 Proveedor proveedor = new Proveedor(rut, dv, id, nombre, correo, telefono, direccion, tipo);
@@ -148,8 +140,7 @@ namespace Vista
         #region Botones
         private void btnBuscarProveedor_Click(object sender, EventArgs e)
         {
-            BuscarProveedor();
-            txtBuscarProveedor.Clear();
+            BuscarProveedorPorNombre();
         }
 
         private void btnAgregarProveedor_Click(object sender, EventArgs e)

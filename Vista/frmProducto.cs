@@ -90,29 +90,21 @@ namespace Vista
         #endregion
 
         #region Metodos de la clase
-        private void BuscarProducto()
+        private void BuscarProductoPorNombre()
         {
+            string nombre = txtBuscarProducto.Text.ToUpper();
             Producto producto = new Producto();
-            if (!String.IsNullOrEmpty(txtBuscarProducto.Text))
-            {
-                bool existeProducto = producto.BuscarProducto(txtBuscarProducto.Text);
-                if (existeProducto)
-                {
-                    MessageBox.Show("Producto encontrado");
-                }
-                else
-                {
-                    MessageBox.Show("Producto no encontrado");
-                }
-            }
+            grdProducto.DataSource = producto.ListarProductosPorNombre(nombre);
+            txtBuscarProducto.Clear();
+            EsconderColumnasAutogeneradas();
         }
-        public void AgregarProducto()
+        private void AgregarProducto()
         {
             if (!String.IsNullOrEmpty(txtNombre.Text))
             {
                 string codigo = GenerarCodigoProducto();
-                string nombre = txtNombre.Text;
-                string descripcion = txtDescripcion.Text;
+                string nombre = txtNombre.Text.ToUpper();
+                string descripcion = txtDescripcion.Text.ToUpper();
                 int precioVenta = int.Parse(txtPrecioVenta.Text);
                 int precioCompra = int.Parse(txtPrecioCompra.Text);
                 DateTime fechaVencimiento = dtpFechaVencimiento.Value.Date;
@@ -132,8 +124,8 @@ namespace Vista
         {
             if (!String.IsNullOrEmpty(txtCodigo.Text))
             {
-                string codigo = txtCodigo.Text;
-                string nombre = txtNombre.Text;
+                string codigo = txtCodigo.Text.ToUpper();
+                string nombre = txtNombre.Text.ToUpper();
                 string descripcion = txtDescripcion.Text;
                 int precioVenta = int.Parse(txtPrecioVenta.Text);
                 int precioCompra = int.Parse(txtPrecioCompra.Text);
@@ -176,8 +168,7 @@ namespace Vista
         #region Botones
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            BuscarProducto();
-            txtCodigo.Clear();
+            BuscarProductoPorNombre();
         }
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)

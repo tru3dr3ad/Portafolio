@@ -76,21 +76,13 @@ namespace Vista
         #endregion
 
         #region Metodos de la clase
-        private void BuscarUsuario()
+        private void BuscarUsuarioPorNombre()
         {
+            string nombre = txtBuscarUsuario.Text.ToUpper();
             Usuario usuario = new Usuario();
-            if (!String.IsNullOrEmpty(txtBuscarUsuario.Text))
-            {
-                bool existeUsuario = usuario.BuscarUsuario(int.Parse(txtBuscarUsuario.Text));
-                if (existeUsuario)
-                {
-                    MessageBox.Show("Usuario encontrado");
-                }
-                else
-                {
-                    MessageBox.Show("Usuario no encontrado");
-                }
-            }
+            grdUsuario.DataSource = usuario.ListarUsuariosPorNombre(nombre);
+            txtBuscarUsuario.Clear();
+            EsconderColumnasAutogeneradas();
         }
         public void AgregarUsuario()
         {
@@ -164,8 +156,7 @@ namespace Vista
         #region Botones
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
-            BuscarUsuario();
-            txtBuscarUsuario.Clear();
+            BuscarUsuarioPorNombre();
         }
 
         private void btnAgregarUsuario_Click(object sender, EventArgs e)

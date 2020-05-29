@@ -54,18 +54,26 @@ namespace Controlador
             }
             return listado;
         }
-        public List<V_USUARIOS> ListarUsuarios()
-        {
-            List<V_USUARIOS> listado = new List<V_USUARIOS>();
-            listado = ConectorDALC.ModeloAlmacen.V_USUARIOS.ToList();
-            return listado;
-        }
         public List<Modelo.USUARIO> Listar()
         {
             List<Modelo.USUARIO> listado = new List<Modelo.USUARIO>();
             listado = ConectorDALC.ModeloAlmacen.USUARIO.ToList();
             return listado;
         }
+        public List<V_USUARIOS> ListarUsuarios()
+        {
+            List<V_USUARIOS> listado = new List<V_USUARIOS>();
+            listado = ConectorDALC.ModeloAlmacen.V_USUARIOS.ToList();
+            return listado;
+        }
+        public List<V_USUARIOS> ListarUsuariosPorNombre(string nombre)
+        {
+            List<V_USUARIOS> listado = new List<V_USUARIOS>();
+            listado = ConectorDALC.ModeloAlmacen.V_USUARIOS.Where(u => u.NOMBRE_USUARIO.Contains(nombre))
+                .OrderBy(u => u.NOMBRE_USUARIO).ToList();
+            return listado;
+        }
+        
         #endregion
 
         #region Metodos

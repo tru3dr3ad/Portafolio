@@ -13,7 +13,7 @@ namespace Vista
             PersonalizarDiseño();
         }
         #region Metodos Para el Diseño
-        
+
         //CONFIGURACIONES PARA HACER VENTANA MOVIBLE
         [System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -122,6 +122,7 @@ namespace Vista
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
+
         #region Botones
         private void btnMenuVertical_Click(object sender, EventArgs e)
         {
@@ -141,7 +142,6 @@ namespace Vista
         {
             Application.Exit();
         }
-
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -152,97 +152,82 @@ namespace Vista
             AbrirFormInPanel(new frmConfiguracion());
             NombreFormularioAbierto("Configuración");
         }
-
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             AbrirFormInPanel(new frmDashboard());
             NombreFormularioAbierto("Dashboard");
         }
-
         private void btnVentas_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(pnlVentaSubMenu);
         }
-
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             AbrirFormInPanel(new frmPuntoVenta());
             NombreFormularioAbierto("Punto de Venta");
         }
-
         private void btnRevisarVentas_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             NombreFormularioAbierto("Ventas");
             AbrirFormInPanel(new frmRevisarVenta());
         }
-
         private void btnCliente_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(pnlClienteSubMenu);
         }
-
         private void btnFiado_Click(object sender, EventArgs e)
         {
             AbrirFormInPanel(new frmFiado());
             OcultarSubMenu();
             NombreFormularioAbierto("Fiados");
         }
-
         private void btnRevisionCliente_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             NombreFormularioAbierto("Clientes");
             AbrirFormInPanel(new frmCliente());
         }
-
         private void btnProducto_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             AbrirFormInPanel(new frmProducto());
             NombreFormularioAbierto("Productos");
         }
-
         private void btnPedidos_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(pnlPedidoSubMenu);
         }
-
         private void btnProveedor_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             AbrirFormInPanel(new frmProveedor());
             NombreFormularioAbierto("Proveedores");
         }
-
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             AbrirFormInPanel(new frmUsuario());
             NombreFormularioAbierto("Usuarios");
         }
-
         private void btnReportes_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(pnlReporteSubMenu);
         }
-
         private void btnEstadisticas_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             AbrirFormInPanel(new frmEstadistica());
             NombreFormularioAbierto("Estadisticas");
         }
-
         private void btnInforme_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             AbrirFormInPanel(new frmInforme());
             NombreFormularioAbierto("Informes");
         }
-
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();

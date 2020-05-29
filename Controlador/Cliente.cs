@@ -37,15 +37,15 @@ namespace Controlador
         }
         #endregion
 
-        #region Metodos
+        #region Metodos para listar
         public IList<Cliente> ListarCombobox()
         {
             List<Cliente> listado = new List<Cliente>();
-            foreach (Modelo.CLIENTE clienteEncontrados in ConectorDALC.ModeloAlmacen.CLIENTE.ToList())
+            foreach (Modelo.CLIENTE clienteEncontrados in ConectorDALC.ModeloAlmacen.CLIENTE.ToList()) 
             {
                 Cliente cliente = new Cliente();
                 cliente.Run = (int)clienteEncontrados.RUNCLIENTE;
-                cliente.Nombre = clienteEncontrados.NOMBRE;
+                cliente.Nombre = clienteEncontrados.NOMBRE+" "+clienteEncontrados.APELLIDO;
                 listado.Add(cliente);
             }
             return listado;
@@ -62,6 +62,16 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_CLIENTES.ToList();
             return listado;
         }
+        public List<V_CLIENTES> ListarClientePorNombre(string nombre)
+        {
+            List<V_CLIENTES> listado = new List<V_CLIENTES>();
+            listado = ConectorDALC.ModeloAlmacen.V_CLIENTES.Where(c => c.NOMBRE_CLIENTE.Contains(nombre))
+                .OrderBy(c => c.NOMBRE_CLIENTE).ToList();
+            return listado;
+        }
+        #endregion
+
+        #region Metodos
         public Cliente ObtenerCliente(int runCliente)
         {
             try
