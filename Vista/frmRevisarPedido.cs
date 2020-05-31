@@ -51,23 +51,22 @@ namespace Vista
         #endregion
 
         #region Metodos de la clase
-        private void BuscarOrdenPedido()
+        
+        private void BuscarOrdenPedidoPorNumero()
         {
             OrdenPedido orden = new OrdenPedido();
-            if (!String.IsNullOrEmpty(txtBuscarOrden.Text))
+            if (txtBuscarOrden.Text != "")
             {
-                bool existeOrden = orden.BuscarOrden(int.Parse(txtBuscarOrden.Text));
-                if (existeOrden)
-                {
-                    MessageBox.Show("Orden de pedido encontrada");
-                }
-                else
-                {
-                    MessageBox.Show("Orden de pedido no encontrada");
-                }
+                int nroOrden = int.Parse(txtBuscarOrden.Text);
+                grdOrden.DataSource = orden.ListarOrdenPedidoPorNumero(nroOrden);
+                txtBuscarOrden.Clear();
+                EsconderColumnasAutogeneradas();
+            }
+            else
+            {
+                CargarGrillaOrden();
             }
         }
-
         private void EliminarOrdenPedido()
         {
             if (!String.IsNullOrEmpty(txtBuscarOrden.Text))
@@ -112,8 +111,7 @@ namespace Vista
         #region Botones
         private void btnBuscarOrden_Click(object sender, EventArgs e)
         {
-            BuscarOrdenPedido();
-            txtBuscarOrden.Clear();
+            BuscarOrdenPedidoPorNumero();
         }
 
         private void btnEliminarOrden_Click(object sender, EventArgs e)
@@ -151,5 +149,6 @@ namespace Vista
             }
         }
         #endregion
+
     }
 }

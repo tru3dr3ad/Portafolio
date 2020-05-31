@@ -101,6 +101,7 @@ namespace Vista
             string nombre = txtBuscarProducto.Text.ToUpper();
             Producto producto = new Producto();
             grdProducto.DataSource = producto.ListarProductosPorNombre(nombre);
+            txtBuscarProducto.Clear();
             EsconderColumnasAutogeneradas();
         }
         public void AgregarBoleta()

@@ -18,7 +18,6 @@ namespace Vista
             string clave = txtContrasena.Text;
             Usuario usuario = new Usuario();
             usuario = usuario.Login(nombreUsuario, clave);
-
             if (usuario != null)
             {
                 Global.RunUsuarioActivo = usuario.RunUsuario;

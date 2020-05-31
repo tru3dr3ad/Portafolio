@@ -90,12 +90,12 @@ namespace Vista
             {
                 int run = int.Parse(txtRunUsuario.Text);
                 char dv = char.Parse(txtDv.Text);
-                string nombre = txtNombreUsuario.Text;
-                string apellido = txtApellidoUsuario.Text;
+                string nombre = txtNombreUsuario.Text.ToUpper();
+                string apellido = txtApellidoUsuario.Text.ToUpper(); ;
                 string contrasena = txtContrasena.Text;
                 DateTime fechaNacimiento = dtpFechaNacimiento.Value.Date;
                 DateTime fechaCreacion = DateTime.Now;
-                string direccion = txtDireccionUsuario.Text;
+                string direccion = txtDireccionUsuario.Text.ToUpper();
                 int telefono = int.Parse(txtTelefonoUsuario.Text);
                 TipoUsuario tipo = new TipoUsuario();
                 tipo.Id = (int)cmbTipoUsuario.SelectedValue;

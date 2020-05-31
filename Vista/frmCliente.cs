@@ -1,5 +1,6 @@
 ﻿using Controlador;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Vista
@@ -182,8 +183,11 @@ namespace Vista
         private void grdCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            int runCliente = int.Parse(grdCliente.Rows[rowIndex].Cells[0].Value.ToString());
-            MostrarDatosCliente(runCliente);
+            if (rowIndex> -1)
+            {
+                int runCliente = int.Parse(grdCliente.Rows[rowIndex].Cells[0].Value.ToString());
+                MostrarDatosCliente(runCliente);
+            }
         }
         #endregion
     }

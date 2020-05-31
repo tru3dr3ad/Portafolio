@@ -55,6 +55,12 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.ToList();
             return listado;
         }
+        public List<Modelo.V_ORDEN_PEDIDO> ListarOrdenPedidoPorNumero(int nroOrden)
+        {
+            List<Modelo.V_ORDEN_PEDIDO> listado = new List<Modelo.V_ORDEN_PEDIDO>();
+            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.Where(o => o.NUMERO == nroOrden).ToList();
+            return listado;
+        }
         public List<Modelo.V_ORDEN_PEDIDO> ListarOrdenPedidoPorProveedor(int rutProveedor)
         {
             List<Modelo.V_ORDEN_PEDIDO> listado = new List<Modelo.V_ORDEN_PEDIDO>();

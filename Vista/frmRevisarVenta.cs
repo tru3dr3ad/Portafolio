@@ -46,6 +46,7 @@ namespace Vista
             string nombre = txtBuscarBoleta.Text.ToUpper();
             Boleta boleta = new Boleta();
             grdBoleta.DataSource = boleta.ListarBoletasPorNombreCliente(nombre);
+            txtBuscarBoleta.Clear();
             EsconderColumnasAutogeneradas();
         }
         #endregion

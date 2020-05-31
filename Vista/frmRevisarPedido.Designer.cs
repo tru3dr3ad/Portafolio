@@ -165,6 +165,7 @@
             this.btnBuscarOrden.TabIndex = 2;
             this.btnBuscarOrden.Text = "Buscar";
             this.btnBuscarOrden.UseVisualStyleBackColor = true;
+            this.btnBuscarOrden.Click += new System.EventHandler(this.btnBuscarOrden_Click);
             // 
             // label4
             // 
