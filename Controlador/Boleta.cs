@@ -71,6 +71,13 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.NOMBRE_CLIENTE.Contains(nombre)).ToList();
             return listado;
         }
+        public List<V_BOLETAS> ListarBoletasPorNombreClienteFiador(string nombre)
+        {
+            List<V_BOLETAS> listado = new List<V_BOLETAS>();
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.NOMBRE_CLIENTE.Contains(nombre)).
+                Where(b=> b.IDMEDIOPAGO == 4).ToList();
+            return listado;
+        }
         public List<V_BOLETAS> ListarBoletasPorClienteFiador(int runCliente)
         {
             List<V_BOLETAS> listado = new List<V_BOLETAS>();

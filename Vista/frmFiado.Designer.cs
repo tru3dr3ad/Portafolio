@@ -28,7 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grdVentaFiadas = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnEliminarAbono = new System.Windows.Forms.Button();
             this.btnAgregarAbono = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -46,27 +53,23 @@
             this.txtRunCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnModificarAbono = new System.Windows.Forms.Button();
+            this.pnlContenedorGrillaBoletas = new System.Windows.Forms.Panel();
+            this.grdVentaFiadas = new System.Windows.Forms.DataGridView();
+            this.pnlTituloGrillaBoleta = new System.Windows.Forms.Panel();
+            this.nombreGrilla = new System.Windows.Forms.Label();
+            this.pnlContenedorGrillaAbono = new System.Windows.Forms.Panel();
             this.grdAbono = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.grdVentaFiadas)).BeginInit();
+            this.pnlTituloGrilla = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.pnlContenedorGrillaBoletas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdVentaFiadas)).BeginInit();
+            this.pnlTituloGrillaBoleta.SuspendLayout();
+            this.pnlContenedorGrillaAbono.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAbono)).BeginInit();
+            this.pnlTituloGrilla.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // grdVentaFiadas
-            // 
-            this.grdVentaFiadas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdVentaFiadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdVentaFiadas.Location = new System.Drawing.Point(12, 10);
-            this.grdVentaFiadas.MultiSelect = false;
-            this.grdVentaFiadas.Name = "grdVentaFiadas";
-            this.grdVentaFiadas.ReadOnly = true;
-            this.grdVentaFiadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdVentaFiadas.Size = new System.Drawing.Size(740, 266);
-            this.grdVentaFiadas.TabIndex = 37;
-            this.grdVentaFiadas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdVentaFiadas_CellDoubleClick);
             // 
             // btnEliminarAbono
             // 
@@ -239,27 +242,166 @@
             this.btnModificarAbono.Text = "Modificar";
             this.btnModificarAbono.UseVisualStyleBackColor = true;
             // 
+            // pnlContenedorGrillaBoletas
+            // 
+            this.pnlContenedorGrillaBoletas.Controls.Add(this.grdVentaFiadas);
+            this.pnlContenedorGrillaBoletas.Controls.Add(this.pnlTituloGrillaBoleta);
+            this.pnlContenedorGrillaBoletas.Location = new System.Drawing.Point(12, 12);
+            this.pnlContenedorGrillaBoletas.Name = "pnlContenedorGrillaBoletas";
+            this.pnlContenedorGrillaBoletas.Size = new System.Drawing.Size(740, 266);
+            this.pnlContenedorGrillaBoletas.TabIndex = 39;
+            // 
+            // grdVentaFiadas
+            // 
+            this.grdVentaFiadas.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(228)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.grdVentaFiadas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.grdVentaFiadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.grdVentaFiadas.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.grdVentaFiadas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.grdVentaFiadas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdVentaFiadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.grdVentaFiadas.ColumnHeadersHeight = 30;
+            this.grdVentaFiadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grdVentaFiadas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdVentaFiadas.EnableHeadersVisualStyles = false;
+            this.grdVentaFiadas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.grdVentaFiadas.Location = new System.Drawing.Point(0, 39);
+            this.grdVentaFiadas.MultiSelect = false;
+            this.grdVentaFiadas.Name = "grdVentaFiadas";
+            this.grdVentaFiadas.ReadOnly = true;
+            this.grdVentaFiadas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SandyBrown;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SandyBrown;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdVentaFiadas.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.grdVentaFiadas.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(203)))), ((int)(((byte)(172)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.grdVentaFiadas.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.grdVentaFiadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdVentaFiadas.Size = new System.Drawing.Size(740, 227);
+            this.grdVentaFiadas.TabIndex = 27;
+            this.grdVentaFiadas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdVentaFiadas_CellDoubleClick);
+            // 
+            // pnlTituloGrillaBoleta
+            // 
+            this.pnlTituloGrillaBoleta.BackColor = System.Drawing.Color.Silver;
+            this.pnlTituloGrillaBoleta.Controls.Add(this.nombreGrilla);
+            this.pnlTituloGrillaBoleta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTituloGrillaBoleta.Location = new System.Drawing.Point(0, 0);
+            this.pnlTituloGrillaBoleta.Name = "pnlTituloGrillaBoleta";
+            this.pnlTituloGrillaBoleta.Size = new System.Drawing.Size(740, 39);
+            this.pnlTituloGrillaBoleta.TabIndex = 25;
+            // 
+            // nombreGrilla
+            // 
+            this.nombreGrilla.AutoSize = true;
+            this.nombreGrilla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreGrilla.Location = new System.Drawing.Point(15, 10);
+            this.nombreGrilla.Name = "nombreGrilla";
+            this.nombreGrilla.Size = new System.Drawing.Size(116, 19);
+            this.nombreGrilla.TabIndex = 0;
+            this.nombreGrilla.Text = "Ventas Fiadas";
+            // 
+            // pnlContenedorGrillaAbono
+            // 
+            this.pnlContenedorGrillaAbono.Controls.Add(this.grdAbono);
+            this.pnlContenedorGrillaAbono.Controls.Add(this.pnlTituloGrilla);
+            this.pnlContenedorGrillaAbono.Location = new System.Drawing.Point(12, 294);
+            this.pnlContenedorGrillaAbono.Name = "pnlContenedorGrillaAbono";
+            this.pnlContenedorGrillaAbono.Size = new System.Drawing.Size(740, 236);
+            this.pnlContenedorGrillaAbono.TabIndex = 40;
+            // 
             // grdAbono
             // 
-            this.grdAbono.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdAbono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdAbono.Location = new System.Drawing.Point(12, 294);
+            this.grdAbono.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(228)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.grdAbono.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.grdAbono.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.grdAbono.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.grdAbono.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.grdAbono.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdAbono.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.grdAbono.ColumnHeadersHeight = 30;
+            this.grdAbono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grdAbono.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdAbono.EnableHeadersVisualStyles = false;
+            this.grdAbono.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.grdAbono.Location = new System.Drawing.Point(0, 39);
             this.grdAbono.MultiSelect = false;
             this.grdAbono.Name = "grdAbono";
             this.grdAbono.ReadOnly = true;
+            this.grdAbono.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SandyBrown;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.SandyBrown;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdAbono.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.grdAbono.RowHeadersVisible = false;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(203)))), ((int)(((byte)(172)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            this.grdAbono.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.grdAbono.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdAbono.Size = new System.Drawing.Size(740, 236);
-            this.grdAbono.TabIndex = 38;
+            this.grdAbono.Size = new System.Drawing.Size(740, 197);
+            this.grdAbono.TabIndex = 27;
+            // 
+            // pnlTituloGrilla
+            // 
+            this.pnlTituloGrilla.BackColor = System.Drawing.Color.Silver;
+            this.pnlTituloGrilla.Controls.Add(this.label5);
+            this.pnlTituloGrilla.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTituloGrilla.Location = new System.Drawing.Point(0, 0);
+            this.pnlTituloGrilla.Name = "pnlTituloGrilla";
+            this.pnlTituloGrilla.Size = new System.Drawing.Size(740, 39);
+            this.pnlTituloGrilla.TabIndex = 25;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(15, 10);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Abonos";
             // 
             // frmFiado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 550);
-            this.Controls.Add(this.grdAbono);
-            this.Controls.Add(this.grdVentaFiadas);
+            this.Controls.Add(this.pnlContenedorGrillaAbono);
+            this.Controls.Add(this.pnlContenedorGrillaBoletas);
             this.Controls.Add(this.btnEliminarAbono);
             this.Controls.Add(this.btnAgregarAbono);
             this.Controls.Add(this.groupBox2);
@@ -268,19 +410,23 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmFiado";
             this.Text = "frmFiado";
-            ((System.ComponentModel.ISupportInitialize)(this.grdVentaFiadas)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.pnlContenedorGrillaBoletas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdVentaFiadas)).EndInit();
+            this.pnlTituloGrillaBoleta.ResumeLayout(false);
+            this.pnlTituloGrillaBoleta.PerformLayout();
+            this.pnlContenedorGrillaAbono.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdAbono)).EndInit();
+            this.pnlTituloGrilla.ResumeLayout(false);
+            this.pnlTituloGrilla.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView grdVentaFiadas;
         private System.Windows.Forms.Button btnEliminarAbono;
         private System.Windows.Forms.Button btnAgregarAbono;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -298,6 +444,13 @@
         private System.Windows.Forms.ComboBox cmbCliente;
         private System.Windows.Forms.RadioButton rdbDeudaParcial;
         private System.Windows.Forms.RadioButton rdbDeudaTotal;
-        private System.Windows.Forms.DataGridView grdAbono;
+        private System.Windows.Forms.Panel pnlContenedorGrillaBoletas;
+        protected System.Windows.Forms.DataGridView grdVentaFiadas;
+        private System.Windows.Forms.Panel pnlTituloGrillaBoleta;
+        private System.Windows.Forms.Label nombreGrilla;
+        private System.Windows.Forms.Panel pnlContenedorGrillaAbono;
+        protected System.Windows.Forms.DataGridView grdAbono;
+        private System.Windows.Forms.Panel pnlTituloGrilla;
+        private System.Windows.Forms.Label label5;
     }
 }

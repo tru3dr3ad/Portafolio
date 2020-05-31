@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Controlador
@@ -36,6 +37,75 @@ namespace Controlador
         public override string ToString()
         {
             return Descripcion;
+        }
+        public bool BuscarEstadoFiado(string descripcion)
+        {
+            try
+            {
+                Modelo.ESTADO_FIADO estado = ConectorDALC.ModeloAlmacen.ESTADO_FIADO.FirstOrDefault(e => e.DESCRIPCION == descripcion);
+                if (estado != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw new ArgumentException("Error al buscar" + ex);
+            }
+        }
+        public bool AgregarEstadoFiado(string descripcion)
+        {
+            try
+            {
+                if (BuscarEstadoFiado(descripcion))
+                {
+                    return false;
+                }
+                else
+                {
+                    Modelo.ESTADO_FIADO estado = new Modelo.ESTADO_FIADO();
+
+                    estado.DESCRIPCION = Descripcion;
+
+                    ConectorDALC.ModeloAlmacen.ESTADO_FIADO.Add(estado);
+                    ConectorDALC.ModeloAlmacen.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw new ArgumentException("Error al agregar estado de fiado" + ex);
+            }
+        }
+        public bool EliminarEstadoOrden(string descripcion)
+        {
+            try
+            {
+                if (BuscarEstadoFiado(descripcion))
+                {
+                    Modelo.ESTADO_FIADO estado = ConectorDALC.ModeloAlmacen.ESTADO_FIADO.FirstOrDefault(e => e.DESCRIPCION == descripcion);
+                    ConectorDALC.ModeloAlmacen.ESTADO_FIADO.Remove(estado);
+                    ConectorDALC.ModeloAlmacen.SaveChanges();
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw new ArgumentException("Error al eliminar estado de orden de fiado: " + ex);
+            }
         }
         #endregion
 

@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grdBoleta = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnEliminarBoleta = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmbMedioPago = new System.Windows.Forms.ComboBox();
@@ -37,23 +40,15 @@
             this.btnBuscarBoleta = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBuscarBoleta = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.grdBoleta)).BeginInit();
+            this.pnlContenedorGrilla = new System.Windows.Forms.Panel();
+            this.grdBoleta = new System.Windows.Forms.DataGridView();
+            this.pnlTituloGrilla = new System.Windows.Forms.Panel();
+            this.nombreGrilla = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
+            this.pnlContenedorGrilla.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdBoleta)).BeginInit();
+            this.pnlTituloGrilla.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // grdBoleta
-            // 
-            this.grdBoleta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdBoleta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdBoleta.Location = new System.Drawing.Point(12, 104);
-            this.grdBoleta.MultiSelect = false;
-            this.grdBoleta.Name = "grdBoleta";
-            this.grdBoleta.ReadOnly = true;
-            this.grdBoleta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdBoleta.Size = new System.Drawing.Size(787, 434);
-            this.grdBoleta.TabIndex = 32;
             // 
             // btnEliminarBoleta
             // 
@@ -136,27 +131,104 @@
             this.txtBuscarBoleta.Size = new System.Drawing.Size(182, 20);
             this.txtBuscarBoleta.TabIndex = 1;
             // 
+            // pnlContenedorGrilla
+            // 
+            this.pnlContenedorGrilla.Controls.Add(this.grdBoleta);
+            this.pnlContenedorGrilla.Controls.Add(this.pnlTituloGrilla);
+            this.pnlContenedorGrilla.Location = new System.Drawing.Point(12, 104);
+            this.pnlContenedorGrilla.Name = "pnlContenedorGrilla";
+            this.pnlContenedorGrilla.Size = new System.Drawing.Size(814, 436);
+            this.pnlContenedorGrilla.TabIndex = 45;
+            // 
+            // grdBoleta
+            // 
+            this.grdBoleta.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(228)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.grdBoleta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.grdBoleta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.grdBoleta.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.grdBoleta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.grdBoleta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdBoleta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.grdBoleta.ColumnHeadersHeight = 30;
+            this.grdBoleta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grdBoleta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdBoleta.EnableHeadersVisualStyles = false;
+            this.grdBoleta.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.grdBoleta.Location = new System.Drawing.Point(0, 39);
+            this.grdBoleta.MultiSelect = false;
+            this.grdBoleta.Name = "grdBoleta";
+            this.grdBoleta.ReadOnly = true;
+            this.grdBoleta.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SandyBrown;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SandyBrown;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdBoleta.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.grdBoleta.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(203)))), ((int)(((byte)(172)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.grdBoleta.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.grdBoleta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdBoleta.Size = new System.Drawing.Size(814, 397);
+            this.grdBoleta.TabIndex = 27;
+            // 
+            // pnlTituloGrilla
+            // 
+            this.pnlTituloGrilla.BackColor = System.Drawing.Color.Silver;
+            this.pnlTituloGrilla.Controls.Add(this.nombreGrilla);
+            this.pnlTituloGrilla.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTituloGrilla.Location = new System.Drawing.Point(0, 0);
+            this.pnlTituloGrilla.Name = "pnlTituloGrilla";
+            this.pnlTituloGrilla.Size = new System.Drawing.Size(814, 39);
+            this.pnlTituloGrilla.TabIndex = 25;
+            // 
+            // nombreGrilla
+            // 
+            this.nombreGrilla.AutoSize = true;
+            this.nombreGrilla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreGrilla.Location = new System.Drawing.Point(15, 10);
+            this.nombreGrilla.Name = "nombreGrilla";
+            this.nombreGrilla.Size = new System.Drawing.Size(63, 19);
+            this.nombreGrilla.TabIndex = 0;
+            this.nombreGrilla.Text = "Boletas";
+            // 
             // frmRevisarVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.pnlContenedorGrilla);
             this.Controls.Add(this.btnEliminarBoleta);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.grdBoleta);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRevisarVenta";
             this.Text = "frmVenta";
-            ((System.ComponentModel.ISupportInitialize)(this.grdBoleta)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.pnlContenedorGrilla.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdBoleta)).EndInit();
+            this.pnlTituloGrilla.ResumeLayout(false);
+            this.pnlTituloGrilla.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView grdBoleta;
         private System.Windows.Forms.Button btnEliminarBoleta;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnBuscarBoleta;
@@ -165,5 +237,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbMedioPago;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pnlContenedorGrilla;
+        protected System.Windows.Forms.DataGridView grdBoleta;
+        private System.Windows.Forms.Panel pnlTituloGrilla;
+        private System.Windows.Forms.Label nombreGrilla;
     }
 }

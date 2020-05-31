@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnEliminarUsuario = new System.Windows.Forms.Button();
             this.btnAgregarUsuario = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -53,10 +57,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.btnModificarUsuario = new System.Windows.Forms.Button();
+            this.pnlContenedorGrilla = new System.Windows.Forms.Panel();
             this.grdUsuario = new System.Windows.Forms.DataGridView();
+            this.pnlTituloGrilla = new System.Windows.Forms.Panel();
+            this.nombreGrilla = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.pnlContenedorGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdUsuario)).BeginInit();
+            this.pnlTituloGrilla.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnEliminarUsuario
@@ -309,27 +318,89 @@
             this.btnModificarUsuario.UseVisualStyleBackColor = true;
             this.btnModificarUsuario.Click += new System.EventHandler(this.btnModificarUsuario_Click);
             // 
+            // pnlContenedorGrilla
+            // 
+            this.pnlContenedorGrilla.Controls.Add(this.grdUsuario);
+            this.pnlContenedorGrilla.Controls.Add(this.pnlTituloGrilla);
+            this.pnlContenedorGrilla.Location = new System.Drawing.Point(12, 12);
+            this.pnlContenedorGrilla.Name = "pnlContenedorGrilla";
+            this.pnlContenedorGrilla.Size = new System.Drawing.Size(749, 526);
+            this.pnlContenedorGrilla.TabIndex = 32;
+            // 
             // grdUsuario
             // 
-            this.grdUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdUsuario.Location = new System.Drawing.Point(12, 8);
+            this.grdUsuario.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(228)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.grdUsuario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.grdUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.grdUsuario.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.grdUsuario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.grdUsuario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdUsuario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.grdUsuario.ColumnHeadersHeight = 30;
+            this.grdUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grdUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdUsuario.EnableHeadersVisualStyles = false;
+            this.grdUsuario.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.grdUsuario.Location = new System.Drawing.Point(0, 39);
             this.grdUsuario.MultiSelect = false;
             this.grdUsuario.Name = "grdUsuario";
             this.grdUsuario.ReadOnly = true;
+            this.grdUsuario.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SandyBrown;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SandyBrown;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdUsuario.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.grdUsuario.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(203)))), ((int)(((byte)(172)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.grdUsuario.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.grdUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdUsuario.Size = new System.Drawing.Size(740, 530);
-            this.grdUsuario.TabIndex = 31;
+            this.grdUsuario.Size = new System.Drawing.Size(749, 487);
+            this.grdUsuario.TabIndex = 27;
             this.grdUsuario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUsuario_CellDoubleClick);
+            // 
+            // pnlTituloGrilla
+            // 
+            this.pnlTituloGrilla.BackColor = System.Drawing.Color.Silver;
+            this.pnlTituloGrilla.Controls.Add(this.nombreGrilla);
+            this.pnlTituloGrilla.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTituloGrilla.Location = new System.Drawing.Point(0, 0);
+            this.pnlTituloGrilla.Name = "pnlTituloGrilla";
+            this.pnlTituloGrilla.Size = new System.Drawing.Size(749, 39);
+            this.pnlTituloGrilla.TabIndex = 25;
+            // 
+            // nombreGrilla
+            // 
+            this.nombreGrilla.AutoSize = true;
+            this.nombreGrilla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreGrilla.Location = new System.Drawing.Point(15, 10);
+            this.nombreGrilla.Name = "nombreGrilla";
+            this.nombreGrilla.Size = new System.Drawing.Size(71, 19);
+            this.nombreGrilla.TabIndex = 0;
+            this.nombreGrilla.Text = "Usuarios";
             // 
             // frmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 550);
-            this.Controls.Add(this.grdUsuario);
+            this.Controls.Add(this.pnlContenedorGrilla);
             this.Controls.Add(this.btnEliminarUsuario);
             this.Controls.Add(this.btnAgregarUsuario);
             this.Controls.Add(this.groupBox2);
@@ -342,7 +413,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.pnlContenedorGrilla.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdUsuario)).EndInit();
+            this.pnlTituloGrilla.ResumeLayout(false);
+            this.pnlTituloGrilla.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -364,7 +438,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombreUsuario;
         private System.Windows.Forms.Button btnModificarUsuario;
-        private System.Windows.Forms.DataGridView grdUsuario;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDv;
         private System.Windows.Forms.Label label5;
@@ -375,5 +448,9 @@
         private System.Windows.Forms.TextBox txtTelefonoUsuario;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtDireccionUsuario;
+        private System.Windows.Forms.Panel pnlContenedorGrilla;
+        protected System.Windows.Forms.DataGridView grdUsuario;
+        private System.Windows.Forms.Panel pnlTituloGrilla;
+        private System.Windows.Forms.Label nombreGrilla;
     }
 }

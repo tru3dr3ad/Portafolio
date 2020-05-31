@@ -69,7 +69,7 @@ namespace Vista
             }
             else
             {
-                grdVentaFiadas.DataSource = boleta.ListarBoletasPorNombreCliente(nombre);
+                grdVentaFiadas.DataSource = boleta.ListarBoletasPorNombreClienteFiador(nombre);
             }
             txtBuscarUsuario.Clear();
             OcultarColumnasAutogeneradas();

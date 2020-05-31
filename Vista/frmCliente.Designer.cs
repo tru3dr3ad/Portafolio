@@ -57,15 +57,15 @@
             this.btnEliminarCliente = new System.Windows.Forms.Button();
             this.btnModificarCliente = new System.Windows.Forms.Button();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
-            this.panelContenedorGrilla = new System.Windows.Forms.Panel();
+            this.pnlContenedorGrilla = new System.Windows.Forms.Panel();
             this.grdCliente = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlTituloGrilla = new System.Windows.Forms.Panel();
             this.nombreGrilla = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panelContenedorGrilla.SuspendLayout();
+            this.pnlContenedorGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCliente)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnlTituloGrilla.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -330,14 +330,14 @@
             this.btnAgregarCliente.UseVisualStyleBackColor = true;
             this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
-            // panelContenedorGrilla
+            // pnlContenedorGrilla
             // 
-            this.panelContenedorGrilla.Controls.Add(this.grdCliente);
-            this.panelContenedorGrilla.Controls.Add(this.panel1);
-            this.panelContenedorGrilla.Location = new System.Drawing.Point(12, 12);
-            this.panelContenedorGrilla.Name = "panelContenedorGrilla";
-            this.panelContenedorGrilla.Size = new System.Drawing.Size(749, 526);
-            this.panelContenedorGrilla.TabIndex = 25;
+            this.pnlContenedorGrilla.Controls.Add(this.grdCliente);
+            this.pnlContenedorGrilla.Controls.Add(this.pnlTituloGrilla);
+            this.pnlContenedorGrilla.Location = new System.Drawing.Point(12, 12);
+            this.pnlContenedorGrilla.Name = "pnlContenedorGrilla";
+            this.pnlContenedorGrilla.Size = new System.Drawing.Size(749, 526);
+            this.pnlContenedorGrilla.TabIndex = 25;
             // 
             // grdCliente
             // 
@@ -377,7 +377,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grdCliente.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(203)))), ((int)(((byte)(172)))));
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
@@ -387,15 +387,15 @@
             this.grdCliente.TabIndex = 27;
             this.grdCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCliente_CellDoubleClick);
             // 
-            // panel1
+            // pnlTituloGrilla
             // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Controls.Add(this.nombreGrilla);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(749, 39);
-            this.panel1.TabIndex = 25;
+            this.pnlTituloGrilla.BackColor = System.Drawing.Color.Silver;
+            this.pnlTituloGrilla.Controls.Add(this.nombreGrilla);
+            this.pnlTituloGrilla.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTituloGrilla.Location = new System.Drawing.Point(0, 0);
+            this.pnlTituloGrilla.Name = "pnlTituloGrilla";
+            this.pnlTituloGrilla.Size = new System.Drawing.Size(749, 39);
+            this.pnlTituloGrilla.TabIndex = 25;
             // 
             // nombreGrilla
             // 
@@ -412,7 +412,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 550);
-            this.Controls.Add(this.panelContenedorGrilla);
+            this.Controls.Add(this.pnlContenedorGrilla);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnEliminarCliente);
@@ -425,10 +425,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panelContenedorGrilla.ResumeLayout(false);
+            this.pnlContenedorGrilla.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdCliente)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlTituloGrilla.ResumeLayout(false);
+            this.pnlTituloGrilla.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -460,8 +460,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbEstado;
-        private System.Windows.Forms.Panel panelContenedorGrilla;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlContenedorGrilla;
+        private System.Windows.Forms.Panel pnlTituloGrilla;
         private System.Windows.Forms.Label nombreGrilla;
         protected System.Windows.Forms.DataGridView grdCliente;
     }

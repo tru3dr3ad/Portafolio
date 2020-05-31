@@ -30,7 +30,7 @@
           <Key>
             <PropertyRef Name="IDCATEGORIA" />
           </Key>
-          <Property Name="IDCATEGORIA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDCATEGORIA" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCION" Type="varchar2" MaxLength="70" Nullable="false" />
         </EntityType>
         <EntityType Name="CLIENTE">
@@ -816,7 +816,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Key>
             <PropertyRef Name="IDCATEGORIA" />
           </Key>
-          <Property Name="IDCATEGORIA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="IDCATEGORIA" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PRODUCTO" Relationship="ModeloAlmacen.PRODUCTO_CATEGORIA_FK" FromRole="CATEGORIA" ToRole="PRODUCTO" />
         </EntityType>

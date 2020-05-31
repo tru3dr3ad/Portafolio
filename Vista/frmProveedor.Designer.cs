@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grdProveedor = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnEliminarProveedor = new System.Windows.Forms.Button();
             this.btnAgregarProveedor = new System.Windows.Forms.Button();
             this.btnModificarProveedor = new System.Windows.Forms.Button();
@@ -52,25 +55,16 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBuscarProveedor = new System.Windows.Forms.Button();
             this.txtBuscarProveedor = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.grdProveedor)).BeginInit();
+            this.pnlContenedorGrilla = new System.Windows.Forms.Panel();
+            this.grdProveedor = new System.Windows.Forms.DataGridView();
+            this.pnlTituloGrilla = new System.Windows.Forms.Panel();
+            this.nombreGrilla = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.pnlContenedorGrilla.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdProveedor)).BeginInit();
+            this.pnlTituloGrilla.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // grdProveedor
-            // 
-            this.grdProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdProveedor.Location = new System.Drawing.Point(12, 8);
-            this.grdProveedor.MultiSelect = false;
-            this.grdProveedor.Name = "grdProveedor";
-            this.grdProveedor.ReadOnly = true;
-            this.grdProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdProveedor.Size = new System.Drawing.Size(740, 530);
-            this.grdProveedor.TabIndex = 30;
-            this.grdProveedor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProveedor_CellDoubleClick);
             // 
             // btnEliminarProveedor
             // 
@@ -294,32 +288,110 @@
             this.txtBuscarProveedor.Size = new System.Drawing.Size(182, 20);
             this.txtBuscarProveedor.TabIndex = 1;
             // 
+            // pnlContenedorGrilla
+            // 
+            this.pnlContenedorGrilla.Controls.Add(this.grdProveedor);
+            this.pnlContenedorGrilla.Controls.Add(this.pnlTituloGrilla);
+            this.pnlContenedorGrilla.Location = new System.Drawing.Point(12, 12);
+            this.pnlContenedorGrilla.Name = "pnlContenedorGrilla";
+            this.pnlContenedorGrilla.Size = new System.Drawing.Size(758, 526);
+            this.pnlContenedorGrilla.TabIndex = 36;
+            // 
+            // grdProveedor
+            // 
+            this.grdProveedor.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(228)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.grdProveedor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.grdProveedor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.grdProveedor.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.grdProveedor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.grdProveedor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.grdProveedor.ColumnHeadersHeight = 30;
+            this.grdProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grdProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdProveedor.EnableHeadersVisualStyles = false;
+            this.grdProveedor.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.grdProveedor.Location = new System.Drawing.Point(0, 39);
+            this.grdProveedor.MultiSelect = false;
+            this.grdProveedor.Name = "grdProveedor";
+            this.grdProveedor.ReadOnly = true;
+            this.grdProveedor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SandyBrown;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SandyBrown;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdProveedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.grdProveedor.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(203)))), ((int)(((byte)(172)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.grdProveedor.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.grdProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdProveedor.Size = new System.Drawing.Size(758, 487);
+            this.grdProveedor.TabIndex = 27;
+            this.grdProveedor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProveedor_CellDoubleClick);
+            // 
+            // pnlTituloGrilla
+            // 
+            this.pnlTituloGrilla.BackColor = System.Drawing.Color.Silver;
+            this.pnlTituloGrilla.Controls.Add(this.nombreGrilla);
+            this.pnlTituloGrilla.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTituloGrilla.Location = new System.Drawing.Point(0, 0);
+            this.pnlTituloGrilla.Name = "pnlTituloGrilla";
+            this.pnlTituloGrilla.Size = new System.Drawing.Size(758, 39);
+            this.pnlTituloGrilla.TabIndex = 25;
+            // 
+            // nombreGrilla
+            // 
+            this.nombreGrilla.AutoSize = true;
+            this.nombreGrilla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreGrilla.Location = new System.Drawing.Point(15, 10);
+            this.nombreGrilla.Name = "nombreGrilla";
+            this.nombreGrilla.Size = new System.Drawing.Size(104, 19);
+            this.nombreGrilla.TabIndex = 0;
+            this.nombreGrilla.Text = "Proveedores";
+            // 
             // frmProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.pnlContenedorGrilla);
             this.Controls.Add(this.btnEliminarProveedor);
             this.Controls.Add(this.btnAgregarProveedor);
             this.Controls.Add(this.btnModificarProveedor);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.grdProveedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProveedor";
             this.Text = "frmProveedor";
-            ((System.ComponentModel.ISupportInitialize)(this.grdProveedor)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.pnlContenedorGrilla.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdProveedor)).EndInit();
+            this.pnlTituloGrilla.ResumeLayout(false);
+            this.pnlTituloGrilla.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView grdProveedor;
         private System.Windows.Forms.Button btnEliminarProveedor;
         private System.Windows.Forms.Button btnAgregarProveedor;
         private System.Windows.Forms.Button btnModificarProveedor;
@@ -343,5 +415,9 @@
         private System.Windows.Forms.TextBox txtDv;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtIdProveedor;
+        private System.Windows.Forms.Panel pnlContenedorGrilla;
+        protected System.Windows.Forms.DataGridView grdProveedor;
+        private System.Windows.Forms.Panel pnlTituloGrilla;
+        private System.Windows.Forms.Label nombreGrilla;
     }
 }
