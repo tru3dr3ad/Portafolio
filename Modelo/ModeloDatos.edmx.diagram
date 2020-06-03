@@ -49,6 +49,8 @@
         <EntityTypeShape EntityType="ModeloAlmacen.V_DETALLE_BOLETA" Width="1.5" PointX="15.375" PointY="10.75" />
         <EntityTypeShape EntityType="ModeloAlmacen.V_DETALLE_ORDEN" Width="1.5" PointX="15.375" PointY="13.75" />
         <EntityTypeShape EntityType="ModeloAlmacen.V_TOP_PRODUCTOS" Width="1.5" PointX="12.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_CLIENTES_EFECTIVO" Width="1.5" PointX="16.375" PointY="4.75" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_ULTIMAS_VENTAS" Width="1.5" PointX="16.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -64,6 +64,56 @@ namespace Vista
             txtDireccion.Clear();
             cmbRubro.SelectedIndex = 1;
         }
+        private string ValidacionIngresoProveedor()
+        {
+            string mensajeError = string.Empty;
+            string runProveedor = txtRutProveedor.Text + "-" + txtDv.Text;
+            Validaciones validaciones = new Validaciones();
+            if (validaciones.ValidarRun(runProveedor))
+            {
+                if (txtIdProveedor.Text.Length == 3)
+                {
+                    if (validaciones.ValidarLargoString(3,70,txtNombre.Text))
+                    {
+                        if (validaciones.ValidarNumeroTelefono(txtTelefono.Text))
+                        {
+                            if (validaciones.ValidarLargoString(10,250,txtCorreo.Text))
+                            {
+                                if (validaciones.ValidarLargoString(10,150, txtDireccion.Text))
+                                {
+                                    return mensajeError;
+                                }
+                                else
+                                {
+                                    mensajeError = "EL largo de la direccion es invalida";
+                                }
+                            }
+                            else
+                            {
+                                mensajeError = "El largo del correo es invalido";
+                            }
+                        }
+                        else
+                        {
+                            mensajeError = "El numero de celular es invalido";
+                        }
+                    }
+                    else
+                    {
+                        mensajeError = "El largo del nombre de proveedor es invalido";
+                    }
+                }
+                else
+                {
+                    mensajeError = "El id de proveedor debe tener 3 digitos";
+                }
+            }
+            else
+            {
+                mensajeError = "El rut del proveedor es invalido";
+            }
+            return mensajeError;
+        }
         #endregion
 
         #region Metodos de la clase
@@ -77,7 +127,8 @@ namespace Vista
         }
         public void AgregarProveedor()
         {
-            if (!String.IsNullOrEmpty(txtRutProveedor.Text))
+            string msgEsValido = ValidacionIngresoProveedor();
+            if (string.IsNullOrEmpty(msgEsValido))
             {
                 int rut = int.Parse(txtRutProveedor.Text);
                 char dv = char.Parse(txtDv.Text);
@@ -92,7 +143,12 @@ namespace Vista
                 if (proveedor.AgregarProveedor())
                 {
                     MessageBox.Show("Proveedor ha sido agregado");
+                    LimpiarDatos();
                 }
+            }
+            else
+            {
+                MessageBox.Show(msgEsValido);
             }
         }
         private void ModificarProveedor()
@@ -148,7 +204,7 @@ namespace Vista
         {
             AgregarProveedor();
             CargarGrilla();
-            LimpiarDatos();
+            
         }
 
         private void btnModificarProveedor_Click(object sender, EventArgs e)
@@ -174,5 +230,20 @@ namespace Vista
             MostrarDatosProveedor(rutProveedor);
         }
         #endregion
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtIdProveedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtRutProveedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

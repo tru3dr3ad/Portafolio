@@ -10,6 +10,7 @@ namespace Vista
         {
             InitializeComponent();
             MostrarTopProductos();
+            //MostrarTopVentas();
         }
         private void MostrarTopProductos()
         {
@@ -24,6 +25,14 @@ namespace Vista
             lblNombreProducto3.Text = listado[2].Nombre;
             lblDescripcionProducto3.Text = listado[2].Descripcion;
             lblPrecioProducto3.Text = listado[2].PrecioVenta.ToString();
+        }
+        private void MostrarTopVentas()
+        {
+            Boleta boleta = new Boleta();
+            List<Boleta> listado = boleta.ListarTopBoletas();
+            lblRun1.Text = listado[0].Cliente.Run.ToString();
+            lblBoletaNombre1.Text = listado[0].Cliente.Nombre;
+            lblFechaBoleta1.Text = listado[0].FechaCreacion.ToString();
         }
     }
 }

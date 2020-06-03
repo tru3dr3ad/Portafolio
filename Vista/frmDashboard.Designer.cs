@@ -31,23 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.lblFechaBoleta3 = new System.Windows.Forms.Label();
+            this.lblRun3 = new System.Windows.Forms.Label();
+            this.lblBoletaNombre3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label23 = new System.Windows.Forms.Label();
+            this.lblTotal3 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lblFechaBoleta2 = new System.Windows.Forms.Label();
+            this.lblRun2 = new System.Windows.Forms.Label();
+            this.lblBoletaNombre2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lblTotal2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblFechaBoleta1 = new System.Windows.Forms.Label();
+            this.lblRun1 = new System.Windows.Forms.Label();
+            this.lblBoletaNombre1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblTotal1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -78,7 +78,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel8.SuspendLayout();
@@ -119,48 +118,48 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
-            this.panel11.Controls.Add(this.label20);
-            this.panel11.Controls.Add(this.label21);
-            this.panel11.Controls.Add(this.label22);
+            this.panel11.Controls.Add(this.lblFechaBoleta3);
+            this.panel11.Controls.Add(this.lblRun3);
+            this.panel11.Controls.Add(this.lblBoletaNombre3);
             this.panel11.Controls.Add(this.pictureBox3);
-            this.panel11.Controls.Add(this.label23);
+            this.panel11.Controls.Add(this.lblTotal3);
             this.panel11.Location = new System.Drawing.Point(32, 243);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(403, 93);
             this.panel11.TabIndex = 18;
             // 
-            // label20
+            // lblFechaBoleta3
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(110, 50);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(96, 23);
-            this.label20.TabIndex = 8;
-            this.label20.Text = "30/04/2020";
+            this.lblFechaBoleta3.AutoSize = true;
+            this.lblFechaBoleta3.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaBoleta3.ForeColor = System.Drawing.Color.White;
+            this.lblFechaBoleta3.Location = new System.Drawing.Point(110, 50);
+            this.lblFechaBoleta3.Name = "lblFechaBoleta3";
+            this.lblFechaBoleta3.Size = new System.Drawing.Size(96, 23);
+            this.lblFechaBoleta3.TabIndex = 8;
+            this.lblFechaBoleta3.Text = "30/04/2020";
             // 
-            // label21
+            // lblRun3
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(110, 4);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(98, 23);
-            this.label21.TabIndex = 7;
-            this.label21.Text = "15486759-5";
+            this.lblRun3.AutoSize = true;
+            this.lblRun3.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRun3.ForeColor = System.Drawing.Color.White;
+            this.lblRun3.Location = new System.Drawing.Point(110, 4);
+            this.lblRun3.Name = "lblRun3";
+            this.lblRun3.Size = new System.Drawing.Size(98, 23);
+            this.lblRun3.TabIndex = 7;
+            this.lblRun3.Text = "15486759-5";
             // 
-            // label22
+            // lblBoletaNombre3
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(110, 27);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(131, 23);
-            this.label22.TabIndex = 4;
-            this.label22.Text = "Eurasio Mendez";
+            this.lblBoletaNombre3.AutoSize = true;
+            this.lblBoletaNombre3.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBoletaNombre3.ForeColor = System.Drawing.Color.White;
+            this.lblBoletaNombre3.Location = new System.Drawing.Point(110, 27);
+            this.lblBoletaNombre3.Name = "lblBoletaNombre3";
+            this.lblBoletaNombre3.Size = new System.Drawing.Size(131, 23);
+            this.lblBoletaNombre3.TabIndex = 4;
+            this.lblBoletaNombre3.Text = "Eurasio Mendez";
             // 
             // pictureBox3
             // 
@@ -172,62 +171,62 @@
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
-            // label23
+            // lblTotal3
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(265, 12);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(135, 46);
-            this.label23.TabIndex = 4;
-            this.label23.Text = "$12.050";
+            this.lblTotal3.AutoSize = true;
+            this.lblTotal3.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal3.ForeColor = System.Drawing.Color.White;
+            this.lblTotal3.Location = new System.Drawing.Point(265, 12);
+            this.lblTotal3.Name = "lblTotal3";
+            this.lblTotal3.Size = new System.Drawing.Size(135, 46);
+            this.lblTotal3.TabIndex = 4;
+            this.lblTotal3.Text = "$12.050";
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
-            this.panel10.Controls.Add(this.label16);
-            this.panel10.Controls.Add(this.label17);
-            this.panel10.Controls.Add(this.label18);
+            this.panel10.Controls.Add(this.lblFechaBoleta2);
+            this.panel10.Controls.Add(this.lblRun2);
+            this.panel10.Controls.Add(this.lblBoletaNombre2);
             this.panel10.Controls.Add(this.pictureBox2);
-            this.panel10.Controls.Add(this.label19);
+            this.panel10.Controls.Add(this.lblTotal2);
             this.panel10.Location = new System.Drawing.Point(32, 144);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(403, 93);
             this.panel10.TabIndex = 18;
             // 
-            // label16
+            // lblFechaBoleta2
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(110, 50);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(96, 23);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "30/04/2020";
+            this.lblFechaBoleta2.AutoSize = true;
+            this.lblFechaBoleta2.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaBoleta2.ForeColor = System.Drawing.Color.White;
+            this.lblFechaBoleta2.Location = new System.Drawing.Point(110, 50);
+            this.lblFechaBoleta2.Name = "lblFechaBoleta2";
+            this.lblFechaBoleta2.Size = new System.Drawing.Size(96, 23);
+            this.lblFechaBoleta2.TabIndex = 8;
+            this.lblFechaBoleta2.Text = "30/04/2020";
             // 
-            // label17
+            // lblRun2
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(110, 4);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(98, 23);
-            this.label17.TabIndex = 7;
-            this.label17.Text = "15486759-5";
+            this.lblRun2.AutoSize = true;
+            this.lblRun2.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRun2.ForeColor = System.Drawing.Color.White;
+            this.lblRun2.Location = new System.Drawing.Point(110, 4);
+            this.lblRun2.Name = "lblRun2";
+            this.lblRun2.Size = new System.Drawing.Size(98, 23);
+            this.lblRun2.TabIndex = 7;
+            this.lblRun2.Text = "15486759-5";
             // 
-            // label18
+            // lblBoletaNombre2
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(110, 27);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(131, 23);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "Eurasio Mendez";
+            this.lblBoletaNombre2.AutoSize = true;
+            this.lblBoletaNombre2.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBoletaNombre2.ForeColor = System.Drawing.Color.White;
+            this.lblBoletaNombre2.Location = new System.Drawing.Point(110, 27);
+            this.lblBoletaNombre2.Name = "lblBoletaNombre2";
+            this.lblBoletaNombre2.Size = new System.Drawing.Size(131, 23);
+            this.lblBoletaNombre2.TabIndex = 4;
+            this.lblBoletaNombre2.Text = "Eurasio Mendez";
             // 
             // pictureBox2
             // 
@@ -239,62 +238,62 @@
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
-            // label19
+            // lblTotal2
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(265, 12);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(135, 46);
-            this.label19.TabIndex = 4;
-            this.label19.Text = "$12.050";
+            this.lblTotal2.AutoSize = true;
+            this.lblTotal2.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal2.ForeColor = System.Drawing.Color.White;
+            this.lblTotal2.Location = new System.Drawing.Point(265, 12);
+            this.lblTotal2.Name = "lblTotal2";
+            this.lblTotal2.Size = new System.Drawing.Size(135, 46);
+            this.lblTotal2.TabIndex = 4;
+            this.lblTotal2.Text = "$12.050";
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
-            this.panel9.Controls.Add(this.label14);
-            this.panel9.Controls.Add(this.label13);
-            this.panel9.Controls.Add(this.label3);
+            this.panel9.Controls.Add(this.lblFechaBoleta1);
+            this.panel9.Controls.Add(this.lblRun1);
+            this.panel9.Controls.Add(this.lblBoletaNombre1);
             this.panel9.Controls.Add(this.pictureBox1);
-            this.panel9.Controls.Add(this.label15);
+            this.panel9.Controls.Add(this.lblTotal1);
             this.panel9.Location = new System.Drawing.Point(32, 45);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(403, 93);
             this.panel9.TabIndex = 17;
             // 
-            // label14
+            // lblFechaBoleta1
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(110, 50);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(96, 23);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "30/04/2020";
+            this.lblFechaBoleta1.AutoSize = true;
+            this.lblFechaBoleta1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaBoleta1.ForeColor = System.Drawing.Color.White;
+            this.lblFechaBoleta1.Location = new System.Drawing.Point(110, 50);
+            this.lblFechaBoleta1.Name = "lblFechaBoleta1";
+            this.lblFechaBoleta1.Size = new System.Drawing.Size(96, 23);
+            this.lblFechaBoleta1.TabIndex = 8;
+            this.lblFechaBoleta1.Text = "30/04/2020";
             // 
-            // label13
+            // lblRun1
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(110, 4);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(98, 23);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "15486759-5";
+            this.lblRun1.AutoSize = true;
+            this.lblRun1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRun1.ForeColor = System.Drawing.Color.White;
+            this.lblRun1.Location = new System.Drawing.Point(110, 4);
+            this.lblRun1.Name = "lblRun1";
+            this.lblRun1.Size = new System.Drawing.Size(98, 23);
+            this.lblRun1.TabIndex = 7;
+            this.lblRun1.Text = "15486759-5";
             // 
-            // label3
+            // lblBoletaNombre1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(110, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 23);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Eurasio Mendez";
+            this.lblBoletaNombre1.AutoSize = true;
+            this.lblBoletaNombre1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBoletaNombre1.ForeColor = System.Drawing.Color.White;
+            this.lblBoletaNombre1.Location = new System.Drawing.Point(110, 27);
+            this.lblBoletaNombre1.Name = "lblBoletaNombre1";
+            this.lblBoletaNombre1.Size = new System.Drawing.Size(131, 23);
+            this.lblBoletaNombre1.TabIndex = 4;
+            this.lblBoletaNombre1.Text = "Eurasio Mendez";
             // 
             // pictureBox1
             // 
@@ -306,16 +305,16 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // label15
+            // lblTotal1
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(265, 12);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(135, 46);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "$12.050";
+            this.lblTotal1.AutoSize = true;
+            this.lblTotal1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal1.ForeColor = System.Drawing.Color.White;
+            this.lblTotal1.Location = new System.Drawing.Point(265, 12);
+            this.lblTotal1.Name = "lblTotal1";
+            this.lblTotal1.Size = new System.Drawing.Size(135, 46);
+            this.lblTotal1.TabIndex = 4;
+            this.lblTotal1.Text = "$12.050";
             // 
             // label1
             // 
@@ -324,9 +323,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(159, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 25);
+            this.label1.Size = new System.Drawing.Size(142, 25);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Clientes Morosos";
+            this.label1.Text = "Ultimas Ventas";
             // 
             // panel7
             // 
@@ -634,7 +633,6 @@
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
             this.panel4.Controls.Add(this.pictureBox7);
-            this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(15, 23);
@@ -651,17 +649,6 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 3;
             this.pictureBox7.TabStop = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(17, 96);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(180, 23);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "15 Nuevas Ventas Hoy";
             // 
             // label5
             // 
@@ -749,32 +736,31 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblFechaBoleta1;
+        private System.Windows.Forms.Label lblRun1;
+        private System.Windows.Forms.Label lblBoletaNombre1;
+        private System.Windows.Forms.Label lblTotal1;
         private System.Windows.Forms.Label lblPrecioProducto1;
         private System.Windows.Forms.Label lblDescripcionProducto1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lblNombreProducto1;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lblFechaBoleta3;
+        private System.Windows.Forms.Label lblRun3;
+        private System.Windows.Forms.Label lblBoletaNombre3;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label lblTotal3;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblFechaBoleta2;
+        private System.Windows.Forms.Label lblRun2;
+        private System.Windows.Forms.Label lblBoletaNombre2;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lblTotal2;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblPrecioProducto3;

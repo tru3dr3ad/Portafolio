@@ -112,11 +112,7 @@ namespace Vista
         }
         public void AgregarBoleta()
         {
-            if (int.Parse(txtTotalBoleta.Text)>0 && ((int)cmbMedioPago.SelectedIndex ==3))
-            {
-                MessageBox.Show("Quizas debe");
-            }
-            else if(int.Parse(txtTotalBoleta.Text) > 0)
+            if (int.Parse(txtTotalBoleta.Text) > 0)
             {
                 DateTime fechaCreacion = DateTime.Now.Date;
                 int total = int.Parse(txtTotalBoleta.Text);
@@ -124,7 +120,6 @@ namespace Vista
                 medioPago.Id = (int)cmbMedioPago.SelectedValue;
                 Cliente cliente = new Cliente();
                 cliente.Run = (int)cmbCliente.SelectedValue;
-
                 Usuario usuario = new Usuario();
                 usuario.RunUsuario = Global.RunUsuarioActivo;
                 EstadoBoleta estado = new EstadoBoleta();
@@ -239,8 +234,6 @@ namespace Vista
                 txtRunCliente.Text = cmbCliente.SelectedValue.ToString();
             }
         }
-        #endregion
-
         private void cmbMedioPago_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cmbMedioPago.SelectedIndex == 3)
@@ -249,5 +242,6 @@ namespace Vista
                 txtRunCliente.Text = cmbCliente.SelectedValue.ToString();
             }
         }
+        #endregion
     }
 }

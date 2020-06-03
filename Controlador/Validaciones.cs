@@ -46,7 +46,6 @@ namespace Controlador
             }
             return validacion;
         }
-
         public bool ValidarLargoString(int minimo, int maximo,string parametro)
         {
             if (parametro.Length >= minimo && parametro.Length < maximo)

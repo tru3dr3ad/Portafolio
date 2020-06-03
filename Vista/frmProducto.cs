@@ -87,6 +87,35 @@ namespace Vista
             string codigoProducto = idProveedor + idCategoria + fechaVencimiento + idSecuencial;
             return codigoProducto;
         }
+
+        private string ValidarIngresoProducto()
+        {
+            string mensajeError = string.Empty;
+            Validaciones validaciones = new Validaciones();
+            if (dtpFechaVencimiento.Value.Date >= DateTime.Now.Date)
+            {
+                if (validaciones.ValidarLargoString(3,70,txtNombre.Text))
+                {
+                    if (validaciones.ValidarLargoString(3, 70, txtDescripcion.Text))
+                    {
+                        return mensajeError;
+                    }
+                    else
+                    {
+                        mensajeError = "Largo de descripcion invalido";
+                    }
+                }
+                else
+                {
+                    mensajeError = "Largo de nombre invalido";
+                }
+            }
+            else
+            {
+                mensajeError = "Fecha de vencimiento no puede ser menor a hoy";
+            }
+            return mensajeError;
+        }
         #endregion
 
         #region Metodos de la clase
@@ -100,7 +129,8 @@ namespace Vista
         }
         private void AgregarProducto()
         {
-            if (!String.IsNullOrEmpty(txtNombre.Text))
+            string msgEsValido = ValidarIngresoProducto();
+            if (string.IsNullOrEmpty(msgEsValido))
             {
                 string codigo = GenerarCodigoProducto();
                 string nombre = txtNombre.Text.ToUpper();
@@ -118,6 +148,10 @@ namespace Vista
                 {
                     MessageBox.Show("Producto ha sido agregado");
                 }
+            }
+            else
+            {
+                MessageBox.Show(msgEsValido);
             }
         }
         private void ModificarProducto()
@@ -175,7 +209,7 @@ namespace Vista
         {
             AgregarProducto();
             CargarGrilla();
-            LimpiarDatos();
+            //LimpiarDatos();
         }
 
         private void btnModificarProducto_Click(object sender, EventArgs e)
@@ -201,5 +235,25 @@ namespace Vista
             MostrarDatosProducto(codigo);
         }
         #endregion
+
+        private void txtPrecioVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtPrecioCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtStockCritico_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

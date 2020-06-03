@@ -77,6 +77,11 @@ namespace Vista
         {
             BuscarBoletasPorNombreCliente();
         }
+        private void btnAnularBoleta_Click(object sender, EventArgs e)
+        {
+            AnularBoleta();
+            CargarGrilla();
+        }
         #endregion
 
         #region Eventos
@@ -107,12 +112,6 @@ namespace Vista
                 _numeroBoletaSeleccionado = int.Parse(this.grdBoleta[0, e.RowIndex].Value.ToString());
                 CargarGrillaDetalleBoleta(_numeroBoletaSeleccionado);
             }
-        }
-
-        private void btnAnularBoleta_Click(object sender, EventArgs e)
-        {
-            AnularBoleta();
-            CargarGrilla();
         }
 
     }

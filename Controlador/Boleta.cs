@@ -87,6 +87,28 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.RUN_CLIENTE == runCliente).Where(b => b.IDMEDIOPAGO == 4).ToList();
             return listado;
         }
+        public List<Boleta> ListarTopBoletas()
+        {
+            List<Boleta> listaB = new List<Boleta>();
+
+
+            List<V_ULTIMAS_VENTAS> listado = new List<V_ULTIMAS_VENTAS>();
+            listado = ConectorDALC.ModeloAlmacen.V_ULTIMAS_VENTAS.ToList();
+
+            foreach (V_ULTIMAS_VENTAS item in listado)
+            {
+                Boleta boleta = new Boleta();
+                boleta.Cliente.Run = (int)item.RUNCLIENTE;
+                boleta.Cliente.Dv = char.Parse(item.DV);
+                boleta.Cliente.Nombre = item.NOMBRE_CLIENTE;
+                boleta.FechaCreacion = item.FECHACREACION;
+                boleta.Total = (int)item.TOTAL;
+                listaB.Add(boleta);
+            }
+
+            return listaB;
+        }
+
         #endregion
 
         #region Metodos

@@ -54,6 +54,8 @@ namespace Modelo
         public virtual DbSet<V_DETALLE_BOLETA> V_DETALLE_BOLETA { get; set; }
         public virtual DbSet<V_DETALLE_ORDEN> V_DETALLE_ORDEN { get; set; }
         public virtual DbSet<V_TOP_PRODUCTOS> V_TOP_PRODUCTOS { get; set; }
+        public virtual DbSet<V_CLIENTES_EFECTIVO> V_CLIENTES_EFECTIVO { get; set; }
+        public virtual DbSet<V_ULTIMAS_VENTAS> V_ULTIMAS_VENTAS { get; set; }
     
         public virtual int SP_ACTUALIZARPRECIO2()
         {

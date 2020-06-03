@@ -73,6 +73,56 @@ namespace Vista
             txtDireccionUsuario.Clear();
             txtTelefonoUsuario.Clear();
         }
+        private string ValidarIngresoUsuario()
+        {
+            string mensajeError = string.Empty;
+            string runUsuario = txtRunUsuario.Text + "-" + txtDv.Text;
+            Validaciones validaciones = new Validaciones();
+            if (validaciones.ValidarRun(runUsuario))
+            {
+                if (validaciones.ValidarLargoString(3,70,txtNombreUsuario.Text))
+                {
+                    if (validaciones.ValidarLargoString(3,70,txtApellidoUsuario.Text))
+                    {
+                        if (validaciones.ValidarMayoriaEdad(dtpFechaNacimiento.Value))
+                        {
+                            if (validaciones.ValidarLargoString(3,550,txtDireccionUsuario.Text))
+                            {
+                                if (validaciones.ValidarNumeroTelefono(txtTelefonoUsuario.Text))
+                                {
+                                    return mensajeError;
+                                }
+                                else
+                                {
+                                    mensajeError = "El numero de telefono es invalido";
+                                }
+                            }
+                            else
+                            {
+                                mensajeError = "El largo de la direccion de usuario es invalido";
+                            }
+                        }
+                        else
+                        {
+                            mensajeError = "El usuario debe ser mayor de edad";
+                        }
+                    }
+                    else
+                    {
+                        mensajeError = "El largo del apellido de usuario es invalido";
+                    }
+                }
+                else
+                {
+                    mensajeError = "El largo del nombre de usuario es invalido";
+                }
+            }
+            else
+            {
+                mensajeError = "El rut del usuario es invalido";
+            }
+            return mensajeError;
+        }
         #endregion
 
         #region Metodos de la clase
@@ -86,7 +136,8 @@ namespace Vista
         }
         public void AgregarUsuario()
         {
-            if (!String.IsNullOrEmpty(txtRunUsuario.Text))
+            string msgEsValido = ValidarIngresoUsuario();
+            if (string.IsNullOrEmpty(msgEsValido))
             {
                 int run = int.Parse(txtRunUsuario.Text);
                 char dv = char.Parse(txtDv.Text);
@@ -104,7 +155,12 @@ namespace Vista
                 if (usuario.AgregarUsuario())
                 {
                     MessageBox.Show("Usuario ha sido Agregado");
+                    LimpiarDatos();
                 }
+            }
+            else
+            {
+                MessageBox.Show(msgEsValido);
             }
         }
         public void ModificarUsuario()
@@ -163,7 +219,6 @@ namespace Vista
         {
             AgregarUsuario();
             CargarGrilla();
-            LimpiarDatos();
         }
 
         private void btnModificarUsuario_Click(object sender, EventArgs e)

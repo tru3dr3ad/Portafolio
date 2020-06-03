@@ -135,6 +135,9 @@
     <Compile Include="V_CLIENTES.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="V_CLIENTES_EFECTIVO.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="V_DETALLE_BOLETA.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
@@ -151,6 +154,9 @@
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="V_TOP_PRODUCTOS.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_ULTIMAS_VENTAS.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="V_USUARIOS.cs">
