@@ -320,6 +320,9 @@
             // 
             // pnlContenedorGrilla
             // 
+            this.pnlContenedorGrilla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContenedorGrilla.Controls.Add(this.grdUsuario);
             this.pnlContenedorGrilla.Controls.Add(this.pnlTituloGrilla);
             this.pnlContenedorGrilla.Location = new System.Drawing.Point(12, 12);
@@ -334,6 +337,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.grdUsuario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.grdUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.grdUsuario.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.grdUsuario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -348,7 +354,6 @@
             this.grdUsuario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.grdUsuario.ColumnHeadersHeight = 30;
             this.grdUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.grdUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdUsuario.EnableHeadersVisualStyles = false;
             this.grdUsuario.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.grdUsuario.Location = new System.Drawing.Point(0, 39);

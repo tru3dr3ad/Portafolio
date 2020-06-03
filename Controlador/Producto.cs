@@ -64,6 +64,25 @@ namespace Controlador
                 OrderBy(p => p.CODIGO).ToList();
             return listado;
         }
+        public List<Producto> ListarTopProductos()
+        {
+            List<Producto> listaP = new List<Producto>();
+
+
+            List<V_TOP_PRODUCTOS> listado = new List<V_TOP_PRODUCTOS>();
+            listado = ConectorDALC.ModeloAlmacen.V_TOP_PRODUCTOS.ToList();
+
+            foreach (V_TOP_PRODUCTOS item in listado)
+            {
+                Producto producto = new Producto();
+                producto.Nombre = item.NOMBRE;
+                producto.Descripcion = item.DESCRIPCION;
+                producto.PrecioVenta = (int)item.PRECIOVENTA;
+                listaP.Add(producto);
+            }
+
+            return listaP;
+        }
         #endregion
 
         #region Metodos

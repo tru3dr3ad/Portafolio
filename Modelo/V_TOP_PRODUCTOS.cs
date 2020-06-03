@@ -12,18 +12,11 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class V_BOLETAS
+    public partial class V_TOP_PRODUCTOS
     {
-        public decimal NUMERO { get; set; }
-        public System.DateTime FECHA_CREACION { get; set; }
-        public decimal TOTAL { get; set; }
-        public decimal IDMEDIOPAGO { get; set; }
-        public string MEDIO_PAGO { get; set; }
-        public decimal RUN_CLIENTE { get; set; }
-        public string NOMBRE_CLIENTE { get; set; }
-        public decimal RUN_USUARIO { get; set; }
-        public string NOMBRE_VENDEDOR { get; set; }
-        public decimal IDESTADO { get; set; }
+        public string NOMBRE { get; set; }
         public string DESCRIPCION { get; set; }
+        public decimal PRECIOVENTA { get; set; }
+        public Nullable<decimal> CANTIDAD { get; set; }
     }
 }

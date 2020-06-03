@@ -15,6 +15,10 @@ namespace Controlador
             Id = id;
             Descripcion = descripcion;
         }
+        public Categoria(string descripcion)
+        {
+            Descripcion = descripcion;
+        }
         public Categoria()
         {
 
@@ -84,7 +88,7 @@ namespace Controlador
                 throw new ArgumentException("Error al agregar categoria" + ex);
             }
         }
-        public bool EliminarTipoCliente(string descripcion)
+        public bool EliminarCategoria(string descripcion)
         {
             try
             {

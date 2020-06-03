@@ -244,6 +244,9 @@
             // 
             // pnlContenedorGrillaBoletas
             // 
+            this.pnlContenedorGrillaBoletas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContenedorGrillaBoletas.Controls.Add(this.grdVentaFiadas);
             this.pnlContenedorGrillaBoletas.Controls.Add(this.pnlTituloGrillaBoleta);
             this.pnlContenedorGrillaBoletas.Location = new System.Drawing.Point(12, 12);
@@ -258,6 +261,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.grdVentaFiadas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.grdVentaFiadas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdVentaFiadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.grdVentaFiadas.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.grdVentaFiadas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -272,7 +278,6 @@
             this.grdVentaFiadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.grdVentaFiadas.ColumnHeadersHeight = 30;
             this.grdVentaFiadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.grdVentaFiadas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdVentaFiadas.EnableHeadersVisualStyles = false;
             this.grdVentaFiadas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.grdVentaFiadas.Location = new System.Drawing.Point(0, 39);
@@ -297,7 +302,7 @@
             this.grdVentaFiadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdVentaFiadas.Size = new System.Drawing.Size(740, 227);
             this.grdVentaFiadas.TabIndex = 27;
-            this.grdVentaFiadas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdVentaFiadas_CellDoubleClick);
+            this.grdVentaFiadas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdVentaFiadas_CellDoubleClick);
             // 
             // pnlTituloGrillaBoleta
             // 
@@ -321,6 +326,9 @@
             // 
             // pnlContenedorGrillaAbono
             // 
+            this.pnlContenedorGrillaAbono.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContenedorGrillaAbono.Controls.Add(this.grdAbono);
             this.pnlContenedorGrillaAbono.Controls.Add(this.pnlTituloGrilla);
             this.pnlContenedorGrillaAbono.Location = new System.Drawing.Point(12, 294);
@@ -335,6 +343,9 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.grdAbono.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.grdAbono.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdAbono.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.grdAbono.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.grdAbono.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -349,7 +360,6 @@
             this.grdAbono.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.grdAbono.ColumnHeadersHeight = 30;
             this.grdAbono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.grdAbono.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdAbono.EnableHeadersVisualStyles = false;
             this.grdAbono.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.grdAbono.Location = new System.Drawing.Point(0, 39);

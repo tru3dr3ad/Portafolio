@@ -50,6 +50,18 @@ namespace Controlador
             }
             return listado;
         }
+        public IList<Cliente> ListarComboboxFiado()
+        {
+            List<Cliente> listado = new List<Cliente>();
+            foreach (Modelo.CLIENTE clienteEncontrados in ConectorDALC.ModeloAlmacen.CLIENTE.Where(c => c.TIPO_CLIENTE_IDTIPO == 1).ToList())
+            {
+                Cliente cliente = new Cliente();
+                cliente.Run = (int)clienteEncontrados.RUNCLIENTE;
+                cliente.Nombre = clienteEncontrados.NOMBRE + " " + clienteEncontrados.APELLIDO;
+                listado.Add(cliente);
+            }
+            return listado;
+        }
         public List<Modelo.CLIENTE> Listar()
         {
             List<Modelo.CLIENTE> listado = new List<Modelo.CLIENTE>();
@@ -72,6 +84,23 @@ namespace Controlador
         #endregion
 
         #region Metodos
+        public bool ExisteDeudaCliente(int run)
+        {
+            Cliente cliente = new Cliente();
+            if (cliente.BuscarCliente(run))
+            {
+                cliente = cliente.ObtenerCliente(run);
+                if (cliente.Estado.Descripcion == "NO DEBE")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
         public Cliente ObtenerCliente(int runCliente)
         {
             try

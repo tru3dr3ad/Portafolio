@@ -15,6 +15,10 @@ namespace Controlador
             Id = id;
             Descripcion = descripcion;
         }
+        public EstadoFiado(string descripcion)
+        {
+            Descripcion = descripcion;
+        }
         public EstadoFiado()
         {
 
@@ -84,7 +88,7 @@ namespace Controlador
                 throw new ArgumentException("Error al agregar estado de fiado" + ex);
             }
         }
-        public bool EliminarEstadoOrden(string descripcion)
+        public bool EliminarEstadoFiado(string descripcion)
         {
             try
             {

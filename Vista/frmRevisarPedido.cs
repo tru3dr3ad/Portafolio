@@ -22,6 +22,12 @@ namespace Vista
             grdOrden.DataSource = orden.ListarOrdenPedido();
             EsconderColumnasAutogeneradas();
         }
+        private void CargarGrillaDetalleOrden(int numero)
+        {
+            DetallePedido detalle = new DetallePedido();
+            grdDetalleOrden.DataSource = detalle.ListarDetallePorOrden(numero);
+            EsconderColumnasDetalle();
+        }
         private void CargarComboboxEstadoOrden()
         {
             Controlador.EstadoOrden estadoOrden = new Controlador.EstadoOrden();
@@ -42,16 +48,25 @@ namespace Vista
             cmbProveedores.SelectedIndex = 0;
             cmbEstadoOrden.SelectedIndex = 0;
         }
+        private void LimpiarGrillaDetalle()
+        {
+            grdDetalleOrden.Rows.Clear();
+        }
         private void EsconderColumnasAutogeneradas()
         {
             grdOrden.Columns["PROVEEDOR_RUT"].Visible = false;
             grdOrden.Columns["IDESTADO"].Visible = false;
+            //grdOrden.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
-
+        private void EsconderColumnasDetalle()
+        {
+            grdDetalleOrden.Columns["ORDEN_PEDIDO_NUMEROORDEN"].Visible = false;
+            grdDetalleOrden.Columns["PRODUCTO_CODIGO"].Visible = false;
+        }
         #endregion
 
         #region Metodos de la clase
-        
+
         private void BuscarOrdenPedidoPorNumero()
         {
             OrdenPedido orden = new OrdenPedido();
@@ -132,8 +147,8 @@ namespace Vista
         {
             if (e.RowIndex > -1)
             {
-                int numeroOrden = int.Parse(this.grdOrden[0, e.RowIndex].Value.ToString());
-                _numeroOrdenSeleccionado = numeroOrden;
+                _numeroOrdenSeleccionado = int.Parse(this.grdOrden[0, e.RowIndex].Value.ToString());
+                CargarGrillaDetalleOrden(_numeroOrdenSeleccionado);
             }
         }
         #endregion
@@ -145,6 +160,7 @@ namespace Vista
             {
                 OrdenPedido ordenPedido = new OrdenPedido();
                 grdOrden.DataSource = ordenPedido.ListarOrdenPedidoPorProveedor((int)cmbProveedores.SelectedValue);
+                LimpiarGrillaDetalle();  
                 EsconderColumnasAutogeneradas();
             }
         }

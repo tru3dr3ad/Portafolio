@@ -300,6 +300,7 @@
             this.cmbMedioPago.Name = "cmbMedioPago";
             this.cmbMedioPago.Size = new System.Drawing.Size(121, 21);
             this.cmbMedioPago.TabIndex = 16;
+            this.cmbMedioPago.SelectedValueChanged += new System.EventHandler(this.cmbMedioPago_SelectedValueChanged);
             // 
             // groupBox1
             // 
@@ -369,6 +370,9 @@
             // 
             // pnlContenedorGrilla
             // 
+            this.pnlContenedorGrilla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContenedorGrilla.Controls.Add(this.grdProducto);
             this.pnlContenedorGrilla.Controls.Add(this.pnlTituloGrilla);
             this.pnlContenedorGrilla.Location = new System.Drawing.Point(12, 64);
@@ -383,7 +387,10 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.grdProducto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.grdProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.grdProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.grdProducto.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.grdProducto.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.grdProducto.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -397,7 +404,6 @@
             this.grdProducto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.grdProducto.ColumnHeadersHeight = 30;
             this.grdProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.grdProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdProducto.EnableHeadersVisualStyles = false;
             this.grdProducto.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.grdProducto.Location = new System.Drawing.Point(0, 39);

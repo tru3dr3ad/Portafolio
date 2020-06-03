@@ -15,9 +15,10 @@ namespace Controlador
         public MedioPago MedioPago { get; set; }
         public Cliente Cliente { get; set; }
         public Usuario Usuario { get; set; }
+        public EstadoBoleta Estado { get; set; }
 
         #region Constructores
-        public Boleta(int numero, DateTime fechaCreacion, int total, MedioPago medioPago, Cliente cliente, Usuario usuario)
+        public Boleta(int numero, DateTime fechaCreacion, int total, MedioPago medioPago, Cliente cliente, Usuario usuario, EstadoBoleta estado)
         {
             Numero = numero;
             FechaCreacion = fechaCreacion;
@@ -25,14 +26,16 @@ namespace Controlador
             MedioPago = medioPago;
             Cliente = cliente;
             Usuario = usuario;
+            Estado = estado;
         }
-        public Boleta(DateTime fechaCreacion, int total, MedioPago medioPago, Cliente cliente, Usuario usuario)
+        public Boleta(DateTime fechaCreacion, int total, MedioPago medioPago, Cliente cliente, Usuario usuario, EstadoBoleta estado)
         {
             FechaCreacion = fechaCreacion;
             Total = total;
             MedioPago = medioPago;
             Cliente = cliente;
             Usuario = usuario;
+            Estado = estado;
         }
         public Boleta()
         {
@@ -75,7 +78,7 @@ namespace Controlador
         {
             List<V_BOLETAS> listado = new List<V_BOLETAS>();
             listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.NOMBRE_CLIENTE.Contains(nombre)).
-                Where(b=> b.IDMEDIOPAGO == 4).ToList();
+                Where(b => b.IDMEDIOPAGO == 4).ToList();
             return listado;
         }
         public List<V_BOLETAS> ListarBoletasPorClienteFiador(int runCliente)
@@ -98,7 +101,8 @@ namespace Controlador
                 MedioPago = new MedioPago() { Id = (int)boleta.MEDIO_PAGO.IDMEDIO };
                 Cliente = new Cliente() { Run = (int)boleta.CLIENTE.RUNCLIENTE };
                 Usuario = new Usuario() { RunUsuario = (int)boleta.USUARIO.RUNUSUARIO };
-                Boleta boletaEncontrada = new Boleta(Numero, FechaCreacion, Total, MedioPago, Cliente, Usuario);
+                Estado = new EstadoBoleta() { Id = (int)boleta.ESTADO_BOLETA.IDESTADO };
+                Boleta boletaEncontrada = new Boleta(Numero, FechaCreacion, Total, MedioPago, Cliente, Usuario, Estado);
                 return boletaEncontrada;
             }
             catch (Exception ex)
@@ -151,6 +155,7 @@ namespace Controlador
                 boleta.MEDIO_PAGO_IDMEDIO = MedioPago.Id;
                 boleta.CLIENTE_RUNCLIENTE = Cliente.Run;
                 boleta.USUARIO_RUNUSUARIO = Usuario.RunUsuario;
+                boleta.ESTADO_BOLETA_IDESTADO = Estado.Id;
 
                 ConectorDALC.ModeloAlmacen.BOLETA.Add(boleta);
                 ConectorDALC.ModeloAlmacen.SaveChanges();
@@ -214,7 +219,29 @@ namespace Controlador
                 throw new ArgumentException("Error al eliminar boleta: " + ex);
             }
         }
+        public bool AnularBoleta(int numero)
+        {
+            try
+            {
+                if (BuscarBoleta(numero))
+                {
+                    Modelo.BOLETA boleta = ConectorDALC.ModeloAlmacen.BOLETA.FirstOrDefault(e => e.NUMEROBOLETA == numero);
+                    boleta.ESTADO_BOLETA_IDESTADO = 2;
 
+                    ConectorDALC.ModeloAlmacen.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw new ArgumentException("Error al eliminar boleta: " + ex);
+            }
+        }
         #endregion
 
     }

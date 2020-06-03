@@ -39,6 +39,13 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.DETALLE_BOLETA.ToList();
             return listado;
         }
+        public List<Modelo.V_DETALLE_BOLETA> ListarDetallePorBoleta(int numero)
+        {
+            List<Modelo.V_DETALLE_BOLETA> listado = new List<Modelo.V_DETALLE_BOLETA>();
+            listado = ConectorDALC.ModeloAlmacen.V_DETALLE_BOLETA.Where( d => d.BOLETA_NUMEROBOLETA == numero).
+                ToList();
+            return listado;
+        }
         public bool BuscarDetalleBoleta(int idDetalle)
         {
             try

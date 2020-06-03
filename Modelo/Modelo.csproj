@@ -77,6 +77,9 @@
     <Compile Include="DETALLE_PEDIDO.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="ESTADO_BOLETA.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="ESTADO_FIADO.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
@@ -132,6 +135,12 @@
     <Compile Include="V_CLIENTES.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="V_DETALLE_BOLETA.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DETALLE_ORDEN.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="V_ORDEN_PEDIDO.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
@@ -139,6 +148,9 @@
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="V_PROVEEDORES.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_TOP_PRODUCTOS.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="V_USUARIOS.cs">

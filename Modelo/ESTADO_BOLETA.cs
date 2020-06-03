@@ -12,18 +12,18 @@ namespace Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class V_BOLETAS
+    public partial class ESTADO_BOLETA
     {
-        public decimal NUMERO { get; set; }
-        public System.DateTime FECHA_CREACION { get; set; }
-        public decimal TOTAL { get; set; }
-        public decimal IDMEDIOPAGO { get; set; }
-        public string MEDIO_PAGO { get; set; }
-        public decimal RUN_CLIENTE { get; set; }
-        public string NOMBRE_CLIENTE { get; set; }
-        public decimal RUN_USUARIO { get; set; }
-        public string NOMBRE_VENDEDOR { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ESTADO_BOLETA()
+        {
+            this.BOLETA = new HashSet<BOLETA>();
+        }
+    
         public decimal IDESTADO { get; set; }
         public string DESCRIPCION { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BOLETA> BOLETA { get; set; }
     }
 }

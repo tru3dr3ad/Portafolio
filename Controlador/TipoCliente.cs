@@ -15,6 +15,10 @@ namespace Controlador
             Id = id;
             Descripcion = descripcion;
         }
+        public TipoCliente(string descripcion)
+        {
+            Descripcion = descripcion;
+        }
         public TipoCliente()
         {
 

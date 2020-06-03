@@ -25,12 +25,18 @@ namespace Vista
         {
             Abono abono = new Abono();
             grdAbono.DataSource = abono.ListarAbonosPorBoleta(nroBoleta);
+            LlenarColumnaGrillaDetalle();
+        }
+        private void LlenarColumnaGrillaDetalle()
+        {
+            grdAbono.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void OcultarColumnasAutogeneradas()
         {
             grdVentaFiadas.Columns["RUN_USUARIO"].Visible = false;
             grdVentaFiadas.Columns["RUN_CLIENTE"].Visible = false;
             grdVentaFiadas.Columns["IDMEDIOPAGO"].Visible = false;
+            grdVentaFiadas.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void CargarComboboxCliente()
         {
@@ -88,7 +94,9 @@ namespace Vista
                 if (abono.AgregarAbono())
                 {
                     int idAbono = abono.ObtenerIdMaximoAbono();
+                    CargarGrillaAbonoPorBoleta(boleta.Numero);
                     MessageBox.Show("Abono N°" + idAbono + " agregado.");
+                    _numeroBoleta = 0;
                 }
             }
             else
@@ -108,8 +116,7 @@ namespace Vista
         private void btnAgregarAbono_Click(object sender, EventArgs e)
         {
             AgregarAbono();
-            CargarGrillaVentasFiadas();
-            LimpiarGrillaAbono();
+            txtDeuda.Clear();
             txtMontoAbono.Clear();
         }
         #endregion
@@ -146,11 +153,14 @@ namespace Vista
         private void grdVentaFiadas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            _numeroBoleta = int.Parse(grdVentaFiadas.Rows[rowIndex].Cells[0].Value.ToString());
-            MostrarDeuda(_numeroBoleta);
-            CargarGrillaAbonoPorBoleta(_numeroBoleta);
-            DatosClienteBoleta(_numeroBoleta);
-        }     
+            if (rowIndex > -1)
+            {
+                _numeroBoleta = int.Parse(grdVentaFiadas.Rows[rowIndex].Cells[0].Value.ToString());
+                MostrarDeuda(_numeroBoleta);
+                DatosClienteBoleta(_numeroBoleta);
+                CargarGrillaAbonoPorBoleta(_numeroBoleta);
+            }
+        }
         #endregion
 
     }

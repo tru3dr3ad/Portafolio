@@ -51,23 +51,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
+            this.lblPrecioProducto3 = new System.Windows.Forms.Label();
+            this.lblDescripcionProducto3 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
+            this.lblNombreProducto3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
+            this.lblPrecioProducto2 = new System.Windows.Forms.Label();
+            this.lblDescripcionProducto2 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
+            this.lblNombreProducto2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
+            this.lblPrecioProducto1 = new System.Windows.Forms.Label();
+            this.lblDescripcionProducto1 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.lblNombreProducto1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -347,37 +344,36 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
-            this.panel3.Controls.Add(this.label32);
-            this.panel3.Controls.Add(this.label33);
+            this.panel3.Controls.Add(this.lblPrecioProducto3);
+            this.panel3.Controls.Add(this.lblDescripcionProducto3);
             this.panel3.Controls.Add(this.pictureBox6);
-            this.panel3.Controls.Add(this.label34);
-            this.panel3.Controls.Add(this.label35);
+            this.panel3.Controls.Add(this.lblNombreProducto3);
             this.panel3.Location = new System.Drawing.Point(32, 243);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(403, 93);
             this.panel3.TabIndex = 34;
             // 
-            // label32
+            // lblPrecioProducto3
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.Color.White;
-            this.label32.Location = new System.Drawing.Point(291, 7);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(117, 46);
-            this.label32.TabIndex = 17;
-            this.label32.Text = "$1.900";
+            this.lblPrecioProducto3.AutoSize = true;
+            this.lblPrecioProducto3.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioProducto3.ForeColor = System.Drawing.Color.White;
+            this.lblPrecioProducto3.Location = new System.Drawing.Point(286, 25);
+            this.lblPrecioProducto3.Name = "lblPrecioProducto3";
+            this.lblPrecioProducto3.Size = new System.Drawing.Size(117, 46);
+            this.lblPrecioProducto3.TabIndex = 17;
+            this.lblPrecioProducto3.Text = "$1.900";
             // 
-            // label33
+            // lblDescripcionProducto3
             // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.ForeColor = System.Drawing.Color.White;
-            this.label33.Location = new System.Drawing.Point(113, 53);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(158, 23);
-            this.label33.TabIndex = 21;
-            this.label33.Text = "Bebidas (Categoria)";
+            this.lblDescripcionProducto3.AutoSize = true;
+            this.lblDescripcionProducto3.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcionProducto3.ForeColor = System.Drawing.Color.White;
+            this.lblDescripcionProducto3.Location = new System.Drawing.Point(113, 53);
+            this.lblDescripcionProducto3.Name = "lblDescripcionProducto3";
+            this.lblDescripcionProducto3.Size = new System.Drawing.Size(158, 23);
+            this.lblDescripcionProducto3.TabIndex = 21;
+            this.lblDescripcionProducto3.Text = "Bebidas (Categoria)";
             // 
             // pictureBox6
             // 
@@ -389,62 +385,50 @@
             this.pictureBox6.TabIndex = 19;
             this.pictureBox6.TabStop = false;
             // 
-            // label34
+            // lblNombreProducto3
             // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.White;
-            this.label34.Location = new System.Drawing.Point(113, 7);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(163, 23);
-            this.label34.TabIndex = 20;
-            this.label34.Text = "95147536985214789";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.White;
-            this.label35.Location = new System.Drawing.Point(113, 30);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(120, 23);
-            this.label35.TabIndex = 18;
-            this.label35.Text = "Coca-Cola 3lts";
+            this.lblNombreProducto3.AutoSize = true;
+            this.lblNombreProducto3.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreProducto3.ForeColor = System.Drawing.Color.White;
+            this.lblNombreProducto3.Location = new System.Drawing.Point(113, 25);
+            this.lblNombreProducto3.Name = "lblNombreProducto3";
+            this.lblNombreProducto3.Size = new System.Drawing.Size(120, 23);
+            this.lblNombreProducto3.TabIndex = 18;
+            this.lblNombreProducto3.Text = "Coca-Cola 3lts";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
-            this.panel2.Controls.Add(this.label28);
-            this.panel2.Controls.Add(this.label29);
+            this.panel2.Controls.Add(this.lblPrecioProducto2);
+            this.panel2.Controls.Add(this.lblDescripcionProducto2);
             this.panel2.Controls.Add(this.pictureBox5);
-            this.panel2.Controls.Add(this.label30);
-            this.panel2.Controls.Add(this.label31);
+            this.panel2.Controls.Add(this.lblNombreProducto2);
             this.panel2.Location = new System.Drawing.Point(32, 144);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(403, 93);
             this.panel2.TabIndex = 33;
             // 
-            // label28
+            // lblPrecioProducto2
             // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(291, 7);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(117, 46);
-            this.label28.TabIndex = 17;
-            this.label28.Text = "$1.900";
+            this.lblPrecioProducto2.AutoSize = true;
+            this.lblPrecioProducto2.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioProducto2.ForeColor = System.Drawing.Color.White;
+            this.lblPrecioProducto2.Location = new System.Drawing.Point(286, 30);
+            this.lblPrecioProducto2.Name = "lblPrecioProducto2";
+            this.lblPrecioProducto2.Size = new System.Drawing.Size(117, 46);
+            this.lblPrecioProducto2.TabIndex = 17;
+            this.lblPrecioProducto2.Text = "$1.900";
             // 
-            // label29
+            // lblDescripcionProducto2
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(113, 53);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(158, 23);
-            this.label29.TabIndex = 21;
-            this.label29.Text = "Bebidas (Categoria)";
+            this.lblDescripcionProducto2.AutoSize = true;
+            this.lblDescripcionProducto2.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcionProducto2.ForeColor = System.Drawing.Color.White;
+            this.lblDescripcionProducto2.Location = new System.Drawing.Point(113, 53);
+            this.lblDescripcionProducto2.Name = "lblDescripcionProducto2";
+            this.lblDescripcionProducto2.Size = new System.Drawing.Size(158, 23);
+            this.lblDescripcionProducto2.TabIndex = 21;
+            this.lblDescripcionProducto2.Text = "Bebidas (Categoria)";
             // 
             // pictureBox5
             // 
@@ -456,62 +440,50 @@
             this.pictureBox5.TabIndex = 19;
             this.pictureBox5.TabStop = false;
             // 
-            // label30
+            // lblNombreProducto2
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.ForeColor = System.Drawing.Color.White;
-            this.label30.Location = new System.Drawing.Point(113, 7);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(163, 23);
-            this.label30.TabIndex = 20;
-            this.label30.Text = "95147536985214789";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(113, 30);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(120, 23);
-            this.label31.TabIndex = 18;
-            this.label31.Text = "Coca-Cola 3lts";
+            this.lblNombreProducto2.AutoSize = true;
+            this.lblNombreProducto2.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreProducto2.ForeColor = System.Drawing.Color.White;
+            this.lblNombreProducto2.Location = new System.Drawing.Point(113, 25);
+            this.lblNombreProducto2.Name = "lblNombreProducto2";
+            this.lblNombreProducto2.Size = new System.Drawing.Size(120, 23);
+            this.lblNombreProducto2.TabIndex = 18;
+            this.lblNombreProducto2.Text = "Coca-Cola 3lts";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
-            this.panel1.Controls.Add(this.label24);
-            this.panel1.Controls.Add(this.label25);
+            this.panel1.Controls.Add(this.lblPrecioProducto1);
+            this.panel1.Controls.Add(this.lblDescripcionProducto1);
             this.panel1.Controls.Add(this.pictureBox4);
-            this.panel1.Controls.Add(this.label26);
-            this.panel1.Controls.Add(this.label27);
+            this.panel1.Controls.Add(this.lblNombreProducto1);
             this.panel1.Location = new System.Drawing.Point(32, 45);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(403, 93);
             this.panel1.TabIndex = 32;
             // 
-            // label24
+            // lblPrecioProducto1
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.Location = new System.Drawing.Point(291, 7);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(117, 46);
-            this.label24.TabIndex = 17;
-            this.label24.Text = "$1.900";
+            this.lblPrecioProducto1.AutoSize = true;
+            this.lblPrecioProducto1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioProducto1.ForeColor = System.Drawing.Color.White;
+            this.lblPrecioProducto1.Location = new System.Drawing.Point(286, 27);
+            this.lblPrecioProducto1.Name = "lblPrecioProducto1";
+            this.lblPrecioProducto1.Size = new System.Drawing.Size(117, 46);
+            this.lblPrecioProducto1.TabIndex = 17;
+            this.lblPrecioProducto1.Text = "$1.900";
             // 
-            // label25
+            // lblDescripcionProducto1
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(113, 53);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(158, 23);
-            this.label25.TabIndex = 21;
-            this.label25.Text = "Bebidas (Categoria)";
+            this.lblDescripcionProducto1.AutoSize = true;
+            this.lblDescripcionProducto1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcionProducto1.ForeColor = System.Drawing.Color.White;
+            this.lblDescripcionProducto1.Location = new System.Drawing.Point(113, 50);
+            this.lblDescripcionProducto1.Name = "lblDescripcionProducto1";
+            this.lblDescripcionProducto1.Size = new System.Drawing.Size(158, 23);
+            this.lblDescripcionProducto1.TabIndex = 21;
+            this.lblDescripcionProducto1.Text = "Bebidas (Categoria)";
             // 
             // pictureBox4
             // 
@@ -523,27 +495,16 @@
             this.pictureBox4.TabIndex = 19;
             this.pictureBox4.TabStop = false;
             // 
-            // label26
+            // lblNombreProducto1
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(113, 7);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(163, 23);
-            this.label26.TabIndex = 20;
-            this.label26.Text = "95147536985214789";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(113, 30);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(120, 23);
-            this.label27.TabIndex = 18;
-            this.label27.Text = "Coca-Cola 3lts";
+            this.lblNombreProducto1.AutoSize = true;
+            this.lblNombreProducto1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreProducto1.ForeColor = System.Drawing.Color.White;
+            this.lblNombreProducto1.Location = new System.Drawing.Point(113, 25);
+            this.lblNombreProducto1.Name = "lblNombreProducto1";
+            this.lblNombreProducto1.Size = new System.Drawing.Size(120, 23);
+            this.lblNombreProducto1.TabIndex = 18;
+            this.lblNombreProducto1.Text = "Coca-Cola 3lts";
             // 
             // label2
             // 
@@ -798,11 +759,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label lblPrecioProducto1;
+        private System.Windows.Forms.Label lblDescripcionProducto1;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label lblNombreProducto1;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
@@ -817,17 +777,15 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label lblPrecioProducto3;
+        private System.Windows.Forms.Label lblDescripcionProducto3;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label lblNombreProducto3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label lblPrecioProducto2;
+        private System.Windows.Forms.Label lblDescripcionProducto2;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label lblNombreProducto2;
         private System.Windows.Forms.Panel panel1;
     }
 }

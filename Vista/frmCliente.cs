@@ -20,6 +20,8 @@ namespace Vista
         {
             grdCliente.Columns["IDTIPO"].Visible = false;
             grdCliente.Columns["IDESTADO"].Visible = false;
+            //grdCliente.Columns["DV"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            grdCliente.Columns["NOMBRE_CLIENTE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void CargarGrilla()
         {
@@ -75,6 +77,57 @@ namespace Vista
             cmbTipoCliente.SelectedIndex = 0;
             cmbEstado.SelectedIndex = 0;
         }
+        private string ValidacionIngresoCliente()
+        {
+            string mensajeError = string.Empty;
+            string runCliente = txtRunCliente.Text + "-" + txtDv.Text;
+            Validaciones validaciones = new Validaciones();
+            if (validaciones.ValidarRun(runCliente))
+            {
+                if (validaciones.ValidarLargoString(3, 70, txtNombre.Text))
+                {
+                    if (validaciones.ValidarLargoString(3, 70, txtApellido.Text))
+                    {
+                        if (validaciones.ValidarMayoriaEdad(dtpFechaNacimiento.Value))
+                        {
+                            if (validaciones.ValidarLargoString(3, 150, txtDireccion.Text))
+                            {
+                                if (validaciones.ValidarNumeroTelefono(txtTelefono.Text))
+                                {
+                                    return mensajeError;
+                                }
+                                else
+                                {
+                                    mensajeError = "Telefono es invalido";
+                                }
+                            }
+                            else
+                            {
+                                mensajeError = "Largo de la direccion es invalido";
+                            }
+                        }
+                        else
+                        {
+                            mensajeError = "Debe ser mayor de edad para ser cliente";
+                        }
+                    }
+                    else
+                    {
+                        mensajeError = "Largo del apellido es inválido";
+                    }
+                }
+                else
+                {
+                    mensajeError = "Largo del nombre es inválido";
+                }
+            }
+            else
+            {
+                mensajeError = "Run inválido";
+            }
+
+            return mensajeError;
+        }
         #endregion
 
         #region Metodos de la clase
@@ -88,7 +141,8 @@ namespace Vista
         }
         public void AgregarCliente()
         {
-            if (!String.IsNullOrEmpty(txtRunCliente.Text))
+            string msgEsValido = ValidacionIngresoCliente();
+            if (string.IsNullOrEmpty(msgEsValido))
             {
                 int run = int.Parse(txtRunCliente.Text);
                 char dv = char.Parse(txtDv.Text);
@@ -105,7 +159,12 @@ namespace Vista
                 if (cliente.AgregarCliente())
                 {
                     MessageBox.Show("Cliente ha sido agregado");
+                    LimpiarDatos();
                 }
+            }
+            else
+            {
+                MessageBox.Show(msgEsValido);
             }
         }
         private void ModificarCliente()
@@ -163,7 +222,7 @@ namespace Vista
 
             AgregarCliente();
             CargarGrilla();
-            LimpiarDatos();
+            
         }
         private void btnModificarCliente_Click(object sender, EventArgs e)
         {
@@ -183,12 +242,22 @@ namespace Vista
         private void grdCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            if (rowIndex> -1)
+            if (rowIndex > -1)
             {
                 int runCliente = int.Parse(grdCliente.Rows[rowIndex].Cells[0].Value.ToString());
                 MostrarDatosCliente(runCliente);
             }
         }
         #endregion
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtRunCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

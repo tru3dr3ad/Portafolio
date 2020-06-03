@@ -33,6 +33,7 @@ namespace Modelo
         public virtual DbSet<CLIENTE> CLIENTE { get; set; }
         public virtual DbSet<DETALLE_BOLETA> DETALLE_BOLETA { get; set; }
         public virtual DbSet<DETALLE_PEDIDO> DETALLE_PEDIDO { get; set; }
+        public virtual DbSet<ESTADO_BOLETA> ESTADO_BOLETA { get; set; }
         public virtual DbSet<ESTADO_FIADO> ESTADO_FIADO { get; set; }
         public virtual DbSet<ESTADO_ORDEN> ESTADO_ORDEN { get; set; }
         public virtual DbSet<MEDIO_PAGO> MEDIO_PAGO { get; set; }
@@ -44,12 +45,15 @@ namespace Modelo
         public virtual DbSet<TIPO_USUARIO> TIPO_USUARIO { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
         public virtual DbSet<V_ABONO> V_ABONO { get; set; }
-        public virtual DbSet<V_BOLETAS> V_BOLETAS { get; set; }
         public virtual DbSet<V_CLIENTES> V_CLIENTES { get; set; }
         public virtual DbSet<V_ORDEN_PEDIDO> V_ORDEN_PEDIDO { get; set; }
         public virtual DbSet<V_PRODUCTOS> V_PRODUCTOS { get; set; }
         public virtual DbSet<V_PROVEEDORES> V_PROVEEDORES { get; set; }
         public virtual DbSet<V_USUARIOS> V_USUARIOS { get; set; }
+        public virtual DbSet<V_BOLETAS> V_BOLETAS { get; set; }
+        public virtual DbSet<V_DETALLE_BOLETA> V_DETALLE_BOLETA { get; set; }
+        public virtual DbSet<V_DETALLE_ORDEN> V_DETALLE_ORDEN { get; set; }
+        public virtual DbSet<V_TOP_PRODUCTOS> V_TOP_PRODUCTOS { get; set; }
     
         public virtual int SP_ACTUALIZARPRECIO2()
         {

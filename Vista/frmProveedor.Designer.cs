@@ -290,6 +290,9 @@
             // 
             // pnlContenedorGrilla
             // 
+            this.pnlContenedorGrilla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContenedorGrilla.Controls.Add(this.grdProveedor);
             this.pnlContenedorGrilla.Controls.Add(this.pnlTituloGrilla);
             this.pnlContenedorGrilla.Location = new System.Drawing.Point(12, 12);
@@ -304,6 +307,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(175)))), ((int)(((byte)(133)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.grdProveedor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.grdProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdProveedor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.grdProveedor.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.grdProveedor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -318,7 +324,6 @@
             this.grdProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.grdProveedor.ColumnHeadersHeight = 30;
             this.grdProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.grdProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdProveedor.EnableHeadersVisualStyles = false;
             this.grdProveedor.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.grdProveedor.Location = new System.Drawing.Point(0, 39);

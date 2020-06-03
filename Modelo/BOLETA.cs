@@ -27,10 +27,12 @@ namespace Modelo
         public decimal MEDIO_PAGO_IDMEDIO { get; set; }
         public decimal CLIENTE_RUNCLIENTE { get; set; }
         public decimal USUARIO_RUNUSUARIO { get; set; }
+        public decimal ESTADO_BOLETA_IDESTADO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ABONO> ABONO { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
+        public virtual ESTADO_BOLETA ESTADO_BOLETA { get; set; }
         public virtual MEDIO_PAGO MEDIO_PAGO { get; set; }
         public virtual USUARIO USUARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

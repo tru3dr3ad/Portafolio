@@ -32,6 +32,7 @@ namespace Vista
             grdProducto.Columns["STOCK_CRITICO"].Visible = false;
             grdProducto.Columns["FECHA_VENCIMIENTO"].Visible = false;
             grdProducto.Columns["IDCATEGORIA"].Visible = false;
+            grdOrden.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void CargarComboboxProveedor()
         {

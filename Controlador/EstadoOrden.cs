@@ -15,6 +15,10 @@ namespace Controlador
             Id = id;
             Descripcion = descripcion;
         }
+        public EstadoOrden(string descripcion)
+        {
+            Descripcion = descripcion;
+        }
         public EstadoOrden()
         {
 

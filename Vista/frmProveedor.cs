@@ -23,6 +23,7 @@ namespace Vista
         private void EsconderColumnasAutogeneradas()
         {
             grdProveedor.Columns["IDRUBRO"].Visible = false;
+            grdProveedor.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void CargarComboboxTipoRubro()
         {

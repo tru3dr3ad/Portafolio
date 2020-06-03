@@ -38,6 +38,13 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.DETALLE_PEDIDO.ToList();
             return listado;
         }
+        public List<Modelo.V_DETALLE_ORDEN> ListarDetallePorOrden(int numero)
+        {
+            List<Modelo.V_DETALLE_ORDEN> listado = new List<Modelo.V_DETALLE_ORDEN>();
+            listado = ConectorDALC.ModeloAlmacen.V_DETALLE_ORDEN.Where(d => d.ORDEN_PEDIDO_NUMEROORDEN == numero).
+                ToList();
+            return listado;
+        }
         public bool BuscarDetallePedido(int idDetalle)
         {
             try

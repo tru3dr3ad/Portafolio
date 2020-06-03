@@ -214,7 +214,7 @@ namespace Controlador
                 string clave = GenerateSHA256String(contrasena);
                 Modelo.USUARIO usuarioDB = ConectorDALC.ModeloAlmacen.USUARIO
                     .Where(u => u.NOMBRE == nombreUsuario)
-                    .Where(u => u.CONTRASENA == clave).FirstOrDefault();
+                    .Where(u => u.CONTRASENA == clave).First();
 
                 if (usuarioDB != null)
                 {

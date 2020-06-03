@@ -30,10 +30,10 @@ namespace Vista
         {
             grdBoleta.Columns["Codigo"].Visible = false;
             grdProducto.Columns["PRECIO_COMPRA"].Visible = false;
-            grdProducto.Columns["STOCK"].Visible = false;
             grdProducto.Columns["STOCK_CRITICO"].Visible = false;
             grdProducto.Columns["FECHA_VENCIMIENTO"].Visible = false;
             grdProducto.Columns["IDCATEGORIA"].Visible = false;
+            grdBoleta.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void CargarComboboxMedioPago()
         {
@@ -48,6 +48,13 @@ namespace Vista
             cmbCliente.DisplayMember = "Nombre";
             cmbCliente.ValueMember = "Run";
             cmbCliente.DataSource = cliente.ListarCombobox();
+        }
+        private void CargarComboboxClienteFiados()
+        {
+            Controlador.Cliente cliente = new Controlador.Cliente();
+            cmbCliente.DisplayMember = "Nombre";
+            cmbCliente.ValueMember = "Run";
+            cmbCliente.DataSource = cliente.ListarComboboxFiado();
         }
         private void CargarComboboxCategoria()
         {
@@ -84,7 +91,6 @@ namespace Vista
         private void LimpiarDatos()
         {
             txtTotalBoleta.Text = "0";
-            txtRunCliente.Clear();
             cmbCliente.SelectedValue = 11111111;
             cmbMedioPago.SelectedValue = 1;
             grdBoleta.Rows.Clear();
@@ -106,7 +112,11 @@ namespace Vista
         }
         public void AgregarBoleta()
         {
-            if (int.Parse(txtTotalBoleta.Text)>0)
+            if (int.Parse(txtTotalBoleta.Text)>0 && ((int)cmbMedioPago.SelectedIndex ==3))
+            {
+                MessageBox.Show("Quizas debe");
+            }
+            else if(int.Parse(txtTotalBoleta.Text) > 0)
             {
                 DateTime fechaCreacion = DateTime.Now.Date;
                 int total = int.Parse(txtTotalBoleta.Text);
@@ -114,9 +124,12 @@ namespace Vista
                 medioPago.Id = (int)cmbMedioPago.SelectedValue;
                 Cliente cliente = new Cliente();
                 cliente.Run = (int)cmbCliente.SelectedValue;
+
                 Usuario usuario = new Usuario();
                 usuario.RunUsuario = Global.RunUsuarioActivo;
-                Boleta boleta = new Boleta(fechaCreacion, total, medioPago, cliente, usuario);
+                EstadoBoleta estado = new EstadoBoleta();
+                estado.Id = 1;
+                Boleta boleta = new Boleta(fechaCreacion, total, medioPago, cliente, usuario, estado);
                 if (boleta.AgregarBoleta())
                 {
                     int numeroBoleta = boleta.ObtenerNumeroMaximoBoleta();
@@ -127,7 +140,7 @@ namespace Vista
                         DetalleBoleta detalle = new DetalleBoleta(numeroBoleta, codigo, cantidad);
                         detalle.AgregarDetalleBoleta();
                     }
-                    MessageBox.Show("Boleta N°"+ numeroBoleta + " ha sido agregada.");
+                    MessageBox.Show("Boleta N°" + numeroBoleta + " ha sido agregada.");
                 }
             }
         }
@@ -228,5 +241,13 @@ namespace Vista
         }
         #endregion
 
+        private void cmbMedioPago_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbMedioPago.SelectedIndex == 3)
+            {
+                CargarComboboxClienteFiados();
+                txtRunCliente.Text = cmbCliente.SelectedValue.ToString();
+            }
+        }
     }
 }

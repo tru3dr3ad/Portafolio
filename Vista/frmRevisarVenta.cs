@@ -6,6 +6,7 @@ namespace Vista
 {
     public partial class frmRevisarVenta : Form
     {
+        int _numeroBoletaSeleccionado = 0;
         public frmRevisarVenta()
         {
             InitializeComponent();
@@ -20,6 +21,12 @@ namespace Vista
             Boleta boleta = new Boleta();
             grdBoleta.DataSource = boleta.ListarBoletas();
             EsconderColumnasAutogeneradas();
+        }
+        private void CargarGrillaDetalleBoleta(int numeroBoleta)
+        {
+            DetalleBoleta detalle = new DetalleBoleta();
+            grdDetalleBoleta.DataSource = detalle.ListarDetallePorBoleta(numeroBoleta);
+            EsconderColumnasDetalle();
         }
         private void CargarComboboxMedioPago()
         {
@@ -40,6 +47,14 @@ namespace Vista
             grdBoleta.Columns["IDMEDIOPAGO"].Visible = false;
             grdBoleta.Columns["RUN_USUARIO"].Visible = false;
             grdBoleta.Columns["RUN_CLIENTE"].Visible = false;
+            grdBoleta.Columns["IDESTADO"].Visible = false;
+            //grdBoleta.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+        private void EsconderColumnasDetalle()
+        {
+            grdDetalleBoleta.Columns["BOLETA_NUMEROBOLETA"].Visible = false;
+            grdDetalleBoleta.Columns["PRODUCTO_CODIGO"].Visible = false;
+            grdDetalleBoleta.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void BuscarBoletasPorNombreCliente()
         {
@@ -48,6 +63,12 @@ namespace Vista
             grdBoleta.DataSource = boleta.ListarBoletasPorNombreCliente(nombre);
             txtBuscarBoleta.Clear();
             EsconderColumnasAutogeneradas();
+        }
+        private void AnularBoleta()
+        {
+            Boleta boleta = new Boleta();
+            bool boletaAnulada = boleta.AnularBoleta(_numeroBoletaSeleccionado);
+            _numeroBoletaSeleccionado = 0;
         }
         #endregion
 
@@ -78,5 +99,21 @@ namespace Vista
             }
         }
         #endregion
+
+        private void grdBoleta_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                _numeroBoletaSeleccionado = int.Parse(this.grdBoleta[0, e.RowIndex].Value.ToString());
+                CargarGrillaDetalleBoleta(_numeroBoletaSeleccionado);
+            }
+        }
+
+        private void btnAnularBoleta_Click(object sender, EventArgs e)
+        {
+            AnularBoleta();
+            CargarGrilla();
+        }
+
     }
 }

@@ -18,8 +18,11 @@ namespace Vista
             string clave = txtContrasena.Text;
             Usuario usuario = new Usuario();
             usuario = usuario.Login(nombreUsuario, clave);
+            //if(txtNombreUsuario.Text == "KRISTAL")
             if (usuario != null)
             {
+                //frmMenuAdmin frmAdministrador = new frmMenuAdmin();
+                //frmAdministrador.ShowDialog();
                 Global.RunUsuarioActivo = usuario.RunUsuario;
                 MostrarMenu(usuario.Tipo.Id);
             }
