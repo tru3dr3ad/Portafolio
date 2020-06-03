@@ -412,7 +412,7 @@
             this.lblPrecioProducto2.AutoSize = true;
             this.lblPrecioProducto2.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioProducto2.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioProducto2.Location = new System.Drawing.Point(286, 30);
+            this.lblPrecioProducto2.Location = new System.Drawing.Point(289, 32);
             this.lblPrecioProducto2.Name = "lblPrecioProducto2";
             this.lblPrecioProducto2.Size = new System.Drawing.Size(117, 46);
             this.lblPrecioProducto2.TabIndex = 17;
@@ -467,7 +467,7 @@
             this.lblPrecioProducto1.AutoSize = true;
             this.lblPrecioProducto1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioProducto1.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioProducto1.Location = new System.Drawing.Point(286, 27);
+            this.lblPrecioProducto1.Location = new System.Drawing.Point(289, 27);
             this.lblPrecioProducto1.Name = "lblPrecioProducto1";
             this.lblPrecioProducto1.Size = new System.Drawing.Size(117, 46);
             this.lblPrecioProducto1.TabIndex = 17;

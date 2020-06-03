@@ -161,7 +161,7 @@
             // 
             this.txtTelefonoUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTelefonoUsuario.Location = new System.Drawing.Point(13, 307);
-            this.txtTelefonoUsuario.MaxLength = 13;
+            this.txtTelefonoUsuario.MaxLength = 9;
             this.txtTelefonoUsuario.Name = "txtTelefonoUsuario";
             this.txtTelefonoUsuario.Size = new System.Drawing.Size(180, 20);
             this.txtTelefonoUsuario.TabIndex = 12;

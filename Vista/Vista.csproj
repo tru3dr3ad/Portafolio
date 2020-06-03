@@ -85,6 +85,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsClienteEfectivo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsClienteEfectivo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsClienteFrecuente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsClienteFrecuente.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,7 +255,42 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RepClientesEfectivo.rdlc" />
+    <EmbeddedResource Include="RepClienteEfectivo.rdlc" />
+    <EmbeddedResource Include="RepClienteFrecuencia.rdlc" />
+    <EmbeddedResource Include="RepEfectivo.rdlc" />
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DsClienteEfectivo.xsc">
+      <DependentUpon>DsClienteEfectivo.xsd</DependentUpon>
+    </None>
+    <None Include="DsClienteEfectivo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsClienteEfectivo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsClienteEfectivo.xss">
+      <DependentUpon>DsClienteEfectivo.xsd</DependentUpon>
+    </None>
+    <None Include="DsClienteFrecuente.xsc">
+      <DependentUpon>DsClienteFrecuente.xsd</DependentUpon>
+    </None>
+    <None Include="DsClienteFrecuente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsClienteFrecuente.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsClienteFrecuente.xss">
+      <DependentUpon>DsClienteFrecuente.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
