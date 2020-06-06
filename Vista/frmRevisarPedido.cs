@@ -113,20 +113,27 @@ namespace Vista
             {
                 OrdenPedido orden = new OrdenPedido();
                 orden = orden.ObtenerOrdenPedido(_numeroOrdenSeleccionado);
-                EstadoOrden estado = new EstadoOrden();
-                estado.Id = (int)cmbEstadoOrden.SelectedValue;
-                DateTime fechaRecepcion = DateTime.Now.Date;
-                orden.Estado = estado;
-                orden.FechaRecepcion = fechaRecepcion;
-                bool ordenRecepcionada = orden.RecepcionarOrdenPedido(orden);
-                if (ordenRecepcionada)
+                if (!orden.OrdenRecepcionada(orden))
                 {
-                    MessageBox.Show("Orden Recepcionada");
-                    _numeroOrdenSeleccionado = 0;
+                    EstadoOrden estado = new EstadoOrden();
+                    estado.Id = (int)cmbEstadoOrden.SelectedValue;
+                    DateTime fechaRecepcion = DateTime.Now.Date;
+                    orden.Estado = estado;
+                    orden.FechaRecepcion = fechaRecepcion;
+                    bool ordenRecepcionada = orden.RecepcionarOrdenPedido(orden);
+                    if (ordenRecepcionada)
+                    {
+                        MessageBox.Show("Orden Recepcionada");
+                        _numeroOrdenSeleccionado = 0;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Orden no se ha recepcionado.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Orden no se ha recepcionado.");
+                    MessageBox.Show("La orden ya fue recepcionada");
                 }
             }
         }
@@ -169,7 +176,7 @@ namespace Vista
             {
                 OrdenPedido ordenPedido = new OrdenPedido();
                 grdOrden.DataSource = ordenPedido.ListarOrdenPedidoPorProveedor((int)cmbProveedores.SelectedValue);
-                LimpiarGrillaDetalle();  
+                LimpiarGrillaDetalle();
                 EsconderColumnasAutogeneradas();
             }
         }

@@ -79,13 +79,20 @@ namespace Vista
                         {
                             if (validaciones.ValidarLargoString(10,250,txtCorreo.Text))
                             {
-                                if (validaciones.ValidarLargoString(10,150, txtDireccion.Text))
+                                if (validaciones.ValidarEmail(txtCorreo.Text))
                                 {
-                                    return mensajeError;
+                                    if (validaciones.ValidarLargoString(10, 150, txtDireccion.Text))
+                                    {
+                                        return mensajeError;
+                                    }
+                                    else
+                                    {
+                                        mensajeError = "EL largo de la direccion es invalida";
+                                    }
                                 }
                                 else
                                 {
-                                    mensajeError = "EL largo de la direccion es invalida";
+                                    mensajeError = "El correo electronico no tiene un formato correcto";
                                 }
                             }
                             else
@@ -231,6 +238,7 @@ namespace Vista
         }
         #endregion
 
+        #region Eventos
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
@@ -245,5 +253,7 @@ namespace Vista
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
+        #endregion
+    
     }
 }

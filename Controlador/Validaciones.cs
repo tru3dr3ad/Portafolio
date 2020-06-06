@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 
 namespace Controlador
@@ -73,6 +74,19 @@ namespace Controlador
                 return true;
             }
             return false;
+        }
+        public bool ValidarEmail(string correoElectronico)
+        {
+            try
+            {
+                MailAddress emailCorrecto = new MailAddress(correoElectronico);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
         #endregion
     }

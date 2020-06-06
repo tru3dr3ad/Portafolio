@@ -281,6 +281,17 @@ namespace Controlador
                 throw new ArgumentException("Error al eliminar boleta: " + ex);
             }
         }
+        public bool BoletaAnulada(Boleta boleta)
+        {
+            if (boleta.Estado.Id == 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
 
     }

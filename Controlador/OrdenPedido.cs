@@ -230,6 +230,17 @@ namespace Controlador
                 throw new ArgumentException("Error al recepcionar orden de pedido: " + ex);
             }
         }
+        public bool OrdenRecepcionada(OrdenPedido orden)
+        {
+            if (orden.Estado.Id == 2 || orden.Estado.Id == 3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
 
     }
