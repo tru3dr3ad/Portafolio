@@ -21,6 +21,7 @@ namespace Vista
             OrdenPedido orden = new OrdenPedido();
             grdOrden.DataSource = orden.ListarOrdenPedido();
             EsconderColumnasAutogeneradas();
+            CambioNombreColumnaGrillaOrden();
         }
         private void CargarGrillaDetalleOrden(int numero)
         {
@@ -50,18 +51,26 @@ namespace Vista
         }
         private void LimpiarGrillaDetalle()
         {
-            grdDetalleOrden.Rows.Clear();
+            grdDetalleOrden.Columns.Clear();
         }
         private void EsconderColumnasAutogeneradas()
         {
             grdOrden.Columns["PROVEEDOR_RUT"].Visible = false;
             grdOrden.Columns["IDESTADO"].Visible = false;
-            //grdOrden.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void EsconderColumnasDetalle()
         {
             grdDetalleOrden.Columns["ORDEN_PEDIDO_NUMEROORDEN"].Visible = false;
+            grdDetalleOrden.Columns["IDDETALLEO"].Visible = false;
             grdDetalleOrden.Columns["PRODUCTO_CODIGO"].Visible = false;
+            grdDetalleOrden.Columns["NOMBRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+        private void CambioNombreColumnaGrillaOrden()
+        {
+            grdOrden.Columns["NUMERO"].HeaderText = "N°";
+            grdOrden.Columns["FECHA_CREACION"].HeaderText = "FECHA CREACION";
+            grdOrden.Columns["FECHA_RECEPCION"].HeaderText = "FECHA RECEPCION";
+            grdOrden.Columns["ESTADO_ORDEN"].HeaderText = "ESTADO";
         }
         #endregion
 

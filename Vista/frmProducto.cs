@@ -20,6 +20,7 @@ namespace Vista
             Producto producto = new Producto();
             grdProducto.DataSource = producto.ListarProductos();
             EsconderColumnasAutogeneradas();
+            CambioNombreColumnaGrilla();
         }
         private void EsconderColumnasAutogeneradas()
         {
@@ -98,7 +99,14 @@ namespace Vista
                 {
                     if (validaciones.ValidarLargoString(3, 70, txtDescripcion.Text))
                     {
-                        return mensajeError;
+                        if(int.Parse(txtPrecioVenta.Text)>(int.Parse(txtPrecioCompra.Text)))
+                        {
+                            return mensajeError;
+                        }
+                        else
+                        {
+                            mensajeError = "Precio de venta no puede ser menor al precio de compra.";
+                        }
                     }
                     else
                     {
@@ -115,6 +123,13 @@ namespace Vista
                 mensajeError = "Fecha de vencimiento no puede ser menor a hoy";
             }
             return mensajeError;
+        }
+        private void CambioNombreColumnaGrilla()
+        {
+            grdProducto.Columns["PRECIO_VENTA"].HeaderText = "PRECIO VENTA";
+            grdProducto.Columns["PRECIO_COMPRA"].HeaderText = "PRECIO COMPRA";
+            grdProducto.Columns["STOCK_CRITICO"].HeaderText = "STOCK CRITICO";
+            grdProducto.Columns["FECHA_VENCIMIENTO"].HeaderText = "FECHA VENCIMIENTO";
         }
         #endregion
 
@@ -203,13 +218,13 @@ namespace Vista
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
             BuscarProductoPorNombre();
+            LimpiarDatos();
         }
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             AgregarProducto();
             CargarGrilla();
-            //LimpiarDatos();
         }
 
         private void btnModificarProducto_Click(object sender, EventArgs e)

@@ -78,7 +78,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblCantidadBoletas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel8.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -133,7 +133,7 @@
             this.lblFechaBoleta3.AutoSize = true;
             this.lblFechaBoleta3.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaBoleta3.ForeColor = System.Drawing.Color.White;
-            this.lblFechaBoleta3.Location = new System.Drawing.Point(110, 50);
+            this.lblFechaBoleta3.Location = new System.Drawing.Point(88, 53);
             this.lblFechaBoleta3.Name = "lblFechaBoleta3";
             this.lblFechaBoleta3.Size = new System.Drawing.Size(96, 23);
             this.lblFechaBoleta3.TabIndex = 8;
@@ -144,7 +144,7 @@
             this.lblRun3.AutoSize = true;
             this.lblRun3.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRun3.ForeColor = System.Drawing.Color.White;
-            this.lblRun3.Location = new System.Drawing.Point(110, 4);
+            this.lblRun3.Location = new System.Drawing.Point(88, 7);
             this.lblRun3.Name = "lblRun3";
             this.lblRun3.Size = new System.Drawing.Size(98, 23);
             this.lblRun3.TabIndex = 7;
@@ -155,7 +155,7 @@
             this.lblBoletaNombre3.AutoSize = true;
             this.lblBoletaNombre3.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBoletaNombre3.ForeColor = System.Drawing.Color.White;
-            this.lblBoletaNombre3.Location = new System.Drawing.Point(110, 27);
+            this.lblBoletaNombre3.Location = new System.Drawing.Point(88, 30);
             this.lblBoletaNombre3.Name = "lblBoletaNombre3";
             this.lblBoletaNombre3.Size = new System.Drawing.Size(131, 23);
             this.lblBoletaNombre3.TabIndex = 4;
@@ -176,11 +176,12 @@
             this.lblTotal3.AutoSize = true;
             this.lblTotal3.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal3.ForeColor = System.Drawing.Color.White;
-            this.lblTotal3.Location = new System.Drawing.Point(265, 12);
+            this.lblTotal3.Location = new System.Drawing.Point(308, 30);
             this.lblTotal3.Name = "lblTotal3";
-            this.lblTotal3.Size = new System.Drawing.Size(135, 46);
+            this.lblTotal3.Size = new System.Drawing.Size(92, 46);
             this.lblTotal3.TabIndex = 4;
-            this.lblTotal3.Text = "$12.050";
+            this.lblTotal3.Text = "3500";
+            this.lblTotal3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel10
             // 
@@ -200,7 +201,7 @@
             this.lblFechaBoleta2.AutoSize = true;
             this.lblFechaBoleta2.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaBoleta2.ForeColor = System.Drawing.Color.White;
-            this.lblFechaBoleta2.Location = new System.Drawing.Point(110, 50);
+            this.lblFechaBoleta2.Location = new System.Drawing.Point(88, 53);
             this.lblFechaBoleta2.Name = "lblFechaBoleta2";
             this.lblFechaBoleta2.Size = new System.Drawing.Size(96, 23);
             this.lblFechaBoleta2.TabIndex = 8;
@@ -211,7 +212,7 @@
             this.lblRun2.AutoSize = true;
             this.lblRun2.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRun2.ForeColor = System.Drawing.Color.White;
-            this.lblRun2.Location = new System.Drawing.Point(110, 4);
+            this.lblRun2.Location = new System.Drawing.Point(88, 7);
             this.lblRun2.Name = "lblRun2";
             this.lblRun2.Size = new System.Drawing.Size(98, 23);
             this.lblRun2.TabIndex = 7;
@@ -222,7 +223,7 @@
             this.lblBoletaNombre2.AutoSize = true;
             this.lblBoletaNombre2.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBoletaNombre2.ForeColor = System.Drawing.Color.White;
-            this.lblBoletaNombre2.Location = new System.Drawing.Point(110, 27);
+            this.lblBoletaNombre2.Location = new System.Drawing.Point(88, 30);
             this.lblBoletaNombre2.Name = "lblBoletaNombre2";
             this.lblBoletaNombre2.Size = new System.Drawing.Size(131, 23);
             this.lblBoletaNombre2.TabIndex = 4;
@@ -243,11 +244,12 @@
             this.lblTotal2.AutoSize = true;
             this.lblTotal2.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal2.ForeColor = System.Drawing.Color.White;
-            this.lblTotal2.Location = new System.Drawing.Point(265, 12);
+            this.lblTotal2.Location = new System.Drawing.Point(311, 27);
             this.lblTotal2.Name = "lblTotal2";
-            this.lblTotal2.Size = new System.Drawing.Size(135, 46);
+            this.lblTotal2.Size = new System.Drawing.Size(92, 46);
             this.lblTotal2.TabIndex = 4;
-            this.lblTotal2.Text = "$12.050";
+            this.lblTotal2.Text = "3500";
+            this.lblTotal2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel9
             // 
@@ -267,7 +269,7 @@
             this.lblFechaBoleta1.AutoSize = true;
             this.lblFechaBoleta1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaBoleta1.ForeColor = System.Drawing.Color.White;
-            this.lblFechaBoleta1.Location = new System.Drawing.Point(110, 50);
+            this.lblFechaBoleta1.Location = new System.Drawing.Point(88, 53);
             this.lblFechaBoleta1.Name = "lblFechaBoleta1";
             this.lblFechaBoleta1.Size = new System.Drawing.Size(96, 23);
             this.lblFechaBoleta1.TabIndex = 8;
@@ -278,7 +280,7 @@
             this.lblRun1.AutoSize = true;
             this.lblRun1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRun1.ForeColor = System.Drawing.Color.White;
-            this.lblRun1.Location = new System.Drawing.Point(110, 4);
+            this.lblRun1.Location = new System.Drawing.Point(88, 7);
             this.lblRun1.Name = "lblRun1";
             this.lblRun1.Size = new System.Drawing.Size(98, 23);
             this.lblRun1.TabIndex = 7;
@@ -289,7 +291,7 @@
             this.lblBoletaNombre1.AutoSize = true;
             this.lblBoletaNombre1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBoletaNombre1.ForeColor = System.Drawing.Color.White;
-            this.lblBoletaNombre1.Location = new System.Drawing.Point(110, 27);
+            this.lblBoletaNombre1.Location = new System.Drawing.Point(88, 30);
             this.lblBoletaNombre1.Name = "lblBoletaNombre1";
             this.lblBoletaNombre1.Size = new System.Drawing.Size(131, 23);
             this.lblBoletaNombre1.TabIndex = 4;
@@ -310,11 +312,12 @@
             this.lblTotal1.AutoSize = true;
             this.lblTotal1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal1.ForeColor = System.Drawing.Color.White;
-            this.lblTotal1.Location = new System.Drawing.Point(265, 12);
+            this.lblTotal1.Location = new System.Drawing.Point(308, 30);
             this.lblTotal1.Name = "lblTotal1";
-            this.lblTotal1.Size = new System.Drawing.Size(135, 46);
+            this.lblTotal1.Size = new System.Drawing.Size(92, 46);
             this.lblTotal1.TabIndex = 4;
-            this.lblTotal1.Text = "$12.050";
+            this.lblTotal1.Text = "3500";
+            this.lblTotal1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -357,18 +360,19 @@
             this.lblPrecioProducto3.AutoSize = true;
             this.lblPrecioProducto3.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioProducto3.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioProducto3.Location = new System.Drawing.Point(286, 25);
+            this.lblPrecioProducto3.Location = new System.Drawing.Point(308, 27);
             this.lblPrecioProducto3.Name = "lblPrecioProducto3";
-            this.lblPrecioProducto3.Size = new System.Drawing.Size(117, 46);
+            this.lblPrecioProducto3.Size = new System.Drawing.Size(92, 46);
             this.lblPrecioProducto3.TabIndex = 17;
-            this.lblPrecioProducto3.Text = "$1.900";
+            this.lblPrecioProducto3.Text = "2500";
+            this.lblPrecioProducto3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDescripcionProducto3
             // 
             this.lblDescripcionProducto3.AutoSize = true;
             this.lblDescripcionProducto3.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcionProducto3.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcionProducto3.Location = new System.Drawing.Point(113, 53);
+            this.lblDescripcionProducto3.Location = new System.Drawing.Point(89, 50);
             this.lblDescripcionProducto3.Name = "lblDescripcionProducto3";
             this.lblDescripcionProducto3.Size = new System.Drawing.Size(158, 23);
             this.lblDescripcionProducto3.TabIndex = 21;
@@ -389,7 +393,7 @@
             this.lblNombreProducto3.AutoSize = true;
             this.lblNombreProducto3.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreProducto3.ForeColor = System.Drawing.Color.White;
-            this.lblNombreProducto3.Location = new System.Drawing.Point(113, 25);
+            this.lblNombreProducto3.Location = new System.Drawing.Point(89, 22);
             this.lblNombreProducto3.Name = "lblNombreProducto3";
             this.lblNombreProducto3.Size = new System.Drawing.Size(120, 23);
             this.lblNombreProducto3.TabIndex = 18;
@@ -412,18 +416,19 @@
             this.lblPrecioProducto2.AutoSize = true;
             this.lblPrecioProducto2.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioProducto2.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioProducto2.Location = new System.Drawing.Point(289, 32);
+            this.lblPrecioProducto2.Location = new System.Drawing.Point(308, 27);
             this.lblPrecioProducto2.Name = "lblPrecioProducto2";
-            this.lblPrecioProducto2.Size = new System.Drawing.Size(117, 46);
+            this.lblPrecioProducto2.Size = new System.Drawing.Size(92, 46);
             this.lblPrecioProducto2.TabIndex = 17;
-            this.lblPrecioProducto2.Text = "$1.900";
+            this.lblPrecioProducto2.Text = "2500";
+            this.lblPrecioProducto2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDescripcionProducto2
             // 
             this.lblDescripcionProducto2.AutoSize = true;
             this.lblDescripcionProducto2.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcionProducto2.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcionProducto2.Location = new System.Drawing.Point(113, 53);
+            this.lblDescripcionProducto2.Location = new System.Drawing.Point(89, 50);
             this.lblDescripcionProducto2.Name = "lblDescripcionProducto2";
             this.lblDescripcionProducto2.Size = new System.Drawing.Size(158, 23);
             this.lblDescripcionProducto2.TabIndex = 21;
@@ -444,7 +449,7 @@
             this.lblNombreProducto2.AutoSize = true;
             this.lblNombreProducto2.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreProducto2.ForeColor = System.Drawing.Color.White;
-            this.lblNombreProducto2.Location = new System.Drawing.Point(113, 25);
+            this.lblNombreProducto2.Location = new System.Drawing.Point(89, 22);
             this.lblNombreProducto2.Name = "lblNombreProducto2";
             this.lblNombreProducto2.Size = new System.Drawing.Size(120, 23);
             this.lblNombreProducto2.TabIndex = 18;
@@ -467,18 +472,19 @@
             this.lblPrecioProducto1.AutoSize = true;
             this.lblPrecioProducto1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioProducto1.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioProducto1.Location = new System.Drawing.Point(289, 27);
+            this.lblPrecioProducto1.Location = new System.Drawing.Point(308, 22);
             this.lblPrecioProducto1.Name = "lblPrecioProducto1";
-            this.lblPrecioProducto1.Size = new System.Drawing.Size(117, 46);
+            this.lblPrecioProducto1.Size = new System.Drawing.Size(92, 46);
             this.lblPrecioProducto1.TabIndex = 17;
-            this.lblPrecioProducto1.Text = "$1.900";
+            this.lblPrecioProducto1.Text = "2500";
+            this.lblPrecioProducto1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDescripcionProducto1
             // 
             this.lblDescripcionProducto1.AutoSize = true;
             this.lblDescripcionProducto1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcionProducto1.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcionProducto1.Location = new System.Drawing.Point(113, 50);
+            this.lblDescripcionProducto1.Location = new System.Drawing.Point(89, 45);
             this.lblDescripcionProducto1.Name = "lblDescripcionProducto1";
             this.lblDescripcionProducto1.Size = new System.Drawing.Size(158, 23);
             this.lblDescripcionProducto1.TabIndex = 21;
@@ -499,7 +505,7 @@
             this.lblNombreProducto1.AutoSize = true;
             this.lblNombreProducto1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreProducto1.ForeColor = System.Drawing.Color.White;
-            this.lblNombreProducto1.Location = new System.Drawing.Point(113, 25);
+            this.lblNombreProducto1.Location = new System.Drawing.Point(89, 20);
             this.lblNombreProducto1.Name = "lblNombreProducto1";
             this.lblNombreProducto1.Size = new System.Drawing.Size(120, 23);
             this.lblNombreProducto1.TabIndex = 18;
@@ -633,7 +639,7 @@
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
             this.panel4.Controls.Add(this.pictureBox7);
-            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.lblCantidadBoletas);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(15, 23);
             this.panel4.Name = "panel4";
@@ -650,16 +656,16 @@
             this.pictureBox7.TabIndex = 3;
             this.pictureBox7.TabStop = false;
             // 
-            // label5
+            // lblCantidadBoletas
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(13, 45);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 46);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "1.564";
+            this.lblCantidadBoletas.AutoSize = true;
+            this.lblCantidadBoletas.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadBoletas.ForeColor = System.Drawing.Color.White;
+            this.lblCantidadBoletas.Location = new System.Drawing.Point(52, 45);
+            this.lblCantidadBoletas.Name = "lblCantidadBoletas";
+            this.lblCantidadBoletas.Size = new System.Drawing.Size(99, 46);
+            this.lblCantidadBoletas.TabIndex = 1;
+            this.lblCantidadBoletas.Text = "1.564";
             // 
             // label4
             // 
@@ -736,7 +742,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblCantidadBoletas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;

@@ -55,8 +55,8 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblNumeroOrden = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtNumeroOrden = new System.Windows.Forms.TextBox();
             this.btnDescargarOrden = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTotalOrden = new System.Windows.Forms.TextBox();
@@ -345,13 +345,23 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Controls.Add(this.lblNumeroOrden);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.txtNumeroOrden);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(319, 39);
             this.panel2.TabIndex = 25;
+            // 
+            // lblNumeroOrden
+            // 
+            this.lblNumeroOrden.AutoSize = true;
+            this.lblNumeroOrden.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroOrden.Location = new System.Drawing.Point(203, 2);
+            this.lblNumeroOrden.Name = "lblNumeroOrden";
+            this.lblNumeroOrden.Size = new System.Drawing.Size(46, 30);
+            this.lblNumeroOrden.TabIndex = 31;
+            this.lblNumeroOrden.Text = "001";
             // 
             // label8
             // 
@@ -362,16 +372,6 @@
             this.label8.Size = new System.Drawing.Size(173, 19);
             this.label8.TabIndex = 0;
             this.label8.Text = "Nro Orden de Pedido";
-            // 
-            // txtNumeroOrden
-            // 
-            this.txtNumeroOrden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNumeroOrden.Enabled = false;
-            this.txtNumeroOrden.Location = new System.Drawing.Point(185, 12);
-            this.txtNumeroOrden.Name = "txtNumeroOrden";
-            this.txtNumeroOrden.Size = new System.Drawing.Size(121, 20);
-            this.txtNumeroOrden.TabIndex = 29;
-            this.txtNumeroOrden.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnDescargarOrden
             // 
@@ -438,7 +438,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtRutProveedor);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(358, 64);
+            this.groupBox1.Location = new System.Drawing.Point(358, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(180, 121);
             this.groupBox1.TabIndex = 32;
@@ -471,6 +471,7 @@
             this.txtRutProveedor.Name = "txtRutProveedor";
             this.txtRutProveedor.Size = new System.Drawing.Size(121, 20);
             this.txtRutProveedor.TabIndex = 18;
+            this.txtRutProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -524,7 +525,6 @@
         private System.Windows.Forms.Button btnDescargarOrden;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTotalOrden;
-        private System.Windows.Forms.TextBox txtNumeroOrden;
         private System.Windows.Forms.Button btnQuitarProducto;
         private System.Windows.Forms.Button btnAgregarOrden;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -544,5 +544,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Label lblNumeroOrden;
     }
 }

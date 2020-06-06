@@ -44,8 +44,8 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblNumeroBoleta = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtNumeroBoleta = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTotalBoleta = new System.Windows.Forms.TextBox();
             this.btnQuitarProducto = new System.Windows.Forms.Button();
@@ -197,13 +197,23 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Controls.Add(this.lblNumeroBoleta);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.txtNumeroBoleta);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(319, 39);
             this.panel2.TabIndex = 25;
+            // 
+            // lblNumeroBoleta
+            // 
+            this.lblNumeroBoleta.AutoSize = true;
+            this.lblNumeroBoleta.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroBoleta.Location = new System.Drawing.Point(78, 2);
+            this.lblNumeroBoleta.Name = "lblNumeroBoleta";
+            this.lblNumeroBoleta.Size = new System.Drawing.Size(46, 30);
+            this.lblNumeroBoleta.TabIndex = 30;
+            this.lblNumeroBoleta.Text = "001";
             // 
             // label5
             // 
@@ -214,16 +224,6 @@
             this.label5.Size = new System.Drawing.Size(57, 19);
             this.label5.TabIndex = 0;
             this.label5.Text = "Boleta";
-            // 
-            // txtNumeroBoleta
-            // 
-            this.txtNumeroBoleta.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtNumeroBoleta.Enabled = false;
-            this.txtNumeroBoleta.Location = new System.Drawing.Point(78, 9);
-            this.txtNumeroBoleta.Name = "txtNumeroBoleta";
-            this.txtNumeroBoleta.Size = new System.Drawing.Size(121, 20);
-            this.txtNumeroBoleta.TabIndex = 29;
-            this.txtNumeroBoleta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -341,6 +341,7 @@
             this.txtRunCliente.Name = "txtRunCliente";
             this.txtRunCliente.Size = new System.Drawing.Size(121, 20);
             this.txtRunCliente.TabIndex = 18;
+            this.txtRunCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -390,7 +391,7 @@
             this.grdProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.grdProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.grdProducto.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.grdProducto.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.grdProducto.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -558,7 +559,6 @@
         private System.Windows.Forms.Panel pnlBoleta;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTotalBoleta;
-        private System.Windows.Forms.TextBox txtNumeroBoleta;
         private System.Windows.Forms.Button btnQuitarProducto;
         private System.Windows.Forms.Button btnAgregarBoleta;
         private System.Windows.Forms.GroupBox btnRealizarBoleta;
@@ -581,5 +581,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblNumeroBoleta;
     }
 }

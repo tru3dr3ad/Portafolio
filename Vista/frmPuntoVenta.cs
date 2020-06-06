@@ -12,9 +12,9 @@ namespace Vista
         public frmPuntoVenta()
         {
             InitializeComponent();
-            CargarComboboxCliente();
             CargarComboboxMedioPago();
             CargarComboboxCategoria();
+            CargarComboboxCliente();
             CargarNumeroSiguienteBoleta();
             CargarGrillaProducto();
         }
@@ -25,6 +25,7 @@ namespace Vista
             Producto producto = new Producto();
             grdProducto.DataSource = producto.ListarProductos();
             EsconderColumnasAutogeneradas();
+            CambioNombreColumnaGrilla();
         }
         private void EsconderColumnasAutogeneradas()
         {
@@ -68,7 +69,7 @@ namespace Vista
             Boleta boleta = new Boleta();
             int numero = boleta.ObtenerNumeroMaximoBoleta();
             numero = numero + 1;
-            txtNumeroBoleta.Text = numero.ToString();
+            lblNumeroBoleta.Text = numero.ToString();
         }
         public bool MostrarDatosBoleta(int numero)
         {
@@ -76,7 +77,7 @@ namespace Vista
             boleta = boleta.ObtenerBoleta(numero);
             if (boleta != null)
             {
-                txtNumeroBoleta.Text = boleta.Numero.ToString();
+                lblNumeroBoleta.Text = boleta.Numero.ToString();
                 txtTotalBoleta.Text = boleta.Total.ToString();
                 txtRunCliente.Text = boleta.Cliente.Run.ToString();
                 cmbCliente.SelectedValue = boleta.Cliente.Run;
@@ -99,6 +100,12 @@ namespace Vista
         {
             txtCantidad.Value = 0;
         }
+        private void CambioNombreColumnaGrilla()
+        {
+            grdProducto.Columns["PRECIO_VENTA"].HeaderText = "PRECIO";
+            grdProducto.Columns["STOCK"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+        
         #endregion
 
         #region Metodos de la clase
@@ -226,22 +233,32 @@ namespace Vista
                 EsconderColumnasAutogeneradas();
             }
         }
-
-        private void cmbCliente_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (cmbCliente.SelectedValue != null)
-            {
-                txtRunCliente.Text = cmbCliente.SelectedValue.ToString();
-            }
-        }
         private void cmbMedioPago_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cmbMedioPago.SelectedIndex == 3)
             {
                 CargarComboboxClienteFiados();
-                txtRunCliente.Text = cmbCliente.SelectedValue.ToString();
+            }
+            else
+            {
+                CargarComboboxCliente();
+            }
+            Cliente cliente = new Cliente();
+            cliente = cliente.ObtenerCliente((int)cmbCliente.SelectedValue);
+            string run = cmbCliente.SelectedValue.ToString() + "-" + cliente.Dv.ToString();
+            txtRunCliente.Text = run;
+        }
+        private void cmbCliente_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbCliente.SelectedValue != null)
+            {
+                Cliente cliente = new Cliente();
+                cliente = cliente.ObtenerCliente((int)cmbCliente.SelectedValue);
+                string run = cmbCliente.SelectedValue.ToString() + "-" + cliente.Dv.ToString();
+                txtRunCliente.Text = run;
             }
         }
+
         #endregion
     }
 }

@@ -19,10 +19,12 @@ namespace Vista
             Usuario usuario = new Usuario();
             grdUsuario.DataSource = usuario.ListarUsuarios();
             EsconderColumnasAutogeneradas();
+            CambioNombreColumnaGrilla();
         }
         private void EsconderColumnasAutogeneradas()
         {
             grdUsuario.Columns["IDTIPO"].Visible = false;
+            grdUsuario.Columns["CONTRASENA"].Visible = false;
         }
         private void CargarComboboxTipoUsuario()
         {
@@ -123,6 +125,13 @@ namespace Vista
             }
             return mensajeError;
         }
+        private void CambioNombreColumnaGrilla()
+        {
+            grdUsuario.Columns["NOMBRE_USUARIO"].HeaderText = "NOMBRE USUARIO";
+            grdUsuario.Columns["FECHANACIMIENTO"].HeaderText = "FECHA NACIMIENTO";
+            grdUsuario.Columns["FECHACREACION"].HeaderText = "FECHA CREACION";
+            grdUsuario.Columns["DESCRIPCION"].HeaderText = "TIPO DE USUARIO";
+        }
         #endregion
 
         #region Metodos de la clase
@@ -145,7 +154,7 @@ namespace Vista
                 string apellido = txtApellidoUsuario.Text.ToUpper(); ;
                 string contrasena = txtContrasena.Text;
                 DateTime fechaNacimiento = dtpFechaNacimiento.Value.Date;
-                DateTime fechaCreacion = DateTime.Now;
+                DateTime fechaCreacion = DateTime.Now.Date;
                 string direccion = txtDireccionUsuario.Text.ToUpper();
                 int telefono = int.Parse(txtTelefonoUsuario.Text);
                 TipoUsuario tipo = new TipoUsuario();

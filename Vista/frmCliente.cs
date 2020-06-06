@@ -20,14 +20,13 @@ namespace Vista
         {
             grdCliente.Columns["IDTIPO"].Visible = false;
             grdCliente.Columns["IDESTADO"].Visible = false;
-            //grdCliente.Columns["DV"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            grdCliente.Columns["NOMBRE_CLIENTE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void CargarGrilla()
         {
             Cliente cliente = new Cliente();
             grdCliente.DataSource = cliente.ListarVistaCliente();
             EsconderColumnasAutogeneradas();
+            CambioNombreColumnaGrilla();
         }
         private void CargarComboboxTipoCliente()
         {
@@ -128,6 +127,14 @@ namespace Vista
 
             return mensajeError;
         }
+        private void CambioNombreColumnaGrilla()
+        {
+            grdCliente.Columns["NOMBRE_CLIENTE"].HeaderText = "NOMBRE CLIENTE";
+            grdCliente.Columns["FECHANACIMIENTO"].HeaderText = "FECHA NACIMIENTO";
+            grdCliente.Columns["TIPO_CLIENTE"].HeaderText = "TIPO";
+            grdCliente.Columns["ESTADO_FIADO"].HeaderText = "ESTADO";
+            grdCliente.Columns["NOMBRE_CLIENTE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
         #endregion
 
         #region Metodos de la clase
@@ -216,13 +223,12 @@ namespace Vista
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             BuscarClientePorNombre();
+            LimpiarDatos();
         }
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
-
             AgregarCliente();
             CargarGrilla();
-            
         }
         private void btnModificarCliente_Click(object sender, EventArgs e)
         {

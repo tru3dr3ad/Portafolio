@@ -34,7 +34,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>APELLIDO</Value>
+                              <Value>NOMBRE</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>

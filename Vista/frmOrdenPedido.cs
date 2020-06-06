@@ -23,6 +23,7 @@ namespace Vista
             Producto producto = new Producto();
             grdProducto.DataSource = producto.ListarProductos();
             EsconderColumnasAutogeneradas();
+            CambioNombreColumnaGrilla();
         }
         private void EsconderColumnasAutogeneradas()
         {
@@ -53,7 +54,7 @@ namespace Vista
             OrdenPedido orden = new OrdenPedido();
             int numero = orden.ObtenerNumeroMaximoOrden();
             numero = numero + 1;
-            txtNumeroOrden.Text = numero.ToString();
+            lblNumeroOrden.Text = numero.ToString();
         }
         private void LimpiarDatos()
         {
@@ -67,7 +68,10 @@ namespace Vista
         {
             txtCantidad.Value = 0;
         }
-
+        private void CambioNombreColumnaGrilla()
+        {
+            grdProducto.Columns["PRECIO_COMPRA"].HeaderText = "PRECIO";
+        }
         #endregion
 
         #region Metodos de la clase
@@ -202,7 +206,10 @@ namespace Vista
         {
             if (cmbProveedor.SelectedValue != null)
             {
-                txtRutProveedor.Text = cmbProveedor.SelectedValue.ToString();
+                Proveedor proveedor = new Proveedor();
+                proveedor = proveedor.ObtenerProveedor((int)cmbProveedor.SelectedValue);
+                string rut = (cmbProveedor.SelectedValue.ToString()) + "-" + proveedor.Dv.ToString();
+                txtRutProveedor.Text = rut;
             }
         }
         #endregion

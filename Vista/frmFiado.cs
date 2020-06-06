@@ -20,30 +20,32 @@ namespace Vista
             Boleta boleta = new Boleta();
             grdVentaFiadas.DataSource = boleta.ListarBoletasPorMedioPago(4);
             OcultarColumnasAutogeneradas();
+            CambioNombreColumnaGrilla();
         }
         private void CargarGrillaAbonoPorBoleta(int nroBoleta)
         {
             Abono abono = new Abono();
             grdAbono.DataSource = abono.ListarAbonosPorBoleta(nroBoleta);
-            LlenarColumnaGrillaDetalle();
-        }
-        private void LlenarColumnaGrillaDetalle()
-        {
-            grdAbono.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            OcultarColumnasAutogeneradasDetalle();
+            CambioNombreColumnaGrillaDetalle();
         }
         private void OcultarColumnasAutogeneradas()
         {
             grdVentaFiadas.Columns["RUN_USUARIO"].Visible = false;
             grdVentaFiadas.Columns["RUN_CLIENTE"].Visible = false;
             grdVentaFiadas.Columns["IDMEDIOPAGO"].Visible = false;
-            grdVentaFiadas.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            grdVentaFiadas.Columns["IDESTADO"].Visible = false;
+        }
+        private void OcultarColumnasAutogeneradasDetalle()
+        {
+            grdAbono.Columns["BOLETA_NUMEROBOLETA"].Visible = false;
         }
         private void CargarComboboxCliente()
         {
             Controlador.Cliente cliente = new Controlador.Cliente();
             cmbCliente.DisplayMember = "Nombre";
             cmbCliente.ValueMember = "Run";
-            cmbCliente.DataSource = cliente.ListarCombobox();
+            cmbCliente.DataSource = cliente.ListarComboboxFiado();
         }
         public void MostrarDeuda(int numeroBoleta)
         {
@@ -62,6 +64,24 @@ namespace Vista
         {
             grdAbono.DataSource = null;
         }
+        private void CambioNombreColumnaGrilla()
+        {
+            grdVentaFiadas.Columns["NUMERO"].HeaderText = "N°";
+            grdVentaFiadas.Columns["FECHA_CREACION"].HeaderText = "FECHA VENTA";
+            grdVentaFiadas.Columns["MEDIO_PAGO"].HeaderText = "MEDIO PAGO";
+            grdVentaFiadas.Columns["NOMBRE_CLIENTE"].HeaderText = "CLIENTE";
+            grdVentaFiadas.Columns["NOMBRE_VENDEDOR"].HeaderText = "VENDEDOR";
+            grdVentaFiadas.Columns["DESCRIPCION"].HeaderText = "ESTADO";
+            grdVentaFiadas.Columns["NOMBRE_CLIENTE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+        private void CambioNombreColumnaGrillaDetalle()
+        {
+            grdAbono.Columns["IDABONO"].HeaderText = "N° ABONO";
+            grdAbono.Columns["FECHAABONO"].HeaderText = "FECHA DEL ABONO";
+            grdAbono.Columns["FECHALIMITE"].HeaderText = "FECHA LIMITE DE PAGO";
+            grdAbono.Columns["FECHALIMITE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
         #endregion
 
         #region Metodos de la clase
@@ -143,7 +163,11 @@ namespace Vista
             {
                 Boleta boleta = new Boleta();
                 grdVentaFiadas.DataSource = boleta.ListarBoletasPorClienteFiador((int)cmbCliente.SelectedValue);
-                txtRunCliente.Text = cmbCliente.SelectedValue.ToString();
+                Cliente cliente = new Cliente();
+                cliente = cliente.ObtenerCliente((int)cmbCliente.SelectedValue);
+                string run = cmbCliente.SelectedValue.ToString() + "-" + cliente.Dv.ToString();
+                txtRunCliente.Text = run;
+
                 LimpiarGrillaAbono();
             }
         }

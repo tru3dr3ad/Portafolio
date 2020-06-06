@@ -10,7 +10,8 @@ namespace Vista
         {
             InitializeComponent();
             MostrarTopProductos();
-            //MostrarTopVentas();
+            MostrarTopVentas();
+            MostrarVentasMensuales();
         }
         private void MostrarTopProductos()
         {
@@ -32,7 +33,22 @@ namespace Vista
             List<Boleta> listado = boleta.ListarTopBoletas();
             lblRun1.Text = listado[0].Cliente.Run.ToString();
             lblBoletaNombre1.Text = listado[0].Cliente.Nombre;
-            lblFechaBoleta1.Text = listado[0].FechaCreacion.ToString();
+            lblFechaBoleta1.Text = listado[0].FechaCreacion.ToShortDateString();
+            lblTotal1.Text = listado[0].Total.ToString();
+            lblRun2.Text = listado[1].Cliente.Run.ToString();
+            lblBoletaNombre2.Text = listado[1].Cliente.Nombre;
+            lblFechaBoleta2.Text = listado[1].FechaCreacion.ToShortDateString();
+            lblTotal2.Text = listado[1].Total.ToString();
+            lblRun3.Text = listado[2].Cliente.Run.ToString();
+            lblBoletaNombre3.Text = listado[2].Cliente.Nombre;
+            lblFechaBoleta3.Text = listado[2].FechaCreacion.ToShortDateString();
+            lblTotal3.Text = listado[2].Total.ToString();
+        }
+        private void MostrarVentasMensuales()
+        {
+            Boleta boleta = new Boleta();
+            int cantidadBoleta = boleta.CantidadBoletasMes();
+            lblCantidadBoletas.Text = cantidadBoleta.ToString();
         }
     }
 }

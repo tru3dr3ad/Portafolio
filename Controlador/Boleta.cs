@@ -53,7 +53,7 @@ namespace Controlador
         public List<V_BOLETAS> ListarBoletas()
         {
             List<V_BOLETAS> listado = new List<V_BOLETAS>();
-            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.ToList();
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.OrderByDescending(b => b.NUMERO).ToList();
             return listado;
         }
         public List<V_BOLETAS> ListarBoletasPorUsuario(int runUsuario)
@@ -65,7 +65,8 @@ namespace Controlador
         public List<V_BOLETAS> ListarBoletasPorMedioPago(int idMedioPago)
         {
             List<V_BOLETAS> listado = new List<V_BOLETAS>();
-            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.IDMEDIOPAGO == idMedioPago).ToList();
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.IDMEDIOPAGO == idMedioPago).
+                OrderByDescending(b => b.NUMERO).ToList();
             return listado;
         }
         public List<V_BOLETAS> ListarBoletasPorNombreCliente(string nombre)
@@ -97,10 +98,13 @@ namespace Controlador
 
             foreach (V_ULTIMAS_VENTAS item in listado)
             {
+
+                Cliente cliente = new Cliente();
+                cliente.Run = (int)item.RUNCLIENTE;
+                cliente.Dv = char.Parse(item.DV);
+                cliente.Nombre = item.NOMBRE_CLIENTE;
                 Boleta boleta = new Boleta();
-                boleta.Cliente.Run = (int)item.RUNCLIENTE;
-                boleta.Cliente.Dv = char.Parse(item.DV);
-                boleta.Cliente.Nombre = item.NOMBRE_CLIENTE;
+                boleta.Cliente = cliente;
                 boleta.FechaCreacion = item.FECHACREACION;
                 boleta.Total = (int)item.TOTAL;
                 listaB.Add(boleta);
@@ -139,6 +143,19 @@ namespace Controlador
             {
                 int numero = (int)ConectorDALC.ModeloAlmacen.BOLETA.Max(b => b.NUMEROBOLETA);
                 return numero;
+            }
+            catch (Exception)
+            {
+                return 0;
+                throw;
+            }
+        }
+        public int CantidadBoletasMes()
+        {
+            try
+            {
+                int cantidadBoletas = (int)ConectorDALC.ModeloAlmacen.BOLETA.Count();
+                return cantidadBoletas;
             }
             catch (Exception)
             {
