@@ -85,7 +85,8 @@ namespace Controlador
         public List<V_BOLETAS> ListarBoletasPorClienteFiador(int runCliente)
         {
             List<V_BOLETAS> listado = new List<V_BOLETAS>();
-            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.RUN_CLIENTE == runCliente).Where(b => b.IDMEDIOPAGO == 4).ToList();
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.RUN_CLIENTE == runCliente)
+                .Where(b => b.IDMEDIOPAGO == 4).OrderByDescending(b => b.NUMERO).ToList();
             return listado;
         }
         public List<Boleta> ListarTopBoletas()

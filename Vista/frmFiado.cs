@@ -1,5 +1,6 @@
 ﻿using Controlador;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Vista
@@ -7,6 +8,7 @@ namespace Vista
     public partial class frmFiado : Form
     {
         int _numeroBoleta = 0;
+        int _idAbono = 0;
         public frmFiado()
         {
             InitializeComponent();
@@ -53,16 +55,22 @@ namespace Vista
             int deuda = abono.ObtenerDeuda(numeroBoleta);
             txtDeuda.Text = deuda.ToString();
         }
+        private void MostrarMontoAbono(int idAbono)
+        {
+            Abono abono = new Abono();
+            abono = abono.ObtenerAbono(idAbono);
+            int montoAbono = abono.Total;
+            txtMontoAbono.Text = montoAbono.ToString();
+        }
         private void DatosClienteBoleta(int nroBoleta)
         {
             Boleta boleta = new Boleta();
             boleta = boleta.ObtenerBoleta(nroBoleta);
-            txtRunCliente.Text = boleta.Cliente.Run.ToString();
+            Cliente cliente = new Cliente();
+            cliente = cliente.ObtenerCliente(boleta.Cliente.Run);
+            string run = boleta.Cliente.Run.ToString() + "-" + cliente.Dv.ToString();
+            txtRunCliente.Text = run;
             cmbCliente.SelectedValue = boleta.Cliente.Run;
-        }
-        private void LimpiarGrillaAbono()
-        {
-            grdAbono.DataSource = null;
         }
         private void CambioNombreColumnaGrilla()
         {
@@ -81,7 +89,27 @@ namespace Vista
             grdAbono.Columns["FECHALIMITE"].HeaderText = "FECHA LIMITE DE PAGO";
             grdAbono.Columns["FECHALIMITE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
-
+        private void LimpiarMontos()
+        {
+            rdbDeudaParcial.Enabled = true;
+            rdbDeudaTotal.Enabled = true;
+            rdbDeudaTotal.Checked = false;
+            rdbDeudaParcial.Checked = false;
+            txtMontoAbono.Clear();
+            txtDeuda.Clear();
+        }
+        private void LimpiarGrillaAbono()
+        {
+            grdAbono.DataSource = null;
+            txtMontoAbono.Clear();
+        }
+        private void PersonalizarAbono()
+        {
+            rdbDeudaParcial.Enabled = false;
+            rdbDeudaTotal.Enabled = false;
+            txtDeuda.Text = "--";
+            txtMontoAbono.Enabled = true;
+        }
         #endregion
 
         #region Metodos de la clase
@@ -125,6 +153,45 @@ namespace Vista
             }
             _numeroBoleta = 0;
         }
+        private void ModificarAbono()
+        {
+            Abono abono = new Abono();
+            abono = abono.ObtenerAbono(_idAbono);
+            if (int.Parse(txtMontoAbono.Text) == abono.Total)
+            {
+                MessageBox.Show("El monto ingresado es igual al monto guardado");
+            }
+            else
+            {
+                abono.Total = int.Parse(txtMontoAbono.Text);
+                bool estaModificado = abono.ModificarAbono(abono);
+                if (estaModificado)
+                {
+                    _idAbono = 0;
+                    MessageBox.Show("El abono ha sido modificado");
+                }
+                else
+                {
+                    MessageBox.Show("Error al modificar abono");
+                }
+            }
+        }
+        private void EliminarAbono()
+        {
+            Abono abono = new Abono();
+            abono = abono.ObtenerAbono(_idAbono);
+            bool estaEliminado = abono.EliminarAbono(abono.Id);
+            if (estaEliminado)
+            {
+                _idAbono = 0;
+                MessageBox.Show("El abono ha sido eliminado.");
+            }
+            else
+            {
+                MessageBox.Show("No se ha podido eliminar el abono");
+            }
+        }
+
         #endregion
 
         #region Botones
@@ -132,12 +199,24 @@ namespace Vista
         {
             BuscarBoletasPorNombreCliente();
             LimpiarGrillaAbono();
+            LimpiarMontos();
         }
         private void btnAgregarAbono_Click(object sender, EventArgs e)
         {
             AgregarAbono();
-            txtDeuda.Clear();
-            txtMontoAbono.Clear();
+            LimpiarMontos();
+        }
+        private void btnModificarAbono_Click(object sender, EventArgs e)
+        {
+            ModificarAbono();
+            CargarGrillaAbonoPorBoleta(_numeroBoleta);
+            LimpiarMontos();
+        }
+        private void btnEliminarAbono_Click(object sender, EventArgs e)
+        {
+            EliminarAbono();
+            CargarGrillaAbonoPorBoleta(_numeroBoleta);
+            LimpiarMontos();
         }
         #endregion
 
@@ -155,6 +234,7 @@ namespace Vista
             if (rdbDeudaParcial.Checked)
             {
                 txtMontoAbono.Enabled = true;
+                txtMontoAbono.Clear();
             }
         }
         private void cmbCliente_SelectedValueChanged(object sender, EventArgs e)
@@ -167,9 +247,17 @@ namespace Vista
                 cliente = cliente.ObtenerCliente((int)cmbCliente.SelectedValue);
                 string run = cmbCliente.SelectedValue.ToString() + "-" + cliente.Dv.ToString();
                 txtRunCliente.Text = run;
-
+                LimpiarMontos();
                 LimpiarGrillaAbono();
             }
+        }
+        private void txtDeuda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+        private void txtMontoAbono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
         #endregion
 
@@ -183,18 +271,19 @@ namespace Vista
                 MostrarDeuda(_numeroBoleta);
                 DatosClienteBoleta(_numeroBoleta);
                 CargarGrillaAbonoPorBoleta(_numeroBoleta);
+                LimpiarMontos();
+            }
+        }
+        private void grdAbono_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            if (rowIndex > -1)
+            {
+                _idAbono = int.Parse(grdAbono.Rows[rowIndex].Cells[0].Value.ToString());
+                MostrarMontoAbono(_idAbono);
+                PersonalizarAbono();
             }
         }
         #endregion
-
-        private void txtDeuda_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
-        private void txtMontoAbono_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
     }
 }

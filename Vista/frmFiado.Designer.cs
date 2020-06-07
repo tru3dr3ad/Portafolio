@@ -80,6 +80,7 @@
             this.btnEliminarAbono.TabIndex = 34;
             this.btnEliminarAbono.Text = "Eliminar";
             this.btnEliminarAbono.UseVisualStyleBackColor = true;
+            this.btnEliminarAbono.Click += new System.EventHandler(this.btnEliminarAbono_Click);
             // 
             // btnAgregarAbono
             // 
@@ -179,6 +180,7 @@
             this.txtMontoAbono.Name = "txtMontoAbono";
             this.txtMontoAbono.Size = new System.Drawing.Size(182, 20);
             this.txtMontoAbono.TabIndex = 11;
+            this.txtMontoAbono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtMontoAbono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoAbono_KeyPress);
             // 
             // label4
@@ -206,6 +208,7 @@
             this.txtDeuda.Name = "txtDeuda";
             this.txtDeuda.Size = new System.Drawing.Size(182, 20);
             this.txtDeuda.TabIndex = 7;
+            this.txtDeuda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDeuda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDeuda_KeyPress);
             // 
             // label2
@@ -244,6 +247,7 @@
             this.btnModificarAbono.TabIndex = 33;
             this.btnModificarAbono.Text = "Modificar";
             this.btnModificarAbono.UseVisualStyleBackColor = true;
+            this.btnModificarAbono.Click += new System.EventHandler(this.btnModificarAbono_Click);
             // 
             // pnlContenedorGrillaBoletas
             // 
@@ -387,6 +391,7 @@
             this.grdAbono.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdAbono.Size = new System.Drawing.Size(740, 197);
             this.grdAbono.TabIndex = 27;
+            this.grdAbono.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdAbono_CellDoubleClick);
             // 
             // pnlTituloGrilla
             // 

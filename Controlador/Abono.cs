@@ -29,6 +29,10 @@ namespace Controlador
             FechaAbono = fechaAbono;
             FechaLimite = fechaLimite;
         }
+        public Abono( int total)
+        {
+            Total = total;
+        }
         public Abono()
         {
 
@@ -52,7 +56,7 @@ namespace Controlador
         {
             List<V_ABONO> listado = new List<V_ABONO>();
             listado = ConectorDALC.ModeloAlmacen.V_ABONO.Where(a => a.BOLETA_NUMEROBOLETA == nroBoleta).
-                ToList();
+                OrderByDescending(b => b.BOLETA_NUMEROBOLETA).ToList();
             return listado;
         }
         #endregion
@@ -153,11 +157,7 @@ namespace Controlador
                 if (BuscarAbono(modificarAbono.Id))
                 {
                     Modelo.ABONO abono = ConectorDALC.ModeloAlmacen.ABONO.FirstOrDefault(a => a.IDABONO == modificarAbono.Id);
-                    abono.IDABONO = modificarAbono.Id;
-                    abono.BOLETA_NUMEROBOLETA = modificarAbono.Boleta.Numero;
                     abono.TOTAL = modificarAbono.Total;
-                    abono.FECHAABONO= modificarAbono.FechaAbono;
-                    abono.FECHALIMITE = modificarAbono.FechaLimite;
 
                     ConectorDALC.ModeloAlmacen.SaveChanges();
                     return true;
