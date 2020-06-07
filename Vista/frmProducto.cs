@@ -88,7 +88,6 @@ namespace Vista
             string codigoProducto = idProveedor + idCategoria + fechaVencimiento + idSecuencial;
             return codigoProducto;
         }
-
         private string ValidarIngresoProducto()
         {
             string mensajeError = string.Empty;
@@ -171,11 +170,12 @@ namespace Vista
         }
         private void ModificarProducto()
         {
-            if (!String.IsNullOrEmpty(txtCodigo.Text))
+            string msgEsValido = ValidarIngresoProducto();
+            if (string.IsNullOrEmpty(msgEsValido))
             {
                 string codigo = txtCodigo.Text.ToUpper();
                 string nombre = txtNombre.Text.ToUpper();
-                string descripcion = txtDescripcion.Text;
+                string descripcion = txtDescripcion.Text.ToUpper();
                 int precioVenta = int.Parse(txtPrecioVenta.Text);
                 int precioCompra = int.Parse(txtPrecioCompra.Text);
                 DateTime fechaVencimiento = dtpFechaVencimiento.Value.Date;
@@ -188,12 +188,17 @@ namespace Vista
                 bool modificarProducto = producto.ModificarProducto(producto);
                 if (modificarProducto)
                 {
-                    MessageBox.Show("Producto Actualizado");
+                    LimpiarDatos();
+                    MessageBox.Show("Producto actualizado");
                 }
                 else
                 {
                     MessageBox.Show("Producto no se ha actualizado");
                 }
+            }
+            else
+            {
+                MessageBox.Show(msgEsValido);
             }
         }
         private void EliminarProveedor()
@@ -231,7 +236,6 @@ namespace Vista
         {
             ModificarProducto();
             CargarGrilla();
-            LimpiarDatos();
         }
 
         private void btnEliminarProducto_Click(object sender, EventArgs e)
@@ -251,6 +255,7 @@ namespace Vista
         }
         #endregion
 
+        #region Eventos
         private void txtPrecioVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
@@ -270,5 +275,6 @@ namespace Vista
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
+        #endregion
     }
 }
