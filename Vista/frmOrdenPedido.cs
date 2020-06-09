@@ -72,6 +72,7 @@ namespace Vista
         {
             grdProducto.Columns["PRECIO_COMPRA"].HeaderText = "PRECIO";
         }
+
         #endregion
 
         #region Metodos de la clase

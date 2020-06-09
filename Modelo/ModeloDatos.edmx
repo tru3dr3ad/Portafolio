@@ -88,7 +88,7 @@
           <Key>
             <PropertyRef Name="IDESTADO" />
           </Key>
-          <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCION" Type="varchar2" MaxLength="70" Nullable="false" />
         </EntityType>
         <EntityType Name="MEDIO_PAGO">
@@ -130,7 +130,7 @@
           </Key>
           <Property Name="RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="DV" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="70" Nullable="false" />
           <Property Name="CORREO" Type="varchar2" MaxLength="250" Nullable="false" />
           <Property Name="TELEFONO" Type="number" Precision="9" Scale="0" Nullable="false" />
@@ -141,7 +141,7 @@
           <Key>
             <PropertyRef Name="IDTIPO" />
           </Key>
-          <Property Name="IDTIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDTIPO" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCION" Type="varchar2" MaxLength="70" Nullable="false" />
         </EntityType>
         <EntityType Name="TIPO_RUBRO">
@@ -870,10 +870,16 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <EntitySet Name="TIPO_USUARIO" EntityType="ModeloAlmacen.TIPO_USUARIO" />
           <EntitySet Name="USUARIO" EntityType="ModeloAlmacen.USUARIO" />
           <EntitySet Name="V_ABONO" EntityType="ModeloAlmacen.V_ABONO" />
+          <EntitySet Name="V_BOLETAS" EntityType="ModeloAlmacen.V_BOLETAS" />
           <EntitySet Name="V_CLIENTES" EntityType="ModeloAlmacen.V_CLIENTES" />
+          <EntitySet Name="V_CLIENTES_EFECTIVO" EntityType="ModeloAlmacen.V_CLIENTES_EFECTIVO" />
+          <EntitySet Name="V_DETALLE_BOLETA" EntityType="ModeloAlmacen.V_DETALLE_BOLETA" />
+          <EntitySet Name="V_DETALLE_ORDEN" EntityType="ModeloAlmacen.V_DETALLE_ORDEN" />
           <EntitySet Name="V_ORDEN_PEDIDO" EntityType="ModeloAlmacen.V_ORDEN_PEDIDO" />
           <EntitySet Name="V_PRODUCTOS" EntityType="ModeloAlmacen.V_PRODUCTOS" />
           <EntitySet Name="V_PROVEEDORES" EntityType="ModeloAlmacen.V_PROVEEDORES" />
+          <EntitySet Name="V_TOP_PRODUCTOS" EntityType="ModeloAlmacen.V_TOP_PRODUCTOS" />
+          <EntitySet Name="V_ULTIMAS_VENTAS" EntityType="ModeloAlmacen.V_ULTIMAS_VENTAS" />
           <EntitySet Name="V_USUARIOS" EntityType="ModeloAlmacen.V_USUARIOS" />
           <AssociationSet Name="ABONO_BOLETA_FK" Association="ModeloAlmacen.ABONO_BOLETA_FK">
             <End Role="BOLETA" EntitySet="BOLETA" />
@@ -943,12 +949,6 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
-          <EntitySet Name="V_BOLETAS" EntityType="ModeloAlmacen.V_BOLETAS" />
-          <EntitySet Name="V_DETALLE_BOLETA" EntityType="ModeloAlmacen.V_DETALLE_BOLETA" />
-          <EntitySet Name="V_DETALLE_ORDEN" EntityType="ModeloAlmacen.V_DETALLE_ORDEN" />
-          <EntitySet Name="V_TOP_PRODUCTOS" EntityType="ModeloAlmacen.V_TOP_PRODUCTOS" />
-          <EntitySet Name="V_CLIENTES_EFECTIVO" EntityType="ModeloAlmacen.V_CLIENTES_EFECTIVO" />
-          <EntitySet Name="V_ULTIMAS_VENTAS" EntityType="ModeloAlmacen.V_ULTIMAS_VENTAS" />
           </EntityContainer>
         <EntityType Name="ABONO">
           <Key>
@@ -1010,7 +1010,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
             <PropertyRef Name="PRODUCTO_CODIGO" />
             <PropertyRef Name="BOLETA_NUMEROBOLETA" />
           </Key>
-          <Property Name="IDDETALLEB" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDETALLEB" Type="Decimal" Nullable="false" annotation:StoreGeneratedPattern="Identity" Scale="1" Precision="38" />
           <Property Name="PRODUCTO_CODIGO" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
           <Property Name="BOLETA_NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
@@ -1050,7 +1050,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Key>
             <PropertyRef Name="IDESTADO" />
           </Key>
-          <Property Name="IDESTADO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="IDESTADO" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ORDEN_PEDIDO" Relationship="ModeloAlmacen.ORDEN_PEDIDO_ESTADO_ORDEN_FK" FromRole="ESTADO_ORDEN" ToRole="ORDEN_PEDIDO" />
         </EntityType>
@@ -1101,7 +1101,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           </Key>
           <Property Name="RUT" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="DV" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="CORREO" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="TELEFONO" Type="Int32" Nullable="false" />
@@ -1114,7 +1114,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Key>
             <PropertyRef Name="IDTIPO" />
           </Key>
-          <Property Name="IDTIPO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="IDTIPO" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CLIENTE" Relationship="ModeloAlmacen.CLIENTE_TIPO_CLIENTE_FK" FromRole="TIPO_CLIENTE" ToRole="CLIENTE" />
         </EntityType>
@@ -1166,6 +1166,30 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Property Name="FECHAABONO" Type="DateTime" Nullable="false" />
           <Property Name="FECHALIMITE" Type="DateTime" Nullable="false" />
         </EntityType>
+        <EntityType Name="V_BOLETAS">
+          <Key>
+            <PropertyRef Name="NUMERO" />
+            <PropertyRef Name="FECHA_CREACION" />
+            <PropertyRef Name="TOTAL" />
+            <PropertyRef Name="IDMEDIOPAGO" />
+            <PropertyRef Name="MEDIO_PAGO" />
+            <PropertyRef Name="RUN_CLIENTE" />
+            <PropertyRef Name="RUN_USUARIO" />
+            <PropertyRef Name="IDESTADO" />
+            <PropertyRef Name="DESCRIPCION" />
+          </Key>
+          <Property Name="NUMERO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="FECHA_CREACION" Type="DateTime" Nullable="false" />
+          <Property Name="TOTAL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="IDMEDIOPAGO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="MEDIO_PAGO" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="RUN_CLIENTE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NOMBRE_CLIENTE" Type="String" MaxLength="141" FixedLength="false" Unicode="false" />
+          <Property Name="RUN_USUARIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NOMBRE_VENDEDOR" Type="String" MaxLength="141" FixedLength="false" Unicode="false" />
+          <Property Name="IDESTADO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="V_CLIENTES">
           <Key>
             <PropertyRef Name="RUN" />
@@ -1188,6 +1212,50 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Property Name="TIPO_CLIENTE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <Property Name="IDESTADO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="ESTADO_FIADO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="V_CLIENTES_EFECTIVO">
+          <Key>
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="APELLIDO" />
+            <PropertyRef Name="FECHACREACION" />
+            <PropertyRef Name="TOTAL" />
+            <PropertyRef Name="DESCRIPCION" />
+          </Key>
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDO" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
+          <Property Name="TOTAL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="V_DETALLE_BOLETA">
+          <Key>
+            <PropertyRef Name="IDDETALLEB" />
+            <PropertyRef Name="BOLETA_NUMEROBOLETA" />
+            <PropertyRef Name="PRODUCTO_CODIGO" />
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="CANTIDAD" />
+          </Key>
+          <Property Name="IDDETALLEB" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="BOLETA_NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_CODIGO" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TOTAL" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="V_DETALLE_ORDEN">
+          <Key>
+            <PropertyRef Name="IDDETALLEO" />
+            <PropertyRef Name="ORDEN_PEDIDO_NUMEROORDEN" />
+            <PropertyRef Name="PRODUCTO_CODIGO" />
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="CANTIDAD" />
+          </Key>
+          <Property Name="IDDETALLEO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ORDEN_PEDIDO_NUMEROORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_CODIGO" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TOTAL" Type="Decimal" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="V_ORDEN_PEDIDO">
           <Key>
@@ -1255,6 +1323,30 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="IDRUBRO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="RUBRO" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="V_TOP_PRODUCTOS">
+          <Key>
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="DESCRIPCION" />
+            <PropertyRef Name="PRECIOVENTA" />
+          </Key>
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PRECIOVENTA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="V_ULTIMAS_VENTAS">
+          <Key>
+            <PropertyRef Name="RUNCLIENTE" />
+            <PropertyRef Name="DV" />
+            <PropertyRef Name="FECHACREACION" />
+            <PropertyRef Name="TOTAL" />
+          </Key>
+          <Property Name="RUNCLIENTE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DV" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NOMBRE_CLIENTE" Type="String" MaxLength="141" FixedLength="false" Unicode="false" />
+          <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
+          <Property Name="TOTAL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="V_USUARIOS">
           <Key>
@@ -1483,98 +1575,6 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="V_BOLETAS">
-          <Key>
-            <PropertyRef Name="NUMERO" />
-            <PropertyRef Name="FECHA_CREACION" />
-            <PropertyRef Name="TOTAL" />
-            <PropertyRef Name="IDMEDIOPAGO" />
-            <PropertyRef Name="MEDIO_PAGO" />
-            <PropertyRef Name="RUN_CLIENTE" />
-            <PropertyRef Name="RUN_USUARIO" />
-            <PropertyRef Name="IDESTADO" />
-            <PropertyRef Name="DESCRIPCION" />
-          </Key>
-          <Property Name="NUMERO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="FECHA_CREACION" Type="DateTime" Nullable="false" />
-          <Property Name="TOTAL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="IDMEDIOPAGO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="MEDIO_PAGO" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="RUN_CLIENTE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="NOMBRE_CLIENTE" Type="String" MaxLength="141" FixedLength="false" Unicode="false" />
-          <Property Name="RUN_USUARIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="NOMBRE_VENDEDOR" Type="String" MaxLength="141" FixedLength="false" Unicode="false" />
-          <Property Name="IDESTADO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="V_DETALLE_BOLETA">
-          <Key>
-            <PropertyRef Name="IDDETALLEB" />
-            <PropertyRef Name="BOLETA_NUMEROBOLETA" />
-            <PropertyRef Name="PRODUCTO_CODIGO" />
-            <PropertyRef Name="NOMBRE" />
-            <PropertyRef Name="CANTIDAD" />
-          </Key>
-          <Property Name="IDDETALLEB" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="BOLETA_NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="PRODUCTO_CODIGO" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
-          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="TOTAL" Type="Decimal" Precision="38" Scale="0" />
-        </EntityType>
-        <EntityType Name="V_DETALLE_ORDEN">
-          <Key>
-            <PropertyRef Name="IDDETALLEO" />
-            <PropertyRef Name="ORDEN_PEDIDO_NUMEROORDEN" />
-            <PropertyRef Name="PRODUCTO_CODIGO" />
-            <PropertyRef Name="NOMBRE" />
-            <PropertyRef Name="CANTIDAD" />
-          </Key>
-          <Property Name="IDDETALLEO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="ORDEN_PEDIDO_NUMEROORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="PRODUCTO_CODIGO" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
-          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="TOTAL" Type="Decimal" Precision="38" Scale="0" />
-        </EntityType>
-        <EntityType Name="V_TOP_PRODUCTOS">
-          <Key>
-            <PropertyRef Name="NOMBRE" />
-            <PropertyRef Name="DESCRIPCION" />
-            <PropertyRef Name="PRECIOVENTA" />
-          </Key>
-          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="PRECIOVENTA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
-        </EntityType>
-        <EntityType Name="V_CLIENTES_EFECTIVO">
-          <Key>
-            <PropertyRef Name="NOMBRE" />
-            <PropertyRef Name="APELLIDO" />
-            <PropertyRef Name="FECHACREACION" />
-            <PropertyRef Name="TOTAL" />
-            <PropertyRef Name="DESCRIPCION" />
-          </Key>
-          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="APELLIDO" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
-          <Property Name="TOTAL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="V_ULTIMAS_VENTAS">
-          <Key>
-            <PropertyRef Name="RUNCLIENTE" />
-            <PropertyRef Name="DV" />
-            <PropertyRef Name="FECHACREACION" />
-            <PropertyRef Name="TOTAL" />
-          </Key>
-          <Property Name="RUNCLIENTE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="DV" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="NOMBRE_CLIENTE" Type="String" MaxLength="141" FixedLength="false" Unicode="false" />
-          <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
-          <Property Name="TOTAL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1774,6 +1774,23 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="V_BOLETAS">
+            <EntityTypeMapping TypeName="ModeloAlmacen.V_BOLETAS">
+              <MappingFragment StoreEntitySet="V_BOLETAS">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
+                <ScalarProperty Name="NOMBRE_VENDEDOR" ColumnName="NOMBRE_VENDEDOR" />
+                <ScalarProperty Name="RUN_USUARIO" ColumnName="RUN_USUARIO" />
+                <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
+                <ScalarProperty Name="RUN_CLIENTE" ColumnName="RUN_CLIENTE" />
+                <ScalarProperty Name="MEDIO_PAGO" ColumnName="MEDIO_PAGO" />
+                <ScalarProperty Name="IDMEDIOPAGO" ColumnName="IDMEDIOPAGO" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="FECHA_CREACION" ColumnName="FECHA_CREACION" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="V_CLIENTES">
             <EntityTypeMapping TypeName="ModeloAlmacen.V_CLIENTES">
               <MappingFragment StoreEntitySet="V_CLIENTES">
@@ -1787,6 +1804,41 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
                 <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE CLIENTE" />
                 <ScalarProperty Name="DV" ColumnName="DV" />
                 <ScalarProperty Name="RUN" ColumnName="RUN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_CLIENTES_EFECTIVO">
+            <EntityTypeMapping TypeName="ModeloAlmacen.V_CLIENTES_EFECTIVO">
+              <MappingFragment StoreEntitySet="V_CLIENTES_EFECTIVO">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_DETALLE_BOLETA">
+            <EntityTypeMapping TypeName="ModeloAlmacen.V_DETALLE_BOLETA">
+              <MappingFragment StoreEntitySet="V_DETALLE_BOLETA">
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="PRODUCTO_CODIGO" ColumnName="PRODUCTO_CODIGO" />
+                <ScalarProperty Name="BOLETA_NUMEROBOLETA" ColumnName="BOLETA_NUMEROBOLETA" />
+                <ScalarProperty Name="IDDETALLEB" ColumnName="IDDETALLEB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_DETALLE_ORDEN">
+            <EntityTypeMapping TypeName="ModeloAlmacen.V_DETALLE_ORDEN">
+              <MappingFragment StoreEntitySet="V_DETALLE_ORDEN">
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="PRODUCTO_CODIGO" ColumnName="PRODUCTO_CODIGO" />
+                <ScalarProperty Name="ORDEN_PEDIDO_NUMEROORDEN" ColumnName="ORDEN_PEDIDO_NUMEROORDEN" />
+                <ScalarProperty Name="IDDETALLEO" ColumnName="IDDETALLEO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1836,6 +1888,27 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="V_TOP_PRODUCTOS">
+            <EntityTypeMapping TypeName="ModeloAlmacen.V_TOP_PRODUCTOS">
+              <MappingFragment StoreEntitySet="V_TOP_PRODUCTOS">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="PRECIOVENTA" ColumnName="PRECIOVENTA" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_ULTIMAS_VENTAS">
+            <EntityTypeMapping TypeName="ModeloAlmacen.V_ULTIMAS_VENTAS">
+              <MappingFragment StoreEntitySet="V_ULTIMAS_VENTAS">
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
+                <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
+                <ScalarProperty Name="DV" ColumnName="DV" />
+                <ScalarProperty Name="RUNCLIENTE" ColumnName="RUNCLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="V_USUARIOS">
             <EntityTypeMapping TypeName="ModeloAlmacen.V_USUARIOS">
               <MappingFragment StoreEntitySet="V_USUARIOS">
@@ -1849,79 +1922,6 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
                 <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
                 <ScalarProperty Name="DV" ColumnName="DV" />
                 <ScalarProperty Name="RUN" ColumnName="RUN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_BOLETAS">
-            <EntityTypeMapping TypeName="ModeloAlmacen.V_BOLETAS">
-              <MappingFragment StoreEntitySet="V_BOLETAS">
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-                <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
-                <ScalarProperty Name="NOMBRE_VENDEDOR" ColumnName="NOMBRE_VENDEDOR" />
-                <ScalarProperty Name="RUN_USUARIO" ColumnName="RUN_USUARIO" />
-                <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
-                <ScalarProperty Name="RUN_CLIENTE" ColumnName="RUN_CLIENTE" />
-                <ScalarProperty Name="MEDIO_PAGO" ColumnName="MEDIO_PAGO" />
-                <ScalarProperty Name="IDMEDIOPAGO" ColumnName="IDMEDIOPAGO" />
-                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
-                <ScalarProperty Name="FECHA_CREACION" ColumnName="FECHA_CREACION" />
-                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_DETALLE_BOLETA">
-            <EntityTypeMapping TypeName="ModeloAlmacen.V_DETALLE_BOLETA">
-              <MappingFragment StoreEntitySet="V_DETALLE_BOLETA">
-                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
-                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="PRODUCTO_CODIGO" ColumnName="PRODUCTO_CODIGO" />
-                <ScalarProperty Name="BOLETA_NUMEROBOLETA" ColumnName="BOLETA_NUMEROBOLETA" />
-                <ScalarProperty Name="IDDETALLEB" ColumnName="IDDETALLEB" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_DETALLE_ORDEN">
-            <EntityTypeMapping TypeName="ModeloAlmacen.V_DETALLE_ORDEN">
-              <MappingFragment StoreEntitySet="V_DETALLE_ORDEN">
-                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
-                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="PRODUCTO_CODIGO" ColumnName="PRODUCTO_CODIGO" />
-                <ScalarProperty Name="ORDEN_PEDIDO_NUMEROORDEN" ColumnName="ORDEN_PEDIDO_NUMEROORDEN" />
-                <ScalarProperty Name="IDDETALLEO" ColumnName="IDDETALLEO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_TOP_PRODUCTOS">
-            <EntityTypeMapping TypeName="ModeloAlmacen.V_TOP_PRODUCTOS">
-              <MappingFragment StoreEntitySet="V_TOP_PRODUCTOS">
-                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-                <ScalarProperty Name="PRECIOVENTA" ColumnName="PRECIOVENTA" />
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_CLIENTES_EFECTIVO">
-            <EntityTypeMapping TypeName="ModeloAlmacen.V_CLIENTES_EFECTIVO">
-              <MappingFragment StoreEntitySet="V_CLIENTES_EFECTIVO">
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
-                <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
-                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_ULTIMAS_VENTAS">
-            <EntityTypeMapping TypeName="ModeloAlmacen.V_ULTIMAS_VENTAS">
-              <MappingFragment StoreEntitySet="V_ULTIMAS_VENTAS">
-                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
-                <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
-                <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
-                <ScalarProperty Name="DV" ColumnName="DV" />
-                <ScalarProperty Name="RUNCLIENTE" ColumnName="RUNCLIENTE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

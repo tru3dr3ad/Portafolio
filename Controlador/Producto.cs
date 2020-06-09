@@ -86,6 +86,35 @@ namespace Controlador
         #endregion
 
         #region Metodos
+        //TODO cambiar implementacion por subconsultas
+        public Producto StockMinimo() 
+        {
+            try
+            {
+                int minimoStock = int.Parse(ConectorDALC.ModeloAlmacen.PRODUCTO.Min(p => p.STOCK).ToString());
+
+                Modelo.PRODUCTO productoModelo = ConectorDALC.ModeloAlmacen.PRODUCTO.FirstOrDefault(e => e.STOCK == minimoStock);
+                if (productoModelo != null)
+                {
+                    Producto producto = new Producto
+                    {
+                        Codigo = productoModelo.CODIGO.ToString(),
+                        Nombre = productoModelo.NOMBRE,
+                        Stock = int.Parse(productoModelo.STOCK.ToString())
+                    };
+                    return producto;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+                throw;
+            }
+        }
         public Producto ObtenerProducto(string codigo)
         {
             try
@@ -138,13 +167,13 @@ namespace Controlador
 
                 producto.CODIGO = Codigo;
                 producto.NOMBRE = Nombre;
-                producto.DESCRIPCION= Descripcion;
+                producto.DESCRIPCION = Descripcion;
                 producto.PRECIOVENTA = PrecioVenta;
                 producto.PRECIOCOMPRA = PrecioCompra;
                 producto.STOCK = Stock;
                 producto.STOCKCRITICO = StockCritico;
                 producto.FECHAVENCIMIENTO = FechaVencimiento;
-                producto.CATEGORIA_IDCATEGORIA= Categoria.Id;
+                producto.CATEGORIA_IDCATEGORIA = Categoria.Id;
 
                 ConectorDALC.ModeloAlmacen.PRODUCTO.Add(producto);
                 ConectorDALC.ModeloAlmacen.SaveChanges();
@@ -166,13 +195,13 @@ namespace Controlador
                     Modelo.PRODUCTO producto = ConectorDALC.ModeloAlmacen.PRODUCTO.FirstOrDefault(e => e.CODIGO == modificarProducto.Codigo);
                     producto.CODIGO = modificarProducto.Codigo;
                     producto.NOMBRE = modificarProducto.Nombre;
-                    producto.DESCRIPCION= modificarProducto.Descripcion;
+                    producto.DESCRIPCION = modificarProducto.Descripcion;
                     producto.PRECIOVENTA = modificarProducto.PrecioVenta;
                     producto.PRECIOCOMPRA = modificarProducto.PrecioCompra;
                     producto.STOCK = modificarProducto.Stock;
                     producto.STOCKCRITICO = modificarProducto.StockCritico;
                     producto.FECHAVENCIMIENTO = FechaVencimiento;
-                    producto.CATEGORIA_IDCATEGORIA= modificarProducto.Categoria.Id;
+                    producto.CATEGORIA_IDCATEGORIA = modificarProducto.Categoria.Id;
 
                     ConectorDALC.ModeloAlmacen.SaveChanges();
                     return true;
