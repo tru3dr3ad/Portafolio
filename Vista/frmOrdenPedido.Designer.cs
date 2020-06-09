@@ -180,9 +180,10 @@
             // 
             // btnAgregarProducto
             // 
-            this.btnAgregarProducto.Location = new System.Drawing.Point(333, 470);
+            this.btnAgregarProducto.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarProducto.Location = new System.Drawing.Point(330, 471);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(104, 23);
+            this.btnAgregarProducto.Size = new System.Drawing.Size(104, 38);
             this.btnAgregarProducto.TabIndex = 15;
             this.btnAgregarProducto.Text = "Agregar Productos";
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
@@ -190,9 +191,10 @@
             // 
             // txtCantidad
             // 
+            this.txtCantidad.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad.Location = new System.Drawing.Point(236, 473);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(87, 20);
+            this.txtCantidad.Size = new System.Drawing.Size(87, 35);
             this.txtCantidad.TabIndex = 14;
             this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -389,9 +391,10 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(180, 473);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(152, 470);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.Size = new System.Drawing.Size(62, 30);
             this.label3.TabIndex = 26;
             this.label3.Text = "Total:";
             // 
@@ -400,9 +403,10 @@
             this.txtTotalOrden.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotalOrden.Enabled = false;
+            this.txtTotalOrden.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalOrden.Location = new System.Drawing.Point(220, 470);
             this.txtTotalOrden.Name = "txtTotalOrden";
-            this.txtTotalOrden.Size = new System.Drawing.Size(121, 20);
+            this.txtTotalOrden.Size = new System.Drawing.Size(121, 35);
             this.txtTotalOrden.TabIndex = 27;
             this.txtTotalOrden.Text = "0";
             this.txtTotalOrden.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -411,9 +415,10 @@
             // 
             this.btnQuitarProducto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQuitarProducto.Location = new System.Drawing.Point(22, 470);
+            this.btnQuitarProducto.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarProducto.Location = new System.Drawing.Point(22, 473);
             this.btnQuitarProducto.Name = "btnQuitarProducto";
-            this.btnQuitarProducto.Size = new System.Drawing.Size(75, 23);
+            this.btnQuitarProducto.Size = new System.Drawing.Size(94, 38);
             this.btnQuitarProducto.TabIndex = 28;
             this.btnQuitarProducto.Text = "Quitar";
             this.btnQuitarProducto.UseVisualStyleBackColor = true;

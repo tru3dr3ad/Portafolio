@@ -40,7 +40,6 @@ namespace Vista
             {
                 txtRutProveedor.Text = proveedor.Rut.ToString();
                 txtDv.Text = proveedor.Dv.ToString();
-                txtIdProveedor.Text = proveedor.IdProveedor.ToString();
                 txtNombre.Text = proveedor.Nombre;
                 txtTelefono.Text = proveedor.Telefono.ToString();
                 txtCorreo.Text = proveedor.CorreoElectronico;
@@ -57,7 +56,6 @@ namespace Vista
         {
             txtRutProveedor.Clear();
             txtDv.Clear();
-            txtIdProveedor.Clear();
             txtNombre.Clear();
             txtTelefono.Clear();
             txtCorreo.Clear();
@@ -71,48 +69,41 @@ namespace Vista
             Validaciones validaciones = new Validaciones();
             if (validaciones.ValidarRun(runProveedor))
             {
-                if (txtIdProveedor.Text.Length == 3)
+                if (validaciones.ValidarLargoString(3, 70, txtNombre.Text))
                 {
-                    if (validaciones.ValidarLargoString(3,70,txtNombre.Text))
+                    if (validaciones.ValidarNumeroTelefono(txtTelefono.Text))
                     {
-                        if (validaciones.ValidarNumeroTelefono(txtTelefono.Text))
+                        if (validaciones.ValidarLargoString(10, 250, txtCorreo.Text))
                         {
-                            if (validaciones.ValidarLargoString(10,250,txtCorreo.Text))
+                            if (validaciones.ValidarEmail(txtCorreo.Text))
                             {
-                                if (validaciones.ValidarEmail(txtCorreo.Text))
+                                if (validaciones.ValidarLargoString(10, 150, txtDireccion.Text))
                                 {
-                                    if (validaciones.ValidarLargoString(10, 150, txtDireccion.Text))
-                                    {
-                                        return mensajeError;
-                                    }
-                                    else
-                                    {
-                                        mensajeError = "EL largo de la direccion es invalida";
-                                    }
+                                    return mensajeError;
                                 }
                                 else
                                 {
-                                    mensajeError = "El correo electronico no tiene un formato correcto";
+                                    mensajeError = "EL largo de la direccion es invalida";
                                 }
                             }
                             else
                             {
-                                mensajeError = "El largo del correo es invalido";
+                                mensajeError = "El correo electronico no tiene un formato correcto";
                             }
                         }
                         else
                         {
-                            mensajeError = "El numero de celular es invalido";
+                            mensajeError = "El largo del correo es invalido";
                         }
                     }
                     else
                     {
-                        mensajeError = "El largo del nombre de proveedor es invalido";
+                        mensajeError = "El numero de celular es invalido";
                     }
                 }
                 else
                 {
-                    mensajeError = "El id de proveedor debe tener 3 digitos";
+                    mensajeError = "El largo del nombre de proveedor es invalido";
                 }
             }
             else
@@ -139,14 +130,13 @@ namespace Vista
             {
                 int rut = int.Parse(txtRutProveedor.Text);
                 char dv = char.Parse(txtDv.Text);
-                int id = int.Parse(txtIdProveedor.Text);
                 string nombre = txtNombre.Text.ToUpper();
                 int telefono = int.Parse(txtTelefono.Text);
                 string correo = txtCorreo.Text.ToUpper();
                 string direccion = txtDireccion.Text.ToUpper();
                 TipoRubro tipo = new TipoRubro();
                 tipo.Id = (int)cmbRubro.SelectedValue;
-                Proveedor proveedor = new Proveedor(rut, dv, id, nombre, correo, telefono, direccion, tipo);
+                Proveedor proveedor = new Proveedor(rut, dv, nombre, correo, telefono, direccion, tipo);
                 if (proveedor.AgregarProveedor())
                 {
                     MessageBox.Show("Proveedor ha sido agregado");
@@ -164,14 +154,13 @@ namespace Vista
             {
                 int rut = int.Parse(txtRutProveedor.Text);
                 char dv = char.Parse(txtDv.Text);
-                int id = int.Parse(txtIdProveedor.Text);
                 string nombre = txtNombre.Text.ToUpper();
                 int telefono = int.Parse(txtTelefono.Text);
                 string correo = txtCorreo.Text.ToUpper();
                 string direccion = txtDireccion.Text.ToUpper();
                 TipoRubro tipo = new TipoRubro();
                 tipo.Id = (int)cmbRubro.SelectedValue;
-                Proveedor proveedor = new Proveedor(rut, dv, id, nombre, correo, telefono, direccion, tipo);
+                Proveedor proveedor = new Proveedor(rut, dv, nombre, correo, telefono, direccion, tipo);
                 bool modificarProveedor = proveedor.ModificarProveedor(proveedor);
                 if (modificarProveedor)
                 {
@@ -211,7 +200,7 @@ namespace Vista
         {
             AgregarProveedor();
             CargarGrilla();
-            
+
         }
 
         private void btnModificarProveedor_Click(object sender, EventArgs e)
@@ -254,6 +243,6 @@ namespace Vista
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
         #endregion
-    
+
     }
 }

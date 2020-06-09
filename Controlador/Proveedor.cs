@@ -28,6 +28,16 @@ namespace Controlador
             Direccion = direccion;
             Tipo = tipo;
         }
+        public Proveedor(int rut, char dv, string nombre, string correo, int telefono, string direccion, TipoRubro tipo)
+        {
+            Rut = rut;
+            Dv = dv;
+            Nombre = nombre;
+            CorreoElectronico = correo;
+            Telefono = telefono;
+            Direccion = direccion;
+            Tipo = tipo;
+        }
         public Proveedor()
         {
 
@@ -131,7 +141,6 @@ namespace Controlador
 
                 proveedor.RUT = Rut;
                 proveedor.DV = Dv.ToString();
-                proveedor.ID = IdProveedor;
                 proveedor.NOMBRE = Nombre;
                 proveedor.CORREO = CorreoElectronico;
                 proveedor.TELEFONO = Telefono;
@@ -158,7 +167,6 @@ namespace Controlador
                     Modelo.PROVEEDOR proveedor = ConectorDALC.ModeloAlmacen.PROVEEDOR.FirstOrDefault(e => e.RUT == modificarProveedor.Rut);
                     proveedor.RUT = modificarProveedor.Rut;
                     proveedor.DV = modificarProveedor.Dv.ToString();
-                    proveedor.ID= modificarProveedor.IdProveedor;
                     proveedor.NOMBRE = modificarProveedor.Nombre;
                     proveedor.CORREO = modificarProveedor.CorreoElectronico;
                     proveedor.TELEFONO = modificarProveedor.Telefono;
