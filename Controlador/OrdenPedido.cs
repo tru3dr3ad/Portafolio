@@ -15,7 +15,7 @@ namespace Controlador
         public Usuario Usuario { get; set; }
 
         #region Constructores
-        public OrdenPedido(int numero, DateTime fechaCreacion, int total, DateTime fechaRecepcion, Proveedor proveedor, 
+        public OrdenPedido(int numero, DateTime fechaCreacion, int total, DateTime fechaRecepcion, Proveedor proveedor,
             EstadoOrden estado, Usuario usuario)
         {
             Numero = numero;
@@ -81,12 +81,37 @@ namespace Controlador
         {
             try
             {
-                int numero = (int)ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.Max(o =>o.NUMEROORDEN);
+                int numero = (int)ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.Max(o => o.NUMEROORDEN);
                 return numero;
             }
             catch (Exception)
             {
                 return 0;
+                throw;
+            }
+        }
+        public OrdenPedido MostrarUltimaOrdenEnviada()
+        {
+            try
+            {
+                Modelo.ORDEN_PEDIDO ordenPedidoModelo = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.
+                Where(o => o.ESTADO_ORDEN_IDESTADO == 2).OrderByDescending(o => o.FECHACREACION).
+                FirstOrDefault();
+                if (ordenPedidoModelo != null)
+                {
+                    OrdenPedido ordenPedido = new OrdenPedido();
+                    ordenPedido.Numero = int.Parse(ordenPedidoModelo.NUMEROORDEN.ToString());
+                    ordenPedido.Proveedor = new Proveedor() { Rut = int.Parse(ordenPedidoModelo.PROVEEDOR.RUT.ToString()) };
+                    return ordenPedido;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
                 throw;
             }
         }
@@ -99,9 +124,9 @@ namespace Controlador
                 FechaCreacion = ordenPedido.FECHACREACION;
                 Total = ordenPedido.TOTAL;
                 FechaRecepcion = ordenPedido.FECHARECEPCION;
-                Proveedor = new Proveedor() { Rut = (int)ordenPedido.PROVEEDOR.RUT};
-                Estado = new EstadoOrden() { Id = (int)ordenPedido.ESTADO_ORDEN.IDESTADO};
-                Usuario = new Usuario() { RunUsuario = (int)ordenPedido.USUARIO.RUNUSUARIO};
+                Proveedor = new Proveedor() { Rut = (int)ordenPedido.PROVEEDOR.RUT };
+                Estado = new EstadoOrden() { Id = (int)ordenPedido.ESTADO_ORDEN.IDESTADO };
+                Usuario = new Usuario() { RunUsuario = (int)ordenPedido.USUARIO.RUNUSUARIO };
                 OrdenPedido ordenEncontrada = new OrdenPedido(Numero, FechaCreacion, Total, FechaRecepcion, Proveedor, Estado, Usuario);
                 return ordenEncontrada;
             }
@@ -205,6 +230,31 @@ namespace Controlador
                 throw new ArgumentException("Error al eliminar orden de pedido: " + ex);
             }
         }
+        public bool DescargarOrdenPedido(int nroOrden)
+        {
+            try
+            {
+                if (BuscarOrden(nroOrden))
+                {
+                    Modelo.ORDEN_PEDIDO ordenRecepcionar = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.
+                        FirstOrDefault(e => e.NUMEROORDEN == nroOrden);
+
+                    ordenRecepcionar.ESTADO_ORDEN_IDESTADO = 2;
+
+                    ConectorDALC.ModeloAlmacen.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw new ArgumentException("Error al descargar orden de pedido: " + ex);
+            }
+        }
         public bool RecepcionarOrdenPedido(OrdenPedido recepcionarOrden)
         {
             try
@@ -232,7 +282,7 @@ namespace Controlador
         }
         public bool OrdenRecepcionada(OrdenPedido orden)
         {
-            if (orden.Estado.Id == 2 || orden.Estado.Id == 3)
+            if (orden.Estado.Id == 4 || orden.Estado.Id == 5)
             {
                 return true;
             }

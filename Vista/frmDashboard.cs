@@ -13,6 +13,7 @@ namespace Vista
             MostrarTopVentas();
             MostrarVentasMensuales();
             MostrarProductoConMenosStock();
+            MostrarOrdenAEsperar();
         }
         private void MostrarTopProductos()
         {
@@ -67,6 +68,19 @@ namespace Vista
             {
                 lblCantidadStockMin.Text = producto.Stock.ToString();
                 lblNombreStockMin.Text = producto.Nombre;
+            }
+        }
+        private void MostrarOrdenAEsperar()
+        {
+            OrdenPedido orden = new OrdenPedido();
+            orden = orden.MostrarUltimaOrdenEnviada();
+            if (orden!=null)
+            {
+                lblNumeroOrden.Text = orden.Numero.ToString();
+                //lblNombreProveedor.Text = orden.Proveedor.Rut.ToString();
+                Proveedor proveedor = new Proveedor();
+                proveedor = proveedor.ObtenerProveedor(orden.Proveedor.Rut);
+                lblNombreProveedor.Text = proveedor.Nombre;
             }
         }
     }

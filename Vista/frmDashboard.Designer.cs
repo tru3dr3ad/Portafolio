@@ -68,8 +68,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblNombreProveedor = new System.Windows.Forms.Label();
+            this.lblNumeroOrden = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -527,8 +527,8 @@
             this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
             this.panel6.Controls.Add(this.pictureBox9);
-            this.panel6.Controls.Add(this.label10);
-            this.panel6.Controls.Add(this.label11);
+            this.panel6.Controls.Add(this.lblNombreProveedor);
+            this.panel6.Controls.Add(this.lblNumeroOrden);
             this.panel6.Controls.Add(this.label12);
             this.panel6.Location = new System.Drawing.Point(673, 23);
             this.panel6.Name = "panel6";
@@ -545,27 +545,27 @@
             this.pictureBox9.TabIndex = 3;
             this.pictureBox9.TabStop = false;
             // 
-            // label10
+            // lblNombreProveedor
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(17, 96);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(122, 23);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "CCU Company";
+            this.lblNombreProveedor.AutoSize = true;
+            this.lblNombreProveedor.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreProveedor.ForeColor = System.Drawing.Color.White;
+            this.lblNombreProveedor.Location = new System.Drawing.Point(17, 96);
+            this.lblNombreProveedor.Name = "lblNombreProveedor";
+            this.lblNombreProveedor.Size = new System.Drawing.Size(122, 23);
+            this.lblNombreProveedor.TabIndex = 2;
+            this.lblNombreProveedor.Text = "CCU Company";
             // 
-            // label11
+            // lblNumeroOrden
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(13, 45);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(146, 46);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "8978546";
+            this.lblNumeroOrden.AutoSize = true;
+            this.lblNumeroOrden.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroOrden.ForeColor = System.Drawing.Color.White;
+            this.lblNumeroOrden.Location = new System.Drawing.Point(13, 45);
+            this.lblNumeroOrden.Name = "lblNumeroOrden";
+            this.lblNumeroOrden.Size = new System.Drawing.Size(146, 46);
+            this.lblNumeroOrden.TabIndex = 1;
+            this.lblNumeroOrden.Text = "8978546";
             // 
             // label12
             // 
@@ -732,8 +732,8 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblNombreProveedor;
+        private System.Windows.Forms.Label lblNumeroOrden;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox8;

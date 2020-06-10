@@ -137,6 +137,27 @@ namespace Vista
                 }
             }
         }
+        public void DescargarOrdenPedido()
+        {
+            OrdenPedido orden = new OrdenPedido();
+            orden = orden.ObtenerOrdenPedido(_numeroOrdenSeleccionado);
+            if (!orden.OrdenRecepcionada(orden))
+            {
+                bool estaDescargada = orden.DescargarOrdenPedido(_numeroOrdenSeleccionado);
+                if (estaDescargada)
+                {
+                    MessageBox.Show("Orden Descargada");
+                }
+                else
+                {
+                    MessageBox.Show("Orden no se ha podido descargar");
+                }
+            }
+            else
+            {
+                MessageBox.Show("La orden ya fue recepcionada");
+            }
+        }
         #endregion
 
         #region Botones
@@ -144,7 +165,6 @@ namespace Vista
         {
             BuscarOrdenPedidoPorNumero();
         }
-
         private void btnEliminarOrden_Click(object sender, EventArgs e)
         {
             EliminarOrdenPedido();
@@ -182,5 +202,10 @@ namespace Vista
         }
         #endregion
 
+        private void btnDescargarOrden_Click(object sender, EventArgs e)
+        {
+            DescargarOrdenPedido();
+            CargarGrillaOrden();
+        }
     }
 }
