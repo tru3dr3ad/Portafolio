@@ -150,7 +150,8 @@ namespace Vista
         }
         private void ModificarProveedor()
         {
-            if (!String.IsNullOrEmpty(txtRutProveedor.Text))
+            string msgEsValido = ValidacionIngresoProveedor();
+            if (string.IsNullOrEmpty(msgEsValido))
             {
                 int rut = int.Parse(txtRutProveedor.Text);
                 char dv = char.Parse(txtDv.Text);

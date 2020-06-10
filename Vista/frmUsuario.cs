@@ -174,7 +174,8 @@ namespace Vista
         }
         public void ModificarUsuario()
         {
-            if (!String.IsNullOrEmpty(txtRunUsuario.Text))
+            string msgEsValido = ValidarIngresoUsuario();
+            if (string.IsNullOrEmpty(msgEsValido))
             {
                 int run = int.Parse(txtRunUsuario.Text);
                 char dv = char.Parse(txtDv.Text);
@@ -193,11 +194,16 @@ namespace Vista
                 if (estaModificado)
                 {
                     MessageBox.Show("Usuario modificado");
+                    LimpiarDatos();
                 }
                 else
                 {
                     MessageBox.Show("Usuario no ha sido modificado");
                 }
+            }
+            else
+            {
+                MessageBox.Show(msgEsValido);
             }
         }
         private void EliminarUsuario()
@@ -234,7 +240,6 @@ namespace Vista
         {
             ModificarUsuario();
             CargarGrilla();
-            LimpiarDatos();
         }
 
         private void btnEliminarUsuario_Click(object sender, EventArgs e)
