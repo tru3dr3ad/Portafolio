@@ -66,6 +66,7 @@
             this.btnEliminarRubro = new System.Windows.Forms.Button();
             this.btnAgregarRubro = new System.Windows.Forms.Button();
             this.txtRubro = new System.Windows.Forms.TextBox();
+            this.txtValorMoneda = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.gpbCategoria.SuspendLayout();
@@ -77,6 +78,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtValorMoneda);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -112,7 +114,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 152);
+            this.label1.Location = new System.Drawing.Point(63, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 13);
             this.label1.TabIndex = 2;
@@ -121,19 +123,20 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(58, 168);
+            this.comboBox1.Location = new System.Drawing.Point(51, 94);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(140, 21);
             this.comboBox1.TabIndex = 1;
             // 
             // btnMoneda
             // 
-            this.btnMoneda.Location = new System.Drawing.Point(93, 195);
+            this.btnMoneda.Location = new System.Drawing.Point(66, 183);
             this.btnMoneda.Name = "btnMoneda";
             this.btnMoneda.Size = new System.Drawing.Size(75, 23);
             this.btnMoneda.TabIndex = 0;
             this.btnMoneda.Text = "Cambiar";
             this.btnMoneda.UseVisualStyleBackColor = true;
+            this.btnMoneda.Click += new System.EventHandler(this.btnMoneda_Click);
             // 
             // groupBox2
             // 
@@ -453,6 +456,13 @@
             this.txtRubro.Size = new System.Drawing.Size(100, 20);
             this.txtRubro.TabIndex = 2;
             // 
+            // txtValorMoneda
+            // 
+            this.txtValorMoneda.Location = new System.Drawing.Point(51, 157);
+            this.txtValorMoneda.Name = "txtValorMoneda";
+            this.txtValorMoneda.Size = new System.Drawing.Size(100, 20);
+            this.txtValorMoneda.TabIndex = 5;
+            // 
             // frmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -521,5 +531,6 @@
         private System.Windows.Forms.Button btnAgregarTipoCliente;
         private System.Windows.Forms.TextBox txtTipoCliente;
         private System.Windows.Forms.GroupBox gpbRubro;
+        private System.Windows.Forms.TextBox txtValorMoneda;
     }
 }

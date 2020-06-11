@@ -5,35 +5,35 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4b3f0b789b5740569f97a6b03d97ff48" Name="Diagram1" ZoomLevel="77">
-        <EntityTypeShape EntityType="ModeloAlmacen.ABONO" Width="1.5" PointX="7.5" PointY="10.25" />
-        <EntityTypeShape EntityType="ModeloAlmacen.BOLETA" Width="1.5" PointX="5.25" PointY="5.625" />
-        <EntityTypeShape EntityType="ModeloAlmacen.CATEGORIA" Width="1.5" PointX="6" PointY="2.75" />
-        <EntityTypeShape EntityType="ModeloAlmacen.CLIENTE" Width="1.5" PointX="3" PointY="14.125" />
-        <EntityTypeShape EntityType="ModeloAlmacen.DETALLE_BOLETA" Width="1.5" PointX="10.5" PointY="6.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.DETALLE_PEDIDO" Width="1.5" PointX="10.5" PointY="3.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.ESTADO_BOLETA" Width="1.5" PointX="3" PointY="3.125" />
-        <EntityTypeShape EntityType="ModeloAlmacen.ESTADO_FIADO" Width="1.5" PointX="0.75" PointY="13.75" />
-        <EntityTypeShape EntityType="ModeloAlmacen.ESTADO_ORDEN" Width="1.5" PointX="6" PointY="13.5" />
-        <EntityTypeShape EntityType="ModeloAlmacen.MEDIO_PAGO" Width="1.5" PointX="3" PointY="11.5" />
-        <EntityTypeShape EntityType="ModeloAlmacen.ORDEN_PEDIDO" Width="1.5" PointX="8.25" PointY="5.875" />
-        <EntityTypeShape EntityType="ModeloAlmacen.PRODUCTO" Width="1.5" PointX="8.25" PointY="0.75" />
-        <EntityTypeShape EntityType="ModeloAlmacen.PROVEEDOR" Width="1.5" PointX="6" PointY="18.75" />
-        <EntityTypeShape EntityType="ModeloAlmacen.TIPO_CLIENTE" Width="1.5" PointX="0.75" PointY="16.125" />
-        <EntityTypeShape EntityType="ModeloAlmacen.TIPO_RUBRO" Width="1.5" PointX="3.75" PointY="19.5" />
-        <EntityTypeShape EntityType="ModeloAlmacen.TIPO_USUARIO" Width="1.5" PointX="0.75" PointY="6.625" />
-        <EntityTypeShape EntityType="ModeloAlmacen.USUARIO" Width="1.5" PointX="3" PointY="5.625" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_ABONO" Width="1.5" PointX="9.75" PointY="10.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_BOLETAS" Width="1.5" PointX="11.75" PointY="9.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_CLIENTES" Width="1.5" PointX="8.75" PointY="13.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_CLIENTES_EFECTIVO" Width="1.5" PointX="10.75" PointY="13.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_DETALLE_BOLETA" Width="1.5" PointX="12.75" PointY="2.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_DETALLE_ORDEN" Width="1.5" PointX="12.75" PointY="5.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_ORDEN_PEDIDO" Width="1.5" PointX="12.75" PointY="13.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_PRODUCTOS" Width="1.5" PointX="13.75" PointY="8.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_PROVEEDORES" Width="1.5" PointX="14.75" PointY="2.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_TOP_PRODUCTOS" Width="1.5" PointX="14.75" PointY="12.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_ULTIMAS_VENTAS" Width="1.5" PointX="14.75" PointY="15.375" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_USUARIOS" Width="1.5" PointX="15.75" PointY="6.375" />
+        <EntityTypeShape EntityType="ModeloAlmacen.ABONO" Width="1.5" PointX="7.5" PointY="6.375" />
+        <EntityTypeShape EntityType="ModeloAlmacen.BOLETA" Width="1.5" PointX="5.25" PointY="2.75" />
+        <EntityTypeShape EntityType="ModeloAlmacen.CATEGORIA" Width="1.5" PointX="3" PointY="17.75" />
+        <EntityTypeShape EntityType="ModeloAlmacen.CLIENTE" Width="1.5" PointX="3" PointY="2.875" />
+        <EntityTypeShape EntityType="ModeloAlmacen.DETALLE_BOLETA" Width="1.5" PointX="7.5" PointY="3.5" />
+        <EntityTypeShape EntityType="ModeloAlmacen.DETALLE_PEDIDO" Width="1.5" PointX="7.5" PointY="14.25" />
+        <EntityTypeShape EntityType="ModeloAlmacen.ESTADO_BOLETA" Width="1.5" PointX="3" PointY="7.875" />
+        <EntityTypeShape EntityType="ModeloAlmacen.ESTADO_FIADO" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ModeloAlmacen.ESTADO_ORDEN" Width="1.5" PointX="3" PointY="24" />
+        <EntityTypeShape EntityType="ModeloAlmacen.MEDIO_PAGO" Width="1.5" PointX="3" PointY="14.5" />
+        <EntityTypeShape EntityType="ModeloAlmacen.ORDEN_PEDIDO" Width="1.5" PointX="5.25" PointY="10.375" />
+        <EntityTypeShape EntityType="ModeloAlmacen.PRODUCTO" Width="1.5" PointX="5.25" PointY="16.875" />
+        <EntityTypeShape EntityType="ModeloAlmacen.PROVEEDOR" Width="1.5" PointX="3" PointY="20.375" />
+        <EntityTypeShape EntityType="ModeloAlmacen.TIPO_CLIENTE" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ModeloAlmacen.TIPO_RUBRO" Width="1.5" PointX="0.75" PointY="21" />
+        <EntityTypeShape EntityType="ModeloAlmacen.TIPO_USUARIO" Width="1.5" PointX="0.75" PointY="11.25" />
+        <EntityTypeShape EntityType="ModeloAlmacen.USUARIO" Width="1.5" PointX="3" PointY="10.25" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_ABONO" Width="1.5" PointX="7.75" PointY="9.625" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_BOLETAS" Width="1.5" PointX="9.75" PointY="1.625" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_CLIENTES" Width="1.5" PointX="9.75" PointY="5.625" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_CLIENTES_EFECTIVO" Width="1.5" PointX="9.75" PointY="9.625" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_DETALLE_BOLETA" Width="1.5" PointX="11.75" PointY="1.625" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_DETALLE_ORDEN" Width="1.5" PointX="11.75" PointY="4.625" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_ORDEN_PEDIDO" Width="1.5" PointX="11.75" PointY="7.625" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_PRODUCTOS" Width="1.5" PointX="9.75" PointY="12.625" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_PROVEEDORES" Width="1.5" PointX="11.75" PointY="11.625" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_TOP_PRODUCTOS" Width="1.5" PointX="13.75" PointY="1.625" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_ULTIMAS_VENTAS" Width="1.5" PointX="13.75" PointY="4.625" />
+        <EntityTypeShape EntityType="ModeloAlmacen.V_USUARIOS" Width="1.5" PointX="13.75" PointY="7.625" />
         <AssociationConnector Association="ModeloAlmacen.ABONO_BOLETA_FK" />
         <AssociationConnector Association="ModeloAlmacen.BOLETA_CLIENTE_FK" />
         <AssociationConnector Association="ModeloAlmacen.BOLETA_ESTADO_BOLETA_FK" />

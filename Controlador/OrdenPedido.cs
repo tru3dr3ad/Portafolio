@@ -8,14 +8,14 @@ namespace Controlador
     {
         public int Numero { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public int Total { get; set; }
+        public decimal Total { get; set; }
         public DateTime FechaRecepcion { get; set; }
         public Proveedor Proveedor { get; set; }
         public EstadoOrden Estado { get; set; }
         public Usuario Usuario { get; set; }
 
         #region Constructores
-        public OrdenPedido(int numero, DateTime fechaCreacion, int total, DateTime fechaRecepcion, Proveedor proveedor,
+        public OrdenPedido(int numero, DateTime fechaCreacion, decimal total, DateTime fechaRecepcion, Proveedor proveedor,
             EstadoOrden estado, Usuario usuario)
         {
             Numero = numero;
@@ -26,7 +26,7 @@ namespace Controlador
             Estado = estado;
             Usuario = usuario;
         }
-        public OrdenPedido(DateTime fechaCreacion, int total, DateTime fechaRecepcion, Proveedor proveedor,
+        public OrdenPedido(DateTime fechaCreacion, decimal total, DateTime fechaRecepcion, Proveedor proveedor,
             EstadoOrden estado, Usuario usuario)
         {
             FechaCreacion = fechaCreacion;

@@ -11,14 +11,14 @@ namespace Controlador
     {
         public int Numero { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public int Total { get; set; }
+        public decimal Total { get; set; }
         public MedioPago MedioPago { get; set; }
         public Cliente Cliente { get; set; }
         public Usuario Usuario { get; set; }
         public EstadoBoleta Estado { get; set; }
 
         #region Constructores
-        public Boleta(int numero, DateTime fechaCreacion, int total, MedioPago medioPago, Cliente cliente, Usuario usuario, EstadoBoleta estado)
+        public Boleta(int numero, DateTime fechaCreacion, decimal total, MedioPago medioPago, Cliente cliente, Usuario usuario, EstadoBoleta estado)
         {
             Numero = numero;
             FechaCreacion = fechaCreacion;
@@ -28,7 +28,7 @@ namespace Controlador
             Usuario = usuario;
             Estado = estado;
         }
-        public Boleta(DateTime fechaCreacion, int total, MedioPago medioPago, Cliente cliente, Usuario usuario, EstadoBoleta estado)
+        public Boleta(DateTime fechaCreacion, decimal total, MedioPago medioPago, Cliente cliente, Usuario usuario, EstadoBoleta estado)
         {
             FechaCreacion = fechaCreacion;
             Total = total;

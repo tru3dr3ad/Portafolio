@@ -1,4 +1,5 @@
 ﻿using Modelo;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,15 @@ namespace Controlador
         public string Codigo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public int PrecioVenta { get; set; }
-        public int PrecioCompra { get; set; }
+        public decimal PrecioVenta { get; set; }
+        public decimal PrecioCompra { get; set; }
         public int Stock { get; set; }
         public int StockCritico { get; set; }
         public DateTime FechaVencimiento { get; set; }
         public Categoria Categoria { get; set; }
 
         #region Constructores
-        public Producto(string codigo, string nombre, string descripcion, int precioVenta, int precioCompra, int stock,
+        public Producto(string codigo, string nombre, string descripcion, decimal precioVenta, decimal precioCompra, int stock,
             int stockCritico, DateTime fechaVencimiento, Categoria categoria)
         {
             Codigo = codigo;
@@ -123,8 +124,8 @@ namespace Controlador
                 Codigo = producto.CODIGO;
                 Nombre = producto.NOMBRE;
                 Descripcion = producto.DESCRIPCION;
-                PrecioVenta = (int)producto.PRECIOVENTA;
-                PrecioCompra = (int)producto.PRECIOCOMPRA;
+                PrecioVenta = producto.PRECIOVENTA;
+                PrecioCompra = producto.PRECIOCOMPRA;
                 Stock = (int)producto.STOCK;
                 StockCritico = (int)producto.STOCKCRITICO;
                 FechaVencimiento = producto.FECHAVENCIMIENTO;
@@ -240,21 +241,47 @@ namespace Controlador
                 throw new ArgumentException("Error al eliminar producto: " + ex);
             }
         }
-        public int ObtenerValorVentaProducto(string codigo)
+        public decimal ObtenerValorVentaProducto(string codigo)
         {
             Producto producto = new Producto();
             producto = producto.ObtenerProducto(codigo);
-            int valorVenta = producto.PrecioVenta;
+            decimal valorVenta = producto.PrecioVenta;
             return valorVenta;
         }
-        public int ObtenerValorCompraProducto(string codigo)
+        public decimal ObtenerValorCompraProducto(string codigo)
         {
             Producto producto = new Producto();
             producto = producto.ObtenerProducto(codigo);
-            int valorCompra = producto.PrecioCompra;
+            decimal valorCompra = producto.PrecioCompra;
             return valorCompra;
         }
         #endregion
+
+        public void CambiarPrecioPorMoneda(string nombreMoneda, decimal valorMoneda)
+        {
+            try
+            {
+                string sql = "BEGIN SP_MONEDA_CAMBIO(:NOMBRE_MONEDA, :VALOR); end; ";
+                Conexion conexion = new Conexion();
+                OracleConnection connection = conexion.ConexionBd();
+                connection.Open();
+
+
+                OracleCommand command = connection.CreateCommand();
+                command.CommandText = sql;
+                command.Parameters.Add(new OracleParameter("NOMBRE_MONEDA", nombreMoneda));
+                command.Parameters.Add(new OracleParameter("VALOR", valorMoneda));
+                OracleDataReader reader = command.ExecuteReader();
+                reader.Close();
+                command.Dispose();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
 
     }
 }

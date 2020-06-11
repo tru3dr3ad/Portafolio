@@ -156,8 +156,8 @@ namespace Vista
                 if (producto!=null)
                 {
                     string nombreProducto = producto.Nombre;
-                    int totalProductos = producto.PrecioVenta * cantidad;
-                    int totalBoleta = int.Parse(txtTotalBoleta.Text);
+                    decimal totalProductos = producto.PrecioVenta * cantidad;
+                    decimal totalBoleta = int.Parse(txtTotalBoleta.Text);
                     totalBoleta = totalBoleta + totalProductos;
                     txtTotalBoleta.Text = totalBoleta.ToString();
                     grdBoleta.Rows.Add(_codProductoSeleccionado, nombreProducto, cantidad, totalProductos);
@@ -169,9 +169,9 @@ namespace Vista
             if (_codProductoQuitar != "")
             {
                 Producto producto = new Producto();
-                int valorVenta = producto.ObtenerValorVentaProducto(_codProductoQuitar);
+                decimal valorVenta = producto.ObtenerValorVentaProducto(_codProductoQuitar);
                 int cantidad = int.Parse(grdBoleta.Rows[grdBoleta.CurrentRow.Index].Cells[2].Value.ToString());
-                int totalBoleta = int.Parse(txtTotalBoleta.Text);
+                decimal totalBoleta = int.Parse(txtTotalBoleta.Text);
                 totalBoleta = totalBoleta - (valorVenta * cantidad);
                 txtTotalBoleta.Text = totalBoleta.ToString();
 

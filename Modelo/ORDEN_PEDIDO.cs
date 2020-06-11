@@ -22,7 +22,7 @@ namespace Modelo
     
         public decimal NUMEROORDEN { get; set; }
         public System.DateTime FECHACREACION { get; set; }
-        public int TOTAL { get; set; }
+        public decimal TOTAL { get; set; }
         public System.DateTime FECHARECEPCION { get; set; }
         public decimal PROVEEDOR_RUT { get; set; }
         public decimal ESTADO_ORDEN_IDESTADO { get; set; }

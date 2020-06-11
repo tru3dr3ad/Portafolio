@@ -51,6 +51,12 @@ namespace Vista
             cmbCategoria.ValueMember = "Id";
             cmbCategoria.DataSource = tipo.Listar();
         }
+        private void CambioMoneda()
+        {
+            //decimal dolar = 750.54m;
+            Producto producto = new Producto();
+            producto.CambiarPrecioPorMoneda(txtValorMoneda.Text, 750.54m);
+        }
         #endregion
 
         #region
@@ -280,5 +286,10 @@ namespace Vista
             CargarComboboxCategoria();
         }
         #endregion
+
+        private void btnMoneda_Click(object sender, EventArgs e)
+        {
+            CambioMoneda();
+        }
     }
 }

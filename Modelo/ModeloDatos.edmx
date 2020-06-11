@@ -11,7 +11,7 @@
           </Key>
           <Property Name="IDABONO" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="BOLETA_NUMEROBOLETA" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="TOTAL" Type="number" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="TOTAL" Type="float" Precision="126" Scale="0" Nullable="false" />
           <Property Name="FECHAABONO" Type="date" Nullable="false" />
           <Property Name="FECHALIMITE" Type="date" Nullable="false" />
         </EntityType>
@@ -21,7 +21,7 @@
           </Key>
           <Property Name="NUMEROBOLETA" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FECHACREACION" Type="date" Nullable="false" />
-          <Property Name="TOTAL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOTAL" Type="float" Precision="126" Scale="0" Nullable="false" />
           <Property Name="MEDIO_PAGO_IDMEDIO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="CLIENTE_RUNCLIENTE" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="USUARIO_RUNUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -104,7 +104,7 @@
           </Key>
           <Property Name="NUMEROORDEN" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FECHACREACION" Type="date" Nullable="false" />
-          <Property Name="TOTAL" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="TOTAL" Type="float" Precision="126" Scale="0" Nullable="false" />
           <Property Name="FECHARECEPCION" Type="date" Nullable="false" />
           <Property Name="PROVEEDOR_RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ESTADO_ORDEN_IDESTADO" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -117,8 +117,8 @@
           <Property Name="CODIGO" Type="varchar2" MaxLength="17" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="70" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar2" MaxLength="250" Nullable="false" />
-          <Property Name="PRECIOVENTA" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="PRECIOCOMPRA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PRECIOVENTA" Type="float" Precision="126" Scale="0" Nullable="false" />
+          <Property Name="PRECIOCOMPRA" Type="float" Precision="126" Scale="0" Nullable="false" />
           <Property Name="STOCK" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="STOCKCRITICO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="FECHAVENCIMIENTO" Type="date" Nullable="false" />
@@ -956,7 +956,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           </Key>
           <Property Name="IDABONO" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BOLETA_NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="TOTAL" Type="Int32" Nullable="false" />
+          <Property Name="TOTAL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="FECHAABONO" Type="DateTime" Nullable="false" />
           <Property Name="FECHALIMITE" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="BOLETA" Relationship="ModeloAlmacen.ABONO_BOLETA_FK" FromRole="ABONO" ToRole="BOLETA" />
@@ -1010,7 +1010,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
             <PropertyRef Name="PRODUCTO_CODIGO" />
             <PropertyRef Name="BOLETA_NUMEROBOLETA" />
           </Key>
-          <Property Name="IDDETALLEB" Type="Decimal" Nullable="false" annotation:StoreGeneratedPattern="Identity" Scale="1" Precision="38" />
+          <Property Name="IDDETALLEB" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PRODUCTO_CODIGO" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
           <Property Name="BOLETA_NUMEROBOLETA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
@@ -1068,7 +1068,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           </Key>
           <Property Name="NUMEROORDEN" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
-          <Property Name="TOTAL" Type="Int32" Nullable="false" />
+          <Property Name="TOTAL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="FECHARECEPCION" Type="DateTime" Nullable="false" />
           <Property Name="PROVEEDOR_RUT" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="ESTADO_ORDEN_IDESTADO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />

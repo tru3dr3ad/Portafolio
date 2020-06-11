@@ -9,12 +9,12 @@ namespace Controlador
     {
         public int Id { get; set; }
         public Boleta Boleta { get; set; }
-        public int Total { get; set; }
+        public decimal Total { get; set; }
         public DateTime FechaAbono { get; set; }
         public DateTime FechaLimite { get; set; }
 
         #region Constructores
-        public Abono(int id, Boleta boleta, int total, DateTime fechaAbono, DateTime fechaLimite)
+        public Abono(int id, Boleta boleta, decimal total, DateTime fechaAbono, DateTime fechaLimite)
         {
             Id = id;
             Boleta = boleta;
@@ -22,14 +22,14 @@ namespace Controlador
             FechaAbono = fechaAbono;
             FechaLimite = fechaLimite;
         }
-        public Abono(Boleta boleta, int total, DateTime fechaAbono, DateTime fechaLimite)
+        public Abono(Boleta boleta, decimal total, DateTime fechaAbono, DateTime fechaLimite)
         {
             Boleta = boleta;
             Total = total;
             FechaAbono = fechaAbono;
             FechaLimite = fechaLimite;
         }
-        public Abono( int total)
+        public Abono(decimal total)
         {
             Total = total;
         }
@@ -68,8 +68,8 @@ namespace Controlador
             {
                 Modelo.ABONO abono = ConectorDALC.ModeloAlmacen.ABONO.FirstOrDefault(a => a.IDABONO == id);
                 Id = (int)abono.IDABONO;
-                Boleta = new Boleta() { Numero = (int)abono.BOLETA.NUMEROBOLETA};
-                Total = (int)abono.TOTAL;
+                Boleta = new Boleta() { Numero = (int)abono.BOLETA.NUMEROBOLETA };
+                Total = abono.TOTAL;
                 FechaAbono = abono.FECHAABONO;
                 FechaLimite = abono.FECHALIMITE;
                 Abono abonoEncontrado = new Abono(Id, Boleta, Total, FechaAbono, FechaLimite);
@@ -94,19 +94,19 @@ namespace Controlador
                 throw;
             }
         }
-        public int ObtenerDeuda(int nroBoleta)
+        public decimal ObtenerDeuda(int nroBoleta)
         {
             Boleta boleta = new Boleta();
             boleta = boleta.ObtenerBoleta(nroBoleta);
             int abonos = ConectorDALC.ModeloAlmacen.V_ABONO.Where(a => a.BOLETA_NUMEROBOLETA == nroBoleta).
                 Select(a => a.TOTAL).DefaultIfEmpty(0).Sum();
-            int montoBoleta = boleta.Total;
-            int deuda = montoBoleta - abonos;
+            decimal montoBoleta = boleta.Total;
+            decimal deuda = montoBoleta - abonos;
             return deuda;
         }
 
         #endregion
-        
+
         #region Metodos de la clase
         public bool BuscarAbono(int id)
         {

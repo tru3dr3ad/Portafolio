@@ -52,14 +52,14 @@ namespace Vista
         public void MostrarDeuda(int numeroBoleta)
         {
             Abono abono = new Abono();
-            int deuda = abono.ObtenerDeuda(numeroBoleta);
+            decimal deuda = abono.ObtenerDeuda(numeroBoleta);
             txtDeuda.Text = deuda.ToString();
         }
         private void MostrarMontoAbono(int idAbono)
         {
             Abono abono = new Abono();
             abono = abono.ObtenerAbono(idAbono);
-            int montoAbono = abono.Total;
+            decimal montoAbono = abono.Total;
             txtMontoAbono.Text = montoAbono.ToString();
         }
         private void DatosClienteBoleta(int nroBoleta)
@@ -96,7 +96,6 @@ namespace Vista
             rdbDeudaTotal.Checked = false;
             rdbDeudaParcial.Checked = false;
             txtMontoAbono.Clear();
-            txtDeuda.Clear();
         }
         private void LimpiarGrillaAbono()
         {
