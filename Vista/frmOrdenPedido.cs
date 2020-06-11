@@ -86,10 +86,10 @@ namespace Vista
         }
         public void AgregarOrdenPedido()
         {
-            if (int.Parse(txtTotalOrden.Text) > 0)
+            if (decimal.Parse(txtTotalOrden.Text) > 0)
             {
                 DateTime fechaCreacion = DateTime.Now.Date;
-                int total = int.Parse(txtTotalOrden.Text);
+                decimal total = decimal.Parse(txtTotalOrden.Text);
                 DateTime fechaRecepcion = DateTime.Now.Date;
                 Proveedor proveedor = new Proveedor();
                 proveedor.Rut = (int)cmbProveedor.SelectedValue;
@@ -123,7 +123,7 @@ namespace Vista
                 {
                     string nombreProducto = producto.Nombre;
                     decimal totalProductos = producto.PrecioCompra * cantidad;
-                    decimal totalPedido = int.Parse(txtTotalOrden.Text);
+                    decimal totalPedido = decimal.Parse(txtTotalOrden.Text);
                     totalPedido = totalPedido + totalProductos;
                     txtTotalOrden.Text = totalPedido.ToString();
                     grdOrden.Rows.Add(_codProductoSeleccionado, nombreProducto, cantidad, totalProductos);

@@ -176,6 +176,11 @@ namespace Vista
             RecepcionarOrden();
             CargarGrillaOrden();
         }
+        private void btnDescargarOrden_Click(object sender, EventArgs e)
+        {
+            DescargarOrdenPedido();
+            CargarGrillaOrden();
+        }
         #endregion
 
         #region MetodoGrilla
@@ -202,10 +207,6 @@ namespace Vista
         }
         #endregion
 
-        private void btnDescargarOrden_Click(object sender, EventArgs e)
-        {
-            DescargarOrdenPedido();
-            CargarGrillaOrden();
-        }
+        
     }
 }

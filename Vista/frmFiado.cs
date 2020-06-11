@@ -129,65 +129,94 @@ namespace Vista
         }
         public void AgregarAbono()
         {
-            if (int.Parse(txtMontoAbono.Text) <= int.Parse(txtDeuda.Text))
+            if (!string.IsNullOrEmpty(txtMontoAbono.Text))
             {
-                DateTime fechaAbono = DateTime.Now.Date;
-                int montoAbono = int.Parse(txtMontoAbono.Text);
-                Boleta boleta = new Boleta();
-                boleta = boleta.ObtenerBoleta(_numeroBoleta);
-                DateTime fechaLimite = boleta.FechaCreacion.AddMonths(1);
-
-                Abono abono = new Abono(boleta, montoAbono, fechaAbono, fechaLimite);
-                if (abono.AgregarAbono())
+                if (int.Parse(txtMontoAbono.Text) <= int.Parse(txtDeuda.Text))
                 {
-                    int idAbono = abono.ObtenerIdMaximoAbono();
-                    CargarGrillaAbonoPorBoleta(boleta.Numero);
-                    MessageBox.Show("Abono N°" + idAbono + " agregado.");
-                    _numeroBoleta = 0;
+                    DateTime fechaAbono = DateTime.Now.Date;
+                    int montoAbono = int.Parse(txtMontoAbono.Text);
+                    Boleta boleta = new Boleta();
+                    boleta = boleta.ObtenerBoleta(_numeroBoleta);
+                    DateTime fechaLimite = boleta.FechaCreacion.AddMonths(1);
+
+                    Abono abono = new Abono(boleta, montoAbono, fechaAbono, fechaLimite);
+                    if (abono.AgregarAbono())
+                    {
+                        int idAbono = abono.ObtenerIdMaximoAbono();
+                        CargarGrillaAbonoPorBoleta(boleta.Numero);
+                        MessageBox.Show("Abono N°" + idAbono + " agregado.");
+                        _numeroBoleta = 0;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Monto del abono no puede ser mayor a lo adeudado.");
                 }
             }
             else
             {
-                MessageBox.Show("Monto del abono no puede ser mayor a lo adeudado.");
+                MessageBox.Show("No hay ningun monto ingresado para agregar");
             }
             _numeroBoleta = 0;
         }
         private void ModificarAbono()
         {
-            Abono abono = new Abono();
-            abono = abono.ObtenerAbono(_idAbono);
-            if (int.Parse(txtMontoAbono.Text) == abono.Total)
+            if (!string.IsNullOrEmpty(txtMontoAbono.Text))
             {
-                MessageBox.Show("El monto ingresado es igual al monto guardado");
-            }
-            else
-            {
-                abono.Total = int.Parse(txtMontoAbono.Text);
-                bool estaModificado = abono.ModificarAbono(abono);
-                if (estaModificado)
+                Abono abono = new Abono();
+                abono = abono.ObtenerAbono(_idAbono);
+                if (abono!=null)
                 {
-                    _idAbono = 0;
-                    MessageBox.Show("El abono ha sido modificado");
+                    if (int.Parse(txtMontoAbono.Text) == abono.Total)
+                    {
+                        MessageBox.Show("El monto ingresado es igual al monto guardado");
+                    }
+                    else
+                    {
+                        abono.Total = int.Parse(txtMontoAbono.Text);
+                        bool estaModificado = abono.ModificarAbono(abono);
+                        if (estaModificado)
+                        {
+                            _idAbono = 0;
+                            MessageBox.Show("El abono ha sido modificado");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al modificar abono");
+                        }
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error al modificar abono");
+                    MessageBox.Show("No ha seleccionado ningun abono para modificar");
                 }
+                
+            }
+            else
+            {
+                MessageBox.Show("No hay ningun monto ingresado para modificar");
             }
         }
         private void EliminarAbono()
         {
             Abono abono = new Abono();
             abono = abono.ObtenerAbono(_idAbono);
-            bool estaEliminado = abono.EliminarAbono(abono.Id);
-            if (estaEliminado)
+            if (abono!=null)
             {
-                _idAbono = 0;
-                MessageBox.Show("El abono ha sido eliminado.");
+                bool estaEliminado = abono.EliminarAbono(abono.Id);
+                if (estaEliminado)
+                {
+                    _idAbono = 0;
+                    MessageBox.Show("El abono ha sido eliminado.");
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido eliminar el abono");
+                }
             }
             else
             {
-                MessageBox.Show("No se ha podido eliminar el abono");
+                MessageBox.Show("No ha seleccionado ningun abono para eliminar");
             }
         }
 
