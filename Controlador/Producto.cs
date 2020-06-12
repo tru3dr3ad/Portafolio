@@ -88,7 +88,7 @@ namespace Controlador
 
         #region Metodos
         //TODO cambiar implementacion por subconsultas
-        public Producto StockMinimo() 
+        public Producto StockMinimo()
         {
             try
             {
@@ -113,6 +113,20 @@ namespace Controlador
             catch (Exception)
             {
                 return null;
+                throw;
+            }
+        }
+        public int ContarProductoBajoStockCritico()
+        {
+            try
+            {
+                int cantidadBoletas = (int)ConectorDALC.ModeloAlmacen.PRODUCTO.Where(p => p.STOCK <= p.STOCKCRITICO).
+                    Count();
+                return cantidadBoletas;
+            }
+            catch (Exception)
+            {
+                return 0;
                 throw;
             }
         }
@@ -257,6 +271,7 @@ namespace Controlador
         }
         #endregion
 
+        #region Cambio Moneda
         public void CambiarPrecioPorMoneda(string nombreMoneda, decimal valorMoneda)
         {
             try
@@ -282,6 +297,6 @@ namespace Controlador
                 throw;
             }
         }
-
+        #endregion
     }
 }

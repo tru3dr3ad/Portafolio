@@ -12,9 +12,13 @@ namespace Vista
             MostrarTopProductos();
             MostrarTopVentas();
             MostrarVentasMensuales();
+            MostrarBoletasAnuladas();
             MostrarProductoConMenosStock();
+            MostrarCantidadProductosBajoStockCritico();
             MostrarOrdenAEsperar();
         }
+
+        #region Metodos
         private void MostrarTopProductos()
         {
             Producto producto = new Producto();
@@ -59,12 +63,18 @@ namespace Vista
             int cantidadBoleta = boleta.CantidadBoletasMes();
             lblCantidadBoletas.Text = cantidadBoleta.ToString();
         }
+        private void MostrarBoletasAnuladas()
+        {
+            Boleta boleta = new Boleta();
+            int cantidadBoletaAnuladas = boleta.CantidadBoletasAnuladas();
+            lblBoletasAnuladas.Text = cantidadBoletaAnuladas.ToString();
+        }
         private void MostrarProductoConMenosStock()
         {
-            
+
             Producto producto = new Producto();
             producto = producto.StockMinimo();
-            if (producto!=null)
+            if (producto != null)
             {
                 lblCantidadStockMin.Text = producto.Stock.ToString();
                 lblNombreStockMin.Text = producto.Nombre;
@@ -74,7 +84,7 @@ namespace Vista
         {
             OrdenPedido orden = new OrdenPedido();
             orden = orden.MostrarUltimaOrdenEnviada();
-            if (orden!=null)
+            if (orden != null)
             {
                 lblNumeroOrden.Text = orden.Numero.ToString();
                 //lblNombreProveedor.Text = orden.Proveedor.Rut.ToString();
@@ -83,5 +93,16 @@ namespace Vista
                 lblNombreProveedor.Text = proveedor.Nombre;
             }
         }
+        private void MostrarCantidadProductosBajoStockCritico()
+        {
+            Producto producto = new Producto();
+            int cantidad = producto.ContarProductoBajoStockCritico();
+            
+            lblCantidadStockMin.Text = cantidad.ToString();
+            lblNombreStockMin.Text = producto.Nombre;
+
+        }
+
+        #endregion
     }
 }

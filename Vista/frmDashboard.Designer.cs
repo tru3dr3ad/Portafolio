@@ -80,6 +80,8 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lblCantidadBoletas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblBoletasAnuladas = new System.Windows.Forms.Label();
             this.panel8.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -638,6 +640,8 @@
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.panel4.Controls.Add(this.lblBoletasAnuladas);
+            this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.pictureBox7);
             this.panel4.Controls.Add(this.lblCantidadBoletas);
             this.panel4.Controls.Add(this.label4);
@@ -677,6 +681,28 @@
             this.label4.Size = new System.Drawing.Size(146, 23);
             this.label4.TabIndex = 0;
             this.label4.Text = "Ventas Mensuales";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(18, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(126, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Boletas Anuladas:";
+            // 
+            // lblBoletasAnuladas
+            // 
+            this.lblBoletasAnuladas.AutoSize = true;
+            this.lblBoletasAnuladas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBoletasAnuladas.ForeColor = System.Drawing.Color.White;
+            this.lblBoletasAnuladas.Location = new System.Drawing.Point(140, 102);
+            this.lblBoletasAnuladas.Name = "lblBoletasAnuladas";
+            this.lblBoletasAnuladas.Size = new System.Drawing.Size(25, 20);
+            this.lblBoletasAnuladas.TabIndex = 5;
+            this.lblBoletasAnuladas.Text = "25";
             // 
             // frmDashboard
             // 
@@ -779,5 +805,7 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label lblNombreProducto2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblBoletasAnuladas;
+        private System.Windows.Forms.Label label3;
     }
 }

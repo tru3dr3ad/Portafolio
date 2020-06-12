@@ -166,6 +166,24 @@ namespace Controlador
                 throw;
             }
         }
+        public int CantidadBoletasAnuladas()
+        {
+            try
+            {
+                int cantidadBoletas = (int)ConectorDALC.ModeloAlmacen.BOLETA.Where(b => b.ESTADO_BOLETA.IDESTADO == 2).
+                    Count();
+                return cantidadBoletas;
+            }
+            catch (Exception)
+            {
+                return 0;
+                throw;
+            }
+        }
+        
+        #endregion
+
+        #region Metodos de la clase
         public bool BuscarBoleta(int numero)
         {
             try
@@ -295,6 +313,7 @@ namespace Controlador
                 return false;
             }
         }
+        
         #endregion
 
     }
