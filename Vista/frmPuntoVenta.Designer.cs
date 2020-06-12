@@ -230,9 +230,10 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(180, 473);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.label3.Location = new System.Drawing.Point(152, 475);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.Size = new System.Drawing.Size(62, 30);
             this.label3.TabIndex = 26;
             this.label3.Text = "Total:";
             // 
@@ -241,9 +242,10 @@
             this.txtTotalBoleta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotalBoleta.Enabled = false;
+            this.txtTotalBoleta.Font = new System.Drawing.Font("Segoe UI", 15.75F);
             this.txtTotalBoleta.Location = new System.Drawing.Point(220, 470);
             this.txtTotalBoleta.Name = "txtTotalBoleta";
-            this.txtTotalBoleta.Size = new System.Drawing.Size(121, 20);
+            this.txtTotalBoleta.Size = new System.Drawing.Size(121, 35);
             this.txtTotalBoleta.TabIndex = 27;
             this.txtTotalBoleta.Text = "0";
             this.txtTotalBoleta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -252,9 +254,10 @@
             // 
             this.btnQuitarProducto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuitarProducto.Font = new System.Drawing.Font("Segoe UI", 15.75F);
             this.btnQuitarProducto.Location = new System.Drawing.Point(22, 470);
             this.btnQuitarProducto.Name = "btnQuitarProducto";
-            this.btnQuitarProducto.Size = new System.Drawing.Size(75, 23);
+            this.btnQuitarProducto.Size = new System.Drawing.Size(95, 38);
             this.btnQuitarProducto.TabIndex = 28;
             this.btnQuitarProducto.Text = "Quitar";
             this.btnQuitarProducto.UseVisualStyleBackColor = true;
@@ -453,9 +456,10 @@
             // 
             // btnAgregarProducto
             // 
+            this.btnAgregarProducto.Font = new System.Drawing.Font("Segoe UI", 15.75F);
             this.btnAgregarProducto.Location = new System.Drawing.Point(333, 470);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(104, 23);
+            this.btnAgregarProducto.Size = new System.Drawing.Size(104, 38);
             this.btnAgregarProducto.TabIndex = 15;
             this.btnAgregarProducto.Text = "Agregar Productos";
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
@@ -463,9 +467,10 @@
             // 
             // txtCantidad
             // 
+            this.txtCantidad.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad.Location = new System.Drawing.Point(236, 473);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(87, 20);
+            this.txtCantidad.Size = new System.Drawing.Size(87, 35);
             this.txtCantidad.TabIndex = 14;
             this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

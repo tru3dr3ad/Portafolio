@@ -58,6 +58,9 @@ namespace Vista
             grdDetalleBoleta.Columns["PRODUCTO_CODIGO"].Visible = false;
             grdDetalleBoleta.Columns["NOMBRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
+        #endregion
+
+        #region Metodos de la clase
         private void BuscarBoletasPorNombreCliente()
         {
             string nombre = txtBuscarBoleta.Text.ToUpper();
@@ -69,24 +72,31 @@ namespace Vista
         private void AnularBoleta()
         {
             Boleta boleta = new Boleta();
-            boleta = boleta.ObtenerBoleta(_numeroBoletaSeleccionado);
-            if (!boleta.BoletaAnulada(boleta))
+            if (_numeroBoletaSeleccionado > 0)
             {
-                bool boletaAnulada = boleta.AnularBoleta(_numeroBoletaSeleccionado);
-                if (boletaAnulada)
+                boleta = boleta.ObtenerBoleta(_numeroBoletaSeleccionado);
+                if (!boleta.BoletaAnulada(boleta))
                 {
-                    MessageBox.Show("La boleta N°" + _numeroBoletaSeleccionado + " se ha anulado.");
+                    bool boletaAnulada = boleta.AnularBoleta(_numeroBoletaSeleccionado);
+                    if (boletaAnulada)
+                    {
+                        MessageBox.Show("La boleta N°" + _numeroBoletaSeleccionado + " se ha anulado.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hubo un error al anular boleta.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Hubo un error al anular boleta.");
+                    MessageBox.Show("Boleta seleccionada ya se encuentra anulada.");
                 }
+                _numeroBoletaSeleccionado = 0;
             }
             else
             {
-                MessageBox.Show("Boleta seleccionada ya se encuentra anulada.");
+                MessageBox.Show("No hay ninguna boleta seleccionada para anular.");
             }
-            _numeroBoletaSeleccionado = 0;
         }
         private void LimpiarGrillaDetalle()
         {

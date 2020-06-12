@@ -129,35 +129,41 @@ namespace Vista
         }
         public void AgregarAbono()
         {
-            if (!string.IsNullOrEmpty(txtMontoAbono.Text))
+            if (!string.IsNullOrEmpty(txtDeuda.Text) && txtDeuda.Text != "--")
             {
-                if (int.Parse(txtMontoAbono.Text) <= int.Parse(txtDeuda.Text))
+                if (!string.IsNullOrEmpty(txtMontoAbono.Text))
                 {
-                    DateTime fechaAbono = DateTime.Now.Date;
-                    int montoAbono = int.Parse(txtMontoAbono.Text);
-                    Boleta boleta = new Boleta();
-                    boleta = boleta.ObtenerBoleta(_numeroBoleta);
-                    DateTime fechaLimite = boleta.FechaCreacion.AddMonths(1);
-
-                    Abono abono = new Abono(boleta, montoAbono, fechaAbono, fechaLimite);
-                    if (abono.AgregarAbono())
+                    if (int.Parse(txtMontoAbono.Text) <= int.Parse(txtDeuda.Text))
                     {
-                        int idAbono = abono.ObtenerIdMaximoAbono();
-                        CargarGrillaAbonoPorBoleta(boleta.Numero);
-                        MessageBox.Show("Abono N°" + idAbono + " agregado.");
-                        _numeroBoleta = 0;
+                        DateTime fechaAbono = DateTime.Now.Date;
+                        int montoAbono = int.Parse(txtMontoAbono.Text);
+                        Boleta boleta = new Boleta();
+                        boleta = boleta.ObtenerBoleta(_numeroBoleta);
+                        DateTime fechaLimite = boleta.FechaCreacion.AddMonths(1);
+
+                        Abono abono = new Abono(boleta, montoAbono, fechaAbono, fechaLimite);
+                        if (abono.AgregarAbono())
+                        {
+                            int idAbono = abono.ObtenerIdMaximoAbono();
+                            CargarGrillaAbonoPorBoleta(boleta.Numero);
+                            MessageBox.Show("Abono N°" + idAbono + " agregado.");
+                            _numeroBoleta = 0;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Monto del abono no puede ser mayor a lo adeudado.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Monto del abono no puede ser mayor a lo adeudado.");
+                    MessageBox.Show("No hay ningun monto ingresado para agregar");
                 }
             }
             else
             {
-                MessageBox.Show("No hay ningun monto ingresado para agregar");
+                MessageBox.Show("Debe seleccionar una boleta para pagar primero");
             }
-            _numeroBoleta = 0;
         }
         private void ModificarAbono()
         {
@@ -165,7 +171,7 @@ namespace Vista
             {
                 Abono abono = new Abono();
                 abono = abono.ObtenerAbono(_idAbono);
-                if (abono!=null)
+                if (abono != null)
                 {
                     if (int.Parse(txtMontoAbono.Text) == abono.Total)
                     {
@@ -190,7 +196,7 @@ namespace Vista
                 {
                     MessageBox.Show("No ha seleccionado ningun abono para modificar");
                 }
-                
+
             }
             else
             {
@@ -201,7 +207,7 @@ namespace Vista
         {
             Abono abono = new Abono();
             abono = abono.ObtenerAbono(_idAbono);
-            if (abono!=null)
+            if (abono != null)
             {
                 bool estaEliminado = abono.EliminarAbono(abono.Id);
                 if (estaEliminado)
