@@ -595,7 +595,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMenuAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Yuyitos";
             this.pnlBarraTitulo.ResumeLayout(false);
             this.pnlBarraTitulo.PerformLayout();
             this.pnlMenuVertical.ResumeLayout(false);

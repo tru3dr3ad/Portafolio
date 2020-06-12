@@ -16,7 +16,7 @@ namespace Modelo
     {
         public decimal NUMERO { get; set; }
         public System.DateTime FECHA_CREACION { get; set; }
-        public int TOTAL { get; set; }
+        public decimal TOTAL { get; set; }
         public System.DateTime FECHA_RECEPCION { get; set; }
         public decimal PROVEEDOR_RUT { get; set; }
         public string PROVEEDOR { get; set; }

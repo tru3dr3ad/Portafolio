@@ -137,7 +137,7 @@ namespace Vista
                 Producto producto = new Producto();
                 decimal valorCompra = producto.ObtenerValorCompraProducto(_codProductoQuitar);
                 decimal cantidad = decimal.Parse(grdOrden.Rows[grdOrden.CurrentRow.Index].Cells[2].Value.ToString());
-                decimal totalBoleta = int.Parse(txtTotalOrden.Text);
+                decimal totalBoleta = decimal.Parse(txtTotalOrden.Text);
                 totalBoleta = totalBoleta - (valorCompra * cantidad);
                 txtTotalOrden.Text = totalBoleta.ToString();
 

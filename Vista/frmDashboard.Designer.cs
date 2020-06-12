@@ -77,11 +77,11 @@
             this.lblCantidadStockMin = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblBoletasAnuladas = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lblCantidadBoletas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblBoletasAnuladas = new System.Windows.Forms.Label();
             this.panel8.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -139,7 +139,7 @@
             this.lblFechaBoleta3.Name = "lblFechaBoleta3";
             this.lblFechaBoleta3.Size = new System.Drawing.Size(96, 23);
             this.lblFechaBoleta3.TabIndex = 8;
-            this.lblFechaBoleta3.Text = "30/04/2020";
+            this.lblFechaBoleta3.Text = "01/01/2020";
             // 
             // lblRun3
             // 
@@ -150,7 +150,7 @@
             this.lblRun3.Name = "lblRun3";
             this.lblRun3.Size = new System.Drawing.Size(98, 23);
             this.lblRun3.TabIndex = 7;
-            this.lblRun3.Text = "15486759-5";
+            this.lblRun3.Text = "00000000-0";
             // 
             // lblBoletaNombre3
             // 
@@ -159,9 +159,9 @@
             this.lblBoletaNombre3.ForeColor = System.Drawing.Color.White;
             this.lblBoletaNombre3.Location = new System.Drawing.Point(88, 30);
             this.lblBoletaNombre3.Name = "lblBoletaNombre3";
-            this.lblBoletaNombre3.Size = new System.Drawing.Size(131, 23);
+            this.lblBoletaNombre3.Size = new System.Drawing.Size(87, 23);
             this.lblBoletaNombre3.TabIndex = 4;
-            this.lblBoletaNombre3.Text = "Eurasio Mendez";
+            this.lblBoletaNombre3.Text = "Sin ventas";
             // 
             // pictureBox3
             // 
@@ -178,11 +178,11 @@
             this.lblTotal3.AutoSize = true;
             this.lblTotal3.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal3.ForeColor = System.Drawing.Color.White;
-            this.lblTotal3.Location = new System.Drawing.Point(308, 30);
+            this.lblTotal3.Location = new System.Drawing.Point(330, 22);
             this.lblTotal3.Name = "lblTotal3";
-            this.lblTotal3.Size = new System.Drawing.Size(92, 46);
+            this.lblTotal3.Size = new System.Drawing.Size(56, 46);
             this.lblTotal3.TabIndex = 4;
-            this.lblTotal3.Text = "3500";
+            this.lblTotal3.Text = "$0";
             this.lblTotal3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel10
@@ -207,7 +207,7 @@
             this.lblFechaBoleta2.Name = "lblFechaBoleta2";
             this.lblFechaBoleta2.Size = new System.Drawing.Size(96, 23);
             this.lblFechaBoleta2.TabIndex = 8;
-            this.lblFechaBoleta2.Text = "30/04/2020";
+            this.lblFechaBoleta2.Text = "01/01/2020";
             // 
             // lblRun2
             // 
@@ -218,7 +218,7 @@
             this.lblRun2.Name = "lblRun2";
             this.lblRun2.Size = new System.Drawing.Size(98, 23);
             this.lblRun2.TabIndex = 7;
-            this.lblRun2.Text = "15486759-5";
+            this.lblRun2.Text = "00000000-0";
             // 
             // lblBoletaNombre2
             // 
@@ -227,9 +227,9 @@
             this.lblBoletaNombre2.ForeColor = System.Drawing.Color.White;
             this.lblBoletaNombre2.Location = new System.Drawing.Point(88, 30);
             this.lblBoletaNombre2.Name = "lblBoletaNombre2";
-            this.lblBoletaNombre2.Size = new System.Drawing.Size(131, 23);
+            this.lblBoletaNombre2.Size = new System.Drawing.Size(87, 23);
             this.lblBoletaNombre2.TabIndex = 4;
-            this.lblBoletaNombre2.Text = "Eurasio Mendez";
+            this.lblBoletaNombre2.Text = "Sin ventas";
             // 
             // pictureBox2
             // 
@@ -246,11 +246,11 @@
             this.lblTotal2.AutoSize = true;
             this.lblTotal2.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal2.ForeColor = System.Drawing.Color.White;
-            this.lblTotal2.Location = new System.Drawing.Point(311, 27);
+            this.lblTotal2.Location = new System.Drawing.Point(330, 22);
             this.lblTotal2.Name = "lblTotal2";
-            this.lblTotal2.Size = new System.Drawing.Size(92, 46);
+            this.lblTotal2.Size = new System.Drawing.Size(56, 46);
             this.lblTotal2.TabIndex = 4;
-            this.lblTotal2.Text = "3500";
+            this.lblTotal2.Text = "$0";
             this.lblTotal2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel9
@@ -275,7 +275,7 @@
             this.lblFechaBoleta1.Name = "lblFechaBoleta1";
             this.lblFechaBoleta1.Size = new System.Drawing.Size(96, 23);
             this.lblFechaBoleta1.TabIndex = 8;
-            this.lblFechaBoleta1.Text = "30/04/2020";
+            this.lblFechaBoleta1.Text = "01/01/2020";
             // 
             // lblRun1
             // 
@@ -286,7 +286,7 @@
             this.lblRun1.Name = "lblRun1";
             this.lblRun1.Size = new System.Drawing.Size(98, 23);
             this.lblRun1.TabIndex = 7;
-            this.lblRun1.Text = "15486759-5";
+            this.lblRun1.Text = "00000000-0";
             // 
             // lblBoletaNombre1
             // 
@@ -295,9 +295,9 @@
             this.lblBoletaNombre1.ForeColor = System.Drawing.Color.White;
             this.lblBoletaNombre1.Location = new System.Drawing.Point(88, 30);
             this.lblBoletaNombre1.Name = "lblBoletaNombre1";
-            this.lblBoletaNombre1.Size = new System.Drawing.Size(131, 23);
+            this.lblBoletaNombre1.Size = new System.Drawing.Size(87, 23);
             this.lblBoletaNombre1.TabIndex = 4;
-            this.lblBoletaNombre1.Text = "Eurasio Mendez";
+            this.lblBoletaNombre1.Text = "Sin ventas";
             // 
             // pictureBox1
             // 
@@ -314,11 +314,11 @@
             this.lblTotal1.AutoSize = true;
             this.lblTotal1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal1.ForeColor = System.Drawing.Color.White;
-            this.lblTotal1.Location = new System.Drawing.Point(308, 30);
+            this.lblTotal1.Location = new System.Drawing.Point(330, 26);
             this.lblTotal1.Name = "lblTotal1";
-            this.lblTotal1.Size = new System.Drawing.Size(92, 46);
+            this.lblTotal1.Size = new System.Drawing.Size(56, 46);
             this.lblTotal1.TabIndex = 4;
-            this.lblTotal1.Text = "3500";
+            this.lblTotal1.Text = "$0";
             this.lblTotal1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
@@ -362,11 +362,11 @@
             this.lblPrecioProducto3.AutoSize = true;
             this.lblPrecioProducto3.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioProducto3.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioProducto3.Location = new System.Drawing.Point(308, 27);
+            this.lblPrecioProducto3.Location = new System.Drawing.Point(339, 22);
             this.lblPrecioProducto3.Name = "lblPrecioProducto3";
-            this.lblPrecioProducto3.Size = new System.Drawing.Size(92, 46);
+            this.lblPrecioProducto3.Size = new System.Drawing.Size(56, 46);
             this.lblPrecioProducto3.TabIndex = 17;
-            this.lblPrecioProducto3.Text = "2500";
+            this.lblPrecioProducto3.Text = "$0";
             this.lblPrecioProducto3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDescripcionProducto3
@@ -376,9 +376,9 @@
             this.lblDescripcionProducto3.ForeColor = System.Drawing.Color.White;
             this.lblDescripcionProducto3.Location = new System.Drawing.Point(89, 50);
             this.lblDescripcionProducto3.Name = "lblDescripcionProducto3";
-            this.lblDescripcionProducto3.Size = new System.Drawing.Size(158, 23);
+            this.lblDescripcionProducto3.Size = new System.Drawing.Size(167, 23);
             this.lblDescripcionProducto3.TabIndex = 21;
-            this.lblDescripcionProducto3.Text = "Bebidas (Categoria)";
+            this.lblDescripcionProducto3.Text = "Sin ventas realizadas";
             // 
             // pictureBox6
             // 
@@ -397,9 +397,9 @@
             this.lblNombreProducto3.ForeColor = System.Drawing.Color.White;
             this.lblNombreProducto3.Location = new System.Drawing.Point(89, 22);
             this.lblNombreProducto3.Name = "lblNombreProducto3";
-            this.lblNombreProducto3.Size = new System.Drawing.Size(120, 23);
+            this.lblNombreProducto3.Size = new System.Drawing.Size(174, 23);
             this.lblNombreProducto3.TabIndex = 18;
-            this.lblNombreProducto3.Text = "Coca-Cola 3lts";
+            this.lblNombreProducto3.Text = "Sin producto vendido";
             // 
             // panel2
             // 
@@ -418,11 +418,11 @@
             this.lblPrecioProducto2.AutoSize = true;
             this.lblPrecioProducto2.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioProducto2.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioProducto2.Location = new System.Drawing.Point(308, 27);
+            this.lblPrecioProducto2.Location = new System.Drawing.Point(339, 22);
             this.lblPrecioProducto2.Name = "lblPrecioProducto2";
-            this.lblPrecioProducto2.Size = new System.Drawing.Size(92, 46);
+            this.lblPrecioProducto2.Size = new System.Drawing.Size(56, 46);
             this.lblPrecioProducto2.TabIndex = 17;
-            this.lblPrecioProducto2.Text = "2500";
+            this.lblPrecioProducto2.Text = "$0";
             this.lblPrecioProducto2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDescripcionProducto2
@@ -432,9 +432,9 @@
             this.lblDescripcionProducto2.ForeColor = System.Drawing.Color.White;
             this.lblDescripcionProducto2.Location = new System.Drawing.Point(89, 50);
             this.lblDescripcionProducto2.Name = "lblDescripcionProducto2";
-            this.lblDescripcionProducto2.Size = new System.Drawing.Size(158, 23);
+            this.lblDescripcionProducto2.Size = new System.Drawing.Size(167, 23);
             this.lblDescripcionProducto2.TabIndex = 21;
-            this.lblDescripcionProducto2.Text = "Bebidas (Categoria)";
+            this.lblDescripcionProducto2.Text = "Sin ventas realizadas";
             // 
             // pictureBox5
             // 
@@ -453,9 +453,9 @@
             this.lblNombreProducto2.ForeColor = System.Drawing.Color.White;
             this.lblNombreProducto2.Location = new System.Drawing.Point(89, 22);
             this.lblNombreProducto2.Name = "lblNombreProducto2";
-            this.lblNombreProducto2.Size = new System.Drawing.Size(120, 23);
+            this.lblNombreProducto2.Size = new System.Drawing.Size(174, 23);
             this.lblNombreProducto2.TabIndex = 18;
-            this.lblNombreProducto2.Text = "Coca-Cola 3lts";
+            this.lblNombreProducto2.Text = "Sin producto vendido";
             // 
             // panel1
             // 
@@ -474,11 +474,11 @@
             this.lblPrecioProducto1.AutoSize = true;
             this.lblPrecioProducto1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioProducto1.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioProducto1.Location = new System.Drawing.Point(308, 22);
+            this.lblPrecioProducto1.Location = new System.Drawing.Point(339, 26);
             this.lblPrecioProducto1.Name = "lblPrecioProducto1";
-            this.lblPrecioProducto1.Size = new System.Drawing.Size(92, 46);
+            this.lblPrecioProducto1.Size = new System.Drawing.Size(56, 46);
             this.lblPrecioProducto1.TabIndex = 17;
-            this.lblPrecioProducto1.Text = "2500";
+            this.lblPrecioProducto1.Text = "$0";
             this.lblPrecioProducto1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDescripcionProducto1
@@ -488,9 +488,9 @@
             this.lblDescripcionProducto1.ForeColor = System.Drawing.Color.White;
             this.lblDescripcionProducto1.Location = new System.Drawing.Point(89, 45);
             this.lblDescripcionProducto1.Name = "lblDescripcionProducto1";
-            this.lblDescripcionProducto1.Size = new System.Drawing.Size(158, 23);
+            this.lblDescripcionProducto1.Size = new System.Drawing.Size(167, 23);
             this.lblDescripcionProducto1.TabIndex = 21;
-            this.lblDescripcionProducto1.Text = "Bebidas (Categoria)";
+            this.lblDescripcionProducto1.Text = "Sin ventas realizadas";
             // 
             // pictureBox4
             // 
@@ -509,9 +509,9 @@
             this.lblNombreProducto1.ForeColor = System.Drawing.Color.White;
             this.lblNombreProducto1.Location = new System.Drawing.Point(89, 20);
             this.lblNombreProducto1.Name = "lblNombreProducto1";
-            this.lblNombreProducto1.Size = new System.Drawing.Size(120, 23);
+            this.lblNombreProducto1.Size = new System.Drawing.Size(174, 23);
             this.lblNombreProducto1.TabIndex = 18;
-            this.lblNombreProducto1.Text = "Coca-Cola 3lts";
+            this.lblNombreProducto1.Text = "Sin producto vendido";
             // 
             // label2
             // 
@@ -554,20 +554,20 @@
             this.lblNombreProveedor.ForeColor = System.Drawing.Color.White;
             this.lblNombreProveedor.Location = new System.Drawing.Point(17, 96);
             this.lblNombreProveedor.Name = "lblNombreProveedor";
-            this.lblNombreProveedor.Size = new System.Drawing.Size(122, 23);
+            this.lblNombreProveedor.Size = new System.Drawing.Size(116, 23);
             this.lblNombreProveedor.TabIndex = 2;
-            this.lblNombreProveedor.Text = "CCU Company";
+            this.lblNombreProveedor.Text = "No proveedor";
             // 
             // lblNumeroOrden
             // 
             this.lblNumeroOrden.AutoSize = true;
             this.lblNumeroOrden.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumeroOrden.ForeColor = System.Drawing.Color.White;
-            this.lblNumeroOrden.Location = new System.Drawing.Point(13, 45);
+            this.lblNumeroOrden.Location = new System.Drawing.Point(3, 45);
             this.lblNumeroOrden.Name = "lblNumeroOrden";
-            this.lblNumeroOrden.Size = new System.Drawing.Size(146, 46);
+            this.lblNumeroOrden.Size = new System.Drawing.Size(194, 46);
             this.lblNumeroOrden.TabIndex = 1;
-            this.lblNumeroOrden.Text = "8978546";
+            this.lblNumeroOrden.Text = "Sin pedidos";
             // 
             // label12
             // 
@@ -610,20 +610,20 @@
             this.lblNombreStockMin.ForeColor = System.Drawing.Color.White;
             this.lblNombreStockMin.Location = new System.Drawing.Point(17, 96);
             this.lblNombreStockMin.Name = "lblNombreStockMin";
-            this.lblNombreStockMin.Size = new System.Drawing.Size(81, 23);
+            this.lblNombreStockMin.Size = new System.Drawing.Size(115, 23);
             this.lblNombreStockMin.TabIndex = 2;
-            this.lblNombreStockMin.Text = "Cloro Gel";
+            this.lblNombreStockMin.Text = "Sin productos";
             // 
             // lblCantidadStockMin
             // 
             this.lblCantidadStockMin.AutoSize = true;
             this.lblCantidadStockMin.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidadStockMin.ForeColor = System.Drawing.Color.White;
-            this.lblCantidadStockMin.Location = new System.Drawing.Point(13, 45);
+            this.lblCantidadStockMin.Location = new System.Drawing.Point(68, 45);
             this.lblCantidadStockMin.Name = "lblCantidadStockMin";
             this.lblCantidadStockMin.Size = new System.Drawing.Size(38, 46);
             this.lblCantidadStockMin.TabIndex = 1;
-            this.lblCantidadStockMin.Text = "2";
+            this.lblCantidadStockMin.Text = "0";
             // 
             // label9
             // 
@@ -632,9 +632,9 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(17, 22);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(163, 23);
+            this.label9.Size = new System.Drawing.Size(166, 23);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Producto Bajo Stock";
+            this.label9.Text = "Cantidad Productos ";
             // 
             // panel4
             // 
@@ -649,6 +649,28 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(312, 138);
             this.panel4.TabIndex = 18;
+            // 
+            // lblBoletasAnuladas
+            // 
+            this.lblBoletasAnuladas.AutoSize = true;
+            this.lblBoletasAnuladas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBoletasAnuladas.ForeColor = System.Drawing.Color.White;
+            this.lblBoletasAnuladas.Location = new System.Drawing.Point(146, 102);
+            this.lblBoletasAnuladas.Name = "lblBoletasAnuladas";
+            this.lblBoletasAnuladas.Size = new System.Drawing.Size(17, 20);
+            this.lblBoletasAnuladas.TabIndex = 5;
+            this.lblBoletasAnuladas.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(18, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(126, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Boletas Anuladas:";
             // 
             // pictureBox7
             // 
@@ -665,11 +687,11 @@
             this.lblCantidadBoletas.AutoSize = true;
             this.lblCantidadBoletas.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidadBoletas.ForeColor = System.Drawing.Color.White;
-            this.lblCantidadBoletas.Location = new System.Drawing.Point(52, 45);
+            this.lblCantidadBoletas.Location = new System.Drawing.Point(64, 45);
             this.lblCantidadBoletas.Name = "lblCantidadBoletas";
-            this.lblCantidadBoletas.Size = new System.Drawing.Size(99, 46);
+            this.lblCantidadBoletas.Size = new System.Drawing.Size(38, 46);
             this.lblCantidadBoletas.TabIndex = 1;
-            this.lblCantidadBoletas.Text = "1.564";
+            this.lblCantidadBoletas.Text = "0";
             // 
             // label4
             // 
@@ -678,31 +700,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(17, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 23);
+            this.label4.Size = new System.Drawing.Size(150, 23);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Ventas Mensuales";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(18, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Boletas Anuladas:";
-            // 
-            // lblBoletasAnuladas
-            // 
-            this.lblBoletasAnuladas.AutoSize = true;
-            this.lblBoletasAnuladas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBoletasAnuladas.ForeColor = System.Drawing.Color.White;
-            this.lblBoletasAnuladas.Location = new System.Drawing.Point(140, 102);
-            this.lblBoletasAnuladas.Name = "lblBoletasAnuladas";
-            this.lblBoletasAnuladas.Size = new System.Drawing.Size(25, 20);
-            this.lblBoletasAnuladas.TabIndex = 5;
-            this.lblBoletasAnuladas.Text = "25";
+            this.label4.Text = "Boletas Mensuales";
             // 
             // frmDashboard
             // 
