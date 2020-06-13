@@ -270,6 +270,7 @@ namespace Controlador
             decimal valorCompra = producto.PrecioCompra;
             return valorCompra;
         }
+
         #endregion
 
         #region Cambio Moneda

@@ -75,16 +75,22 @@ namespace Vista
             txtStockCritico.Clear();
             cmbCategoria.SelectedIndex = 0;
         }
+        public int NumeroRandom(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
+        }
         private string GenerarCodigoProducto()
         {
             string idProveedor = cmbProveedor.SelectedValue.ToString();
-            string idCategoria = cmbCategoria.SelectedValue.ToString();
+            int formatoCategoria = (int)cmbCategoria.SelectedValue;
+            string idCategoria = formatoCategoria.ToString("000");
             string fechaVencimiento = dtpFechaVencimiento.Value.ToString("ddmmyyyy");
             if (DateTime.Now.Date == dtpFechaVencimiento.Value.Date)
             {
                 fechaVencimiento = "00000000";
             }
-            string idSecuencial = txtCodigo.Text;
+            int idSecuencial = NumeroRandom(100,999);
             string codigoProducto = idProveedor + idCategoria + fechaVencimiento + idSecuencial;
             return codigoProducto;
         }

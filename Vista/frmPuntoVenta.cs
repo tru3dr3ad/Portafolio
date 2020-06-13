@@ -105,6 +105,17 @@ namespace Vista
             grdProducto.Columns["PRECIO_VENTA"].HeaderText = "PRECIO";
             grdProducto.Columns["STOCK"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
+        //private bool EnteroODecimal(decimal numero)
+        //{
+        //    if ((numero % 1)== 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
         #endregion
 
         #region Metodos de la clase
