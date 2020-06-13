@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtValorMoneda = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,7 +67,8 @@
             this.btnEliminarRubro = new System.Windows.Forms.Button();
             this.btnAgregarRubro = new System.Windows.Forms.Button();
             this.txtRubro = new System.Windows.Forms.TextBox();
-            this.txtValorMoneda = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblValorDolar = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.gpbCategoria.SuspendLayout();
@@ -78,6 +80,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblValorDolar);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtValorMoneda);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -90,6 +94,13 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Multimonetario";
+            // 
+            // txtValorMoneda
+            // 
+            this.txtValorMoneda.Location = new System.Drawing.Point(51, 199);
+            this.txtValorMoneda.Name = "txtValorMoneda";
+            this.txtValorMoneda.Size = new System.Drawing.Size(140, 20);
+            this.txtValorMoneda.TabIndex = 5;
             // 
             // label3
             // 
@@ -130,7 +141,7 @@
             // 
             // btnMoneda
             // 
-            this.btnMoneda.Location = new System.Drawing.Point(66, 183);
+            this.btnMoneda.Location = new System.Drawing.Point(76, 225);
             this.btnMoneda.Name = "btnMoneda";
             this.btnMoneda.Size = new System.Drawing.Size(75, 23);
             this.btnMoneda.TabIndex = 0;
@@ -456,12 +467,23 @@
             this.txtRubro.Size = new System.Drawing.Size(100, 20);
             this.txtRubro.TabIndex = 2;
             // 
-            // txtValorMoneda
+            // label9
             // 
-            this.txtValorMoneda.Location = new System.Drawing.Point(51, 157);
-            this.txtValorMoneda.Name = "txtValorMoneda";
-            this.txtValorMoneda.Size = new System.Drawing.Size(100, 20);
-            this.txtValorMoneda.TabIndex = 5;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(48, 151);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(62, 13);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Valor Dolar:";
+            // 
+            // lblValorDolar
+            // 
+            this.lblValorDolar.AutoSize = true;
+            this.lblValorDolar.Location = new System.Drawing.Point(106, 151);
+            this.lblValorDolar.Name = "lblValorDolar";
+            this.lblValorDolar.Size = new System.Drawing.Size(40, 13);
+            this.lblValorDolar.TabIndex = 7;
+            this.lblValorDolar.Text = "850.25";
             // 
             // frmConfiguracion
             // 
@@ -532,5 +554,7 @@
         private System.Windows.Forms.TextBox txtTipoCliente;
         private System.Windows.Forms.GroupBox gpbRubro;
         private System.Windows.Forms.TextBox txtValorMoneda;
+        private System.Windows.Forms.Label lblValorDolar;
+        private System.Windows.Forms.Label label9;
     }
 }

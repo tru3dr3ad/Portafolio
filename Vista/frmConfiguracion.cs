@@ -14,6 +14,7 @@ namespace Vista
             CargarComboboxEstadoFiado();
             CargarComboboxEstadoOrden();
             CargarComboboxCategoria();
+            ValorDolar();
         }
         #region Metodos
         private void CargarComboboxRubro()
@@ -53,13 +54,19 @@ namespace Vista
         }
         private void CambioMoneda()
         {
-            //decimal dolar = 750.54m;
+            Dolar dolar = new Dolar();
+            decimal dolarValor = dolar.ObtenerValorDolar();
             Producto producto = new Producto();
-            producto.CambiarPrecioPorMoneda(txtValorMoneda.Text, 750.54m);
+            producto.CambiarPrecioPorMoneda(txtValorMoneda.Text, dolarValor);
+        }
+        private void ValorDolar()
+        {
+            Dolar dolar = new Dolar();
+            lblValorDolar.Text = dolar.ObtenerValorDolar().ToString();
         }
         #endregion
 
-        #region
+        #region Metodos de la clase
         private void AgregarRubro()
         {
             if (!String.IsNullOrEmpty(txtRubro.Text))
@@ -78,7 +85,7 @@ namespace Vista
         }
         private void EliminarRubro()
         {
-            if ((int.Parse(cmbRubro.SelectedValue.ToString()))>0)
+            if ((int.Parse(cmbRubro.SelectedValue.ToString())) > 0)
             {
                 TipoRubro rubro = new TipoRubro();
                 string descripcion = cmbRubro.Text;

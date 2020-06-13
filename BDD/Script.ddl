@@ -1,5 +1,5 @@
 -- Generado por Oracle SQL Developer Data Modeler 19.2.0.182.1216
---   en:        2020-06-07 05:04:24 CLT
+--   en:        2020-06-10 19:28:16 CLT
 --   sitio:      Oracle Database 12c
 --   tipo:      Oracle Database 12c
 
@@ -53,7 +53,7 @@ DROP TABLE usuario CASCADE CONSTRAINTS;
 CREATE TABLE abono (
     idabono               INTEGER NOT NULL,
     boleta_numeroboleta   INTEGER NOT NULL,
-    total                 NUMBER(6) NOT NULL,
+    total                 FLOAT NOT NULL,
     fechaabono            DATE NOT NULL,
     fechalimite           DATE NOT NULL
 );
@@ -63,7 +63,7 @@ ALTER TABLE abono ADD CONSTRAINT abono_pk PRIMARY KEY ( idabono );
 CREATE TABLE boleta (
     numeroboleta             INTEGER NOT NULL,
     fechacreacion            DATE NOT NULL,
-    total                    INTEGER NOT NULL,
+    total                    FLOAT NOT NULL,
     medio_pago_idmedio       INTEGER NOT NULL,
     cliente_runcliente       INTEGER NOT NULL,
     usuario_runusuario       INTEGER NOT NULL,
@@ -148,7 +148,7 @@ ALTER TABLE medio_pago ADD CONSTRAINT medio_pago_pk PRIMARY KEY ( idmedio );
 CREATE TABLE orden_pedido (
     numeroorden             INTEGER NOT NULL,
     fechacreacion           DATE NOT NULL,
-    total                   NUMBER(8) NOT NULL,
+    total                   FLOAT NOT NULL,
     fecharecepcion          DATE NOT NULL,
     proveedor_rut           INTEGER NOT NULL,
     estado_orden_idestado   INTEGER NOT NULL,
@@ -161,8 +161,8 @@ CREATE TABLE producto (
     codigo                  VARCHAR2(17 CHAR) NOT NULL,
     nombre                  VARCHAR2(70 CHAR) NOT NULL,
     descripcion             VARCHAR2(250 CHAR) NOT NULL,
-    precioventa             INTEGER NOT NULL,
-    preciocompra            INTEGER NOT NULL,
+    precioventa             FLOAT NOT NULL,
+    preciocompra            FLOAT NOT NULL,
     stock                   INTEGER NOT NULL,
     stockcritico            INTEGER NOT NULL,
     fechavencimiento        DATE NOT NULL,

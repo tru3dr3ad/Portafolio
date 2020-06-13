@@ -119,7 +119,7 @@ namespace Vista
         }
         public void AgregarBoleta()
         {
-            if (int.Parse(txtTotalBoleta.Text) > 0)
+            if (decimal.Parse(txtTotalBoleta.Text) > 0)
             {
                 DateTime fechaCreacion = DateTime.Now.Date;
                 int total = int.Parse(txtTotalBoleta.Text);
@@ -157,7 +157,7 @@ namespace Vista
                 {
                     string nombreProducto = producto.Nombre;
                     decimal totalProductos = producto.PrecioVenta * cantidad;
-                    decimal totalBoleta = int.Parse(txtTotalBoleta.Text);
+                    decimal totalBoleta = decimal.Parse(txtTotalBoleta.Text);
                     totalBoleta = totalBoleta + totalProductos;
                     txtTotalBoleta.Text = totalBoleta.ToString();
                     grdBoleta.Rows.Add(_codProductoSeleccionado, nombreProducto, cantidad, totalProductos);
@@ -171,7 +171,7 @@ namespace Vista
                 Producto producto = new Producto();
                 decimal valorVenta = producto.ObtenerValorVentaProducto(_codProductoQuitar);
                 int cantidad = int.Parse(grdBoleta.Rows[grdBoleta.CurrentRow.Index].Cells[2].Value.ToString());
-                decimal totalBoleta = int.Parse(txtTotalBoleta.Text);
+                decimal totalBoleta = decimal.Parse(txtTotalBoleta.Text);
                 totalBoleta = totalBoleta - (valorVenta * cantidad);
                 txtTotalBoleta.Text = totalBoleta.ToString();
 
