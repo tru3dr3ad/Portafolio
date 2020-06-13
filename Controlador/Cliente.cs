@@ -41,11 +41,11 @@ namespace Controlador
         public IList<Cliente> ListarCombobox()
         {
             List<Cliente> listado = new List<Cliente>();
-            foreach (Modelo.CLIENTE clienteEncontrados in ConectorDALC.ModeloAlmacen.CLIENTE.ToList()) 
+            foreach (Modelo.CLIENTE clienteEncontrados in ConectorDALC.ModeloAlmacen.CLIENTE.ToList())
             {
                 Cliente cliente = new Cliente();
                 cliente.Run = (int)clienteEncontrados.RUNCLIENTE;
-                cliente.Nombre = clienteEncontrados.NOMBRE+" "+clienteEncontrados.APELLIDO;
+                cliente.Nombre = clienteEncontrados.NOMBRE + " " + clienteEncontrados.APELLIDO;
                 listado.Add(cliente);
             }
             return listado;
@@ -90,7 +90,7 @@ namespace Controlador
             if (cliente.BuscarCliente(run))
             {
                 cliente = cliente.ObtenerCliente(run);
-                if (cliente.Estado.Descripcion == "NO DEBE")
+                if (cliente.Estado.Id == 1)
                 {
                     return true;
                 }
@@ -100,6 +100,27 @@ namespace Controlador
                 }
             }
             return false;
+        }
+        public bool EstadoDebeClienteFiador(int run)
+        {
+            try
+            {
+                Cliente cliente = new Cliente();
+                cliente = cliente.ObtenerCliente(run);
+                cliente.Estado.Id = 2;
+                if (ModificarCliente(cliente))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         public Cliente ObtenerCliente(int runCliente)
         {
@@ -153,13 +174,13 @@ namespace Controlador
 
                 cliente.RUNCLIENTE = Run;
                 cliente.DV = Dv.ToString();
-                cliente.NOMBRE= Nombre;
-                cliente.APELLIDO= Apellido;
-                cliente.FECHANACIMIENTO= FechaNacimiento;
-                cliente.DIRECCION= Direccion;
+                cliente.NOMBRE = Nombre;
+                cliente.APELLIDO = Apellido;
+                cliente.FECHANACIMIENTO = FechaNacimiento;
+                cliente.DIRECCION = Direccion;
                 cliente.TELEFONO = Telefono;
                 cliente.ESTADO_FIADO_IDESTADO = Estado.Id;
-                cliente.TIPO_CLIENTE_IDTIPO= Tipo.Id;
+                cliente.TIPO_CLIENTE_IDTIPO = Tipo.Id;
 
                 ConectorDALC.ModeloAlmacen.CLIENTE.Add(cliente);
                 ConectorDALC.ModeloAlmacen.SaveChanges();

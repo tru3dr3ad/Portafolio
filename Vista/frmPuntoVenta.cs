@@ -116,6 +116,18 @@ namespace Vista
         //        return false;
         //    }
         //}
+        private bool EsUnaVentaFiada()
+        {
+            if ((int)cmbMedioPago.SelectedValue==4)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         #endregion
 
         #region Metodos de la clase
@@ -127,33 +139,67 @@ namespace Vista
             txtBuscarProducto.Clear();
             EsconderColumnasAutogeneradas();
         }
-        public void AgregarBoleta()
+        public void HacerVenta()
         {
             if (decimal.Parse(txtTotalBoleta.Text) > 0)
             {
-                DateTime fechaCreacion = DateTime.Now.Date;
-                int total = int.Parse(txtTotalBoleta.Text);
-                MedioPago medioPago = new MedioPago();
-                medioPago.Id = (int)cmbMedioPago.SelectedValue;
-                Cliente cliente = new Cliente();
-                cliente.Run = (int)cmbCliente.SelectedValue;
-                Usuario usuario = new Usuario();
-                usuario.RunUsuario = Global.RunUsuarioActivo;
-                EstadoBoleta estado = new EstadoBoleta();
-                estado.Id = 1;
-                Boleta boleta = new Boleta(fechaCreacion, total, medioPago, cliente, usuario, estado);
-                if (boleta.AgregarBoleta())
+                bool ventaFiada = EsUnaVentaFiada();
+                if (ventaFiada)
                 {
-                    int numeroBoleta = boleta.ObtenerNumeroMaximoBoleta();
-                    foreach (DataGridViewRow row in grdBoleta.Rows)
+                    Cliente cliente = new Cliente();
+                    bool existeDeuda = cliente.ExisteDeudaCliente((int)cmbCliente.SelectedValue);
+                    if (existeDeuda)
                     {
-                        string codigo = row.Cells[0].Value.ToString();
-                        int cantidad = int.Parse(row.Cells[2].Value.ToString());
-                        DetalleBoleta detalle = new DetalleBoleta(numeroBoleta, codigo, cantidad);
-                        detalle.AgregarDetalleBoleta();
+                        bool estadoCambio = cliente.EstadoDebeClienteFiador((int)cmbCliente.SelectedValue);
+                        if (estadoCambio)
+                        {
+                            AgregarBoleta();
+                            MessageBox.Show("Se ha agregado la deuda correctamente");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se ha podido cambiar el estado del cliente");
+                        }
                     }
-                    MessageBox.Show("Boleta N°" + numeroBoleta + " ha sido agregada.");
+                    else
+                    {
+                        MessageBox.Show("El cliente tiene una deuda. Favor revisar");
+                    }
                 }
+                else
+                {
+                    AgregarBoleta();
+                }
+            }
+        }
+        public void AgregarBoleta()
+        {
+            DateTime fechaCreacion = DateTime.Now.Date;
+            int total = int.Parse(txtTotalBoleta.Text);
+            MedioPago medioPago = new MedioPago();
+            medioPago.Id = (int)cmbMedioPago.SelectedValue;
+            Cliente cliente = new Cliente();
+            cliente.Run = (int)cmbCliente.SelectedValue;
+            Usuario usuario = new Usuario();
+            usuario.RunUsuario = Global.RunUsuarioActivo;
+            EstadoBoleta estado = new EstadoBoleta();
+            estado.Id = 1;
+            Boleta boleta = new Boleta(fechaCreacion, total, medioPago, cliente, usuario, estado);
+            if (boleta.AgregarBoleta())
+            {
+                int numeroBoleta = boleta.ObtenerNumeroMaximoBoleta();
+                foreach (DataGridViewRow row in grdBoleta.Rows)
+                {
+                    string codigo = row.Cells[0].Value.ToString();
+                    int cantidad = int.Parse(row.Cells[2].Value.ToString());
+                    DetalleBoleta detalle = new DetalleBoleta(numeroBoleta, codigo, cantidad);
+                    detalle.AgregarDetalleBoleta();
+                }
+                MessageBox.Show("Boleta N°" + numeroBoleta + " ha sido agregada.");
+            }
+            else
+            {
+                MessageBox.Show("Error al agregar boleta");
             }
         }
         public void AgregarDetalleBoleta()
@@ -206,11 +252,10 @@ namespace Vista
         }
         private void btnAgregarBoleta_Click(object sender, EventArgs e)
         {
-            AgregarBoleta();
+            HacerVenta();
             LimpiarDatos();
             CargarNumeroSiguienteBoleta();
         }
-
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             AgregarDetalleBoleta();
