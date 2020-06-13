@@ -378,19 +378,6 @@ advertencia 6002: La tabla o vista 'ALMACEN.V_TOP_PRODUCTOS' no tiene definida n
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ALMACEN.V_ULTIMAS_VENTAS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="V_ULTIMAS_VENTAS">
-          <Key>
-            <PropertyRef Name="RUNCLIENTE" />
-            <PropertyRef Name="DV" />
-            <PropertyRef Name="FECHACREACION" />
-            <PropertyRef Name="TOTAL" />
-          </Key>
-          <Property Name="RUNCLIENTE" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="DV" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="NOMBRE_CLIENTE" Type="varchar2" MaxLength="141" />
-          <Property Name="FECHACREACION" Type="date" Nullable="false" />
-          <Property Name="TOTAL" Type="float" Precision="126" Scale="0" Nullable="false" />
-        </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ALMACEN.V_USUARIOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="V_USUARIOS">
@@ -754,15 +741,6 @@ FROM "ALMACEN"."V_PROVEEDORES" "V_PROVEEDORES"</DefiningQuery>
 "V_TOP_PRODUCTOS"."CANTIDAD" AS "CANTIDAD"
 FROM "ALMACEN"."V_TOP_PRODUCTOS" "V_TOP_PRODUCTOS"</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="V_ULTIMAS_VENTAS" EntityType="Self.V_ULTIMAS_VENTAS" store:Type="Views" store:Schema="ALMACEN">
-            <DefiningQuery>SELECT 
-"V_ULTIMAS_VENTAS"."RUNCLIENTE" AS "RUNCLIENTE", 
-"V_ULTIMAS_VENTAS"."DV" AS "DV", 
-"V_ULTIMAS_VENTAS"."NOMBRE_CLIENTE" AS "NOMBRE_CLIENTE", 
-"V_ULTIMAS_VENTAS"."FECHACREACION" AS "FECHACREACION", 
-"V_ULTIMAS_VENTAS"."TOTAL" AS "TOTAL"
-FROM "ALMACEN"."V_ULTIMAS_VENTAS" "V_ULTIMAS_VENTAS"</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="V_USUARIOS" EntityType="Self.V_USUARIOS" store:Type="Views" store:Schema="ALMACEN">
             <DefiningQuery>SELECT 
 "V_USUARIOS"."RUN" AS "RUN", 
@@ -878,7 +856,6 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <EntitySet Name="V_PRODUCTOS" EntityType="ModeloAlmacen.V_PRODUCTOS" />
           <EntitySet Name="V_PROVEEDORES" EntityType="ModeloAlmacen.V_PROVEEDORES" />
           <EntitySet Name="V_TOP_PRODUCTOS" EntityType="ModeloAlmacen.V_TOP_PRODUCTOS" />
-          <EntitySet Name="V_ULTIMAS_VENTAS" EntityType="ModeloAlmacen.V_ULTIMAS_VENTAS" />
           <EntitySet Name="V_USUARIOS" EntityType="ModeloAlmacen.V_USUARIOS" />
           <AssociationSet Name="ABONO_BOLETA_FK" Association="ModeloAlmacen.ABONO_BOLETA_FK">
             <End Role="BOLETA" EntitySet="BOLETA" />
@@ -1313,19 +1290,6 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="PRECIOVENTA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
-        </EntityType>
-        <EntityType Name="V_ULTIMAS_VENTAS">
-          <Key>
-            <PropertyRef Name="RUNCLIENTE" />
-            <PropertyRef Name="DV" />
-            <PropertyRef Name="FECHACREACION" />
-            <PropertyRef Name="TOTAL" />
-          </Key>
-          <Property Name="RUNCLIENTE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="DV" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="NOMBRE_CLIENTE" Type="String" MaxLength="141" FixedLength="false" Unicode="false" />
-          <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
-          <Property Name="TOTAL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="V_USUARIOS">
           <Key>
@@ -1880,17 +1844,6 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
                 <ScalarProperty Name="PRECIOVENTA" ColumnName="PRECIOVENTA" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_ULTIMAS_VENTAS">
-            <EntityTypeMapping TypeName="ModeloAlmacen.V_ULTIMAS_VENTAS">
-              <MappingFragment StoreEntitySet="V_ULTIMAS_VENTAS">
-                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
-                <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
-                <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
-                <ScalarProperty Name="DV" ColumnName="DV" />
-                <ScalarProperty Name="RUNCLIENTE" ColumnName="RUNCLIENTE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

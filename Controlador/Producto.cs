@@ -94,7 +94,8 @@ namespace Controlador
             {
                 int minimoStock = int.Parse(ConectorDALC.ModeloAlmacen.PRODUCTO.Min(p => p.STOCK).ToString());
 
-                Modelo.PRODUCTO productoModelo = ConectorDALC.ModeloAlmacen.PRODUCTO.FirstOrDefault(e => e.STOCK == minimoStock);
+                Modelo.PRODUCTO productoModelo = ConectorDALC.ModeloAlmacen.PRODUCTO.
+                    Where(p => p.STOCK < p.STOCKCRITICO).FirstOrDefault(e => e.STOCK == minimoStock);
                 if (productoModelo != null)
                 {
                     Producto producto = new Producto

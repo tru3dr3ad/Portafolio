@@ -105,7 +105,6 @@ namespace Vista
             grdProducto.Columns["PRECIO_VENTA"].HeaderText = "PRECIO";
             grdProducto.Columns["STOCK"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
-        
         #endregion
 
         #region Metodos de la clase
@@ -148,12 +147,12 @@ namespace Vista
         }
         public void AgregarDetalleBoleta()
         {
-            if (int.Parse(txtCantidad.Text)>0)
+            if (int.Parse(txtCantidad.Text) > 0 && _codProductoSeleccionado != "")
             {
                 int cantidad = int.Parse(txtCantidad.Text);
                 Producto producto = new Producto();
                 producto = producto.ObtenerProducto(_codProductoSeleccionado);
-                if (producto!=null)
+                if (producto != null && int.Parse(txtCantidad.Text) <= producto.Stock)
                 {
                     string nombreProducto = producto.Nombre;
                     decimal totalProductos = producto.PrecioVenta * cantidad;
@@ -162,6 +161,14 @@ namespace Vista
                     txtTotalBoleta.Text = totalBoleta.ToString();
                     grdBoleta.Rows.Add(_codProductoSeleccionado, nombreProducto, cantidad, totalProductos);
                 }
+                else
+                {
+                    MessageBox.Show("No hay suficiente stock del producto seleccionado.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un producto primero");
             }
         }
         private void QuitarDetalleBoleta()

@@ -31,7 +31,6 @@
         <EntityTypeShape EntityType="ModeloAlmacen.V_PRODUCTOS" Width="1.5" PointX="9.75" PointY="12.625" />
         <EntityTypeShape EntityType="ModeloAlmacen.V_PROVEEDORES" Width="1.5" PointX="11.75" PointY="11.625" />
         <EntityTypeShape EntityType="ModeloAlmacen.V_TOP_PRODUCTOS" Width="1.5" PointX="13.75" PointY="1.625" />
-        <EntityTypeShape EntityType="ModeloAlmacen.V_ULTIMAS_VENTAS" Width="1.5" PointX="13.75" PointY="4.625" />
         <EntityTypeShape EntityType="ModeloAlmacen.V_USUARIOS" Width="1.5" PointX="14.5" PointY="7.5" />
         <AssociationConnector Association="ModeloAlmacen.ABONO_BOLETA_FK" />
         <AssociationConnector Association="ModeloAlmacen.BOLETA_CLIENTE_FK" />

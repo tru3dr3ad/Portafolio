@@ -95,7 +95,7 @@ namespace Controlador
             try
             {
                 Modelo.ORDEN_PEDIDO ordenPedidoModelo = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.
-                Where(o => o.ESTADO_ORDEN_IDESTADO == 2).OrderByDescending(o => o.FECHACREACION).
+                Where(o => o.ESTADO_ORDEN_IDESTADO == 2).OrderByDescending(o => o.NUMEROORDEN).
                 FirstOrDefault();
                 if (ordenPedidoModelo != null)
                 {

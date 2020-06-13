@@ -53,7 +53,6 @@ namespace Modelo
         public virtual DbSet<V_PRODUCTOS> V_PRODUCTOS { get; set; }
         public virtual DbSet<V_PROVEEDORES> V_PROVEEDORES { get; set; }
         public virtual DbSet<V_TOP_PRODUCTOS> V_TOP_PRODUCTOS { get; set; }
-        public virtual DbSet<V_ULTIMAS_VENTAS> V_ULTIMAS_VENTAS { get; set; }
         public virtual DbSet<V_USUARIOS> V_USUARIOS { get; set; }
         public virtual DbSet<V_ORDEN_PEDIDO> V_ORDEN_PEDIDO { get; set; }
     

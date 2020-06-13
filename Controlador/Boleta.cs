@@ -91,31 +91,23 @@ namespace Controlador
                 .Where(b => b.IDMEDIOPAGO == 4).OrderByDescending(b => b.NUMERO).ToList();
             return listado;
         }
-        public List<Boleta> ListarTopBoletas()
+        public List<Boleta> ListarUltimasBoletas()
         {
             List<Boleta> listaB = new List<Boleta>();
-
-
-            List<V_ULTIMAS_VENTAS> listado = new List<V_ULTIMAS_VENTAS>();
-            listado = ConectorDALC.ModeloAlmacen.V_ULTIMAS_VENTAS.ToList();
-
-            foreach (V_ULTIMAS_VENTAS item in listado)
+            List<V_BOLETAS> listado = new List<V_BOLETAS>();
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.OrderByDescending(b => b.NUMERO).ToList();
+            foreach (V_BOLETAS item in listado)
             {
-
                 Cliente cliente = new Cliente();
-                cliente.Run = (int)item.RUNCLIENTE;
-                cliente.Dv = char.Parse(item.DV);
-                cliente.Nombre = item.NOMBRE_CLIENTE;
+                cliente.Run = (int)item.RUN_CLIENTE;
                 Boleta boleta = new Boleta();
                 boleta.Cliente = cliente;
-                boleta.FechaCreacion = item.FECHACREACION;
+                boleta.FechaCreacion = item.FECHA_CREACION;
                 boleta.Total = (int)item.TOTAL;
                 listaB.Add(boleta);
             }
-
             return listaB;
         }
-
         #endregion
 
         #region Metodos
@@ -180,7 +172,7 @@ namespace Controlador
                 throw;
             }
         }
-        
+
         #endregion
 
         #region Metodos de la clase
@@ -313,7 +305,7 @@ namespace Controlador
                 return false;
             }
         }
-        
+
         #endregion
 
     }
