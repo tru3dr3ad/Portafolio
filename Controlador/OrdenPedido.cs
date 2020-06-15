@@ -52,7 +52,7 @@ namespace Controlador
         public List<Modelo.V_ORDEN_PEDIDO> ListarOrdenPedido()
         {
             List<Modelo.V_ORDEN_PEDIDO> listado = new List<Modelo.V_ORDEN_PEDIDO>();
-            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.ToList();
+            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.OrderByDescending(o => o.NUMERO).ToList();
             return listado;
         }
         public List<Modelo.V_ORDEN_PEDIDO> ListarOrdenPedidoPorNumero(int nroOrden)
@@ -64,13 +64,15 @@ namespace Controlador
         public List<Modelo.V_ORDEN_PEDIDO> ListarOrdenPedidoPorProveedor(int rutProveedor)
         {
             List<Modelo.V_ORDEN_PEDIDO> listado = new List<Modelo.V_ORDEN_PEDIDO>();
-            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.Where(o => o.PROVEEDOR_RUT == rutProveedor).ToList();
+            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.Where(o => o.PROVEEDOR_RUT == rutProveedor).
+                OrderByDescending(o => o.NUMERO).ToList();
             return listado;
         }
         public List<Modelo.V_ORDEN_PEDIDO> ListarOrdenPedidoPorEstadoRecepcion(int idEstado)
         {
             List<Modelo.V_ORDEN_PEDIDO> listado = new List<Modelo.V_ORDEN_PEDIDO>();
-            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.Where(o => o.IDESTADO == idEstado).ToList();
+            listado = ConectorDALC.ModeloAlmacen.V_ORDEN_PEDIDO.Where(o => o.IDESTADO == idEstado).
+                OrderByDescending(o => o.NUMERO).ToList();
             return listado;
         }
 
@@ -214,6 +216,7 @@ namespace Controlador
                 if (BuscarOrden(numero))
                 {
                     Modelo.ORDEN_PEDIDO orden = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMEROORDEN == numero);
+
                     ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.Remove(orden);
                     ConectorDALC.ModeloAlmacen.SaveChanges();
 
@@ -283,6 +286,19 @@ namespace Controlador
         public bool OrdenRecepcionada(OrdenPedido orden)
         {
             if (orden.Estado.Id == 4 || orden.Estado.Id == 5)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool OrdenPedidoGuardada(int numero)
+        {
+            OrdenPedido orden = new OrdenPedido();
+            orden = orden.ObtenerOrdenPedido(numero);
+            if (orden.Estado.Id == 1)
             {
                 return true;
             }

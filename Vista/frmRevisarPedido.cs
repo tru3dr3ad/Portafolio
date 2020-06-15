@@ -93,17 +93,25 @@ namespace Vista
         }
         private void EliminarOrdenPedido()
         {
-            if (!String.IsNullOrEmpty(txtBuscarOrden.Text))
+            if (_numeroOrdenSeleccionado != 0)
             {
                 OrdenPedido orden = new OrdenPedido();
-                bool eliminarOrden = orden.EliminarOrdenPedido(int.Parse(txtBuscarOrden.Text));
-                if (eliminarOrden)
+                bool estaGuardada = orden.OrdenPedidoGuardada(_numeroOrdenSeleccionado);
+                if (estaGuardada)
                 {
-                    MessageBox.Show("Orden de pedido eliminado");
+                    bool eliminarOrden = orden.EliminarOrdenPedido(_numeroOrdenSeleccionado);
+                    if (eliminarOrden)
+                    {
+                        MessageBox.Show("Orden de pedido eliminada");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Orden de pedido no eliminada");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Orden de pedido no eliminado");
+                    MessageBox.Show("La orden seleccionada ya ha sido enviada o recepcionada, no se puede eliminar.");
                 }
             }
         }
@@ -207,6 +215,6 @@ namespace Vista
         }
         #endregion
 
-        
+
     }
 }

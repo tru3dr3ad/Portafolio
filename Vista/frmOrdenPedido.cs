@@ -112,6 +112,34 @@ namespace Vista
                 }
             }
         }
+        public void AgregarOrdenPedidParaDescargar()
+        {
+            if (decimal.Parse(txtTotalOrden.Text) > 0)
+            {
+                DateTime fechaCreacion = DateTime.Now.Date;
+                decimal total = decimal.Parse(txtTotalOrden.Text);
+                DateTime fechaRecepcion = DateTime.Now.Date;
+                Proveedor proveedor = new Proveedor();
+                proveedor.Rut = (int)cmbProveedor.SelectedValue;
+                EstadoOrden estadoOrden = new EstadoOrden();
+                estadoOrden.Id = 2;//<--estado de orden = enviada
+                Usuario usuario = new Usuario();
+                usuario.RunUsuario = Global.RunUsuarioActivo;
+                OrdenPedido orden = new OrdenPedido(fechaCreacion, total, fechaRecepcion, proveedor, estadoOrden, usuario);
+                if (orden.AgregarOrdenPedido())
+                {
+                    int numeroOrden = orden.ObtenerNumeroMaximoOrden();
+                    foreach (DataGridViewRow row in grdOrden.Rows)
+                    {
+                        string codigo = row.Cells[0].Value.ToString();
+                        int cantidad = int.Parse(row.Cells[2].Value.ToString());
+                        DetallePedido detalle = new DetallePedido(numeroOrden, codigo, cantidad);
+                        detalle.AgregarDetallePedido();
+                    }
+                    MessageBox.Show("Orden de Pedido N°" + numeroOrden + " ha sido agregada, y descargada");
+                }
+            }
+        }
         public void AgregarDetallePedido()
         {
             if (int.Parse(txtCantidad.Text) > 0)
@@ -182,6 +210,13 @@ namespace Vista
             LimpiarDatos();
             CargarNumeroSiguienteOrden();
         }
+        private void btnDescargarOrden_Click(object sender, EventArgs e)
+        {
+            //<--Metodo para descargar la grilla
+            AgregarOrdenPedidParaDescargar();
+            LimpiarDatos();
+            CargarNumeroSiguienteOrden();
+        }
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             AgregarDetallePedido();
@@ -214,5 +249,6 @@ namespace Vista
             }
         }
         #endregion
+
     }
 }
