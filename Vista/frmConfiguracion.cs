@@ -57,7 +57,8 @@ namespace Vista
             Dolar dolar = new Dolar();
             decimal dolarValor = dolar.ObtenerValorDolar();
             Producto producto = new Producto();
-            producto.CambiarPrecioPorMoneda(txtValorMoneda.Text, dolarValor);
+            string nombreMoneda = cmbNombreMoneda.Text;
+            producto.CambiarPrecioPorMoneda(nombreMoneda, dolarValor);
         }
         private void ValorDolar()
         {

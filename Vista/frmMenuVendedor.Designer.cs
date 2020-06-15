@@ -33,7 +33,6 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMenuVertical = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnPerfil = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlMenuVertical = new System.Windows.Forms.Panel();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
@@ -65,7 +64,6 @@
             this.pnlBarraSuperior.Controls.Add(this.btnMinimizar);
             this.pnlBarraSuperior.Controls.Add(this.btnMenuVertical);
             this.pnlBarraSuperior.Controls.Add(this.btnCerrar);
-            this.pnlBarraSuperior.Controls.Add(this.btnPerfil);
             this.pnlBarraSuperior.Controls.Add(this.label1);
             this.pnlBarraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBarraSuperior.Location = new System.Drawing.Point(0, 0);
@@ -113,18 +111,6 @@
             this.btnCerrar.TabIndex = 3;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // btnPerfil
-            // 
-            this.btnPerfil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPerfil.BackgroundImage")));
-            this.btnPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPerfil.FlatAppearance.BorderSize = 0;
-            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPerfil.Location = new System.Drawing.Point(1065, 3);
-            this.btnPerfil.Name = "btnPerfil";
-            this.btnPerfil.Size = new System.Drawing.Size(40, 40);
-            this.btnPerfil.TabIndex = 2;
-            this.btnPerfil.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -439,7 +425,6 @@
         private System.Windows.Forms.Button btnMenuVertical;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnPerfil;
         private System.Windows.Forms.Panel pnlMenuVertical;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Button btnPedido;
