@@ -16,9 +16,24 @@ namespace Controlador
         public int Stock { get; set; }
         public int StockCritico { get; set; }
         public DateTime FechaVencimiento { get; set; }
+        public char Estado { get; set; }
         public Categoria Categoria { get; set; }
-
+        
         #region Constructores
+        public Producto(string codigo, string nombre, string descripcion, decimal precioVenta, decimal precioCompra, int stock,
+            int stockCritico, DateTime fechaVencimiento, char estado, Categoria categoria)
+        {
+            Codigo = codigo;
+            Nombre = nombre;
+            Descripcion = descripcion;
+            PrecioVenta = precioVenta;
+            PrecioCompra = precioCompra;
+            Stock = stock;
+            StockCritico = stockCritico;
+            FechaVencimiento = fechaVencimiento;
+            Estado = estado;
+            Categoria = categoria;
+        }
         public Producto(string codigo, string nombre, string descripcion, decimal precioVenta, decimal precioCompra, int stock,
             int stockCritico, DateTime fechaVencimiento, Categoria categoria)
         {
@@ -144,9 +159,10 @@ namespace Controlador
                 Stock = (int)producto.STOCK;
                 StockCritico = (int)producto.STOCKCRITICO;
                 FechaVencimiento = producto.FECHAVENCIMIENTO;
+                Estado = char.Parse(producto.ESTADO);
                 Categoria = new Categoria() { Id = (int)producto.CATEGORIA.IDCATEGORIA };
                 Producto productoEncontrado = new Producto(Codigo, Nombre, Descripcion, PrecioVenta, PrecioCompra, Stock, StockCritico,
-                        FechaVencimiento, Categoria);
+                        FechaVencimiento, Estado, Categoria);
                 return productoEncontrado;
             }
             catch (Exception ex)
@@ -189,6 +205,7 @@ namespace Controlador
                 producto.STOCK = Stock;
                 producto.STOCKCRITICO = StockCritico;
                 producto.FECHAVENCIMIENTO = FechaVencimiento;
+                producto.ESTADO = Estado.ToString();
                 producto.CATEGORIA_IDCATEGORIA = Categoria.Id;
 
                 ConectorDALC.ModeloAlmacen.PRODUCTO.Add(producto);

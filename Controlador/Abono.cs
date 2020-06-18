@@ -98,7 +98,7 @@ namespace Controlador
         {
             Boleta boleta = new Boleta();
             boleta = boleta.ObtenerBoleta(nroBoleta);
-            int abonos = ConectorDALC.ModeloAlmacen.V_ABONO.Where(a => a.BOLETA_NUMEROBOLETA == nroBoleta).
+            decimal abonos = ConectorDALC.ModeloAlmacen.V_ABONO.Where(a => a.BOLETA_NUMEROBOLETA == nroBoleta).
                 Select(a => a.TOTAL).DefaultIfEmpty(0).Sum();
             decimal montoBoleta = boleta.Total;
             decimal deuda = montoBoleta - abonos;

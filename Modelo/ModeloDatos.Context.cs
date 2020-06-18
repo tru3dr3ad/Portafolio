@@ -50,15 +50,28 @@ namespace Modelo
         public virtual DbSet<V_CLIENTES_EFECTIVO> V_CLIENTES_EFECTIVO { get; set; }
         public virtual DbSet<V_DETALLE_BOLETA> V_DETALLE_BOLETA { get; set; }
         public virtual DbSet<V_DETALLE_ORDEN> V_DETALLE_ORDEN { get; set; }
+        public virtual DbSet<V_ORDEN_PEDIDO> V_ORDEN_PEDIDO { get; set; }
         public virtual DbSet<V_PRODUCTOS> V_PRODUCTOS { get; set; }
         public virtual DbSet<V_PROVEEDORES> V_PROVEEDORES { get; set; }
         public virtual DbSet<V_TOP_PRODUCTOS> V_TOP_PRODUCTOS { get; set; }
         public virtual DbSet<V_USUARIOS> V_USUARIOS { get; set; }
-        public virtual DbSet<V_ORDEN_PEDIDO> V_ORDEN_PEDIDO { get; set; }
     
         public virtual int SP_ACTUALIZARPRECIO2()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ACTUALIZARPRECIO2");
+        }
+    
+        public virtual int SP_MONEDA_CAMBIO(string nOMBRE_MONEDA, Nullable<decimal> vALOR)
+        {
+            var nOMBRE_MONEDAParameter = nOMBRE_MONEDA != null ?
+                new ObjectParameter("NOMBRE_MONEDA", nOMBRE_MONEDA) :
+                new ObjectParameter("NOMBRE_MONEDA", typeof(string));
+    
+            var vALORParameter = vALOR.HasValue ?
+                new ObjectParameter("VALOR", vALOR) :
+                new ObjectParameter("VALOR", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_MONEDA_CAMBIO", nOMBRE_MONEDAParameter, vALORParameter);
         }
     }
 }

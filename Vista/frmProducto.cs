@@ -90,7 +90,7 @@ namespace Vista
             {
                 fechaVencimiento = "00000000";
             }
-            int idSecuencial = NumeroRandom(100,999);
+            int idSecuencial = NumeroRandom(100, 999);
             string codigoProducto = idProveedor + idCategoria + fechaVencimiento + idSecuencial;
             return codigoProducto;
         }
@@ -100,11 +100,11 @@ namespace Vista
             Validaciones validaciones = new Validaciones();
             if (dtpFechaVencimiento.Value.Date >= DateTime.Now.Date)
             {
-                if (validaciones.ValidarLargoString(3,70,txtNombre.Text))
+                if (validaciones.ValidarLargoString(3, 70, txtNombre.Text))
                 {
                     if (validaciones.ValidarLargoString(3, 70, txtDescripcion.Text))
                     {
-                        if(int.Parse(txtPrecioVenta.Text)>(int.Parse(txtPrecioCompra.Text)))
+                        if (int.Parse(txtPrecioVenta.Text) > (int.Parse(txtPrecioCompra.Text)))
                         {
                             return mensajeError;
                         }
@@ -160,10 +160,11 @@ namespace Vista
                 DateTime fechaVencimiento = dtpFechaVencimiento.Value.Date;
                 int stock = int.Parse(txtStock.Text);
                 int stockCritico = int.Parse(txtStockCritico.Text);
+                char estado = '1';
                 Categoria categoria = new Categoria();
                 categoria.Id = (int)cmbCategoria.SelectedValue;
                 Producto producto = new Producto(codigo, nombre, descripcion, precioVenta, precioCompra, stock, stockCritico,
-                        fechaVencimiento, categoria);
+                        fechaVencimiento, estado, categoria);
                 if (producto.AgregarProducto())
                 {
                     MessageBox.Show("Producto ha sido agregado");

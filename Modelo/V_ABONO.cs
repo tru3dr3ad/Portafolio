@@ -16,7 +16,7 @@ namespace Modelo
     {
         public decimal IDABONO { get; set; }
         public decimal BOLETA_NUMEROBOLETA { get; set; }
-        public int TOTAL { get; set; }
+        public decimal TOTAL { get; set; }
         public System.DateTime FECHAABONO { get; set; }
         public System.DateTime FECHALIMITE { get; set; }
     }
