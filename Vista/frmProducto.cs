@@ -135,6 +135,8 @@ namespace Vista
             grdProducto.Columns["PRECIO_COMPRA"].HeaderText = "PRECIO COMPRA";
             grdProducto.Columns["STOCK_CRITICO"].HeaderText = "STOCK CRITICO";
             grdProducto.Columns["FECHA_VENCIMIENTO"].HeaderText = "FECHA VENCIMIENTO";
+
+            //grdProducto.Columns["PRECIO_VENTA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
         #endregion
 

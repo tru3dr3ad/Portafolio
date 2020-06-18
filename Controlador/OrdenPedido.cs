@@ -307,6 +307,32 @@ namespace Controlador
                 return false;
             }
         }
+        public bool AnularOrdenPedido(int nroOrden)
+        {
+            try
+            {
+                if (BuscarOrden(nroOrden))
+                {
+                    Modelo.ORDEN_PEDIDO ordenRecepcionar = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.
+                        FirstOrDefault(e => e.NUMEROORDEN == nroOrden);
+
+                    ordenRecepcionar.ESTADO_ORDEN_IDESTADO = 6;
+
+                    ConectorDALC.ModeloAlmacen.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw new ArgumentException("Error al anular orden de pedido: " + ex);
+            }
+        }
+
         #endregion
 
     }

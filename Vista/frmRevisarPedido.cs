@@ -92,7 +92,7 @@ namespace Vista
                 CargarGrillaOrden();
             }
         }
-        private void EliminarOrdenPedido()
+        private void AnularOrdenPedido()
         {
             if (_numeroOrdenSeleccionado != 0)
             {
@@ -100,21 +100,21 @@ namespace Vista
                 bool estaGuardada = orden.OrdenPedidoGuardada(_numeroOrdenSeleccionado);
                 if (estaGuardada)
                 {
-                    bool eliminarOrden = orden.EliminarOrdenPedido(_numeroOrdenSeleccionado);
-                    if (eliminarOrden)
+                    bool anularOrden = orden.AnularOrdenPedido(_numeroOrdenSeleccionado);
+                    if (anularOrden)
                     {
-                        MessageBox.Show("Orden de pedido eliminada");
+                        MessageBox.Show("Orden de pedido anulada");
                         _numeroOrdenSeleccionado = 0;
                     }
                     else
                     {
-                        MessageBox.Show("Orden de pedido no eliminada");
+                        MessageBox.Show("Orden de pedido no ha sido anulada");
                         _numeroOrdenSeleccionado = 0;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("La orden seleccionada ya ha sido enviada o recepcionada, no se puede eliminar.");
+                    MessageBox.Show("La orden seleccionada ya ha sido enviada o recepcionada, no se puede anular.");
                 }
             }
         }
@@ -199,9 +199,9 @@ namespace Vista
         {
             ModificarOrdenPedido();
         }
-        private void btnEliminarOrden_Click(object sender, EventArgs e)
+        private void btnAnularOrden_Click(object sender, EventArgs e)
         {
-            EliminarOrdenPedido();
+            AnularOrdenPedido();
             CargarGrillaOrden();
             LimpiarDatos();
         }
@@ -241,5 +241,7 @@ namespace Vista
         }
 
         #endregion
+
+        
     }
 }
