@@ -254,6 +254,7 @@ namespace Vista
         {
             HacerVenta();
             LimpiarDatos();
+            CargarGrillaProducto();
             CargarNumeroSiguienteBoleta();
         }
         private void btnAgregarProducto_Click(object sender, EventArgs e)

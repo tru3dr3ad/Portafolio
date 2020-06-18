@@ -77,15 +77,12 @@ namespace Vista
                 boleta = boleta.ObtenerBoleta(_numeroBoletaSeleccionado);
                 if (!boleta.BoletaAnulada(boleta))
                 {
+                    DetalleBoleta detalle = new DetalleBoleta();
                     bool boletaAnulada = boleta.AnularBoleta(_numeroBoletaSeleccionado);
-                    if (boletaAnulada)
+                    bool agregarStock = detalle.AgregarStockBoletaAnulada(_numeroBoletaSeleccionado);
+                    if (boletaAnulada && agregarStock)
                     {
-                        DetalleBoleta detalle = new DetalleBoleta();
-                        bool agregarStock = detalle.AgregarStockBoletaAnulada(_numeroBoletaSeleccionado);
-                        if (agregarStock)
-                        {
-                            MessageBox.Show("La boleta N°" + _numeroBoletaSeleccionado + " se ha anulado.");
-                        }                      
+                        MessageBox.Show("La boleta N°" + _numeroBoletaSeleccionado + " se ha anulado.");
                     }
                     else
                     {
