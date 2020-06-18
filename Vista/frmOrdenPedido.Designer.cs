@@ -47,7 +47,7 @@
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.txtBuscarProducto = new System.Windows.Forms.TextBox();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
-            this.pnlBoleta = new System.Windows.Forms.Panel();
+            this.pnlOrden = new System.Windows.Forms.Panel();
             this.pnlContenedorGrillaBoleta = new System.Windows.Forms.Panel();
             this.grdOrden = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,7 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdProducto)).BeginInit();
             this.pnlTituloGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).BeginInit();
-            this.pnlBoleta.SuspendLayout();
+            this.pnlOrden.SuspendLayout();
             this.pnlContenedorGrillaBoleta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrden)).BeginInit();
             this.panel2.SuspendLayout();
@@ -243,20 +243,21 @@
             this.btnBuscarProducto.UseVisualStyleBackColor = true;
             this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
             // 
-            // pnlBoleta
+            // pnlOrden
             // 
-            this.pnlBoleta.Controls.Add(this.pnlContenedorGrillaBoleta);
-            this.pnlBoleta.Controls.Add(this.btnDescargarOrden);
-            this.pnlBoleta.Controls.Add(this.label3);
-            this.pnlBoleta.Controls.Add(this.txtTotalOrden);
-            this.pnlBoleta.Controls.Add(this.btnQuitarProducto);
-            this.pnlBoleta.Controls.Add(this.btnAgregarOrden);
-            this.pnlBoleta.Controls.Add(this.groupBox1);
-            this.pnlBoleta.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlBoleta.Location = new System.Drawing.Point(450, 0);
-            this.pnlBoleta.Name = "pnlBoleta";
-            this.pnlBoleta.Size = new System.Drawing.Size(550, 550);
-            this.pnlBoleta.TabIndex = 20;
+            this.pnlOrden.AllowDrop = true;
+            this.pnlOrden.Controls.Add(this.pnlContenedorGrillaBoleta);
+            this.pnlOrden.Controls.Add(this.btnDescargarOrden);
+            this.pnlOrden.Controls.Add(this.label3);
+            this.pnlOrden.Controls.Add(this.txtTotalOrden);
+            this.pnlOrden.Controls.Add(this.btnQuitarProducto);
+            this.pnlOrden.Controls.Add(this.btnAgregarOrden);
+            this.pnlOrden.Controls.Add(this.groupBox1);
+            this.pnlOrden.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlOrden.Location = new System.Drawing.Point(450, 0);
+            this.pnlOrden.Name = "pnlOrden";
+            this.pnlOrden.Size = new System.Drawing.Size(550, 550);
+            this.pnlOrden.TabIndex = 20;
             // 
             // pnlContenedorGrillaBoleta
             // 
@@ -493,10 +494,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 550);
-            this.Controls.Add(this.pnlBoleta);
+            this.Controls.Add(this.pnlOrden);
             this.Controls.Add(this.pnlProducto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmOrdenPedido";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmOrdenPedido";
             this.pnlProducto.ResumeLayout(false);
             this.pnlProducto.PerformLayout();
@@ -505,8 +507,8 @@
             this.pnlTituloGrilla.ResumeLayout(false);
             this.pnlTituloGrilla.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).EndInit();
-            this.pnlBoleta.ResumeLayout(false);
-            this.pnlBoleta.PerformLayout();
+            this.pnlOrden.ResumeLayout(false);
+            this.pnlOrden.PerformLayout();
             this.pnlContenedorGrillaBoleta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdOrden)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -527,7 +529,7 @@
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.TextBox txtBuscarProducto;
         private System.Windows.Forms.Button btnBuscarProducto;
-        private System.Windows.Forms.Panel pnlBoleta;
+        private System.Windows.Forms.Panel pnlOrden;
         private System.Windows.Forms.Button btnDescargarOrden;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTotalOrden;

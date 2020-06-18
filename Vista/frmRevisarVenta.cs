@@ -80,7 +80,12 @@ namespace Vista
                     bool boletaAnulada = boleta.AnularBoleta(_numeroBoletaSeleccionado);
                     if (boletaAnulada)
                     {
-                        MessageBox.Show("La boleta N°" + _numeroBoletaSeleccionado + " se ha anulado.");
+                        DetalleBoleta detalle = new DetalleBoleta();
+                        bool agregarStock = detalle.AgregarStockBoletaAnulada(_numeroBoletaSeleccionado);
+                        if (agregarStock)
+                        {
+                            MessageBox.Show("La boleta N°" + _numeroBoletaSeleccionado + " se ha anulado.");
+                        }                      
                     }
                     else
                     {
@@ -150,6 +155,7 @@ namespace Vista
         }
         #endregion
 
+        #region Evento Grilla
         private void grdBoleta_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -158,6 +164,6 @@ namespace Vista
                 CargarGrillaDetalleBoleta(_numeroBoletaSeleccionado);
             }
         }
-
+        #endregion
     }
 }

@@ -122,6 +122,27 @@ namespace Controlador
                 throw;
             }
         }
+        public bool EstadoNoDebeClienteFiador(int run)
+        {
+            try
+            {
+                Cliente cliente = new Cliente();
+                cliente = cliente.ObtenerCliente(run);
+                cliente.Estado.Id = 1;
+                if (ModificarCliente(cliente))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public Cliente ObtenerCliente(int runCliente)
         {
             try

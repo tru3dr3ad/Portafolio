@@ -86,6 +86,7 @@
             this.btnModificarOrden.TabIndex = 34;
             this.btnModificarOrden.Text = "Modificar";
             this.btnModificarOrden.UseVisualStyleBackColor = true;
+            this.btnModificarOrden.Click += new System.EventHandler(this.btnModificarOrden_Click);
             // 
             // btnDescargarOrden
             // 

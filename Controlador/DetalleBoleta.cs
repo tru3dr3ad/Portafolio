@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,7 +32,7 @@ namespace Controlador
         }
         #endregion
 
-        #region Metodos de la clase
+        #region Metodos Listar
 
         public List<Modelo.DETALLE_BOLETA> Listar()
         {
@@ -46,6 +47,25 @@ namespace Controlador
                 ToList();
             return listado;
         }
+        public List<DetalleBoleta> ListaProductoCantidadDetalle(int numeroBoleta)
+        {
+            Boleta boleta = new Boleta();
+            boleta = boleta.ObtenerBoleta(numeroBoleta);
+            List<DETALLE_BOLETA> listadoModelo = ConectorDALC.ModeloAlmacen.DETALLE_BOLETA.
+                Where(d => d.BOLETA_NUMEROBOLETA == numeroBoleta).ToList();
+            List<DetalleBoleta> listadoD = new List<DetalleBoleta>();
+            foreach (DETALLE_BOLETA item in listadoModelo)
+            {
+                DetalleBoleta detalle = new DetalleBoleta();
+                detalle.CodigoProducto = item.PRODUCTO_CODIGO;
+                detalle.Cantidad = (int)item.CANTIDAD;
+                listadoD.Add(detalle);
+            }
+            return listadoD;
+        }
+        #endregion
+
+        #region Metodos de la clase
         public bool BuscarDetalleBoleta(int idDetalle)
         {
             try
@@ -109,6 +129,27 @@ namespace Controlador
                 return false;
                 throw new ArgumentException("Error al eliminar detalle de boleta: " + ex);
             }
+        }
+        public bool AgregarStockBoletaAnulada(int numero)
+        {
+            List<DetalleBoleta> listado = new List<DetalleBoleta>();
+            listado = ListaProductoCantidadDetalle(numero);
+            foreach (DetalleBoleta item in listado)
+            {
+                Producto producto = new Producto();
+                producto = producto.ObtenerProducto(item.CodigoProducto);
+                producto.Stock = producto.Stock + item.Cantidad;
+                bool estaAgregado =  producto.ModificarProducto(producto);
+                if (estaAgregado)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
         }
         #endregion
 

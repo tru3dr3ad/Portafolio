@@ -172,7 +172,6 @@ namespace Controlador
                 throw;
             }
         }
-
         #endregion
 
         #region Metodos de la clase

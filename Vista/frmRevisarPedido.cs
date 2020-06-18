@@ -7,6 +7,7 @@ namespace Vista
     public partial class frmRevisarPedido : Form
     {
         int _numeroOrdenSeleccionado = 0;
+
         public frmRevisarPedido()
         {
             InitializeComponent();
@@ -103,15 +104,36 @@ namespace Vista
                     if (eliminarOrden)
                     {
                         MessageBox.Show("Orden de pedido eliminada");
+                        _numeroOrdenSeleccionado = 0;
                     }
                     else
                     {
                         MessageBox.Show("Orden de pedido no eliminada");
+                        _numeroOrdenSeleccionado = 0;
                     }
                 }
                 else
                 {
                     MessageBox.Show("La orden seleccionada ya ha sido enviada o recepcionada, no se puede eliminar.");
+                }
+            }
+        }
+        private void ModificarOrdenPedido()
+        {
+            if (_numeroOrdenSeleccionado != 0)
+            {
+                OrdenPedido orden = new OrdenPedido();
+                bool estaGuardada = orden.OrdenPedidoGuardada(_numeroOrdenSeleccionado);
+                if (estaGuardada)
+                {
+                    frmModificarOrdenPedido form = new frmModificarOrdenPedido();
+                    form.ShowDialog();
+                    //_numeroOrdenSeleccionado = 0;
+                    //formOrdenPedido.
+                }
+                else
+                {
+                    MessageBox.Show("La orden seleccionada ya ha sido enviada o recepcionada, no se puede modicar.");
                 }
             }
         }
@@ -173,6 +195,10 @@ namespace Vista
         {
             BuscarOrdenPedidoPorNumero();
         }
+        private void btnModificarOrden_Click(object sender, EventArgs e)
+        {
+            ModificarOrdenPedido();
+        }
         private void btnEliminarOrden_Click(object sender, EventArgs e)
         {
             EliminarOrdenPedido();
@@ -213,8 +239,7 @@ namespace Vista
                 EsconderColumnasAutogeneradas();
             }
         }
+
         #endregion
-
-
     }
 }
