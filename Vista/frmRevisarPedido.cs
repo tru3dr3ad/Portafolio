@@ -97,6 +97,10 @@ namespace Vista
             if (_numeroOrdenSeleccionado != 0)
             {
                 OrdenPedido orden = new OrdenPedido();
+                orden = orden.ObtenerOrdenPedido(_numeroOrdenSeleccionado);
+                EstadoOrden estado = new EstadoOrden();
+                estado = estado.ObtenerEstadoOrden(orden.Estado.Id);
+                string descripcion = estado.Descripcion;
                 bool estaGuardada = orden.OrdenPedidoGuardada(_numeroOrdenSeleccionado);
                 if (estaGuardada)
                 {
@@ -114,7 +118,7 @@ namespace Vista
                 }
                 else
                 {
-                    MessageBox.Show("La orden seleccionada ya ha sido enviada o recepcionada, no se puede anular.");
+                    MessageBox.Show("La orden seleccionada se encuentra " + descripcion + ", no se puede anular.");
                 }
             }
         }
@@ -123,6 +127,10 @@ namespace Vista
             if (_numeroOrdenSeleccionado != 0)
             {
                 OrdenPedido orden = new OrdenPedido();
+                orden = orden.ObtenerOrdenPedido(_numeroOrdenSeleccionado);
+                EstadoOrden estado = new EstadoOrden();
+                estado = estado.ObtenerEstadoOrden(orden.Estado.Id);
+                string descripcion = estado.Descripcion;
                 bool estaGuardada = orden.OrdenPedidoGuardada(_numeroOrdenSeleccionado);
                 if (estaGuardada)
                 {
@@ -133,7 +141,7 @@ namespace Vista
                 }
                 else
                 {
-                    MessageBox.Show("La orden seleccionada ya ha sido enviada o recepcionada, no se puede modicar.");
+                    MessageBox.Show("La orden seleccionada se encuentra "+ descripcion + ", no se puede modicar.");
                 }
             }
         }
@@ -143,27 +151,71 @@ namespace Vista
             {
                 OrdenPedido orden = new OrdenPedido();
                 orden = orden.ObtenerOrdenPedido(_numeroOrdenSeleccionado);
-                if (!orden.OrdenRecepcionada(orden))
+
+                EstadoOrden estado = new EstadoOrden();
+                estado = estado.ObtenerEstadoOrden(orden.Estado.Id);
+                string descripcion = estado.Descripcion;
+                if (orden.OrdenPedidoEnviada(orden))
                 {
-                    EstadoOrden estado = new EstadoOrden();
                     estado.Id = (int)cmbEstadoOrden.SelectedValue;
-                    DateTime fechaRecepcion = DateTime.Now.Date;
-                    orden.Estado = estado;
-                    orden.FechaRecepcion = fechaRecepcion;
-                    bool ordenRecepcionada = orden.RecepcionarOrdenPedido(orden);
-                    if (ordenRecepcionada)
+                    if (estado.Id != 1)
                     {
-                        MessageBox.Show("Orden Recepcionada");
-                        _numeroOrdenSeleccionado = 0;
+                        if (estado.Id != 2)
+                        {
+                            if (estado.Id != 6)
+                            {
+                                DateTime fechaRecepcion = DateTime.Now.Date;
+                                orden.Estado = estado;
+                                orden.FechaRecepcion = fechaRecepcion;
+                                if (estado.Id == 4)
+                                {
+                                    bool ordenRecepcionada = orden.RecepcionarOrdenPedido(orden);
+                                    DetallePedido detalle = new DetallePedido();
+                                    bool stockAgregado = detalle.AgregarStockOrdenRecepcionada(orden.Numero);
+                                    if (stockAgregado && ordenRecepcionada)
+                                    {
+                                        LimpiarGrillaDetalle();
+                                        MessageBox.Show("Se ha recepcionado y agregado el stock correctamente.");
+                                        _numeroOrdenSeleccionado = 0;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("No se ha podido agregar la recepcion.");
+                                    }
+                                }
+                                else if (estado.Id == 3 || estado.Id == 5)
+                                {
+                                    bool ordenRecepcionada = orden.RecepcionarOrdenPedido(orden);
+                                    if (ordenRecepcionada)
+                                    {
+                                        LimpiarGrillaDetalle();
+                                        MessageBox.Show("Se ha guardado la recepcion de la orden de pedido.");
+                                        _numeroOrdenSeleccionado = 0;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("No se ha guardado la recepcion.");
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se puede anular la orden desde aqui, intente con el boton anular.");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("La orden ya ha sido enviada");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Orden no se ha recepcionado.");
+                        MessageBox.Show("La orden de pedido ya ha sido enviada, no puede volver a estado guardada.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("La orden ya fue recepcionada");
+                    MessageBox.Show("La orden seleccionada se encuentra "+ descripcion + " , no se puede recepcionar.");
                 }
             }
         }
@@ -171,7 +223,7 @@ namespace Vista
         {
             OrdenPedido orden = new OrdenPedido();
             orden = orden.ObtenerOrdenPedido(_numeroOrdenSeleccionado);
-            if (!orden.OrdenRecepcionada(orden))
+            if (orden.OrdenPedidoGuardada(orden.Numero))
             {
                 bool estaDescargada = orden.DescargarOrdenPedido(_numeroOrdenSeleccionado);
                 if (estaDescargada)
@@ -194,6 +246,7 @@ namespace Vista
         private void btnBuscarOrden_Click(object sender, EventArgs e)
         {
             BuscarOrdenPedidoPorNumero();
+            LimpiarGrillaDetalle();
         }
         private void btnModificarOrden_Click(object sender, EventArgs e)
         {

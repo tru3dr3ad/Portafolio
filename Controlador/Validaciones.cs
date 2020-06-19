@@ -6,11 +6,11 @@ namespace Controlador
 {
     public class Validaciones
     {
-        #region validadorrut
+        #region Validador Rut
         // http://www.qualityinfosolutions.com/validador-de-rut-chileno-en-c/
 
         /// <summary>
-        /// devuelve true si esque es valido; false en caso contrario
+        /// Devuelve true si es valido; false en caso contrario
         /// </summary>
         /// <param name="rut"></param>
         /// <returns></returns>
@@ -47,7 +47,10 @@ namespace Controlador
             }
             return validacion;
         }
-        public bool ValidarLargoString(int minimo, int maximo,string parametro)
+        #endregion
+
+        #region Validaciones
+        public bool ValidarLargoString(int minimo, int maximo, string parametro)
         {
             if (parametro.Length >= minimo && parametro.Length < maximo)
             {
@@ -57,7 +60,7 @@ namespace Controlador
         }
         public bool ValidarMayoriaEdad(DateTime fechaNacimiento)
         {
-            int edad = DateTime.Now.Year -fechaNacimiento.Date.Year;
+            int edad = DateTime.Now.Year - fechaNacimiento.Date.Year;
             if (edad >= 18)
             {
                 return true;
@@ -69,7 +72,7 @@ namespace Controlador
             var regex = "^([0-9]){8,9}$";
             int numero = int.Parse(numeroString);
             var match = Regex.Match(numeroString, regex, RegexOptions.IgnoreCase);
-            if (match.Success && numero>9999999)
+            if (match.Success && numero > 9999999)
             {
                 return true;
             }
@@ -90,10 +93,6 @@ namespace Controlador
         }
         public bool ValidarMayorACero(int mayor, int minimo)
         {
-            if (true)
-            {
-
-            }
             if (mayor > minimo)
             {
                 return true;

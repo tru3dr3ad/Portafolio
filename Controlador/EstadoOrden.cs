@@ -42,6 +42,22 @@ namespace Controlador
         {
             return Descripcion;
         }
+        public EstadoOrden ObtenerEstadoOrden(int idEstado)
+        {
+            try
+            {
+                Modelo.ESTADO_ORDEN estado = ConectorDALC.ModeloAlmacen.ESTADO_ORDEN.FirstOrDefault(e => e.IDESTADO == idEstado);
+                Id = (int)estado.IDESTADO;
+                Descripcion = estado.DESCRIPCION;
+                EstadoOrden estadoEncontrado = new EstadoOrden(Id, Descripcion);
+                return estadoEncontrado;
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw new ArgumentException("Error al obtener estado de orden: " + ex);
+            }
+        }
         public bool BuscarEstadoOrden(string descripcion)
         {
             try

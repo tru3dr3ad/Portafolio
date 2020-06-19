@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -44,6 +45,22 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_DETALLE_ORDEN.Where(d => d.ORDEN_PEDIDO_NUMEROORDEN == numero).
                 ToList();
             return listado;
+        }
+        public List<DetallePedido> ListaProductoCantidadDetalle(int numeroOrden)
+        {
+            OrdenPedido orden = new OrdenPedido();
+            orden = orden.ObtenerOrdenPedido(numeroOrden);
+            List<DETALLE_PEDIDO> listadoModelo = ConectorDALC.ModeloAlmacen.DETALLE_PEDIDO.
+                Where(d => d.ORDEN_PEDIDO_NUMEROORDEN == numeroOrden).ToList();
+            List<DetallePedido> listadoD = new List<DetallePedido>();
+            foreach (DETALLE_PEDIDO item in listadoModelo)
+            {
+                DetallePedido detalle = new DetallePedido();
+                detalle.CodigoProducto = item.PRODUCTO_CODIGO;
+                detalle.Cantidad = (int)item.CANTIDAD;
+                listadoD.Add(detalle);
+            }
+            return listadoD;
         }
         public bool BuscarDetallePedido(int idDetalle)
         {
@@ -108,6 +125,27 @@ namespace Controlador
                 return false;
                 throw new ArgumentException("Error al eliminar detalle de pedido: " + ex);
             }
+        }
+        public bool AgregarStockOrdenRecepcionada(int numero)
+        {
+            List<DetallePedido> listado = new List<DetallePedido>();
+            listado = ListaProductoCantidadDetalle(numero);
+            foreach (DetallePedido item in listado)
+            {
+                Producto producto = new Producto();
+                producto = producto.ObtenerProducto(item.CodigoProducto);
+                producto.Stock = producto.Stock + item.Cantidad;
+                bool estaAgregado = producto.ModificarProducto(producto);
+                if (estaAgregado)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
         }
         #endregion
 

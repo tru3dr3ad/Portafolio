@@ -290,7 +290,7 @@ namespace Controlador
             catch (Exception ex)
             {
                 return false;
-                throw new ArgumentException("Error al eliminar boleta: " + ex);
+                throw new ArgumentException("Error al anular boleta: " + ex);
             }
         }
         public bool BoletaAnulada(Boleta boleta)

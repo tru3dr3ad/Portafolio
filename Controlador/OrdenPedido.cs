@@ -258,18 +258,29 @@ namespace Controlador
                 throw new ArgumentException("Error al descargar orden de pedido: " + ex);
             }
         }
+        private void CambiarEstadoRecepcion(OrdenPedido recepcionarOrden)
+        {
+            Modelo.ORDEN_PEDIDO ordenRecepcionar = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMEROORDEN == recepcionarOrden.Numero);
+
+            ordenRecepcionar.FECHARECEPCION = recepcionarOrden.FechaRecepcion;
+            ordenRecepcionar.ESTADO_ORDEN_IDESTADO = recepcionarOrden.Estado.Id;
+
+            ConectorDALC.ModeloAlmacen.SaveChanges();
+        }
         public bool RecepcionarOrdenPedido(OrdenPedido recepcionarOrden)
         {
             try
             {
                 if (BuscarOrden(recepcionarOrden.Numero))
                 {
-                    Modelo.ORDEN_PEDIDO ordenRecepcionar = ConectorDALC.ModeloAlmacen.ORDEN_PEDIDO.FirstOrDefault(e => e.NUMEROORDEN == recepcionarOrden.Numero);
-
-                    ordenRecepcionar.FECHARECEPCION = recepcionarOrden.FechaRecepcion;
-                    ordenRecepcionar.ESTADO_ORDEN_IDESTADO = recepcionarOrden.Estado.Id;
-
-                    ConectorDALC.ModeloAlmacen.SaveChanges();
+                    if (recepcionarOrden.Estado.Id == 4)
+                    {
+                        CambiarEstadoRecepcion(recepcionarOrden);
+                    }
+                    else
+                    {
+                        CambiarEstadoRecepcion(recepcionarOrden);
+                    }
                     return true;
                 }
                 else
@@ -283,9 +294,10 @@ namespace Controlador
                 throw new ArgumentException("Error al recepcionar orden de pedido: " + ex);
             }
         }
-        public bool OrdenRecepcionada(OrdenPedido orden)
+        
+        public bool OrdenPedidoEnviada(OrdenPedido orden)
         {
-            if (orden.Estado.Id == 4 || orden.Estado.Id == 5)
+            if (orden.Estado.Id == 2 )
             {
                 return true;
             }
