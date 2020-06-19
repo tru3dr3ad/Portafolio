@@ -104,13 +104,57 @@ namespace Vista
                 {
                     if (validaciones.ValidarLargoString(3, 70, txtDescripcion.Text))
                     {
-                        if (int.Parse(txtPrecioVenta.Text) > (int.Parse(txtPrecioCompra.Text)))
+                        if (!String.IsNullOrWhiteSpace(txtPrecioVenta.Text))
                         {
-                            return mensajeError;
+                            if (!String.IsNullOrWhiteSpace(txtPrecioCompra.Text))
+                            {
+                                int precioVenta = int.Parse(txtPrecioVenta.Text);
+                                int precioCompra = int.Parse(txtPrecioCompra.Text);
+                                if (validaciones.ValidarMayorACero(precioVenta, precioCompra))
+                                {
+                                    if (!String.IsNullOrWhiteSpace(txtStock.Text))
+                                    {
+                                        if (!String.IsNullOrWhiteSpace(txtStockCritico.Text))
+                                        {
+                                            if (validaciones.ValidarMayorACero(int.Parse(txtStock.Text), 0))
+                                            {
+                                                if (validaciones.ValidarMayorACero(int.Parse(txtStockCritico.Text), 0))
+                                                {
+                                                    return mensajeError;
+                                                }
+                                                else
+                                                {
+                                                    mensajeError = "El stock critico debe ser mayor a 0";
+                                                }
+                                            }
+                                            else
+                                            {
+                                                mensajeError = "El stock debe ser mayor a 0";
+                                            }
+                                        }
+                                        else
+                                        {
+                                            mensajeError = "El stock critico esta vacio. Por favor rellene.";
+                                        }
+                                    }
+                                    else
+                                    {
+                                        mensajeError = "El stock esta vacio. Por favor rellene.";
+                                    }
+                                }
+                                else
+                                {
+                                    mensajeError = "Precio de venta no puede ser menor al precio de compra.";
+                                }
+                            }
+                            else
+                            {
+                                mensajeError = "Precio de compra esta vacio.";
+                            }
                         }
                         else
                         {
-                            mensajeError = "Precio de venta no puede ser menor al precio de compra.";
+                            mensajeError = "Precio de venta esta vacio.";
                         }
                     }
                     else
@@ -169,6 +213,7 @@ namespace Vista
                         fechaVencimiento, estado, categoria);
                 if (producto.AgregarProducto())
                 {
+                    LimpiarDatos();
                     MessageBox.Show("Producto ha sido agregado");
                 }
             }

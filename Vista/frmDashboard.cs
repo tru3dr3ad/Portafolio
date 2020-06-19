@@ -50,15 +50,15 @@ namespace Vista
             if (listado.Count > 0)
             {
                 lblRun1.Text = TraerRunCompleto(listado[0].Cliente.Run);
-                lblBoletaNombre1.Text = TraerNombreCompleto(listado[0].Cliente.Run);
+                lblBoletaNombre1.Text = CortarDescripcion(TraerNombreCompleto(listado[0].Cliente.Run));
                 lblFechaBoleta1.Text = listado[0].FechaCreacion.ToShortDateString();
                 lblTotal1.Text = "$" + listado[0].Total.ToString();
                 lblRun2.Text = TraerRunCompleto(listado[1].Cliente.Run);
-                lblBoletaNombre2.Text = TraerNombreCompleto(listado[1].Cliente.Run);
+                lblBoletaNombre2.Text = CortarDescripcion(TraerNombreCompleto(listado[1].Cliente.Run));
                 lblFechaBoleta2.Text = listado[1].FechaCreacion.ToShortDateString();
                 lblTotal2.Text = "$" + listado[1].Total.ToString();
                 lblRun3.Text = TraerRunCompleto(listado[2].Cliente.Run);
-                lblBoletaNombre3.Text = TraerNombreCompleto(listado[2].Cliente.Run);
+                lblBoletaNombre3.Text = CortarDescripcion(TraerNombreCompleto(listado[2].Cliente.Run));
                 lblFechaBoleta3.Text = listado[2].FechaCreacion.ToShortDateString();
                 lblTotal3.Text = "$" + listado[2].Total.ToString();
             }

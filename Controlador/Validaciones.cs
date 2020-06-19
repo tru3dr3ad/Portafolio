@@ -88,6 +88,18 @@ namespace Controlador
                 return false;
             }
         }
+        public bool ValidarMayorACero(int mayor, int minimo)
+        {
+            if (true)
+            {
+
+            }
+            if (mayor > minimo)
+            {
+                return true;
+            }
+            return false;
+        }
         #endregion
     }
 }
