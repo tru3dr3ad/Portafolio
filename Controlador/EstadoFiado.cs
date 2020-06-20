@@ -42,6 +42,9 @@ namespace Controlador
         {
             return Descripcion;
         }
+        #endregion
+
+        #region Metodo de la clase
         public bool BuscarEstadoFiado(string descripcion)
         {
             try

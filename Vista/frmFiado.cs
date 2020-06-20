@@ -127,6 +127,32 @@ namespace Vista
             txtBuscarUsuario.Clear();
             OcultarColumnasAutogeneradas();
         }
+        public void EvaluarDeudaParaEstadoFiador(int numeroBoleta)
+        {
+            Abono abono = new Abono();
+            Boleta boleta = new Boleta();
+            boleta = boleta.ObtenerBoleta(numeroBoleta);
+            decimal deuda = abono.ObtenerDeuda(numeroBoleta);
+            Cliente cliente = new Cliente();
+            cliente = cliente.ObtenerCliente(boleta.Cliente.Run);
+            if (deuda == 0)
+            {
+                bool clientePagado = cliente.CambiarEstadoDeudaPagada(cliente.Run);
+                if (clientePagado)
+                {
+                    MessageBox.Show("La deuda ha sido pagada por completo");
+                }
+            }
+            else if (deuda > 0)
+            {
+                bool clienteNoHaPagado = cliente.CambiarEstadoDeudaImpaga(cliente.Run);
+                if (clienteNoHaPagado)
+                {
+                    MessageBox.Show("Ojo! Aun queda por pagar $" + deuda + ", tiene hasta "
+                    + boleta.FechaCreacion.AddMonths(1).ToShortDateString() + " para pagar!");
+                }
+            }
+        }
         public void AgregarAbono()
         {
             if (!string.IsNullOrEmpty(txtDeuda.Text) && txtDeuda.Text != "--")
@@ -147,6 +173,7 @@ namespace Vista
                             int idAbono = abono.ObtenerIdMaximoAbono();
                             CargarGrillaAbonoPorBoleta(boleta.Numero);
                             MessageBox.Show("Abono N°" + idAbono + " agregado.");
+                            EvaluarDeudaParaEstadoFiador(boleta.Numero);
                             _numeroBoleta = 0;
                         }
                     }
@@ -170,26 +197,31 @@ namespace Vista
             if (!string.IsNullOrEmpty(txtMontoAbono.Text))
             {
                 Abono abono = new Abono();
+                Boleta boleta = new Boleta();
                 abono = abono.ObtenerAbono(_idAbono);
+                boleta = boleta.ObtenerBoleta(abono.Boleta.Numero);
+                decimal deuda = abono.ObtenerDeuda(boleta.Numero);
+                deuda = deuda + abono.Total;
                 if (abono != null)
                 {
-                    if (int.Parse(txtMontoAbono.Text) == abono.Total)
+                    if (decimal.Parse(txtMontoAbono.Text) <= deuda)
                     {
-                        MessageBox.Show("El monto ingresado es igual al monto guardado");
-                    }
-                    else
-                    {
-                        abono.Total = int.Parse(txtMontoAbono.Text);
+                        abono.Total = decimal.Parse(txtMontoAbono.Text);
                         bool estaModificado = abono.ModificarAbono(abono);
                         if (estaModificado)
                         {
-                            _idAbono = 0;
                             MessageBox.Show("El abono ha sido modificado");
+                            EvaluarDeudaParaEstadoFiador(abono.Boleta.Numero);
+                            _idAbono = 0;
                         }
                         else
                         {
                             MessageBox.Show("Error al modificar abono");
                         }
+                    }
+                    else if (decimal.Parse(txtMontoAbono.Text) == abono.Total)
+                    {
+                        MessageBox.Show("El monto ingresado es igual al monto guardado");
                     }
                 }
                 else
@@ -212,8 +244,9 @@ namespace Vista
                 bool estaEliminado = abono.EliminarAbono(abono.Id);
                 if (estaEliminado)
                 {
-                    _idAbono = 0;
                     MessageBox.Show("El abono ha sido eliminado.");
+                    EvaluarDeudaParaEstadoFiador(abono.Boleta.Numero);
+                    _idAbono = 0;
                 }
                 else
                 {

@@ -118,7 +118,7 @@ namespace Vista
         //}
         private bool EsUnaVentaFiada()
         {
-            if ((int)cmbMedioPago.SelectedValue==4)
+            if ((int)cmbMedioPago.SelectedValue == 4)
             {
                 return true;
             }

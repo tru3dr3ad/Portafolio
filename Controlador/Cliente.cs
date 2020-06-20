@@ -268,6 +268,36 @@ namespace Controlador
                 throw new ArgumentException("Error al eliminar cliente: " + ex);
             }
         }
+        public bool CambiarEstadoDeudaPagada(int runFiador)
+        {
+            Cliente fiador = new Cliente();
+            fiador = fiador.ObtenerCliente(runFiador);
+            fiador.Estado.Id = 1;
+            bool cambioEstado = fiador.ModificarCliente(fiador);
+            if (cambioEstado)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool CambiarEstadoDeudaImpaga(int runFiador)
+        {
+            Cliente fiador = new Cliente();
+            fiador = fiador.ObtenerCliente(runFiador);
+            fiador.Estado.Id = 2;
+            bool cambioEstado = fiador.ModificarCliente(fiador);
+            if (cambioEstado)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
 
     }
