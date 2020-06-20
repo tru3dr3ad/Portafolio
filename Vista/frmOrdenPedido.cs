@@ -112,7 +112,7 @@ namespace Vista
                 }
             }
         }
-        public void AgregarOrdenPedidParaDescargar()
+        public void AgregarOrdenPedidoParaDescargar()
         {
             if (decimal.Parse(txtTotalOrden.Text) > 0)
             {
@@ -213,7 +213,7 @@ namespace Vista
         private void btnDescargarOrden_Click(object sender, EventArgs e)
         {
             //<--Metodo para descargar la grilla
-            AgregarOrdenPedidParaDescargar();
+            AgregarOrdenPedidoParaDescargar();
             LimpiarDatos();
             CargarNumeroSiguienteOrden();
         }

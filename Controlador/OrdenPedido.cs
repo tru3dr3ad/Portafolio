@@ -36,6 +36,14 @@ namespace Controlador
             Estado = estado;
             Usuario = usuario;
         }
+        public OrdenPedido(int numero, decimal total, Proveedor proveedor, EstadoOrden estado, Usuario usuario)
+        {
+            Numero = numero;
+            Total = total;
+            Proveedor = proveedor;
+            Estado = estado;
+            Usuario = usuario;
+        }
         public OrdenPedido()
         {
 
@@ -294,10 +302,9 @@ namespace Controlador
                 throw new ArgumentException("Error al recepcionar orden de pedido: " + ex);
             }
         }
-        
         public bool OrdenPedidoEnviada(OrdenPedido orden)
         {
-            if (orden.Estado.Id == 2 )
+            if (orden.Estado.Id == 2)
             {
                 return true;
             }

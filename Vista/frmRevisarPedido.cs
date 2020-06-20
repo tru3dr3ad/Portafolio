@@ -6,6 +6,8 @@ namespace Vista
 {
     public partial class frmRevisarPedido : Form
     {
+        public static int numeroOrdenModificar = 0;
+
         int _numeroOrdenSeleccionado = 0;
 
         public frmRevisarPedido()
@@ -134,10 +136,11 @@ namespace Vista
                 bool estaGuardada = orden.OrdenPedidoGuardada(_numeroOrdenSeleccionado);
                 if (estaGuardada)
                 {
+                    numeroOrdenModificar = _numeroOrdenSeleccionado;
                     frmModificarOrdenPedido form = new frmModificarOrdenPedido();
                     form.ShowDialog();
-                    //_numeroOrdenSeleccionado = 0;
-                    //formOrdenPedido.
+                    CargarGrillaOrden();
+                    LimpiarGrillaDetalle();
                 }
                 else
                 {

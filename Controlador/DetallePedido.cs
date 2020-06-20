@@ -56,6 +56,7 @@ namespace Controlador
             foreach (DETALLE_PEDIDO item in listadoModelo)
             {
                 DetallePedido detalle = new DetallePedido();
+                detalle.IdDetalle = (int)item.IDDETALLEO;
                 detalle.CodigoProducto = item.PRODUCTO_CODIGO;
                 detalle.Cantidad = (int)item.CANTIDAD;
                 listadoD.Add(detalle);
@@ -147,6 +148,39 @@ namespace Controlador
             }
             return false;
         }
+        public int ContarCantidadProductosOrden(int numero)
+        {
+            try
+            {
+                int cantidadProductos = (int)ConectorDALC.ModeloAlmacen.DETALLE_PEDIDO.
+                    Where(d=> d.ORDEN_PEDIDO_NUMEROORDEN == numero).Count();
+                return cantidadProductos;
+            }
+            catch (Exception)
+            {
+                return 0;
+                throw;
+            }
+        } 
+        public bool EliminarDetalleEnCascada(int numeroOrden)
+        {
+
+            List<DetallePedido> listaEliminar = new List<DetallePedido>();
+            listaEliminar = ListaProductoCantidadDetalle(numeroOrden);
+            foreach (DetallePedido item in listaEliminar)
+            {
+                EliminarDetallePedido(item.IdDetalle);
+            }
+            if (ContarCantidadProductosOrden(numeroOrden)==0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
         #endregion
 
     }

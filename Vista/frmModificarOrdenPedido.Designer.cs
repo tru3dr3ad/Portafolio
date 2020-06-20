@@ -35,11 +35,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModificarOrdenPedido));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlOrden = new System.Windows.Forms.Panel();
             this.btnDescargarOrden = new System.Windows.Forms.Button();
-            this.btnAgregarOrden = new System.Windows.Forms.Button();
+            this.btnModificarOrden = new System.Windows.Forms.Button();
             this.pnlContenedorGrillaOrden = new System.Windows.Forms.Panel();
             this.grdOrden = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,18 +87,19 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 54);
+            this.panel1.Size = new System.Drawing.Size(1000, 48);
             this.panel1.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(24, 18);
+            this.label5.Location = new System.Drawing.Point(27, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(219, 19);
             this.label5.TabIndex = 1;
@@ -106,39 +108,40 @@
             // pnlOrden
             // 
             this.pnlOrden.AllowDrop = true;
-            this.pnlOrden.Controls.Add(this.btnCancelar);
             this.pnlOrden.Controls.Add(this.btnDescargarOrden);
-            this.pnlOrden.Controls.Add(this.btnAgregarOrden);
+            this.pnlOrden.Controls.Add(this.btnModificarOrden);
             this.pnlOrden.Controls.Add(this.pnlContenedorGrillaOrden);
             this.pnlOrden.Controls.Add(this.label3);
             this.pnlOrden.Controls.Add(this.txtTotalOrden);
             this.pnlOrden.Controls.Add(this.btnQuitarProducto);
             this.pnlOrden.Controls.Add(this.groupBox1);
             this.pnlOrden.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlOrden.Location = new System.Drawing.Point(450, 54);
+            this.pnlOrden.Location = new System.Drawing.Point(450, 48);
             this.pnlOrden.Name = "pnlOrden";
-            this.pnlOrden.Size = new System.Drawing.Size(550, 496);
+            this.pnlOrden.Size = new System.Drawing.Size(550, 502);
             this.pnlOrden.TabIndex = 24;
             // 
             // btnDescargarOrden
             // 
             this.btnDescargarOrden.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDescargarOrden.Location = new System.Drawing.Point(388, 330);
+            this.btnDescargarOrden.Location = new System.Drawing.Point(388, 333);
             this.btnDescargarOrden.Name = "btnDescargarOrden";
             this.btnDescargarOrden.Size = new System.Drawing.Size(121, 48);
             this.btnDescargarOrden.TabIndex = 39;
             this.btnDescargarOrden.Text = "DESCARGAR ORDEN";
             this.btnDescargarOrden.UseVisualStyleBackColor = true;
+            this.btnDescargarOrden.Click += new System.EventHandler(this.btnDescargarOrden_Click);
             // 
-            // btnAgregarOrden
+            // btnModificarOrden
             // 
-            this.btnAgregarOrden.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAgregarOrden.Location = new System.Drawing.Point(388, 286);
-            this.btnAgregarOrden.Name = "btnAgregarOrden";
-            this.btnAgregarOrden.Size = new System.Drawing.Size(121, 27);
-            this.btnAgregarOrden.TabIndex = 38;
-            this.btnAgregarOrden.Text = "GUARDAR ORDEN";
-            this.btnAgregarOrden.UseVisualStyleBackColor = true;
+            this.btnModificarOrden.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnModificarOrden.Location = new System.Drawing.Point(388, 289);
+            this.btnModificarOrden.Name = "btnModificarOrden";
+            this.btnModificarOrden.Size = new System.Drawing.Size(121, 27);
+            this.btnModificarOrden.TabIndex = 38;
+            this.btnModificarOrden.Text = "MODIFICAR ORDEN";
+            this.btnModificarOrden.UseVisualStyleBackColor = true;
+            this.btnModificarOrden.Click += new System.EventHandler(this.btnModificarOrden_Click);
             // 
             // pnlContenedorGrillaOrden
             // 
@@ -196,6 +199,7 @@
             this.grdOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdOrden.Size = new System.Drawing.Size(319, 368);
             this.grdOrden.TabIndex = 32;
+            this.grdOrden.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOrden_CellClick);
             // 
             // Codigo
             // 
@@ -261,7 +265,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(152, 430);
+            this.label3.Location = new System.Drawing.Point(152, 433);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 30);
             this.label3.TabIndex = 26;
@@ -272,7 +276,7 @@
             this.txtTotalOrden.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTotalOrden.Enabled = false;
             this.txtTotalOrden.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalOrden.Location = new System.Drawing.Point(220, 428);
+            this.txtTotalOrden.Location = new System.Drawing.Point(220, 431);
             this.txtTotalOrden.Name = "txtTotalOrden";
             this.txtTotalOrden.Size = new System.Drawing.Size(121, 35);
             this.txtTotalOrden.TabIndex = 27;
@@ -283,12 +287,13 @@
             // 
             this.btnQuitarProducto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnQuitarProducto.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitarProducto.Location = new System.Drawing.Point(22, 428);
+            this.btnQuitarProducto.Location = new System.Drawing.Point(22, 431);
             this.btnQuitarProducto.Name = "btnQuitarProducto";
             this.btnQuitarProducto.Size = new System.Drawing.Size(94, 38);
             this.btnQuitarProducto.TabIndex = 28;
             this.btnQuitarProducto.Text = "Quitar";
             this.btnQuitarProducto.UseVisualStyleBackColor = true;
+            this.btnQuitarProducto.Click += new System.EventHandler(this.btnQuitarProducto_Click);
             // 
             // groupBox1
             // 
@@ -312,6 +317,7 @@
             this.cmbProveedor.Name = "cmbProveedor";
             this.cmbProveedor.Size = new System.Drawing.Size(121, 21);
             this.cmbProveedor.TabIndex = 16;
+            this.cmbProveedor.SelectedValueChanged += new System.EventHandler(this.cmbProveedor_SelectedValueChanged);
             // 
             // label7
             // 
@@ -351,9 +357,9 @@
             this.pnlProducto.Controls.Add(this.txtBuscarProducto);
             this.pnlProducto.Controls.Add(this.btnBuscarProducto);
             this.pnlProducto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlProducto.Location = new System.Drawing.Point(0, 54);
+            this.pnlProducto.Location = new System.Drawing.Point(0, 48);
             this.pnlProducto.Name = "pnlProducto";
-            this.pnlProducto.Size = new System.Drawing.Size(450, 496);
+            this.pnlProducto.Size = new System.Drawing.Size(450, 502);
             this.pnlProducto.TabIndex = 25;
             // 
             // pnlContenedorGrillaProducto
@@ -365,7 +371,7 @@
             this.pnlContenedorGrillaProducto.Controls.Add(this.pnlTituloGrilla);
             this.pnlContenedorGrillaProducto.Location = new System.Drawing.Point(12, 64);
             this.pnlContenedorGrillaProducto.Name = "pnlContenedorGrillaProducto";
-            this.pnlContenedorGrillaProducto.Size = new System.Drawing.Size(422, 356);
+            this.pnlContenedorGrillaProducto.Size = new System.Drawing.Size(422, 362);
             this.pnlContenedorGrillaProducto.TabIndex = 41;
             // 
             // grdProducto
@@ -412,8 +418,9 @@
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
             this.grdProducto.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.grdProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdProducto.Size = new System.Drawing.Size(422, 317);
+            this.grdProducto.Size = new System.Drawing.Size(422, 323);
             this.grdProducto.TabIndex = 27;
+            this.grdProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProducto_CellClick);
             // 
             // pnlTituloGrilla
             // 
@@ -444,6 +451,7 @@
             this.btnAgregarProducto.TabIndex = 15;
             this.btnAgregarProducto.Text = "Agregar Productos";
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
             // txtCantidad
             // 
@@ -480,6 +488,7 @@
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(121, 21);
             this.cmbCategoria.TabIndex = 11;
+            this.cmbCategoria.SelectedValueChanged += new System.EventHandler(this.cmbCategoria_SelectedValueChanged);
             // 
             // txtBuscarProducto
             // 
@@ -496,15 +505,18 @@
             this.btnBuscarProducto.TabIndex = 9;
             this.btnBuscarProducto.Text = "Buscar";
             this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCancelar.Location = new System.Drawing.Point(388, 439);
+            this.btnCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.BackgroundImage")));
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Location = new System.Drawing.Point(957, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(121, 27);
-            this.btnCancelar.TabIndex = 40;
-            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.Size = new System.Drawing.Size(40, 40);
+            this.btnCancelar.TabIndex = 41;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -520,6 +532,7 @@
             this.Name = "frmModificarOrdenPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormModificarOrdenPedido";
+            this.Load += new System.EventHandler(this.frmModificarOrdenPedido_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlOrden.ResumeLayout(false);
@@ -576,7 +589,7 @@
         private System.Windows.Forms.TextBox txtBuscarProducto;
         private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.Button btnDescargarOrden;
-        private System.Windows.Forms.Button btnAgregarOrden;
+        private System.Windows.Forms.Button btnModificarOrden;
         private System.Windows.Forms.Button btnCancelar;
     }
 }
