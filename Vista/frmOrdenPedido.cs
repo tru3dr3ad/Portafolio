@@ -29,7 +29,7 @@ namespace Vista
         {
             grdOrden.Columns["Codigo"].Visible = false;
             grdProducto.Columns["PRECIO_VENTA"].Visible = false;
-            grdProducto.Columns["STOCK"].Visible = false;
+            grdProducto.Columns["ESTADO"].Visible = false;
             grdProducto.Columns["STOCK_CRITICO"].Visible = false;
             grdProducto.Columns["FECHA_VENCIMIENTO"].Visible = false;
             grdProducto.Columns["IDCATEGORIA"].Visible = false;

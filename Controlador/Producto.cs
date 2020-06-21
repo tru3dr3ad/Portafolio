@@ -60,13 +60,13 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.PRODUCTO.ToList();
             return listado;
         }
-        //public List<V_PRODUCTOS> ListarProductos()
-        //{
-        //    List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();
-        //    listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.OrderBy(p => p.CODIGO).ToList();
-        //    return listado;
-        //}
         public List<V_PRODUCTOS> ListarProductos()
+        {
+            List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();
+            listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.OrderBy(p => p.CODIGO).ToList();
+            return listado;
+        }
+        public List<V_PRODUCTOS> ListarProductosConEstado()
         {
             List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();
             listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.OrderBy(p => p.CODIGO).ToList();

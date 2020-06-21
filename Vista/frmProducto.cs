@@ -19,7 +19,7 @@ namespace Vista
         private void CargarGrilla()
         {
             Producto producto = new Producto();
-            grdProducto.DataSource = producto.ListarProductos();
+            grdProducto.DataSource = producto.ListarProductosConEstado();
             EsconderColumnasAutogeneradas();
             CambioNombreColumnaGrilla();
         }
