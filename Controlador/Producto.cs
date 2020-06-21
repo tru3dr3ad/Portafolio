@@ -18,7 +18,7 @@ namespace Controlador
         public DateTime FechaVencimiento { get; set; }
         public char Estado { get; set; }
         public Categoria Categoria { get; set; }
-        
+
         #region Constructores
         public Producto(string codigo, string nombre, string descripcion, decimal precioVenta, decimal precioCompra, int stock,
             int stockCritico, DateTime fechaVencimiento, char estado, Categoria categoria)
@@ -60,10 +60,28 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.PRODUCTO.ToList();
             return listado;
         }
+        //public List<V_PRODUCTOS> ListarProductos()
+        //{
+        //    List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();
+        //    listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.OrderBy(p => p.CODIGO).ToList();
+        //    return listado;
+        //}
         public List<V_PRODUCTOS> ListarProductos()
         {
             List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();
             listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.OrderBy(p => p.CODIGO).ToList();
+            foreach (var item in listado)
+            {
+                if (item.ESTADO == "1")
+                {
+                    item.ESTADO = "ACTIVADO";
+                }
+                else if (item.ESTADO == "0")
+                {
+                    item.ESTADO = "NO ACTIVO";
+                }
+            }
+
             return listado;
         }
         public List<V_PRODUCTOS> ListarProductosPorNombre(string nombre)
