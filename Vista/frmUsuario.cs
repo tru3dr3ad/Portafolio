@@ -50,6 +50,7 @@ namespace Vista
                     dtpFechaNacimiento.Value = usuario.FechaNacimiento;
                     txtDireccionUsuario.Text = usuario.DireccionUsuario;
                     txtTelefonoUsuario.Text = usuario.TelefonoUsuario.ToString();
+                    txtCorreo.Text = usuario.Correo;
                     return true;
                 }
                 else
@@ -74,6 +75,7 @@ namespace Vista
             dtpFechaNacimiento.Value = DateTime.Now;
             txtDireccionUsuario.Clear();
             txtTelefonoUsuario.Clear();
+            txtCorreo.Clear();
         }
         private string ValidarIngresoUsuario()
         {
@@ -92,7 +94,14 @@ namespace Vista
                             {
                                 if (validaciones.ValidarNumeroTelefono(txtTelefonoUsuario.Text))
                                 {
-                                    return mensajeError;
+                                    if (validaciones.ValidarEmail(txtCorreo.Text))
+                                    {
+                                        return mensajeError;
+                                    }
+                                    else
+                                    {
+                                        mensajeError = "El formato del correo es invalido";
+                                    }
                                 }
                                 else
                                 {
@@ -157,10 +166,11 @@ namespace Vista
                 DateTime fechaCreacion = DateTime.Now.Date;
                 string direccion = txtDireccionUsuario.Text.ToUpper();
                 int telefono = int.Parse(txtTelefonoUsuario.Text);
+                string correo = txtCorreo.Text;
                 TipoUsuario tipo = new TipoUsuario();
                 tipo.Id = (int)cmbTipoUsuario.SelectedValue;
                 Usuario usuario = new Usuario(run, dv, nombre, apellido, contrasena, fechaNacimiento, fechaCreacion,
-                    direccion, telefono, tipo);
+                    direccion, telefono, correo, tipo);
                 if (usuario.AgregarUsuario())
                 {
                     MessageBox.Show("Usuario ha sido Agregado");
@@ -186,10 +196,11 @@ namespace Vista
                 DateTime fechaCreacion = DateTime.Now;
                 string direccion = txtDireccionUsuario.Text;
                 int telefono = int.Parse(txtTelefonoUsuario.Text);
+                string correo = txtCorreo.Text;
                 TipoUsuario tipo = new TipoUsuario();
                 tipo.Id = (int)cmbTipoUsuario.SelectedValue;
                 Usuario usuario = new Usuario(run, dv, nombre, apellido, contrasena, fechaNacimiento, fechaCreacion,
-                    direccion, telefono, tipo);
+                    direccion, telefono, correo, tipo);
                 bool estaModificado = usuario.ModificarUsuario(usuario);
                 if (estaModificado)
                 {

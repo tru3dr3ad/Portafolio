@@ -22,6 +22,7 @@ namespace Modelo
         public System.DateTime FECHACREACION { get; set; }
         public string DIRECCION { get; set; }
         public decimal TELEFONO { get; set; }
+        public string CORREO { get; set; }
         public decimal IDTIPO { get; set; }
         public string DESCRIPCION { get; set; }
     }

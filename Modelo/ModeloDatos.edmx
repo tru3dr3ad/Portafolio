@@ -142,7 +142,7 @@
           <Key>
             <PropertyRef Name="IDTIPO" />
           </Key>
-          <Property Name="IDTIPO" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDTIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar2" MaxLength="70" Nullable="false" />
         </EntityType>
         <EntityType Name="TIPO_RUBRO">
@@ -172,6 +172,7 @@
           <Property Name="FECHACREACION" Type="date" Nullable="false" />
           <Property Name="DIRECCION" Type="varchar2" MaxLength="250" Nullable="false" />
           <Property Name="TELEFONO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CORREO" Type="varchar2" MaxLength="250" Nullable="false" />
           <Property Name="TIPO_USUARIO_IDTIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
@@ -390,6 +391,7 @@ advertencia 6002: La tabla o vista 'ALMACEN.V_USUARIOS' no tiene definida ningun
             <PropertyRef Name="FECHACREACION" />
             <PropertyRef Name="DIRECCION" />
             <PropertyRef Name="TELEFONO" />
+            <PropertyRef Name="CORREO" />
             <PropertyRef Name="IDTIPO" />
             <PropertyRef Name="DESCRIPCION" />
           </Key>
@@ -401,6 +403,7 @@ advertencia 6002: La tabla o vista 'ALMACEN.V_USUARIOS' no tiene definida ningun
           <Property Name="FECHACREACION" Type="date" Nullable="false" />
           <Property Name="DIRECCION" Type="varchar2" MaxLength="250" Nullable="false" />
           <Property Name="TELEFONO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CORREO" Type="varchar2" MaxLength="250" Nullable="false" />
           <Property Name="IDTIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar2" MaxLength="70" Nullable="false" />
         </EntityType>
@@ -757,6 +760,7 @@ FROM "ALMACEN"."V_TOP_PRODUCTOS" "V_TOP_PRODUCTOS"</DefiningQuery>
 "V_USUARIOS"."FECHACREACION" AS "FECHACREACION", 
 "V_USUARIOS"."DIRECCION" AS "DIRECCION", 
 "V_USUARIOS"."TELEFONO" AS "TELEFONO", 
+"V_USUARIOS"."CORREO" AS "CORREO", 
 "V_USUARIOS"."IDTIPO" AS "IDTIPO", 
 "V_USUARIOS"."DESCRIPCION" AS "DESCRIPCION"
 FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
@@ -836,6 +840,10 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
       <Schema Namespace="ModeloAlmacen" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="AlmacenEntities" annotation:LazyLoadingEnabled="true">
           <FunctionImport Name="SP_ACTUALIZARPRECIO2" />
+          <FunctionImport Name="SP_MONEDA_CAMBIO">
+            <Parameter Name="NOMBRE_MONEDA" Mode="In" Type="String" />
+            <Parameter Name="VALOR" Mode="In" Type="Decimal" />
+          </FunctionImport>
           <EntitySet Name="ABONO" EntityType="ModeloAlmacen.ABONO" />
           <EntitySet Name="BOLETA" EntityType="ModeloAlmacen.BOLETA" />
           <EntitySet Name="CATEGORIA" EntityType="ModeloAlmacen.CATEGORIA" />
@@ -863,7 +871,6 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <EntitySet Name="V_PRODUCTOS" EntityType="ModeloAlmacen.V_PRODUCTOS" />
           <EntitySet Name="V_PROVEEDORES" EntityType="ModeloAlmacen.V_PROVEEDORES" />
           <EntitySet Name="V_TOP_PRODUCTOS" EntityType="ModeloAlmacen.V_TOP_PRODUCTOS" />
-          <EntitySet Name="V_USUARIOS" EntityType="ModeloAlmacen.V_USUARIOS" />
           <AssociationSet Name="ABONO_BOLETA_FK" Association="ModeloAlmacen.ABONO_BOLETA_FK">
             <End Role="BOLETA" EntitySet="BOLETA" />
             <End Role="ABONO" EntitySet="ABONO" />
@@ -932,10 +939,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
-          <FunctionImport Name="SP_MONEDA_CAMBIO">
-            <Parameter Name="NOMBRE_MONEDA" Mode="In" Type="String" />
-            <Parameter Name="VALOR" Mode="In" Type="Decimal" />
-          </FunctionImport>
+          <EntitySet Name="V_USUARIOS" EntityType="ModeloAlmacen.V_USUARIOS" />
           </EntityContainer>
         <EntityType Name="ABONO">
           <Key>
@@ -1102,7 +1106,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Key>
             <PropertyRef Name="IDTIPO" />
           </Key>
-          <Property Name="IDTIPO" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDTIPO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CLIENTE" Relationship="ModeloAlmacen.CLIENTE_TIPO_CLIENTE_FK" FromRole="TIPO_CLIENTE" ToRole="CLIENTE" />
         </EntityType>
@@ -1135,6 +1139,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
           <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="TELEFONO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="CORREO" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="TIPO_USUARIO_IDTIPO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="BOLETA" Relationship="ModeloAlmacen.BOLETA_USUARIO_FK" FromRole="USUARIO" ToRole="BOLETA" />
           <NavigationProperty Name="ORDEN_PEDIDO" Relationship="ModeloAlmacen.ORDEN_PEDIDO_USUARIO_FK" FromRole="USUARIO" ToRole="ORDEN_PEDIDO" />
@@ -1324,29 +1329,6 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="PRECIOVENTA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
-        </EntityType>
-        <EntityType Name="V_USUARIOS">
-          <Key>
-            <PropertyRef Name="RUN" />
-            <PropertyRef Name="DV" />
-            <PropertyRef Name="CONTRASENA" />
-            <PropertyRef Name="FECHANACIMIENTO" />
-            <PropertyRef Name="FECHACREACION" />
-            <PropertyRef Name="DIRECCION" />
-            <PropertyRef Name="TELEFONO" />
-            <PropertyRef Name="IDTIPO" />
-            <PropertyRef Name="DESCRIPCION" />
-          </Key>
-          <Property Name="RUN" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="DV" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="NOMBRE_USUARIO" Type="String" MaxLength="141" FixedLength="false" Unicode="false" />
-          <Property Name="CONTRASENA" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="FECHANACIMIENTO" Type="DateTime" Nullable="false" />
-          <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
-          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="TELEFONO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="IDTIPO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="ABONO_BOLETA_FK">
           <End Type="ModeloAlmacen.BOLETA" Role="BOLETA" Multiplicity="1" />
@@ -1552,6 +1534,31 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="V_USUARIOS">
+          <Key>
+            <PropertyRef Name="RUN" />
+            <PropertyRef Name="DV" />
+            <PropertyRef Name="CONTRASENA" />
+            <PropertyRef Name="FECHANACIMIENTO" />
+            <PropertyRef Name="FECHACREACION" />
+            <PropertyRef Name="DIRECCION" />
+            <PropertyRef Name="TELEFONO" />
+            <PropertyRef Name="CORREO" />
+            <PropertyRef Name="IDTIPO" />
+            <PropertyRef Name="DESCRIPCION" />
+          </Key>
+          <Property Name="RUN" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DV" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NOMBRE_USUARIO" Type="String" MaxLength="141" FixedLength="false" Unicode="false" />
+          <Property Name="CONTRASENA" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="FECHANACIMIENTO" Type="DateTime" Nullable="false" />
+          <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
+          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="CORREO" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IDTIPO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1559,6 +1566,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModeloAlmacenStoreContainer" CdmEntityContainer="AlmacenEntities">
           <FunctionImportMapping FunctionImportName="SP_ACTUALIZARPRECIO2" FunctionName="ModeloAlmacen.Store.SP_ACTUALIZARPRECIO2" />
+          <FunctionImportMapping FunctionImportName="SP_MONEDA_CAMBIO" FunctionName="ModeloAlmacen.Store.SP_MONEDA_CAMBIO" />
           <EntitySetMapping Name="ABONO">
             <EntityTypeMapping TypeName="ModeloAlmacen.ABONO">
               <MappingFragment StoreEntitySet="ABONO">
@@ -1729,6 +1737,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
             <EntityTypeMapping TypeName="ModeloAlmacen.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
                 <ScalarProperty Name="TIPO_USUARIO_IDTIPO" ColumnName="TIPO_USUARIO_IDTIPO" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
                 <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
                 <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
                 <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
@@ -1882,6 +1891,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
               <MappingFragment StoreEntitySet="V_USUARIOS">
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="IDTIPO" ColumnName="IDTIPO" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
                 <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
                 <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
                 <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
@@ -1893,7 +1903,6 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SP_MONEDA_CAMBIO" FunctionName="ModeloAlmacen.Store.SP_MONEDA_CAMBIO" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

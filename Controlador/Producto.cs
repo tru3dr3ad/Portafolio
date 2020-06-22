@@ -305,6 +305,36 @@ namespace Controlador
             decimal valorCompra = producto.PrecioCompra;
             return valorCompra;
         }
+        public bool DesactivarProducto(string codigo)
+        {
+            Producto producto = new Producto();
+            producto = producto.ObtenerProducto(codigo);
+            int hayStock = StockProducto(codigo);
+            if (hayStock == 0)
+            {
+                producto.Estado = '0';
+                if (ModificarProducto(producto))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private int StockProducto(string codigo)
+        {
+            Producto producto = new Producto();
+            producto = ObtenerProducto(codigo);
+            int stock = producto.Stock;
+            
+            return stock;
+        }
         #endregion
 
         #region Cambio Moneda

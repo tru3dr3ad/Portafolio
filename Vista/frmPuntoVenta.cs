@@ -175,32 +175,46 @@ namespace Vista
         }
         public void AgregarBoleta()
         {
-            DateTime fechaCreacion = DateTime.Now.Date;
-            int total = int.Parse(txtTotalBoleta.Text);
-            MedioPago medioPago = new MedioPago();
-            medioPago.Id = (int)cmbMedioPago.SelectedValue;
-            Cliente cliente = new Cliente();
-            cliente.Run = (int)cmbCliente.SelectedValue;
-            Usuario usuario = new Usuario();
-            usuario.RunUsuario = Global.RunUsuarioActivo;
-            EstadoBoleta estado = new EstadoBoleta();
-            estado.Id = 1;
-            Boleta boleta = new Boleta(fechaCreacion, total, medioPago, cliente, usuario, estado);
-            if (boleta.AgregarBoleta())
+            try
             {
-                int numeroBoleta = boleta.ObtenerNumeroMaximoBoleta();
-                foreach (DataGridViewRow row in grdBoleta.Rows)
+                DateTime fechaCreacion = DateTime.Now.Date;
+                int total = int.Parse(txtTotalBoleta.Text);
+                MedioPago medioPago = new MedioPago();
+                medioPago.Id = (int)cmbMedioPago.SelectedValue;
+                Cliente cliente = new Cliente();
+                cliente.Run = (int)cmbCliente.SelectedValue;
+                Usuario usuario = new Usuario();
+                usuario.RunUsuario = Global.RunUsuarioActivo;
+                EstadoBoleta estado = new EstadoBoleta();
+                estado.Id = 1;
+                Boleta boleta = new Boleta(fechaCreacion, total, medioPago, cliente, usuario, estado);
+                if (boleta.AgregarBoleta())
                 {
-                    string codigo = row.Cells[0].Value.ToString();
-                    int cantidad = int.Parse(row.Cells[2].Value.ToString());
-                    DetalleBoleta detalle = new DetalleBoleta(numeroBoleta, codigo, cantidad);
-                    detalle.AgregarDetalleBoleta();
+                    int numeroBoleta = boleta.ObtenerNumeroMaximoBoleta();
+                    Producto producto = new Producto();
+                    foreach (DataGridViewRow row in grdBoleta.Rows)
+                    {
+                        string codigo = row.Cells[0].Value.ToString();
+                        int cantidad = int.Parse(row.Cells[2].Value.ToString());
+                        DetalleBoleta detalle = new DetalleBoleta(numeroBoleta, codigo, cantidad);
+                        detalle.AgregarDetalleBoleta();
+
+                        if (producto.DesactivarProducto(codigo))
+                        {
+                            MessageBox.Show("Producto: " + row.Cells[1].Value.ToString() + " , se ha quedado sin stock");
+                        }
+                    }
+                    MessageBox.Show("Boleta N°" + numeroBoleta + " ha sido agregada.");
                 }
-                MessageBox.Show("Boleta N°" + numeroBoleta + " ha sido agregada.");
+                else
+                {
+                    MessageBox.Show("Error al agregar boleta");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar boleta");
+
+                throw;
             }
         }
         public void AgregarDetalleBoleta()

@@ -30,6 +30,7 @@ namespace Modelo
         public System.DateTime FECHACREACION { get; set; }
         public string DIRECCION { get; set; }
         public decimal TELEFONO { get; set; }
+        public string CORREO { get; set; }
         public decimal TIPO_USUARIO_IDTIPO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

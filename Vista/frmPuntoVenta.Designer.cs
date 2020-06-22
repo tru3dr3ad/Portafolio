@@ -469,6 +469,11 @@
             // 
             this.txtCantidad.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad.Location = new System.Drawing.Point(236, 473);
+            this.txtCantidad.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(87, 35);
             this.txtCantidad.TabIndex = 14;

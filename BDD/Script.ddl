@@ -1,5 +1,5 @@
 -- Generado por Oracle SQL Developer Data Modeler 19.2.0.182.1216
---   en:        2020-06-18 02:19:33 CLT
+--   en:        2020-06-22 03:19:50 CLT
 --   sitio:      Oracle Database 12c
 --   tipo:      Oracle Database 12c
 
@@ -14,6 +14,7 @@ DROP SEQUENCE seq_detalle_boleta;
 DROP SEQUENCE seq_boleta;
 DROP SEQUENCE seq_abono;
 DROP SEQUENCE seq_categoria;
+
 
 DROP TABLE abono CASCADE CONSTRAINTS;
 
@@ -215,6 +216,7 @@ CREATE TABLE usuario (
     fechacreacion         DATE NOT NULL,
     direccion             VARCHAR2(250 CHAR) NOT NULL,
     telefono              NUMBER NOT NULL,
+    correo                VARCHAR2(250 CHAR) NOT NULL,
     tipo_usuario_idtipo   INTEGER NOT NULL
 );
 

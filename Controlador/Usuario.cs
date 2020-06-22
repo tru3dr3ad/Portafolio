@@ -18,11 +18,12 @@ namespace Controlador
         public DateTime FechaCreacionUsuario { get; set; }
         public string DireccionUsuario { get; set; }
         public int TelefonoUsuario { get; set; }
+        public string Correo { get; set; }
         public TipoUsuario Tipo { get; set; }
 
         #region Constructores
         public Usuario(int run, char dv, string nombre, string apellido, string clave, DateTime fechaNacimiento,
-            DateTime fechaCreacion, string direccion, int telefono, TipoUsuario tipo)
+            DateTime fechaCreacion, string direccion, int telefono, string correo, TipoUsuario tipo)
         {
             RunUsuario = run;
             DvUsuario = dv;
@@ -33,6 +34,7 @@ namespace Controlador
             FechaCreacionUsuario = fechaCreacion;
             DireccionUsuario = direccion;
             TelefonoUsuario = telefono;
+            Correo = correo;
             Tipo = tipo;
         }
         public Usuario()
@@ -91,10 +93,11 @@ namespace Controlador
                 FechaCreacionUsuario = usuario.FECHACREACION;
                 DireccionUsuario = usuario.DIRECCION;
                 TelefonoUsuario = (int)usuario.TELEFONO;
+                Correo = usuario.CORREO;
                 Tipo = new TipoUsuario() { Id = (int)usuario.TIPO_USUARIO.IDTIPO };
 
                 Usuario usuarioEncontrado = new Usuario(RunUsuario, DvUsuario, NombreUsuario, ApellidoUsuario, Contrasena,
-                    FechaNacimiento, FechaCreacionUsuario, DireccionUsuario, TelefonoUsuario, Tipo);
+                    FechaNacimiento, FechaCreacionUsuario, DireccionUsuario, TelefonoUsuario, Correo, Tipo);
                 return usuarioEncontrado;
             }
             catch (Exception ex)
