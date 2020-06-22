@@ -198,11 +198,6 @@ namespace Vista
                         int cantidad = int.Parse(row.Cells[2].Value.ToString());
                         DetalleBoleta detalle = new DetalleBoleta(numeroBoleta, codigo, cantidad);
                         detalle.AgregarDetalleBoleta();
-
-                        if (producto.DesactivarProducto(codigo))
-                        {
-                            MessageBox.Show("Producto: " + row.Cells[1].Value.ToString() + " , se ha quedado sin stock");
-                        }
                     }
                     MessageBox.Show("Boleta N°" + numeroBoleta + " ha sido agregada.");
                 }
@@ -213,7 +208,6 @@ namespace Vista
             }
             catch (Exception ex)
             {
-
                 throw;
             }
         }
