@@ -61,5 +61,11 @@ namespace Vista
             IniciarSesion();
         }
         #endregion
+
+        private void lblContrasenaOlvidada_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmContrasenaRecuperar recuperacion = new frmContrasenaRecuperar();
+            recuperacion.ShowDialog();
+        }
     }
 }

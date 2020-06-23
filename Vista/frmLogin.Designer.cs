@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblContrasenaOlvidada = new System.Windows.Forms.LinkLabel();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -51,6 +52,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.panel3.Controls.Add(this.lblContrasenaOlvidada);
             this.panel3.Controls.Add(this.btnIniciarSesion);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.pictureBox3);
@@ -63,6 +65,20 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(300, 215);
             this.panel3.TabIndex = 13;
+            // 
+            // lblContrasenaOlvidada
+            // 
+            this.lblContrasenaOlvidada.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lblContrasenaOlvidada.AutoSize = true;
+            this.lblContrasenaOlvidada.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContrasenaOlvidada.LinkColor = System.Drawing.Color.White;
+            this.lblContrasenaOlvidada.Location = new System.Drawing.Point(52, 181);
+            this.lblContrasenaOlvidada.Name = "lblContrasenaOlvidada";
+            this.lblContrasenaOlvidada.Size = new System.Drawing.Size(203, 21);
+            this.lblContrasenaOlvidada.TabIndex = 10;
+            this.lblContrasenaOlvidada.TabStop = true;
+            this.lblContrasenaOlvidada.Text = "¿Ha olvidado la contraseña?";
+            this.lblContrasenaOlvidada.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblContrasenaOlvidada_LinkClicked);
             // 
             // btnIniciarSesion
             // 
@@ -223,5 +239,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.LinkLabel lblContrasenaOlvidada;
     }
 }

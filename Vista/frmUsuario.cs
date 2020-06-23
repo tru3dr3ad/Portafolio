@@ -1,5 +1,6 @@
 ﻿using Controlador;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Vista
@@ -267,6 +268,18 @@ namespace Vista
             int rowIndex = e.RowIndex;
             int runUsuario = int.Parse(grdUsuario.Rows[rowIndex].Cells[0].Value.ToString());
             MostrarDatosUsuario(runUsuario);
+        }
+        #endregion
+
+        #region Eventos
+        private void txtRunUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtTelefonoUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
         #endregion
     }
