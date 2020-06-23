@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 
@@ -99,6 +100,35 @@ namespace Controlador
             }
             return false;
         }
+        #endregion
+
+        #region Metodos de Email
+        public bool EnviarEmail(string correo, string asunto, string body)
+        {
+            try
+            {
+                MailMessage Mail = new MailMessage();
+                Mail.From = new MailAddress("AlmacenPortafolio@gmail.com");
+                Mail.To.Add(correo);
+                Mail.Subject = asunto;
+                Mail.IsBodyHtml = true;
+                Mail.Body = body;
+                SmtpClient smpt = new SmtpClient();
+                smpt.Credentials = new NetworkCredential("AlmacenPortafolio@gmail.com", "123chocolatexd");
+                smpt.Port = 587;
+                smpt.Host = "smtp.gmail.com";
+                smpt.EnableSsl = true;
+                smpt.Send(Mail);
+                return true;
+                //MessageBox.Show("Email Enviado");
+            }
+            catch (Exception ex)
+            {
+                return false;
+                //MessageBox.Show(ex.ToString());
+            }
+        }
+
         #endregion
     }
 }

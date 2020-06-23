@@ -18,6 +18,7 @@ namespace Vista
             InitializeComponent();
             EsconderVerificacionEmail();
         }
+
         #region Metodos
         private void EsconderVerificacionEmail()
         {
@@ -51,6 +52,7 @@ namespace Vista
                     lblNombreUsuario.Text = usuario.NombreUsuario;
                     lblMostrarCorreo.Text = usuario.Correo;
                     grpCorreo.Visible = true;
+                    txtRunUsuario.Enabled = false;
                 }
                 else
                 {
@@ -60,6 +62,45 @@ namespace Vista
             else
             {
                 MessageBox.Show(msgEsValido);
+            }
+        }
+        private void EnviarEmailRecuperacionContrasena(Usuario usuario)
+        {
+            Validaciones validar = new Validaciones();
+            string correo = usuario.Correo;
+            string asunto = "Recuperacion de Contraseña Personal Almacen Los Yuyitos";
+            string body = @"<html>
+                      <body>
+                      <p>Buenas Tardes {usuario} ,</p>
+                      <p>Si usted esta viendo este correo, significa que ha olvidado su contraseña, seguido de eso ha solicitado la recuperacion de esta,
+                            la cual le sera facilitada en la parte de abajo de este mensaje. En caso de que usted no haya solicitado la recuperacion de contraseña 
+                            de la aplicacion de Almancen, por favor contactarse con el administrador.</p>
+                      <p>De antemano se despide:,<br>-Administracion Los Yuyitos</br></p>
+                      </body>
+                      </html>
+                     ";
+            bool recuperacionEnviada = validar.EnviarEmail(correo, asunto, body);
+            if (recuperacionEnviada)
+            {
+                MessageBox.Show("Se ha enviado un correo de recuperacion a la direccion indicada anteriormente.");
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error enviando el correo de recuperacion");
+            }
+        }
+        private void VerificarCorreoUsuario()
+        {
+            int run = int.Parse(txtRunUsuario.Text);
+            Usuario usuario = new Usuario();
+            usuario = usuario.ObtenerUsuario(run);
+            if (usuario.Correo == txtVerificarCorreo.Text.ToUpper())
+            {
+                EnviarEmailRecuperacionContrasena(usuario);
+            }
+            else
+            {
+                MessageBox.Show("El correo ingresado no coincide con el registrado. Por favor contactar con un administrador.");
             }
         }
         #endregion
@@ -85,5 +126,10 @@ namespace Vista
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
         #endregion
+
+        private void btnVerificarCorreo_Click(object sender, EventArgs e)
+        {
+            VerificarCorreoUsuario();
+        }
     }
 }

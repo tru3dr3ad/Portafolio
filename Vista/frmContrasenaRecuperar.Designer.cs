@@ -43,9 +43,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnVerificarCorreo = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.grpCorreo = new System.Windows.Forms.GroupBox();
-            this.txtDv = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtDv = new System.Windows.Forms.TextBox();
+            this.grpCorreo = new System.Windows.Forms.GroupBox();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -182,6 +182,7 @@
             this.btnVerificarCorreo.TabIndex = 22;
             this.btnVerificarCorreo.Text = "VERIFICAR";
             this.btnVerificarCorreo.UseVisualStyleBackColor = true;
+            this.btnVerificarCorreo.Click += new System.EventHandler(this.btnVerificarCorreo_Click);
             // 
             // groupBox1
             // 
@@ -196,6 +197,24 @@
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Verificar Run";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label5.Location = new System.Drawing.Point(205, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(16, 21);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "-";
+            // 
+            // txtDv
+            // 
+            this.txtDv.Location = new System.Drawing.Point(221, 50);
+            this.txtDv.MaxLength = 1;
+            this.txtDv.Name = "txtDv";
+            this.txtDv.Size = new System.Drawing.Size(26, 20);
+            this.txtDv.TabIndex = 16;
             // 
             // grpCorreo
             // 
@@ -213,24 +232,6 @@
             this.grpCorreo.TabIndex = 24;
             this.grpCorreo.TabStop = false;
             this.grpCorreo.Text = "Verificacion Correo";
-            // 
-            // txtDv
-            // 
-            this.txtDv.Location = new System.Drawing.Point(221, 50);
-            this.txtDv.MaxLength = 1;
-            this.txtDv.Name = "txtDv";
-            this.txtDv.Size = new System.Drawing.Size(26, 20);
-            this.txtDv.TabIndex = 16;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label5.Location = new System.Drawing.Point(205, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(16, 21);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "-";
             // 
             // lblNombreUsuario
             // 
