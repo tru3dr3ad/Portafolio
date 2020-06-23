@@ -72,13 +72,20 @@ namespace Vista
             string body = @"<html>
                       <body>
                       <p>Buenas Tardes {usuario} ,</p>
-                      <p>Si usted esta viendo este correo, significa que ha olvidado su contraseña, seguido de eso ha solicitado la recuperacion de esta,
-                            la cual le sera facilitada en la parte de abajo de este mensaje. En caso de que usted no haya solicitado la recuperacion de contraseña 
-                            de la aplicacion de Almancen, por favor contactarse con el administrador.</p>
+                      <p>Si usted esta viendo este correo, significa que ha olvidado su contraseña, seguido de eso ha solicitado la recuperacion de esta, la cual le sera facilitada en la parte de abajo de este mensaje. En caso de que usted no haya solicitado la recuperacion de contraseña de la aplicacion de Almancen, por favor contactarse con el administrador.</p>
+                        <br></br>
+                       <p>La contraseña es: {contrasena}</p> 
+                        <br></br>
+                        <br></br>
                       <p>De antemano se despide:,<br>-Administracion Los Yuyitos</br></p>
+                        <br></br>
+                        <br></br>
+                        <p>PRUEBA</p> 
                       </body>
                       </html>
                      ";
+            body = body.Replace("{usuario}", usuario.NombreUsuario);
+            body = body.Replace("{contrasena}", usuario.Contrasena);
             bool recuperacionEnviada = validar.EnviarEmail(correo, asunto, body);
             if (recuperacionEnviada)
             {
@@ -118,6 +125,10 @@ namespace Vista
         {
             MostrarGroupBoxUsuario();
         }
+        private void btnVerificarCorreo_Click(object sender, EventArgs e)
+        {
+            VerificarCorreoUsuario();
+        }
         #endregion
 
         #region Eventos
@@ -126,10 +137,6 @@ namespace Vista
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
         #endregion
-
-        private void btnVerificarCorreo_Click(object sender, EventArgs e)
-        {
-            VerificarCorreoUsuario();
-        }
+        
     }
 }

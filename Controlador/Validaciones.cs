@@ -120,12 +120,10 @@ namespace Controlador
                 smpt.EnableSsl = true;
                 smpt.Send(Mail);
                 return true;
-                //MessageBox.Show("Email Enviado");
             }
             catch (Exception ex)
             {
                 return false;
-                //MessageBox.Show(ex.ToString());
             }
         }
 
