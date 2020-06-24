@@ -35,19 +35,16 @@
             this.lblRun3 = new System.Windows.Forms.Label();
             this.lblBoletaNombre3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.lblTotal3 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.lblFechaBoleta2 = new System.Windows.Forms.Label();
             this.lblRun2 = new System.Windows.Forms.Label();
             this.lblBoletaNombre2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lblTotal2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lblFechaBoleta1 = new System.Windows.Forms.Label();
             this.lblRun1 = new System.Windows.Forms.Label();
             this.lblBoletaNombre1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblTotal1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -82,6 +79,9 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lblCantidadBoletas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblTotal1 = new System.Windows.Forms.Label();
+            this.lblTotal2 = new System.Windows.Forms.Label();
+            this.lblTotal3 = new System.Windows.Forms.Label();
             this.panel8.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -120,11 +120,11 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.panel11.Controls.Add(this.lblTotal3);
             this.panel11.Controls.Add(this.lblFechaBoleta3);
             this.panel11.Controls.Add(this.lblRun3);
             this.panel11.Controls.Add(this.lblBoletaNombre3);
             this.panel11.Controls.Add(this.pictureBox3);
-            this.panel11.Controls.Add(this.lblTotal3);
             this.panel11.Location = new System.Drawing.Point(32, 243);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(403, 93);
@@ -173,26 +173,14 @@
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
-            // lblTotal3
-            // 
-            this.lblTotal3.AutoSize = true;
-            this.lblTotal3.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal3.ForeColor = System.Drawing.Color.White;
-            this.lblTotal3.Location = new System.Drawing.Point(275, 27);
-            this.lblTotal3.Name = "lblTotal3";
-            this.lblTotal3.Size = new System.Drawing.Size(56, 46);
-            this.lblTotal3.TabIndex = 4;
-            this.lblTotal3.Text = "$0";
-            this.lblTotal3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.panel10.Controls.Add(this.lblTotal2);
             this.panel10.Controls.Add(this.lblFechaBoleta2);
             this.panel10.Controls.Add(this.lblRun2);
             this.panel10.Controls.Add(this.lblBoletaNombre2);
             this.panel10.Controls.Add(this.pictureBox2);
-            this.panel10.Controls.Add(this.lblTotal2);
             this.panel10.Location = new System.Drawing.Point(32, 144);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(403, 93);
@@ -241,26 +229,14 @@
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
-            // lblTotal2
-            // 
-            this.lblTotal2.AutoSize = true;
-            this.lblTotal2.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal2.ForeColor = System.Drawing.Color.White;
-            this.lblTotal2.Location = new System.Drawing.Point(275, 31);
-            this.lblTotal2.Name = "lblTotal2";
-            this.lblTotal2.Size = new System.Drawing.Size(56, 46);
-            this.lblTotal2.TabIndex = 4;
-            this.lblTotal2.Text = "$0";
-            this.lblTotal2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.panel9.Controls.Add(this.lblTotal1);
             this.panel9.Controls.Add(this.lblFechaBoleta1);
             this.panel9.Controls.Add(this.lblRun1);
             this.panel9.Controls.Add(this.lblBoletaNombre1);
             this.panel9.Controls.Add(this.pictureBox1);
-            this.panel9.Controls.Add(this.lblTotal1);
             this.panel9.Location = new System.Drawing.Point(32, 45);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(403, 93);
@@ -309,18 +285,6 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // lblTotal1
-            // 
-            this.lblTotal1.AutoSize = true;
-            this.lblTotal1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal1.ForeColor = System.Drawing.Color.White;
-            this.lblTotal1.Location = new System.Drawing.Point(275, 26);
-            this.lblTotal1.Name = "lblTotal1";
-            this.lblTotal1.Size = new System.Drawing.Size(56, 46);
-            this.lblTotal1.TabIndex = 4;
-            this.lblTotal1.Text = "$0";
-            this.lblTotal1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -362,7 +326,7 @@
             this.lblPrecioProducto3.AutoSize = true;
             this.lblPrecioProducto3.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioProducto3.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioProducto3.Location = new System.Drawing.Point(293, 27);
+            this.lblPrecioProducto3.Location = new System.Drawing.Point(278, 22);
             this.lblPrecioProducto3.Name = "lblPrecioProducto3";
             this.lblPrecioProducto3.Size = new System.Drawing.Size(56, 46);
             this.lblPrecioProducto3.TabIndex = 17;
@@ -418,7 +382,7 @@
             this.lblPrecioProducto2.AutoSize = true;
             this.lblPrecioProducto2.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioProducto2.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioProducto2.Location = new System.Drawing.Point(293, 27);
+            this.lblPrecioProducto2.Location = new System.Drawing.Point(278, 27);
             this.lblPrecioProducto2.Name = "lblPrecioProducto2";
             this.lblPrecioProducto2.Size = new System.Drawing.Size(56, 46);
             this.lblPrecioProducto2.TabIndex = 17;
@@ -474,7 +438,7 @@
             this.lblPrecioProducto1.AutoSize = true;
             this.lblPrecioProducto1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioProducto1.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioProducto1.Location = new System.Drawing.Point(299, 26);
+            this.lblPrecioProducto1.Location = new System.Drawing.Point(278, 20);
             this.lblPrecioProducto1.Name = "lblPrecioProducto1";
             this.lblPrecioProducto1.Size = new System.Drawing.Size(56, 46);
             this.lblPrecioProducto1.TabIndex = 17;
@@ -704,6 +668,42 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Boletas Mensuales";
             // 
+            // lblTotal1
+            // 
+            this.lblTotal1.AutoSize = true;
+            this.lblTotal1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal1.ForeColor = System.Drawing.Color.White;
+            this.lblTotal1.Location = new System.Drawing.Point(266, 20);
+            this.lblTotal1.Name = "lblTotal1";
+            this.lblTotal1.Size = new System.Drawing.Size(56, 46);
+            this.lblTotal1.TabIndex = 9;
+            this.lblTotal1.Text = "$0";
+            this.lblTotal1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTotal2
+            // 
+            this.lblTotal2.AutoSize = true;
+            this.lblTotal2.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal2.ForeColor = System.Drawing.Color.White;
+            this.lblTotal2.Location = new System.Drawing.Point(266, 22);
+            this.lblTotal2.Name = "lblTotal2";
+            this.lblTotal2.Size = new System.Drawing.Size(56, 46);
+            this.lblTotal2.TabIndex = 9;
+            this.lblTotal2.Text = "$0";
+            this.lblTotal2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTotal3
+            // 
+            this.lblTotal3.AutoSize = true;
+            this.lblTotal3.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal3.ForeColor = System.Drawing.Color.White;
+            this.lblTotal3.Location = new System.Drawing.Point(266, 22);
+            this.lblTotal3.Name = "lblTotal3";
+            this.lblTotal3.Size = new System.Drawing.Size(56, 46);
+            this.lblTotal3.TabIndex = 9;
+            this.lblTotal3.Text = "$0";
+            this.lblTotal3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -776,7 +776,6 @@
         private System.Windows.Forms.Label lblFechaBoleta1;
         private System.Windows.Forms.Label lblRun1;
         private System.Windows.Forms.Label lblBoletaNombre1;
-        private System.Windows.Forms.Label lblTotal1;
         private System.Windows.Forms.Label lblPrecioProducto1;
         private System.Windows.Forms.Label lblDescripcionProducto1;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -786,13 +785,11 @@
         private System.Windows.Forms.Label lblRun3;
         private System.Windows.Forms.Label lblBoletaNombre3;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label lblTotal3;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label lblFechaBoleta2;
         private System.Windows.Forms.Label lblRun2;
         private System.Windows.Forms.Label lblBoletaNombre2;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label lblTotal2;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblPrecioProducto3;
@@ -807,5 +804,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblBoletasAnuladas;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTotal1;
+        private System.Windows.Forms.Label lblTotal3;
+        private System.Windows.Forms.Label lblTotal2;
     }
 }

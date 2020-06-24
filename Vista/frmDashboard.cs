@@ -1,5 +1,6 @@
 ﻿using Controlador;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace Vista
@@ -22,17 +23,18 @@ namespace Vista
         {
             Producto producto = new Producto();
             List<Producto> listado = producto.ListarTopProductos();
+            NumberFormatInfo moneda = new CultureInfo("arn-CL").NumberFormat;
             if (listado.Count > 0)
             {
                 lblNombreProducto1.Text = listado[0].Nombre;
                 lblDescripcionProducto1.Text = CortarDescripcion(listado[0].Descripcion);
-                lblPrecioProducto1.Text = "$" + listado[0].PrecioVenta.ToString();
+                lblPrecioProducto1.Text = listado[0].PrecioVenta.ToString("C0", moneda);
                 lblNombreProducto2.Text = listado[1].Nombre;
                 lblDescripcionProducto2.Text = CortarDescripcion(listado[1].Descripcion);
-                lblPrecioProducto2.Text = "$" + listado[1].PrecioVenta.ToString();
+                lblPrecioProducto2.Text = listado[1].PrecioVenta.ToString("C0", moneda);
                 lblNombreProducto3.Text = listado[2].Nombre;
                 lblDescripcionProducto3.Text = CortarDescripcion(listado[2].Descripcion);
-                lblPrecioProducto3.Text = "$" + listado[2].PrecioVenta.ToString();
+                lblPrecioProducto3.Text = listado[2].PrecioVenta.ToString("C0", moneda);
             }
         }
         private string CortarDescripcion(string descripcion)
@@ -47,20 +49,21 @@ namespace Vista
         {
             Boleta boleta = new Boleta();
             List<Boleta> listado = boleta.ListarUltimasBoletas();
+            NumberFormatInfo moneda = new CultureInfo("arn-CL").NumberFormat;
             if (listado.Count > 0)
             {
                 lblRun1.Text = TraerRunCompleto(listado[0].Cliente.Run);
                 lblBoletaNombre1.Text = CortarDescripcion(TraerNombreCompleto(listado[0].Cliente.Run));
                 lblFechaBoleta1.Text = listado[0].FechaCreacion.ToShortDateString();
-                lblTotal1.Text = "$" + listado[0].Total.ToString();
+                lblTotal1.Text = listado[0].Total.ToString("C0", moneda);
                 lblRun2.Text = TraerRunCompleto(listado[1].Cliente.Run);
                 lblBoletaNombre2.Text = CortarDescripcion(TraerNombreCompleto(listado[1].Cliente.Run));
                 lblFechaBoleta2.Text = listado[1].FechaCreacion.ToShortDateString();
-                lblTotal2.Text = "$" + listado[1].Total.ToString();
+                lblTotal2.Text = listado[1].Total.ToString("C0", moneda);
                 lblRun3.Text = TraerRunCompleto(listado[2].Cliente.Run);
                 lblBoletaNombre3.Text = CortarDescripcion(TraerNombreCompleto(listado[2].Cliente.Run));
                 lblFechaBoleta3.Text = listado[2].FechaCreacion.ToShortDateString();
-                lblTotal3.Text = "$" + listado[2].Total.ToString();
+                lblTotal3.Text = listado[2].Total.ToString("C0", moneda);
             }
         }
         private string TraerRunCompleto(int runCliente)
@@ -113,5 +116,6 @@ namespace Vista
             }
         }
         #endregion
+    
     }
 }

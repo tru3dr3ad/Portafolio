@@ -1,6 +1,7 @@
 ﻿using Controlador;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Vista
@@ -22,6 +23,17 @@ namespace Vista
             grdProducto.DataSource = producto.ListarProductosConEstado();
             EsconderColumnasAutogeneradas();
             CambioNombreColumnaGrilla();
+        }
+        private void CambiarColorProductoSinStock()
+        {
+            foreach (DataGridViewRow row in grdProducto.Rows)
+            {
+                if (int.Parse(row.Cells[5].Value.ToString()) == 0)
+                {
+                    row.DefaultCellStyle.ForeColor = Color.Red;
+                    //row.DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
         }
         private void EsconderColumnasAutogeneradas()
         {
@@ -315,21 +327,23 @@ namespace Vista
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
-
         private void txtPrecioCompra_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
-
         private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
-
         private void txtStockCritico_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
         #endregion
+
+        private void grdProducto_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            CambiarColorProductoSinStock();
+        }
     }
 }

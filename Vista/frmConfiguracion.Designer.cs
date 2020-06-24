@@ -95,18 +95,20 @@
             // lblValorDolar
             // 
             this.lblValorDolar.AutoSize = true;
-            this.lblValorDolar.Location = new System.Drawing.Point(163, 210);
+            this.lblValorDolar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorDolar.Location = new System.Drawing.Point(171, 207);
             this.lblValorDolar.Name = "lblValorDolar";
-            this.lblValorDolar.Size = new System.Drawing.Size(40, 13);
+            this.lblValorDolar.Size = new System.Drawing.Size(66, 25);
             this.lblValorDolar.TabIndex = 7;
             this.lblValorDolar.Text = "850.25";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(75, 210);
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(54, 207);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(62, 13);
+            this.label9.Size = new System.Drawing.Size(111, 25);
             this.label9.TabIndex = 6;
             this.label9.Text = "Valor Dolar:";
             // 

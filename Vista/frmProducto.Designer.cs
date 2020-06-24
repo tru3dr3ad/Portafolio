@@ -400,6 +400,7 @@
             this.grdProducto.Size = new System.Drawing.Size(757, 487);
             this.grdProducto.TabIndex = 27;
             this.grdProducto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProducto_CellDoubleClick);
+            this.grdProducto.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grdProducto_CellFormatting);
             // 
             // pnlTituloGrilla
             // 

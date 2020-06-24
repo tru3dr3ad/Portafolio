@@ -1,5 +1,6 @@
 ﻿using Controlador;
 using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace Vista
@@ -63,7 +64,8 @@ namespace Vista
         private void ValorDolar()
         {
             Dolar dolar = new Dolar();
-            lblValorDolar.Text = dolar.ObtenerValorDolar().ToString();
+            decimal valor = dolar.ObtenerValorDolar();
+            lblValorDolar.Text = valor.ToString("C2", new CultureInfo("en-US"));
         }
         #endregion
 
@@ -236,6 +238,10 @@ namespace Vista
         #endregion
 
         #region Botones
+        private void btnMoneda_Click(object sender, EventArgs e)
+        {
+            CambioMoneda();
+        }
         private void btnAgregarRubro_Click(object sender, System.EventArgs e)
         {
             AgregarRubro();
@@ -295,9 +301,5 @@ namespace Vista
         }
         #endregion
 
-        private void btnMoneda_Click(object sender, EventArgs e)
-        {
-            CambioMoneda();
-        }
     }
 }
