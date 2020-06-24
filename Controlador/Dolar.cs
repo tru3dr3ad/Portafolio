@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq.Expressions;
 using System.Net;
 
 namespace Controlador
@@ -19,20 +21,27 @@ namespace Controlador
         }
         public string StringDolar()
         {
-            Dolar dolar = new Dolar();
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://mindicador.cl/api/dolar");
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream stream = response.GetResponseStream();
-            StreamReader streamReader = new StreamReader(stream);
-
-            var json = streamReader.ReadToEnd();
-            dolar = JsonConvert.DeserializeObject<Dolar>(json);
-            string dolarValor = "";
-            foreach (Serie item in dolar.serie)
+            try
             {
-                dolarValor = item.valor;
+                Dolar dolar = new Dolar();
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://mindicador.cl/api/dolar");
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream stream = response.GetResponseStream();
+                StreamReader streamReader = new StreamReader(stream);
+
+                var json = streamReader.ReadToEnd();
+                dolar = JsonConvert.DeserializeObject<Dolar>(json);
+                string dolarValor = "";
+                foreach (Serie item in dolar.serie)
+                {
+                    dolarValor = item.valor;
+                }
+                return dolarValor;
             }
-            return dolarValor;
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
         public decimal ObtenerValorDolar()
         {

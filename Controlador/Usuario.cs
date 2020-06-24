@@ -75,7 +75,7 @@ namespace Controlador
                 .OrderBy(u => u.NOMBRE_USUARIO).ToList();
             return listado;
         }
-        
+
         #endregion
 
         #region Metodos
@@ -134,14 +134,14 @@ namespace Controlador
 
                 usuario.RUNUSUARIO = RunUsuario;
                 usuario.DV = DvUsuario.ToString();
-                usuario.NOMBRE= NombreUsuario;
-                usuario.APELLIDO= ApellidoUsuario;
-                usuario.CONTRASENA= GenerateSHA256String(Contrasena);
+                usuario.NOMBRE = NombreUsuario;
+                usuario.APELLIDO = ApellidoUsuario;
+                usuario.CONTRASENA = GenerateSHA256String(Contrasena);
                 usuario.FECHANACIMIENTO = FechaNacimiento;
                 usuario.FECHACREACION = FechaCreacionUsuario;
-                usuario.DIRECCION= DireccionUsuario;
-                usuario.TELEFONO= TelefonoUsuario;
-                usuario.TIPO_USUARIO_IDTIPO= Tipo.Id;
+                usuario.DIRECCION = DireccionUsuario;
+                usuario.TELEFONO = TelefonoUsuario;
+                usuario.TIPO_USUARIO_IDTIPO = Tipo.Id;
 
                 ConectorDALC.ModeloAlmacen.USUARIO.Add(usuario);
                 ConectorDALC.ModeloAlmacen.SaveChanges();
@@ -163,12 +163,12 @@ namespace Controlador
                     usuario.RUNUSUARIO = modificarUsuario.RunUsuario;
                     usuario.DV = modificarUsuario.DvUsuario.ToString();
                     usuario.NOMBRE = modificarUsuario.NombreUsuario;
-                    usuario.APELLIDO= modificarUsuario.ApellidoUsuario;
-                    usuario.CONTRASENA= GenerateSHA256String(Contrasena);
+                    usuario.APELLIDO = modificarUsuario.ApellidoUsuario;
+                    usuario.CONTRASENA = GenerateSHA256String(Contrasena);
                     usuario.FECHANACIMIENTO = modificarUsuario.FechaNacimiento;
-                    usuario.DIRECCION= modificarUsuario.DireccionUsuario;
-                    usuario.TELEFONO= modificarUsuario.TelefonoUsuario;
-                    usuario.TIPO_USUARIO_IDTIPO= modificarUsuario.Tipo.Id;
+                    usuario.DIRECCION = modificarUsuario.DireccionUsuario;
+                    usuario.TELEFONO = modificarUsuario.TelefonoUsuario;
+                    usuario.TIPO_USUARIO_IDTIPO = modificarUsuario.Tipo.Id;
 
                     ConectorDALC.ModeloAlmacen.SaveChanges();
                     return true;
@@ -225,8 +225,11 @@ namespace Controlador
                     usuario.RunUsuario = (int)usuarioDB.RUNUSUARIO;
                     usuario.NombreUsuario = usuarioDB.NOMBRE;
                     usuario.Contrasena = usuarioDB.CONTRASENA;
-                    TipoUsuario tipo = new TipoUsuario() { Id = (int)usuarioDB.TIPO_USUARIO.IDTIPO, 
-                        Descripcion = usuarioDB.TIPO_USUARIO.DESCRIPCION };
+                    TipoUsuario tipo = new TipoUsuario()
+                    {
+                        Id = (int)usuarioDB.TIPO_USUARIO.IDTIPO,
+                        Descripcion = usuarioDB.TIPO_USUARIO.DESCRIPCION
+                    };
                     usuario.Tipo = tipo;
                     return usuario;
                 }
@@ -262,7 +265,13 @@ namespace Controlador
             }
             return result.ToString();
         }
-
+        public string GenerarContrasena()
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, 8)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
         #endregion
     }
 }

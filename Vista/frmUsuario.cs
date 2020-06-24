@@ -91,7 +91,7 @@ namespace Vista
                     {
                         if (validaciones.ValidarMayoriaEdad(dtpFechaNacimiento.Value))
                         {
-                            if (validaciones.ValidarLargoString(3,550,txtDireccionUsuario.Text))
+                            if (validaciones.ValidarLargoString(3,250,txtDireccionUsuario.Text))
                             {
                                 if (validaciones.ValidarNumeroTelefono(txtTelefonoUsuario.Text))
                                 {

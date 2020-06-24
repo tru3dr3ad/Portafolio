@@ -95,7 +95,9 @@
             this.txtRunUsuario.MaxLength = 8;
             this.txtRunUsuario.Name = "txtRunUsuario";
             this.txtRunUsuario.Size = new System.Drawing.Size(141, 20);
-            this.txtRunUsuario.TabIndex = 13;
+            this.txtRunUsuario.TabIndex = 1;
+            this.txtRunUsuario.Text = "19419104";
+            this.txtRunUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtRunUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRunUsuario_KeyPress);
             // 
             // label1
@@ -112,7 +114,7 @@
             this.btnVerificarUsuario.Location = new System.Drawing.Point(253, 50);
             this.btnVerificarUsuario.Name = "btnVerificarUsuario";
             this.btnVerificarUsuario.Size = new System.Drawing.Size(75, 23);
-            this.btnVerificarUsuario.TabIndex = 15;
+            this.btnVerificarUsuario.TabIndex = 3;
             this.btnVerificarUsuario.Text = "INGRESAR";
             this.btnVerificarUsuario.UseVisualStyleBackColor = true;
             this.btnVerificarUsuario.Click += new System.EventHandler(this.btnVerificarUsuario_Click);
@@ -153,16 +155,16 @@
             this.lblMostrarCorreo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMostrarCorreo.Location = new System.Drawing.Point(127, 118);
             this.lblMostrarCorreo.Name = "lblMostrarCorreo";
-            this.lblMostrarCorreo.Size = new System.Drawing.Size(205, 21);
+            this.lblMostrarCorreo.Size = new System.Drawing.Size(135, 21);
             this.lblMostrarCorreo.TabIndex = 19;
-            this.lblMostrarCorreo.Text = "cor***********o@gmail.com";
+            this.lblMostrarCorreo.Text = "email@gmail.com";
             // 
             // txtVerificarCorreo
             // 
             this.txtVerificarCorreo.Location = new System.Drawing.Point(102, 182);
             this.txtVerificarCorreo.Name = "txtVerificarCorreo";
             this.txtVerificarCorreo.Size = new System.Drawing.Size(266, 20);
-            this.txtVerificarCorreo.TabIndex = 20;
+            this.txtVerificarCorreo.TabIndex = 4;
             // 
             // label6
             // 
@@ -179,7 +181,7 @@
             this.btnVerificarCorreo.Location = new System.Drawing.Point(196, 208);
             this.btnVerificarCorreo.Name = "btnVerificarCorreo";
             this.btnVerificarCorreo.Size = new System.Drawing.Size(75, 23);
-            this.btnVerificarCorreo.TabIndex = 22;
+            this.btnVerificarCorreo.TabIndex = 5;
             this.btnVerificarCorreo.Text = "VERIFICAR";
             this.btnVerificarCorreo.UseVisualStyleBackColor = true;
             this.btnVerificarCorreo.Click += new System.EventHandler(this.btnVerificarCorreo_Click);
@@ -214,7 +216,9 @@
             this.txtDv.MaxLength = 1;
             this.txtDv.Name = "txtDv";
             this.txtDv.Size = new System.Drawing.Size(26, 20);
-            this.txtDv.TabIndex = 16;
+            this.txtDv.TabIndex = 2;
+            this.txtDv.Text = "9";
+            this.txtDv.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // grpCorreo
             // 

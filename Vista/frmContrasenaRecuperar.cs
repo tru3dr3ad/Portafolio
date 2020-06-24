@@ -18,7 +18,6 @@ namespace Vista
             InitializeComponent();
             EsconderVerificacionEmail();
         }
-
         #region Metodos
         private void EsconderVerificacionEmail()
         {
@@ -50,7 +49,7 @@ namespace Vista
                 {
                     usuario = usuario.ObtenerUsuario(int.Parse(txtRunUsuario.Text));
                     lblNombreUsuario.Text = usuario.NombreUsuario;
-                    lblMostrarCorreo.Text = usuario.Correo;
+                    lblMostrarCorreo.Text = MostrarCorreo(usuario.Correo);
                     grpCorreo.Visible = true;
                     txtRunUsuario.Enabled = false;
                 }
@@ -110,6 +109,29 @@ namespace Vista
                 MessageBox.Show("El correo ingresado no coincide con el registrado. Por favor contactar con un administrador.");
             }
         }
+        private string MostrarCorreo(string correo)
+        {
+            string inicio = string.Empty;
+            string medio = string.Empty;
+            string final = string.Empty;
+            string completo = string.Empty;
+            inicio = correo.Substring(0, 3);
+            medio = correo.Substring(3, correo.Length - 6);
+            medio = ReemplazarTodo(medio, '*');
+            final = correo.Substring(correo.Length - 3, 3);
+            completo = inicio + medio + final;
+            return completo;
+        }
+        private string ReemplazarTodo(string input, char target)
+        {
+            StringBuilder sb = new StringBuilder(input.Length);
+            for (int i = 0; i < input.Length; i++)
+            {
+                sb.Append(target);
+            }
+
+            return sb.ToString();
+        }
         #endregion
 
         #region Botones
@@ -137,6 +159,6 @@ namespace Vista
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
         #endregion
-        
+
     }
 }
