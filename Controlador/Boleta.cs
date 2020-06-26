@@ -66,8 +66,8 @@ namespace Controlador
         public List<V_BOLETAS> ListarBoletasPorMedioPago(int idMedioPago)
         {
             List<V_BOLETAS> listado = new List<V_BOLETAS>();
-            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.IDMEDIOPAGO == idMedioPago).
-                OrderByDescending(b => b.NUMERO).ToList();
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => 
+            b.IDMEDIOPAGO == idMedioPago).OrderByDescending(b => b.NUMERO).ToList();
             return listado;
         }
         public List<V_BOLETAS> ListarBoletasPorNombreCliente(string nombre)

@@ -167,6 +167,7 @@
             this.txtStockCritico.Name = "txtStockCritico";
             this.txtStockCritico.Size = new System.Drawing.Size(77, 20);
             this.txtStockCritico.TabIndex = 11;
+            this.txtStockCritico.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtStockCritico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockCritico_KeyPress);
             // 
             // label9
@@ -185,6 +186,7 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(77, 20);
             this.txtStock.TabIndex = 10;
+            this.txtStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
             // 
             // cmbCategoria
@@ -239,6 +241,7 @@
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(182, 20);
             this.txtPrecioCompra.TabIndex = 9;
+            this.txtPrecioCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPrecioCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // label4
@@ -257,6 +260,7 @@
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(182, 20);
             this.txtPrecioVenta.TabIndex = 8;
+            this.txtPrecioVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPrecioVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioVenta_KeyPress);
             // 
             // label3
@@ -274,6 +278,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(182, 20);
             this.txtDescripcion.TabIndex = 7;
+            this.txtDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -291,6 +296,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(182, 20);
             this.txtNombre.TabIndex = 6;
+            this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -309,6 +315,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(182, 20);
             this.txtCodigo.TabIndex = 3;
+            this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox2
             // 
@@ -338,6 +345,7 @@
             this.txtBuscarProducto.Name = "txtBuscarProducto";
             this.txtBuscarProducto.Size = new System.Drawing.Size(182, 20);
             this.txtBuscarProducto.TabIndex = 1;
+            this.txtBuscarProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pnlContenedorGrilla
             // 

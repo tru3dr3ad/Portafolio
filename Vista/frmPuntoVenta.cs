@@ -69,7 +69,7 @@ namespace Vista
             Boleta boleta = new Boleta();
             int numero = boleta.ObtenerNumeroMaximoBoleta();
             numero = numero + 1;
-            lblNumeroBoleta.Text = numero.ToString();
+            lblNumeroBoleta.Text = numero.ToString("0000");
         }
         public bool MostrarDatosBoleta(int numero)
         {

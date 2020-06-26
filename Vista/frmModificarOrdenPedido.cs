@@ -55,7 +55,7 @@ namespace Vista
             int numeroOrden = frmRevisarPedido.numeroOrdenModificar;
             OrdenPedido orden = new OrdenPedido();
             orden = orden.ObtenerOrdenPedido(numeroOrden);
-            lblNumeroOrden.Text = numeroOrden.ToString();
+            lblNumeroOrden.Text = numeroOrden.ToString("0000");
             cmbProveedor.SelectedValue = orden.Proveedor.Rut;
             CargarGrillaDetalleOrdenYTotal(numeroOrden);
         }

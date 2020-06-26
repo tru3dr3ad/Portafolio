@@ -237,6 +237,7 @@
             this.txtBuscarProducto.Name = "txtBuscarProducto";
             this.txtBuscarProducto.Size = new System.Drawing.Size(121, 20);
             this.txtBuscarProducto.TabIndex = 10;
+            this.txtBuscarProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnBuscarProducto
             // 

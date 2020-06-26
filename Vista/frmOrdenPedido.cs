@@ -11,8 +11,8 @@ namespace Vista
         public frmOrdenPedido()
         {
             InitializeComponent();
-            CargarComboboxProveedor();
             CargarComboboxCategoria();
+            CargarComboboxProveedor();
             CargarGrillaProducto();
             CargarNumeroSiguienteOrden();
         }
@@ -53,14 +53,14 @@ namespace Vista
             OrdenPedido orden = new OrdenPedido();
             int numero = orden.ObtenerNumeroMaximoOrden();
             numero = numero + 1;
-            lblNumeroOrden.Text = numero.ToString();
+            lblNumeroOrden.Text = numero.ToString("0000");
         }
         private void LimpiarDatos()
         {
             txtTotalOrden.Text = "0";
             txtRutProveedor.Clear();
-            cmbCategoria.SelectedValue = 100;
-            cmbProveedor.SelectedValue = 0;
+            cmbCategoria.SelectedValue = 1;
+            cmbProveedor.SelectedValue = 10257620;
             grdOrden.Rows.Clear();
         }
         private void LimpiarCantidad()

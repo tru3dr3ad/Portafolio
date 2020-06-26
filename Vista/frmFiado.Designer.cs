@@ -121,6 +121,7 @@
             this.txtBuscarUsuario.Name = "txtBuscarUsuario";
             this.txtBuscarUsuario.Size = new System.Drawing.Size(182, 20);
             this.txtBuscarUsuario.TabIndex = 1;
+            this.txtBuscarUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox1
             // 
