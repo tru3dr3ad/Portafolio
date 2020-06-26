@@ -20,7 +20,7 @@ namespace Vista
         private void CargarGrilla()
         {
             Producto producto = new Producto();
-            grdProducto.DataSource = producto.ListarProductosConEstado();
+            grdProducto.DataSource = producto.ListarProductos();
             EsconderColumnasAutogeneradas();
             CambioNombreColumnaGrilla();
         }
@@ -219,11 +219,11 @@ namespace Vista
                 DateTime fechaVencimiento = dtpFechaVencimiento.Value.Date;
                 int stock = int.Parse(txtStock.Text);
                 int stockCritico = int.Parse(txtStockCritico.Text);
-                char estado = '1';
+                //char estado = '1';
                 Categoria categoria = new Categoria();
                 categoria.Id = (int)cmbCategoria.SelectedValue;
                 Producto producto = new Producto(codigo, nombre, descripcion, precioVenta, precioCompra, stock, stockCritico,
-                        fechaVencimiento, estado, categoria);
+                        fechaVencimiento, categoria);
                 if (producto.AgregarProducto())
                 {
                     LimpiarDatos();

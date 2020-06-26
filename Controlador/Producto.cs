@@ -16,24 +16,10 @@ namespace Controlador
         public int Stock { get; set; }
         public int StockCritico { get; set; }
         public DateTime FechaVencimiento { get; set; }
-        public char Estado { get; set; }
+        //public char Estado { get; set; }
         public Categoria Categoria { get; set; }
 
         #region Constructores
-        public Producto(string codigo, string nombre, string descripcion, decimal precioVenta, decimal precioCompra, int stock,
-            int stockCritico, DateTime fechaVencimiento, char estado, Categoria categoria)
-        {
-            Codigo = codigo;
-            Nombre = nombre;
-            Descripcion = descripcion;
-            PrecioVenta = precioVenta;
-            PrecioCompra = precioCompra;
-            Stock = stock;
-            StockCritico = stockCritico;
-            FechaVencimiento = fechaVencimiento;
-            Estado = estado;
-            Categoria = categoria;
-        }
         public Producto(string codigo, string nombre, string descripcion, decimal precioVenta, decimal precioCompra, int stock,
             int stockCritico, DateTime fechaVencimiento, Categoria categoria)
         {
@@ -66,24 +52,24 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.OrderBy(p => p.CODIGO).ToList();
             return listado;
         }
-        public List<V_PRODUCTOS> ListarProductosConEstado()
-        {
-            List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();
-            listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.OrderBy(p => p.CODIGO).ToList();
-            foreach (var item in listado)
-            {
-                if (item.ESTADO == "1")
-                {
-                    item.ESTADO = "ACTIVADO";
-                }
-                else if (item.ESTADO == "0")
-                {
-                    item.ESTADO = "NO ACTIVO";
-                }
-            }
+        //public List<V_PRODUCTOS> ListarProductosConEstado() TODO
+        //{
+        //    List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();
+        //    listado = ConectorDALC.ModeloAlmacen.V_PRODUCTOS.OrderBy(p => p.CODIGO).ToList();
+        //    foreach (var item in listado)
+        //    {
+        //        if (item.ESTADO == "1")
+        //        {
+        //            item.ESTADO = "ACTIVADO";
+        //        }
+        //        else if (item.ESTADO == "0")
+        //        {
+        //            item.ESTADO = "NO ACTIVO";
+        //        }
+        //    }
 
-            return listado;
-        }
+        //    return listado;
+        //}
         public List<V_PRODUCTOS> ListarProductosPorNombre(string nombre)
         {
             List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();
@@ -177,10 +163,10 @@ namespace Controlador
                 Stock = (int)producto.STOCK;
                 StockCritico = (int)producto.STOCKCRITICO;
                 FechaVencimiento = producto.FECHAVENCIMIENTO;
-                Estado = char.Parse(producto.ESTADO);
+                //Estado = char.Parse(producto.ESTADO);
                 Categoria = new Categoria() { Id = (int)producto.CATEGORIA.IDCATEGORIA };
                 Producto productoEncontrado = new Producto(Codigo, Nombre, Descripcion, PrecioVenta, PrecioCompra, Stock, StockCritico,
-                        FechaVencimiento, Estado, Categoria);
+                        FechaVencimiento, Categoria);
                 return productoEncontrado;
             }
             catch (Exception ex)
@@ -223,7 +209,7 @@ namespace Controlador
                 producto.STOCK = Stock;
                 producto.STOCKCRITICO = StockCritico;
                 producto.FECHAVENCIMIENTO = FechaVencimiento;
-                producto.ESTADO = Estado.ToString();
+                //producto.ESTADO = Estado.ToString();
                 producto.CATEGORIA_IDCATEGORIA = Categoria.Id;
 
                 ConectorDALC.ModeloAlmacen.PRODUCTO.Add(producto);

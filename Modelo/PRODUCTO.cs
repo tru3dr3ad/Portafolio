@@ -29,7 +29,6 @@ namespace Modelo
         public decimal STOCK { get; set; }
         public decimal STOCKCRITICO { get; set; }
         public System.DateTime FECHAVENCIMIENTO { get; set; }
-        public string ESTADO { get; set; }
         public decimal CATEGORIA_IDCATEGORIA { get; set; }
     
         public virtual CATEGORIA CATEGORIA { get; set; }
