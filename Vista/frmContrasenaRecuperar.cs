@@ -18,6 +18,7 @@ namespace Vista
             InitializeComponent();
             EsconderVerificacionEmail();
         }
+
         #region Metodos
         private void EsconderVerificacionEmail()
         {
@@ -63,38 +64,6 @@ namespace Vista
                 MessageBox.Show(msgEsValido);
             }
         }
-        private void EnviarEmailRecuperacionContrasena(Usuario usuario)
-        {
-            Validaciones validar = new Validaciones();
-            string correo = usuario.Correo;
-            string asunto = "Recuperacion de Contraseña Personal Almacen Los Yuyitos";
-            string body = @"<html>
-                      <body>
-                      <p>Buenas Tardes {usuario} ,</p>
-                      <p>Si usted esta viendo este correo, significa que ha olvidado su contraseña, seguido de eso ha solicitado la recuperacion de esta, la cual le sera facilitada en la parte de abajo de este mensaje. En caso de que usted no haya solicitado la recuperacion de contraseña de la aplicacion de Almancen, por favor contactarse con el administrador.</p>
-                        <br></br>
-                       <p>La contraseña es: {contrasena}</p> 
-                        <br></br>
-                        <br></br>
-                      <p>De antemano se despide:,<br>-Administracion Los Yuyitos</br></p>
-                        <br></br>
-                        <br></br>
-                        <p>PRUEBA</p> 
-                      </body>
-                      </html>
-                     ";
-            body = body.Replace("{usuario}", usuario.NombreUsuario);
-            body = body.Replace("{contrasena}", usuario.Contrasena);
-            bool recuperacionEnviada = validar.EnviarEmail(correo, asunto, body);
-            if (recuperacionEnviada)
-            {
-                MessageBox.Show("Se ha enviado un correo de recuperacion a la direccion indicada anteriormente.");
-            }
-            else
-            {
-                MessageBox.Show("Ha ocurrido un error enviando el correo de recuperacion");
-            }
-        }
         private void VerificarCorreoUsuario()
         {
             int run = int.Parse(txtRunUsuario.Text);
@@ -102,7 +71,7 @@ namespace Vista
             usuario = usuario.ObtenerUsuario(run);
             if (usuario.Correo == txtVerificarCorreo.Text.ToUpper())
             {
-                EnviarEmailRecuperacionContrasena(usuario);
+                AsignarNuevaContrasena(usuario);
             }
             else
             {
@@ -132,6 +101,17 @@ namespace Vista
 
             return sb.ToString();
         }
+        private void AsignarNuevaContrasena(Usuario usuario)
+        {
+            if (usuario.AsignarNuevaContrasena(usuario))
+            {
+                MessageBox.Show("Se ha enviado una nueva contraseña a su correo electronico.");
+            }
+            else
+            {
+                MessageBox.Show("Error al asignar una nueva contraseña");
+            }
+        }
         #endregion
 
         #region Botones
@@ -151,6 +131,7 @@ namespace Vista
         {
             VerificarCorreoUsuario();
         }
+        
         #endregion
 
         #region Eventos

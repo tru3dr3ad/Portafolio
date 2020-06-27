@@ -22,20 +22,24 @@ namespace Controlador
         public TipoUsuario Tipo { get; set; }
 
         #region Constructores
-        public Usuario(int run, char dv, string nombre, string apellido, string clave, DateTime fechaNacimiento,
+        public Usuario(int run, char dv, string nombre, string apellido, string contrasena, DateTime fechaNacimiento,
             DateTime fechaCreacion, string direccion, int telefono, string correo, TipoUsuario tipo)
         {
             RunUsuario = run;
             DvUsuario = dv;
             NombreUsuario = nombre;
             ApellidoUsuario = apellido;
-            Contrasena = clave;
+            Contrasena = contrasena;
             FechaNacimiento = fechaNacimiento;
             FechaCreacionUsuario = fechaCreacion;
             DireccionUsuario = direccion;
             TelefonoUsuario = telefono;
             Correo = correo;
             Tipo = tipo;
+        }
+        public Usuario(string contrasena)
+        {
+            Contrasena = contrasena;
         }
         public Usuario()
         {
@@ -205,6 +209,108 @@ namespace Controlador
             {
                 return false;
                 throw new ArgumentException("Error al eliminar usuario: " + ex);
+            }
+        }
+        public bool CambiarContrasena(Usuario usuario)
+        {
+            try
+            {
+                if (BuscarUsuario(usuario.RunUsuario))
+                {
+                    Modelo.USUARIO usuarioModelo = ConectorDALC.ModeloAlmacen.USUARIO.FirstOrDefault(e => e.RUNUSUARIO == usuario.RunUsuario);
+                    usuarioModelo.CONTRASENA = GenerateSHA256String(Contrasena);
+                    
+                    ConectorDALC.ModeloAlmacen.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw new ArgumentException("Error al cambiar la contraseña" + ex);
+            }
+        }
+        public bool VerificarContrasena(Usuario usuario, string contrasena)
+        {
+            try
+            {
+                string contrasenaCodificada = GenerateSHA256String(contrasena);
+                if (usuario.Contrasena == contrasenaCodificada)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }           
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw ;
+            }
+        }
+        public bool AsignarNuevaContrasena(Usuario usuario)
+        {
+            try
+            {
+                string nuevaContraseña = GenerarContrasena();
+                usuario.Contrasena = nuevaContraseña;
+                bool contrasenaCambiada = usuario.CambiarContrasena(usuario);
+                if (contrasenaCambiada)
+                {
+                    if (EnviarCorreoRecuperacionCuenta(usuario, nuevaContraseña))
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw;
+            }
+        }
+        public bool EnviarCorreoRecuperacionCuenta(Usuario usuario, string nuevaContrasena)
+        {
+            try
+            {
+                Validaciones validar = new Validaciones();
+                string correo = usuario.Correo;
+                string asunto = "Recuperacion de Contraseña Personal Almacen Los Yuyitos";
+                string body = @"<html>
+                      <body>
+                      <p>Buenas Tardes {usuario} ,</p>
+                      <p>Si usted esta viendo este correo, significa que ha olvidado su contraseña, seguido de eso ha solicitado la recuperacion de esta, la cual le sera facilitada en la parte de abajo de este mensaje. En caso de que usted no haya solicitado la recuperacion de contraseña de la aplicacion de Almancen, por favor contactarse con el administrador.</p>
+                        <br></br>
+                       <p>La contraseña es: {contrasena}</p> 
+                        <br></br>
+                        <br></br>
+                      <p>De antemano se despide:,<br>-Administracion Los Yuyitos</br></p>
+                        <br></br>
+                        <br></br>
+                        <p>PRUEBA</p> 
+                      </body>
+                      </html>
+                     ";
+                body = body.Replace("{usuario}", usuario.NombreUsuario);
+                body = body.Replace("{contrasena}", nuevaContrasena);
+                bool recuperacionEnviada = validar.EnviarEmail(correo, asunto, body);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
             }
         }
         #endregion

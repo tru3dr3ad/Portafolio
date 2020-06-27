@@ -72,6 +72,7 @@
             this.btnCambiarContrasena.TabIndex = 3;
             this.btnCambiarContrasena.Text = "Cambiar Contraseña";
             this.btnCambiarContrasena.UseVisualStyleBackColor = true;
+            this.btnCambiarContrasena.Click += new System.EventHandler(this.btnCambiarContrasena_Click);
             // 
             // label1
             // 
