@@ -61,6 +61,7 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnConfiguracion = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnPerfil = new System.Windows.Forms.Button();
             this.pnlBarraTitulo.SuspendLayout();
             this.pnlMenuVertical.SuspendLayout();
             this.pnlReporteSubMenu.SuspendLayout();
@@ -96,7 +97,7 @@
             this.lblTituloForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTituloForm.AutoSize = true;
             this.lblTituloForm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloForm.Location = new System.Drawing.Point(844, 16);
+            this.lblTituloForm.Location = new System.Drawing.Point(819, 16);
             this.lblTituloForm.Name = "lblTituloForm";
             this.lblTituloForm.Size = new System.Drawing.Size(86, 21);
             this.lblTituloForm.TabIndex = 3;
@@ -506,6 +507,7 @@
             // pnlBarraSuperior
             // 
             this.pnlBarraSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.pnlBarraSuperior.Controls.Add(this.btnPerfil);
             this.pnlBarraSuperior.Controls.Add(this.btnMinimizar);
             this.pnlBarraSuperior.Controls.Add(this.btnMenuVertical);
             this.pnlBarraSuperior.Controls.Add(this.btnCerrar);
@@ -564,7 +566,7 @@
             this.btnConfiguracion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnConfiguracion.FlatAppearance.BorderSize = 0;
             this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracion.Location = new System.Drawing.Point(1065, 3);
+            this.btnConfiguracion.Location = new System.Drawing.Point(1019, 3);
             this.btnConfiguracion.Name = "btnConfiguracion";
             this.btnConfiguracion.Size = new System.Drawing.Size(40, 40);
             this.btnConfiguracion.TabIndex = 2;
@@ -582,6 +584,19 @@
             this.label1.Size = new System.Drawing.Size(134, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Administrador";
+            // 
+            // btnPerfil
+            // 
+            this.btnPerfil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPerfil.BackgroundImage")));
+            this.btnPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPerfil.FlatAppearance.BorderSize = 0;
+            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerfil.Location = new System.Drawing.Point(1065, 3);
+            this.btnPerfil.Name = "btnPerfil";
+            this.btnPerfil.Size = new System.Drawing.Size(40, 40);
+            this.btnPerfil.TabIndex = 7;
+            this.btnPerfil.UseVisualStyleBackColor = true;
+            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
             // 
             // frmMenuAdmin
             // 
@@ -643,6 +658,7 @@
         private System.Windows.Forms.Button btnProveedor;
         private System.Windows.Forms.Button btnRevisarPedido;
         private System.Windows.Forms.Button btnHacerPedido;
+        private System.Windows.Forms.Button btnPerfil;
     }
 }
 

@@ -246,7 +246,14 @@ namespace Vista
             AbrirFormInPanel(new frmRevisarPedido());
             NombreFormularioAbierto("Orden de Pedido");
         }
-
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
+            OcultarSubMenu();
+            AbrirFormInPanel(new frmCambiarContrasena());
+            NombreFormularioAbierto("Cambio de Contraseña");
+        }
         #endregion
+
+
     }
 }

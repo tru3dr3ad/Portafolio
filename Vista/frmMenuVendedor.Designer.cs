@@ -51,6 +51,7 @@
             this.lblTituloForm = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlContenedor = new System.Windows.Forms.Panel();
+            this.btnPerfil = new System.Windows.Forms.Button();
             this.pnlBarraSuperior.SuspendLayout();
             this.pnlMenuVertical.SuspendLayout();
             this.pnlClienteSubMenu.SuspendLayout();
@@ -61,6 +62,7 @@
             // pnlBarraSuperior
             // 
             this.pnlBarraSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.pnlBarraSuperior.Controls.Add(this.btnPerfil);
             this.pnlBarraSuperior.Controls.Add(this.btnMinimizar);
             this.pnlBarraSuperior.Controls.Add(this.btnMenuVertical);
             this.pnlBarraSuperior.Controls.Add(this.btnCerrar);
@@ -395,6 +397,18 @@
             this.pnlContenedor.Size = new System.Drawing.Size(1000, 550);
             this.pnlContenedor.TabIndex = 14;
             // 
+            // btnPerfil
+            // 
+            this.btnPerfil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPerfil.BackgroundImage")));
+            this.btnPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPerfil.FlatAppearance.BorderSize = 0;
+            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerfil.Location = new System.Drawing.Point(1065, 5);
+            this.btnPerfil.Name = "btnPerfil";
+            this.btnPerfil.Size = new System.Drawing.Size(40, 40);
+            this.btnPerfil.TabIndex = 6;
+            this.btnPerfil.UseVisualStyleBackColor = true;
+            // 
             // frmMenuVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,5 +456,6 @@
         private System.Windows.Forms.Label lblTituloForm;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlContenedor;
+        private System.Windows.Forms.Button btnPerfil;
     }
 }
