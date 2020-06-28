@@ -31,7 +31,7 @@ namespace Vista
                 if (int.Parse(row.Cells[5].Value.ToString()) == 0)
                 {
                     row.DefaultCellStyle.ForeColor = Color.Red;
-                    //row.DefaultCellStyle.BackColor = Color.Red;
+                    row.DefaultCellStyle.SelectionForeColor = Color.Red;
                 }
             }
         }
@@ -320,6 +320,7 @@ namespace Vista
             string codigo = grdProducto.Rows[rowIndex].Cells[0].Value.ToString();
             MostrarDatosProducto(codigo);
         }
+
         #endregion
 
         #region Eventos
@@ -339,11 +340,11 @@ namespace Vista
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
-        #endregion
-
         private void grdProducto_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             CambiarColorProductoSinStock();
         }
+        #endregion
+
     }
 }
