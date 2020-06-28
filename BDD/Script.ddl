@@ -1,19 +1,17 @@
 -- Generado por Oracle SQL Developer Data Modeler 19.2.0.182.1216
---   en:        2020-06-25 18:17:36 CLT
+--   en:        2020-06-28 04:53:04 CLT
 --   sitio:      Oracle Database 12c
 --   tipo:      Oracle Database 12c
 
 DROP SEQUENCE seq_rubro;
-DROP SEQUENCE seq_tipo_cliente;
 DROP SEQUENCE seq_orden_pedido;
 DROP SEQUENCE seq_id_proveedor;
-DROP SEQUENCE seq_estado_orden;
-DROP SEQUENCE seq_estado_fiado;
-DROP SEQUENCE seq_detalle_orden;
+DROP SEQUENCE seq_detalle_pedido;
 DROP SEQUENCE seq_detalle_boleta;
 DROP SEQUENCE seq_boleta;
 DROP SEQUENCE seq_abono;
 DROP SEQUENCE seq_categoria;
+
 
 DROP TABLE abono CASCADE CONSTRAINTS;
 
@@ -93,7 +91,7 @@ CREATE TABLE cliente (
 ALTER TABLE cliente ADD CONSTRAINT cliente_pk PRIMARY KEY ( runcliente );
 
 CREATE TABLE detalle_boleta (
-    iddetalleb            INTEGER NOT NULL,
+    iddetalleB           INTEGER NOT NULL,
     producto_codigo       VARCHAR2(17 CHAR) NOT NULL,
     boleta_numeroboleta   INTEGER NOT NULL,
     cantidad              INTEGER NOT NULL
@@ -102,7 +100,7 @@ CREATE TABLE detalle_boleta (
 ALTER TABLE detalle_boleta
     ADD CONSTRAINT detalle_boleta_pk PRIMARY KEY ( producto_codigo,
                                                    boleta_numeroboleta,
-                                                   iddetalleb );
+                                                   iddetalleB );
 
 CREATE TABLE detalle_pedido (
     iddetalleo                 INTEGER NOT NULL,
@@ -214,7 +212,7 @@ CREATE TABLE usuario (
     fechacreacion         DATE NOT NULL,
     direccion             VARCHAR2(250 CHAR) NOT NULL,
     telefono              NUMBER NOT NULL,
-    correo                VARCHAR2(250 CHAR) NOT NULL,
+    correo                CHAR(250 CHAR) NOT NULL,
     tipo_usuario_idtipo   INTEGER NOT NULL
 );
 
@@ -323,45 +321,23 @@ END;
 
 CREATE SEQUENCE seq_detalle_boleta START WITH 1 MINVALUE 1 NOCACHE ORDER;
 
-CREATE OR REPLACE TRIGGER detalle_boleta_iddetalleb_trg BEFORE
+CREATE OR REPLACE TRIGGER detalle_boleta_iddetalleB_trg BEFORE
     INSERT ON detalle_boleta
     FOR EACH ROW
-    WHEN ( new.iddetalleb IS NULL )
+    WHEN ( new.iddetalleB IS NULL )
 BEGIN
-    :new.iddetalleb := seq_detalle_boleta.nextval;
+    :new.iddetalleB := seq_detalle_boleta.nextval;
 END;
 /
 
-CREATE SEQUENCE seq_detalle_orden START WITH 1 MINVALUE 1 NOCACHE ORDER;
+CREATE SEQUENCE seq_detalle_pedido START WITH 1 MINVALUE 1 NOCACHE ORDER;
 
 CREATE OR REPLACE TRIGGER detalle_pedido_iddetalleo_trg BEFORE
     INSERT ON detalle_pedido
     FOR EACH ROW
     WHEN ( new.iddetalleo IS NULL )
 BEGIN
-    :new.iddetalleo := seq_detalle_orden.nextval;
-END;
-/
-
-CREATE SEQUENCE seq_estado_fiado START WITH 1 MINVALUE 1 NOCACHE ORDER;
-
-CREATE OR REPLACE TRIGGER estado_fiado_idestado_trg BEFORE
-    INSERT ON estado_fiado
-    FOR EACH ROW
-    WHEN ( new.idestado IS NULL )
-BEGIN
-    :new.idestado := seq_estado_fiado.nextval;
-END;
-/
-
-CREATE SEQUENCE seq_estado_orden START WITH 1 MINVALUE 1 NOCACHE ORDER;
-
-CREATE OR REPLACE TRIGGER estado_orden_idestado_trg BEFORE
-    INSERT ON estado_orden
-    FOR EACH ROW
-    WHEN ( new.idestado IS NULL )
-BEGIN
-    :new.idestado := seq_estado_orden.nextval;
+    :new.iddetalleo := seq_detalle_pedido.nextval;
 END;
 /
 
@@ -384,17 +360,6 @@ CREATE OR REPLACE TRIGGER proveedor_id_trg BEFORE
     WHEN ( new.id IS NULL )
 BEGIN
     :new.id := seq_id_proveedor.nextval;
-END;
-/
-
-CREATE SEQUENCE seq_tipo_cliente START WITH 1 MINVALUE 1 NOCACHE ORDER;
-
-CREATE OR REPLACE TRIGGER tipo_cliente_idtipo_trg BEFORE
-    INSERT ON tipo_cliente
-    FOR EACH ROW
-    WHEN ( new.idtipo IS NULL )
-BEGIN
-    :new.idtipo := seq_tipo_cliente.nextval;
 END;
 /
 
@@ -422,7 +387,7 @@ END;
 -- CREATE PACKAGE BODY                      0
 -- CREATE PROCEDURE                         0
 -- CREATE FUNCTION                          0
--- CREATE TRIGGER                          11
+-- CREATE TRIGGER                           8
 -- ALTER TRIGGER                            0
 -- CREATE COLLECTION TYPE                   0
 -- CREATE STRUCTURED TYPE                   0
@@ -435,7 +400,7 @@ END;
 -- CREATE DISK GROUP                        0
 -- CREATE ROLE                              0
 -- CREATE ROLLBACK SEGMENT                  0
--- CREATE SEQUENCE                         11
+-- CREATE SEQUENCE                          8
 -- CREATE MATERIALIZED VIEW                 0
 -- CREATE MATERIALIZED VIEW LOG             0
 -- CREATE SYNONYM                           0
