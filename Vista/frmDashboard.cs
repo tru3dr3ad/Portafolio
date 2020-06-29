@@ -29,9 +29,15 @@ namespace Vista
                 lblNombreProducto1.Text = listado[0].Nombre;
                 lblDescripcionProducto1.Text = CortarDescripcion(listado[0].Descripcion);
                 lblPrecioProducto1.Text = listado[0].PrecioVenta.ToString("C0", moneda);
+            }
+            if (listado.Count > 1)
+            {
                 lblNombreProducto2.Text = listado[1].Nombre;
                 lblDescripcionProducto2.Text = CortarDescripcion(listado[1].Descripcion);
                 lblPrecioProducto2.Text = listado[1].PrecioVenta.ToString("C0", moneda);
+            }
+            if (listado.Count > 2)
+            {
                 lblNombreProducto3.Text = listado[2].Nombre;
                 lblDescripcionProducto3.Text = CortarDescripcion(listado[2].Descripcion);
                 lblPrecioProducto3.Text = listado[2].PrecioVenta.ToString("C0", moneda);
@@ -56,15 +62,21 @@ namespace Vista
                 lblBoletaNombre1.Text = CortarDescripcion(TraerNombreCompleto(listado[0].Cliente.Run));
                 lblFechaBoleta1.Text = listado[0].FechaCreacion.ToShortDateString();
                 lblTotal1.Text = listado[0].Total.ToString("C0", moneda);
+            }
+            if (listado.Count > 1)
+            {
                 lblRun2.Text = TraerRunCompleto(listado[1].Cliente.Run);
                 lblBoletaNombre2.Text = CortarDescripcion(TraerNombreCompleto(listado[1].Cliente.Run));
                 lblFechaBoleta2.Text = listado[1].FechaCreacion.ToShortDateString();
                 lblTotal2.Text = listado[1].Total.ToString("C0", moneda);
+            }
+            if (listado.Count>2)
+            {
                 lblRun3.Text = TraerRunCompleto(listado[2].Cliente.Run);
                 lblBoletaNombre3.Text = CortarDescripcion(TraerNombreCompleto(listado[2].Cliente.Run));
                 lblFechaBoleta3.Text = listado[2].FechaCreacion.ToShortDateString();
                 lblTotal3.Text = listado[2].Total.ToString("C0", moneda);
-            }
+            } 
         }
         private string TraerRunCompleto(int runCliente)
         {

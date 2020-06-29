@@ -8,6 +8,7 @@ namespace Vista
     {
         string _codProductoSeleccionado = "";
         string _codProductoQuitar = "";
+        int _stockRestante = 0;
 
         public frmPuntoVenta()
         {
@@ -23,7 +24,7 @@ namespace Vista
         private void CargarGrillaProducto()
         {
             Producto producto = new Producto();
-            grdProducto.DataSource = producto.ListarProductos();
+            grdProducto.DataSource = producto.ListarProductosParaVenta();
             EsconderColumnasAutogeneradas();
             CambioNombreColumnaGrilla();
         }
@@ -217,24 +218,47 @@ namespace Vista
                 int cantidad = int.Parse(txtCantidad.Text);
                 Producto producto = new Producto();
                 producto = producto.ObtenerProducto(_codProductoSeleccionado);
-                if (producto != null && int.Parse(txtCantidad.Text) <= producto.Stock)
+                if (!ValidarProductoLista(grdBoleta))
                 {
-                    string nombreProducto = producto.Nombre;
-                    decimal totalProductos = producto.PrecioVenta * cantidad;
-                    decimal totalBoleta = decimal.Parse(txtTotalBoleta.Text);
-                    totalBoleta = totalBoleta + totalProductos;
-                    txtTotalBoleta.Text = totalBoleta.ToString();
-                    grdBoleta.Rows.Add(_codProductoSeleccionado, nombreProducto, cantidad, totalProductos);
+                    if (producto != null && int.Parse(txtCantidad.Text) <= _stockRestante)
+                    {
+                        string nombreProducto = producto.Nombre;
+                        decimal totalProductos = producto.PrecioVenta * cantidad;
+                        decimal totalBoleta = decimal.Parse(txtTotalBoleta.Text);
+                        totalBoleta = totalBoleta + totalProductos;
+                        txtTotalBoleta.Text = totalBoleta.ToString();
+
+                        grdBoleta.Rows.Add(_codProductoSeleccionado, nombreProducto, cantidad, totalProductos);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay suficiente stock del producto seleccionado.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No hay suficiente stock del producto seleccionado.");
+                    MessageBox.Show("Ya lleva de ese producto, selecione otro.");
                 }
             }
             else
             {
                 MessageBox.Show("Debe seleccionar un producto primero");
             }
+        }
+        private bool ValidarProductoLista(DataGridView grdBoleta)
+        {
+            foreach (DataGridViewRow row in grdBoleta.Rows)
+            {
+                if (grdBoleta.Rows[row.Index].Cells[0].Value.ToString() == _codProductoSeleccionado)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
         }
         private void QuitarDetalleBoleta()
         {
@@ -282,6 +306,7 @@ namespace Vista
             if (e.RowIndex > -1)
             {
                 string codigo = this.grdProducto[0, e.RowIndex].Value.ToString();
+                _stockRestante = int.Parse(this.grdProducto[5, e.RowIndex].Value.ToString());
                 _codProductoSeleccionado = codigo;
             }
         }

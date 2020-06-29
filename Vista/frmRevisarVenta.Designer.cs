@@ -52,6 +52,7 @@
             this.grdDetalleBoleta = new System.Windows.Forms.DataGridView();
             this.pnlTituloGrillaDetalle = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.pnlContenedorGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdBoleta)).BeginInit();
@@ -76,15 +77,16 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.cmbMedioPago);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cmbVendedores);
             this.groupBox2.Controls.Add(this.btnBuscarBoleta);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtBuscarBoleta);
-            this.groupBox2.Location = new System.Drawing.Point(12, 25);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(869, 73);
+            this.groupBox2.Size = new System.Drawing.Size(976, 86);
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Buscar Boleta:";
@@ -93,7 +95,7 @@
             // 
             this.cmbMedioPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMedioPago.FormattingEnabled = true;
-            this.cmbMedioPago.Location = new System.Drawing.Point(336, 28);
+            this.cmbMedioPago.Location = new System.Drawing.Point(333, 38);
             this.cmbMedioPago.Name = "cmbMedioPago";
             this.cmbMedioPago.Size = new System.Drawing.Size(181, 21);
             this.cmbMedioPago.TabIndex = 50;
@@ -102,7 +104,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(263, 31);
+            this.label1.Location = new System.Drawing.Point(260, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 49;
@@ -112,7 +114,7 @@
             // 
             this.cmbVendedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVendedores.FormattingEnabled = true;
-            this.cmbVendedores.Location = new System.Drawing.Point(68, 28);
+            this.cmbVendedores.Location = new System.Drawing.Point(65, 38);
             this.cmbVendedores.Name = "cmbVendedores";
             this.cmbVendedores.Size = new System.Drawing.Size(181, 21);
             this.cmbVendedores.TabIndex = 48;
@@ -120,7 +122,7 @@
             // 
             // btnBuscarBoleta
             // 
-            this.btnBuscarBoleta.Location = new System.Drawing.Point(729, 27);
+            this.btnBuscarBoleta.Location = new System.Drawing.Point(839, 38);
             this.btnBuscarBoleta.Name = "btnBuscarBoleta";
             this.btnBuscarBoleta.Size = new System.Drawing.Size(128, 21);
             this.btnBuscarBoleta.TabIndex = 2;
@@ -131,7 +133,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 32);
+            this.label4.Location = new System.Drawing.Point(6, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 47;
@@ -139,7 +141,7 @@
             // 
             // txtBuscarBoleta
             // 
-            this.txtBuscarBoleta.Location = new System.Drawing.Point(530, 28);
+            this.txtBuscarBoleta.Location = new System.Drawing.Point(651, 39);
             this.txtBuscarBoleta.Name = "txtBuscarBoleta";
             this.txtBuscarBoleta.Size = new System.Drawing.Size(182, 20);
             this.txtBuscarBoleta.TabIndex = 1;
@@ -303,6 +305,15 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Detalle de boleta";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(552, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 13);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "Ingrese N° Boleta:";
+            // 
             // frmRevisarVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,5 +357,6 @@
         protected System.Windows.Forms.DataGridView grdDetalleBoleta;
         private System.Windows.Forms.Panel pnlTituloGrillaDetalle;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

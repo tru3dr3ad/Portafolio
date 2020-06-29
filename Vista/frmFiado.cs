@@ -20,7 +20,7 @@ namespace Vista
         private void CargarGrillaVentasFiadas()
         {
             Boleta boleta = new Boleta();
-            grdVentaFiadas.DataSource = boleta.ListarBoletasPorMedioPago(4);
+            grdVentaFiadas.DataSource = boleta.ListarBoletasPorMedioPagoFiado();
             OcultarColumnasAutogeneradas();
             CambioNombreColumnaGrilla();
         }

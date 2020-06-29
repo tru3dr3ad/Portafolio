@@ -78,11 +78,17 @@ namespace Vista
                 if (!boleta.BoletaAnulada(boleta))
                 {
                     DetalleBoleta detalle = new DetalleBoleta();
+                    Cliente cliente = new Cliente();
+                    cliente = cliente.ObtenerCliente(boleta.Cliente.Run);
                     bool boletaAnulada = boleta.AnularBoleta(_numeroBoletaSeleccionado);
                     bool agregarStock = detalle.AgregarStockBoletaAnulada(_numeroBoletaSeleccionado);
                     if (boletaAnulada && agregarStock)
                     {
                         MessageBox.Show("La boleta N°" + _numeroBoletaSeleccionado + " se ha anulado.");
+                        if (cliente.Estado.Id == 2)
+                        {
+                            cliente.CambiarEstadoDeudaPagada(cliente.Run);
+                        }
                     }
                     else
                     {

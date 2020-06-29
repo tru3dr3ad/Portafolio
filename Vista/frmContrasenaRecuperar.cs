@@ -50,7 +50,7 @@ namespace Vista
                 {
                     usuario = usuario.ObtenerUsuario(int.Parse(txtRunUsuario.Text));
                     lblNombreUsuario.Text = usuario.NombreUsuario;
-                    lblMostrarCorreo.Text = MostrarCorreo(usuario.Correo);
+                    lblMostrarCorreo.Text = MostrarCorreo(usuario.Correo.Trim());
                     grpCorreo.Visible = true;
                     txtRunUsuario.Enabled = false;
                 }
@@ -69,7 +69,7 @@ namespace Vista
             int run = int.Parse(txtRunUsuario.Text);
             Usuario usuario = new Usuario();
             usuario = usuario.ObtenerUsuario(run);
-            if (usuario.Correo == txtVerificarCorreo.Text.ToUpper())
+            if (usuario.Correo.Trim() == txtVerificarCorreo.Text.ToUpper())
             {
                 AsignarNuevaContrasena(usuario);
             }

@@ -56,6 +56,7 @@
             this.grdDetalleOrden = new System.Windows.Forms.DataGridView();
             this.pnlTituloDetallle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.grpRecepcion.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlContenedorGrilla.SuspendLayout();
@@ -143,6 +144,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cmbProveedores);
             this.groupBox1.Controls.Add(this.btnBuscarOrden);
             this.groupBox1.Controls.Add(this.label4);
@@ -166,7 +168,7 @@
             // 
             // btnBuscarOrden
             // 
-            this.btnBuscarOrden.Location = new System.Drawing.Point(540, 28);
+            this.btnBuscarOrden.Location = new System.Drawing.Point(611, 29);
             this.btnBuscarOrden.Name = "btnBuscarOrden";
             this.btnBuscarOrden.Size = new System.Drawing.Size(128, 21);
             this.btnBuscarOrden.TabIndex = 2;
@@ -185,7 +187,7 @@
             // 
             // txtBuscarOrden
             // 
-            this.txtBuscarOrden.Location = new System.Drawing.Point(341, 29);
+            this.txtBuscarOrden.Location = new System.Drawing.Point(423, 29);
             this.txtBuscarOrden.Name = "txtBuscarOrden";
             this.txtBuscarOrden.Size = new System.Drawing.Size(182, 20);
             this.txtBuscarOrden.TabIndex = 1;
@@ -349,6 +351,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle de orden de pedido";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(325, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 13);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Ingrese N° Orden:";
+            // 
             // frmRevisarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -401,5 +412,6 @@
         protected System.Windows.Forms.DataGridView grdDetalleOrden;
         private System.Windows.Forms.Panel pnlTituloDetallle;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
