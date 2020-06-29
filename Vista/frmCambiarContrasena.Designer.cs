@@ -44,6 +44,7 @@
             this.txtContrasenaActual.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasenaActual.Location = new System.Drawing.Point(55, 115);
             this.txtContrasenaActual.Name = "txtContrasenaActual";
+            this.txtContrasenaActual.PasswordChar = '*';
             this.txtContrasenaActual.Size = new System.Drawing.Size(275, 29);
             this.txtContrasenaActual.TabIndex = 0;
             // 
@@ -52,6 +53,7 @@
             this.txtContrasenaNueva.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasenaNueva.Location = new System.Drawing.Point(55, 223);
             this.txtContrasenaNueva.Name = "txtContrasenaNueva";
+            this.txtContrasenaNueva.PasswordChar = '*';
             this.txtContrasenaNueva.Size = new System.Drawing.Size(275, 29);
             this.txtContrasenaNueva.TabIndex = 1;
             // 
@@ -60,6 +62,7 @@
             this.txtRepertirContrasenaNueva.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRepertirContrasenaNueva.Location = new System.Drawing.Point(55, 298);
             this.txtRepertirContrasenaNueva.Name = "txtRepertirContrasenaNueva";
+            this.txtRepertirContrasenaNueva.PasswordChar = '*';
             this.txtRepertirContrasenaNueva.Size = new System.Drawing.Size(275, 29);
             this.txtRepertirContrasenaNueva.TabIndex = 2;
             // 
