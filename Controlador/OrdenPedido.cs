@@ -242,7 +242,7 @@ namespace Controlador
                 throw new ArgumentException("Error al eliminar orden de pedido: " + ex);
             }
         }
-        public bool DescargarOrdenPedido(int nroOrden)
+        public bool CambiarEstadoAEnviado(int nroOrden)
         {
             try
             {
