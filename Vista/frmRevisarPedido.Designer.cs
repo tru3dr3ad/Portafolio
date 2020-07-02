@@ -44,6 +44,7 @@
             this.cmbEstadoOrden = new System.Windows.Forms.ComboBox();
             this.btnRecepcionar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.cmbProveedores = new System.Windows.Forms.ComboBox();
             this.btnBuscarOrden = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.grdDetalleOrden = new System.Windows.Forms.DataGridView();
             this.pnlTituloDetallle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.grpRecepcion.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlContenedorGrilla.SuspendLayout();
@@ -96,7 +96,7 @@
             this.btnDescargarOrden.Name = "btnDescargarOrden";
             this.btnDescargarOrden.Size = new System.Drawing.Size(128, 21);
             this.btnDescargarOrden.TabIndex = 42;
-            this.btnDescargarOrden.Text = "Descargar";
+            this.btnDescargarOrden.Text = "Enviar";
             this.btnDescargarOrden.UseVisualStyleBackColor = true;
             this.btnDescargarOrden.Click += new System.EventHandler(this.btnDescargarOrden_Click);
             // 
@@ -155,6 +155,15 @@
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar Orden de pedido:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(325, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 13);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Ingrese N° Orden:";
             // 
             // cmbProveedores
             // 
@@ -350,15 +359,6 @@
             this.label1.Size = new System.Drawing.Size(224, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle de orden de pedido";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(325, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 13);
-            this.label2.TabIndex = 49;
-            this.label2.Text = "Ingrese N° Orden:";
             // 
             // frmRevisarPedido
             // 

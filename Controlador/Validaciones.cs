@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
@@ -111,6 +112,7 @@ namespace Controlador
                 Mail.From = new MailAddress("AlmacenPortafolio@gmail.com");
                 Mail.To.Add(correo);
                 Mail.Subject = asunto;
+                Mail.Attachments.Add(new Attachment(@"C:\Users\krist\Desktop\righth.pdf"));
                 Mail.IsBodyHtml = true;
                 Mail.Body = body;
                 SmtpClient smpt = new SmtpClient();
@@ -126,7 +128,33 @@ namespace Controlador
                 return false;
             }
         }
+        public bool EnviarEmailConArchivo(string correo, string asunto, string body, string ruta)
+        {
+            try
+            {
+                MailMessage Mail = new MailMessage();
+                Mail.From = new MailAddress("AlmacenPortafolio@gmail.com");
+                Mail.To.Add(correo);
+                Mail.Subject = asunto;
+                //message.Attachments.Add(new Attachment("Hydrangeas.jpg"));
+                Mail.Attachments.Add(new Attachment(ruta));
+                Mail.IsBodyHtml = true;
+                Mail.Body = body;
+                SmtpClient smpt = new SmtpClient();
+                smpt.Credentials = new NetworkCredential("AlmacenPortafolio@gmail.com", "123chocolatexd");
+                smpt.Port = 587;
+                smpt.Host = "smtp.gmail.com";
+                smpt.EnableSsl = true;
+                smpt.Send(Mail);
 
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         #endregion
     }
 }

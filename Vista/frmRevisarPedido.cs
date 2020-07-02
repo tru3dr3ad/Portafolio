@@ -1,5 +1,11 @@
 ﻿using Controlador;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
+using System.Net.Mail;
 using System.Windows.Forms;
 
 namespace Vista
@@ -144,7 +150,7 @@ namespace Vista
                 }
                 else
                 {
-                    MessageBox.Show("La orden seleccionada se encuentra "+ descripcion + ", no se puede modicar.");
+                    MessageBox.Show("La orden seleccionada se encuentra " + descripcion + ", no se puede modicar.");
                 }
             }
         }
@@ -218,7 +224,7 @@ namespace Vista
                 }
                 else
                 {
-                    MessageBox.Show("La orden seleccionada se encuentra "+ descripcion + " , no se puede recepcionar.");
+                    MessageBox.Show("La orden seleccionada se encuentra " + descripcion + " , no se puede recepcionar.");
                 }
             }
         }
@@ -228,15 +234,16 @@ namespace Vista
             orden = orden.ObtenerOrdenPedido(_numeroOrdenSeleccionado);
             if (orden.OrdenPedidoGuardada(orden.Numero))
             {
-                bool estaDescargada = orden.DescargarOrdenPedido(_numeroOrdenSeleccionado);
-                if (estaDescargada)
-                {
-                    MessageBox.Show("Orden Descargada");
-                }
-                else
-                {
-                    MessageBox.Show("Orden no se ha podido descargar");
-                }
+                DescargarPDFOrdenPedido(orden);
+                //bool estaDescargada = orden.DescargarOrdenPedido(_numeroOrdenSeleccionado);
+                //if (estaDescargada)
+                //{
+                //    MessageBox.Show("Orden Descargada");
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Orden no se ha podido descargar");
+                //}
             }
             else
             {
@@ -273,6 +280,134 @@ namespace Vista
         }
         #endregion
 
+        #region Metodo Para PDF
+        private void DescargarPDFOrdenPedido(OrdenPedido orden)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF|*.pdf", ValidateNames = true })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    Document doc = new Document(PageSize.LETTER, 40f, 40f, 60f, 60f);
+                    try
+                    {
+                        string ruta = sfd.FileName;
+                        PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+                        doc.Open();
+
+                        var imagePath = @"C:\Users\krist\source\repos\slnAlmacen\Portafolio\Vista\Logo\Logo.png";
+                        using (FileStream fs = new FileStream(imagePath, FileMode.Open))
+                        {
+                            var png = Image.GetInstance(System.Drawing.Image.FromStream(fs),
+                                ImageFormat.Png);
+                            png.ScalePercent(18f);
+                            png.SetAbsolutePosition(15f, 705f);
+                            doc.Add(png);
+                        }
+
+                        var spacer = new Paragraph("")
+                        {
+                            SpacingBefore = 10f,
+                            SpacingAfter = 10f,
+                        };
+                        doc.Add(spacer);
+                        doc.Add(spacer);
+
+                        var headerTable = new PdfPTable(new[] { .75f, 2f })
+                        {
+                            HorizontalAlignment = Left,
+                            WidthPercentage = 75,
+                            DefaultCell = { MinimumHeight = 22f }
+                        };
+
+                        Proveedor proveedor = new Proveedor();
+                        proveedor = proveedor.ObtenerProveedor(orden.Proveedor.Rut);
+
+                        headerTable.AddCell("Fecha");
+                        headerTable.AddCell(DateTime.Now.Date.ToShortDateString());
+                        headerTable.AddCell("Proveedor");
+                        headerTable.AddCell(proveedor.Nombre);
+                        headerTable.AddCell("Rut");
+                        headerTable.AddCell(proveedor.Rut + "-" + proveedor.Dv);
+
+                        doc.Add(headerTable);
+                        doc.Add(spacer);
+
+                        //grdDetalleOrden.Columns["NUMEROORDEN"].
+
+                        var columnWidths = new[] { 1f, 1.5f, 0.5f, 0.75f };
+
+                        var table = new PdfPTable(columnWidths)
+                        {
+                            HorizontalAlignment = Left,
+                            WidthPercentage = 100,
+                            DefaultCell = { MinimumHeight = 22f }
+                        };
+
+                        var cell = new PdfPCell(new Phrase("Detalles de la orden de pedido"))
+                        {
+                            Colspan = 4,
+                            HorizontalAlignment = 1, //0=Left, 1=Centro ,2=Rigth
+                            MinimumHeight = 30f
+                        };
+
+                        table.AddCell(cell);
+
+                        //headers
+
+                        grdDetalleOrden.Columns.RemoveAt(0);
+                        grdDetalleOrden.Columns.RemoveAt(0);
+                        grdDetalleOrden.Columns.OfType<DataGridViewColumn>().ToList().
+                            ForEach(c => table.AddCell(c.Name));
+
+                        //rows
+                        grdDetalleOrden.Rows.OfType<DataGridViewRow>().ToList().
+                            ForEach(r =>
+                            {
+                                var cells = r.Cells.OfType<DataGridViewCell>().ToList();
+                                cells.ForEach(c => table.AddCell(c.Value.ToString()));
+                            });
+                        doc.Add(table);
+                        doc.Add(spacer);
+
+                        var totalTable = new PdfPTable(new[] { 2f, 1f })
+                        {
+                            HorizontalAlignment = 2,
+                            WidthPercentage = 75,
+                            DefaultCell = { MinimumHeight = 22f }
+                        };
+
+                        totalTable.AddCell("TOTAL PEDIDO:");
+                        totalTable.AddCell(orden.Total.ToString()); 
+
+                        doc.Add(totalTable);
+                        doc.Add(spacer);
+
+                        doc.Close();
+
+                        EnviarEmailAlProveedor(orden, ruta);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        throw;
+                    }
+                    finally
+                    {
+                        doc.Close();
+                    }
+                }
+            }
+        }
+        private void EnviarEmailAlProveedor(OrdenPedido orden, string ruta)
+        {
+            bool correoEnviado = orden.EnviarCorreoOrdenPedido(orden, ruta);
+            if (correoEnviado)
+            {
+                MessageBox.Show("Se ha enviado la orden correctamente.");
+            }
+        }
+        #endregion
+
         #region MetodoGrilla
         private void grdOrden_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -298,6 +433,6 @@ namespace Vista
 
         #endregion
 
-        
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 
 namespace Controlador
 {
@@ -351,8 +352,42 @@ namespace Controlador
                 throw new ArgumentException("Error al anular orden de pedido: " + ex);
             }
         }
-
+        public bool EnviarCorreoOrdenPedido(OrdenPedido orden, string ruta)
+        {
+            try
+            {
+                Validaciones validar = new Validaciones();
+                Proveedor proveedor = new Proveedor();
+                proveedor = proveedor.ObtenerProveedor(orden.Proveedor.Rut);
+                string correo = "kristal.rojas01@gmail.com";
+                string asunto = "ORDEN DE PEDIDO DESDE ALMACEN LOS YUYITOS";
+                string body = @"<html>
+                      <body>
+                      <p>Buenas Tardes {proveedor} ,</p>
+                      <p>Esperando que todo este marchando en orden, le adjunto una orden de pedido. Esperamos la confirmacion del pedido en cuanto se haya confirmado su stock.</p>
+                        <br></br>
+                       <p>La direccion de nuestro local es: Av San fernandez #1329</p> 
+                        <br></br>
+                        <br></br>
+                      <p>De antemano se despide:<br>-Administracion Los Yuyitos</br></p>
+                        <br></br>
+                        <br></br>
+                      </body>
+                      </html>
+                     ";
+                body = body.Replace("{proveedor}", proveedor.Nombre);
+                //body = body.Replace("{contrasena}", );
+                bool recuperacionEnviada = validar.EnviarEmailConArchivo(correo, asunto, body, ruta);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
         #endregion
+
 
     }
 }

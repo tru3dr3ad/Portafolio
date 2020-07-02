@@ -1,6 +1,7 @@
 ﻿using Modelo;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -145,16 +146,26 @@ namespace Controlador
                 usuario.FECHACREACION = FechaCreacionUsuario;
                 usuario.DIRECCION = DireccionUsuario;
                 usuario.TELEFONO = TelefonoUsuario;
+                usuario.CORREO = Correo;
                 usuario.TIPO_USUARIO_IDTIPO = Tipo.Id;
 
                 ConectorDALC.ModeloAlmacen.USUARIO.Add(usuario);
                 ConectorDALC.ModeloAlmacen.SaveChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch (DbEntityValidationException e)
             {
-                return false;
-                throw new ArgumentException("Error al agregar usuario: " + ex);
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
             }
         }
         public bool ModificarUsuario(Usuario modificarUsuario)

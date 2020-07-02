@@ -1,7 +1,12 @@
-﻿using Modelo;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Modelo;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace Controlador
 {
@@ -211,6 +216,5 @@ namespace Controlador
             }
         }
         #endregion
-
     }
 }

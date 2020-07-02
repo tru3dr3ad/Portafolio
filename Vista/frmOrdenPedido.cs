@@ -1,5 +1,9 @@
 ﻿using Controlador;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Vista
@@ -77,7 +81,7 @@ namespace Vista
         #region Metodos de la clase
         private void BuscarProductoPorNombre()
         {
-            string nombre = txtBuscarProducto.Text.ToUpper(); 
+            string nombre = txtBuscarProducto.Text.ToUpper();
             Producto producto = new Producto();
             grdProducto.DataSource = producto.ListarProductosPorNombre(nombre);
             txtBuscarProducto.Clear();
@@ -127,6 +131,7 @@ namespace Vista
                 OrdenPedido orden = new OrdenPedido(fechaCreacion, total, fechaRecepcion, proveedor, estadoOrden, usuario);
                 if (orden.AgregarOrdenPedido())
                 {
+                    DescargarPDFOrdenPedido(orden);//<-------------------
                     int numeroOrden = orden.ObtenerNumeroMaximoOrden();
                     foreach (DataGridViewRow row in grdOrden.Rows)
                     {
@@ -174,6 +179,73 @@ namespace Vista
             else
             {
                 MessageBox.Show("Debes seleccionar el producto a quitar");
+            }
+        }
+        #endregion
+
+        #region Metodo Para PDF
+        private void DescargarPDFOrdenPedido(OrdenPedido orden)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF|*.pdf", ValidateNames = true })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    Document doc = new Document(PageSize.LETTER, 40f, 40f, 60f, 60f);
+                    try
+                    {
+                        PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+                        doc.Open();
+
+                        var imagePath = @"C:\Users\krist\source\repos\slnAlmacen\Portafolio\Vista\Logo\Logo.png";
+                        using (FileStream fs = new FileStream(imagePath, FileMode.Open))
+                        {
+                            var png = Image.GetInstance(System.Drawing.Image.FromStream(fs),
+                                ImageFormat.Png);
+                            png.ScalePercent(18f);
+                            png.SetAbsolutePosition(15f, 705f);
+                            doc.Add(png);
+                        }
+
+                        var spacer = new Paragraph("")
+                        {
+                            SpacingBefore = 10f,
+                            SpacingAfter = 10f,
+                        };
+                        doc.Add(spacer);
+                        doc.Add(spacer);
+
+                        var proveedorTable = new PdfPTable(new[] { .75f, 2f })
+                        {
+                            HorizontalAlignment = Left,
+                            WidthPercentage = 75,
+                            DefaultCell = { MinimumHeight = 22f }
+                        };
+
+                        Proveedor proveedor = new Proveedor();
+                        proveedor = proveedor.ObtenerProveedor(orden.Proveedor.Rut);
+
+                        proveedorTable.AddCell("Fecha");
+                        proveedorTable.AddCell(DateTime.Now.Date.ToShortDateString());
+                        proveedorTable.AddCell("Proveedor");
+                        proveedorTable.AddCell(proveedor.Nombre);
+                        proveedorTable.AddCell("Rut");
+                        proveedorTable.AddCell(proveedor.Rut.ToString("00.000.000") + "-" + proveedor.Dv);
+                        //proveedorTable.AddCell("Fecha");
+                        
+                        doc.Add(proveedorTable);
+                        doc.Add(spacer);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        throw;
+                    }
+                    finally
+                    {
+                        doc.Close();
+                    }
+                }
             }
         }
         #endregion
