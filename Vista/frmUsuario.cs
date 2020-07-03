@@ -85,13 +85,13 @@ namespace Vista
             Validaciones validaciones = new Validaciones();
             if (validaciones.ValidarRun(runUsuario))
             {
-                if (validaciones.ValidarLargoString(3,70,txtNombreUsuario.Text))
+                if (validaciones.ValidarLargoString(3, 70, txtNombreUsuario.Text))
                 {
-                    if (validaciones.ValidarLargoString(3,70,txtApellidoUsuario.Text))
+                    if (validaciones.ValidarLargoString(3, 70, txtApellidoUsuario.Text))
                     {
                         if (validaciones.ValidarMayoriaEdad(dtpFechaNacimiento.Value))
                         {
-                            if (validaciones.ValidarLargoString(3,250,txtDireccionUsuario.Text))
+                            if (validaciones.ValidarLargoString(3, 250, txtDireccionUsuario.Text))
                             {
                                 if (validaciones.ValidarNumeroTelefono(txtTelefonoUsuario.Text))
                                 {
@@ -156,26 +156,39 @@ namespace Vista
         public void AgregarUsuario()
         {
             string msgEsValido = ValidarIngresoUsuario();
+            Usuario usuarioControlador = new Usuario();
+            string contrasena = usuarioControlador.GenerarContrasena();
             if (string.IsNullOrEmpty(msgEsValido))
             {
                 int run = int.Parse(txtRunUsuario.Text);
                 char dv = char.Parse(txtDv.Text);
                 string nombre = txtNombreUsuario.Text.ToUpper();
-                string apellido = txtApellidoUsuario.Text.ToUpper(); ;
-                string contrasena = txtContrasena.Text;
+                string apellido = txtApellidoUsuario.Text.ToUpper();
                 DateTime fechaNacimiento = dtpFechaNacimiento.Value.Date;
                 DateTime fechaCreacion = DateTime.Now.Date;
                 string direccion = txtDireccionUsuario.Text.ToUpper();
                 int telefono = int.Parse(txtTelefonoUsuario.Text);
-                string correo = txtCorreo.Text;
+                string correo = txtCorreo.Text.ToUpper().Trim();
                 TipoUsuario tipo = new TipoUsuario();
                 tipo.Id = (int)cmbTipoUsuario.SelectedValue;
                 Usuario usuario = new Usuario(run, dv, nombre, apellido, contrasena, fechaNacimiento, fechaCreacion,
                     direccion, telefono, correo, tipo);
                 if (usuario.AgregarUsuario())
                 {
-                    MessageBox.Show("Usuario ha sido Agregado");
-                    LimpiarDatos();
+                    bool correoEnviado = usuario.EnviarCorreoBienvenida(usuario, contrasena);
+                    if (correoEnviado)
+                    {
+                        LimpiarDatos();
+                        MessageBox.Show("Usuario ha sido agregado, y se ha enviado su contraseña al email indicado.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ha ocurrido un error enviando el email de Bienvenida");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un problema al ingresar el usuario.");
                 }
             }
             else

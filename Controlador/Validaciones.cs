@@ -112,7 +112,6 @@ namespace Controlador
                 Mail.From = new MailAddress("AlmacenPortafolio@gmail.com");
                 Mail.To.Add(correo);
                 Mail.Subject = asunto;
-                Mail.Attachments.Add(new Attachment(@"C:\Users\krist\Desktop\righth.pdf"));
                 Mail.IsBodyHtml = true;
                 Mail.Body = body;
                 SmtpClient smpt = new SmtpClient();

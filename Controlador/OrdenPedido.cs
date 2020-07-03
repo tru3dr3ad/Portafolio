@@ -359,7 +359,7 @@ namespace Controlador
                 Validaciones validar = new Validaciones();
                 Proveedor proveedor = new Proveedor();
                 proveedor = proveedor.ObtenerProveedor(orden.Proveedor.Rut);
-                string correo = "kristal.rojas01@gmail.com";
+                string correo = proveedor.CorreoElectronico;
                 string asunto = "ORDEN DE PEDIDO DESDE ALMACEN LOS YUYITOS";
                 string body = @"<html>
                       <body>
@@ -376,7 +376,6 @@ namespace Controlador
                       </html>
                      ";
                 body = body.Replace("{proveedor}", proveedor.Nombre);
-                //body = body.Replace("{contrasena}", );
                 bool recuperacionEnviada = validar.EnviarEmailConArchivo(correo, asunto, body, ruta);
                 return true;
             }

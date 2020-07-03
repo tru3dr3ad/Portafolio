@@ -155,9 +155,9 @@ namespace Vista
         }
         public void AgregarAbono()
         {
-            if (!string.IsNullOrEmpty(txtDeuda.Text) && txtDeuda.Text != "--")
+            if (!string.IsNullOrEmpty(txtDeuda.Text) && txtDeuda.Text != "--" )
             {
-                if (!string.IsNullOrEmpty(txtMontoAbono.Text))
+                if (!string.IsNullOrEmpty(txtMontoAbono.Text) && int.Parse(txtMontoAbono.Text) > 0)
                 {
                     if (int.Parse(txtMontoAbono.Text) <= int.Parse(txtDeuda.Text))
                     {
@@ -194,7 +194,7 @@ namespace Vista
         }
         private void ModificarAbono()
         {
-            if (!string.IsNullOrEmpty(txtMontoAbono.Text))
+            if (!string.IsNullOrEmpty(txtMontoAbono.Text) && int.Parse(txtMontoAbono.Text) > 0)
             {
                 Abono abono = new Abono();
                 Boleta boleta = new Boleta();

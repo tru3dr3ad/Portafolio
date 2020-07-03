@@ -306,10 +306,9 @@ namespace Controlador
                        <p>La contraseña es: {contrasena}</p> 
                         <br></br>
                         <br></br>
-                      <p>De antemano se despide:,<br>-Administracion Los Yuyitos</br></p>
+                      <p>De antemano se despide:<br>-Administracion Los Yuyitos</br></p>
                         <br></br>
                         <br></br>
-                        <p>PRUEBA</p> 
                       </body>
                       </html>
                      ";
@@ -317,6 +316,45 @@ namespace Controlador
                 body = body.Replace("{contrasena}", nuevaContrasena);
                 bool recuperacionEnviada = validar.EnviarEmail(correo, asunto, body);
                 return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+        public bool EnviarCorreoBienvenida(Usuario usuario, string contrasena)
+        {
+            try
+            {
+                Validaciones validar = new Validaciones();
+                string correo = usuario.Correo;
+                string asunto = "Bienvenido Personal Almacen Los Yuyitos";
+                string body = @"<html>
+                      <body>
+                      <p>Buenas Tardes {usuario} ,</p>
+                      <p>Esperando que se encuentre megnificamente, este correo es para darle la bienvenida a nuestra empresa, esperando que tenga una calida llegada, tambien le adjuntaremos una contraseña personal, la cual podra ser cambiada una vez haya ingresado al sistema. De igual manera se le recuerda que su nombre de usuario es el nombre con el cual se la ha saludado al inicio de este correo.</p>
+                        <br></br>
+                       <p>La contraseña es: {contrasena}</p> 
+                        <br></br>
+                        <br></br>
+                      <p>De antemano se despide:<br>-Administracion Los Yuyitos</br></p>
+                        <br></br>
+                        <br></br>
+                      </body>
+                      </html>
+                     ";
+                body = body.Replace("{usuario}", usuario.NombreUsuario);
+                body = body.Replace("{contrasena}", contrasena);
+                bool recuperacionEnviada = validar.EnviarEmail(correo, asunto, body);
+                if (recuperacionEnviada)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception)
             {
