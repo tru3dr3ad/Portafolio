@@ -1,13 +1,16 @@
-# Almacen Yuyitos
-
-Almacen Yuyitos es una aplicacion especialmente hecha para dicho Almacen.
+# Tecnologias Utilizadas
+- Oracle 18c XE
+- EntityFramework v6.4.4
+- iTextSharp v5.5.13.1
+- Microsoft.ReportingServices.ReportViewerControl.Winforms v150.1404.0
+- Newtonsoft.Json v12.0.3
+- Oracle.ManagedDataAccess v19.7.0
+- Oracle.ManagedDataAccess.EntityFramework v19.7.0
 
 ## Installation
-
-Para correr el proyecto es necesario contar con Visual Studio 2019, ademas debe descargar los siguientes paquetes Nuget:
--Entity Framework 6
--Newtonsoft JSON
-
+- [Oracle Developer Tools for Visual Studio 2019](https://www.oracle.com/database/technologies/dotnet-odtvsix-vs2019-downloads.html)
+- [ODAC Oracle Universal Installer](https://www.oracle.com/database/technologies/dotnet-odacdev-downloads.html)
+- [ODAC Runtimes](https://www.oracle.com/database/technologies/dotnet-odacdeploy-downloads.html)
 
 ## Usage
 
