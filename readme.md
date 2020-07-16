@@ -1,5 +1,6 @@
 # Tecnologias Utilizadas
 - Oracle 18c XE
+- Visual Studio 2019
 - EntityFramework v6.4.4
 - iTextSharp v5.5.13.1
 - Microsoft.ReportingServices.ReportViewerControl.Winforms v150.1404.0
@@ -12,15 +13,20 @@
 - [ODAC Oracle Universal Installer](https://www.oracle.com/database/technologies/dotnet-odacdev-downloads.html)
 - [ODAC Runtimes](https://www.oracle.com/database/technologies/dotnet-odacdeploy-downloads.html)
 
-## Usage
+**Luego de instalar: Al iniciar Visual Studio aparecerá un mensaje que dice "No se ha realizado instalacion correctamente. ¿Desea volver a instalar?" pulsar que si.**
 
-Fue desarrollado utilizando como base de datos Oracle 18c
-```
+En la carpeta de BDD se encuentran disponibles los scripts para su funcionamiento. El orden de ejecucion es: 
+  - Script.dll
+  - VistasYProcedimientosEtc.sql
+  - Poblamiento.sql
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+Al actualizar el modelo de datos desde la aplicacion de visual studio, debe de cambiar las siguientes propiedades StoreGeneratedPattern a Identity,  Escala en 1, esto se debe hacer en cada atributo que sea autoincremental.
+Aplique el cambio en las siguientes tablas:
+- Categoria(Id)
+- Rubro(Id) 
+- Orden_pedido(Numero)
+- Boleta(Numero)
+- Detalle_Pedido(IdDetalleP)
+- Detalle_Boleta(IdDetalleB)
+- Abono(Id)
+- Proveedor(Id)
