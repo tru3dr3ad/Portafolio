@@ -2,6 +2,7 @@
 using Modelo;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Vista
@@ -105,19 +106,27 @@ namespace Vista
         }
         public void AgregarDetallePedido()
         {
-            if (int.Parse(txtCantidad.Text) > 0)
+            if (int.Parse(txtCantidad.Text) > 0 && _codProductoSeleccionado != "")
             {
-                int cantidad = int.Parse(txtCantidad.Text);
-                Producto producto = new Producto();
-                producto = producto.ObtenerProducto(_codProductoSeleccionado);
-                if (producto != null)
+                if (!ValidarProductoLista(grdOrden))
                 {
-                    string nombreProducto = producto.Nombre;
-                    decimal totalProductos = producto.PrecioCompra * cantidad;
-                    decimal totalPedido = decimal.Parse(txtTotalOrden.Text);
-                    totalPedido = totalPedido + totalProductos;
-                    txtTotalOrden.Text = totalPedido.ToString();
-                    grdOrden.Rows.Add(_codProductoSeleccionado, nombreProducto, cantidad, totalProductos);
+                    int cantidad = int.Parse(txtCantidad.Text);
+                    Producto producto = new Producto();
+                    producto = producto.ObtenerProducto(_codProductoSeleccionado);
+                    if (producto != null)
+                    {
+                        string nombreProducto = producto.Nombre;
+                        decimal totalProductos = producto.PrecioCompra * cantidad;
+                        decimal totalPedido = decimal.Parse(txtTotalOrden.Text);
+                        totalPedido = totalPedido + totalProductos;
+                        txtTotalOrden.Text = totalPedido.ToString();
+                        grdOrden.Rows.Add(_codProductoSeleccionado, nombreProducto, cantidad, totalProductos);
+                        _codProductoSeleccionado = "";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ya lleva de ese producto, por favor quitelo y vuelva a agregarlo si desea canbiar la cantidad.");
                 }
             }
         }
@@ -155,7 +164,6 @@ namespace Vista
                 OrdenPedido orden = new OrdenPedido(numeroOrden, total, proveedor, estadoOrden, usuario);
                 if (orden.ModificarOrdenPedido(orden))
                 {
-                    
                     DetallePedido detalle = new DetallePedido();
                     bool eliminarDetalleAnteriores = detalle.EliminarDetalleEnCascada(numeroOrden);
                     if (eliminarDetalleAnteriores)
@@ -177,46 +185,22 @@ namespace Vista
                         MessageBox.Show("Problema al eliminar detalles anteriores");
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar al menos un producto para realizar la orden.");
             }
         }
-        public void ModificarOrdenPedidoParaDescargar()
+        private bool ValidarProductoLista(DataGridView grdOrden)
         {
-            if (decimal.Parse(txtTotalOrden.Text) > 0)
+            foreach (DataGridViewRow row in grdOrden.Rows)
             {
-                int numeroOrden = int.Parse(lblNumeroOrden.Text);
-                decimal total = decimal.Parse(txtTotalOrden.Text);
-                Proveedor proveedor = new Proveedor();
-                proveedor.Rut = (int)cmbProveedor.SelectedValue;
-                EstadoOrden estadoOrden = new EstadoOrden();
-                estadoOrden.Id = 2;//<--debe ser ENVIADA
-                Usuario usuario = new Usuario();
-                usuario.RunUsuario = Global.RunUsuarioActivo;
-                OrdenPedido orden = new OrdenPedido(numeroOrden, total, proveedor, estadoOrden, usuario);
-                if (orden.ModificarOrdenPedido(orden))
+                if (grdOrden.Rows[row.Index].Cells[0].Value.ToString() == _codProductoSeleccionado)
                 {
-
-                    DetallePedido detalle = new DetallePedido();
-                    bool eliminarDetalleAnteriores = detalle.EliminarDetalleEnCascada(numeroOrden);
-                    if (eliminarDetalleAnteriores)
-                    {
-                        foreach (DataGridViewRow row in grdOrden.Rows)
-                        {
-                            string codigo = row.Cells[0].Value.ToString();
-                            int cantidad = int.Parse(row.Cells[2].Value.ToString());
-                            detalle.NumeroOrden = numeroOrden;
-                            detalle.CodigoProducto = codigo;
-                            detalle.Cantidad = cantidad;
-                            detalle.AgregarDetallePedido();
-                        }
-                        MessageBox.Show("Orden de Pedido N°" + numeroOrden + " ha sido modificada.");
-                        this.Dispose();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Problema al eliminar detalles anteriores");
-                    }
+                    return true;
                 }
             }
+            return false;
         }
         #endregion
 
@@ -238,14 +222,19 @@ namespace Vista
         {
             ModificarOrdenPedido();
         }
-        private void btnDescargarOrden_Click(object sender, EventArgs e)
-        {
-            ModificarOrdenPedidoParaDescargar();
-        }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = @"\Ayuda\Ayuda.chm";
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string ayudaPath = projectDirectory + rutaAyuda;
+            Help.ShowHelp(this, ayudaPath, "Revision.htm");
+        }
+
         #endregion
 
         #region Eventos
@@ -288,5 +277,7 @@ namespace Vista
             }
         }
         #endregion
+
+        
     }
 }

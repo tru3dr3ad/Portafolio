@@ -24,7 +24,7 @@ namespace Vista {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class DsClienteFrecuente : global::System.Data.DataSet {
         
-        private DataTable2DataTable tableDataTable2;
+        private CLIENTEDataTable tableCLIENTE;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace Vista {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["DataTable2"] != null)) {
-                    base.Tables.Add(new DataTable2DataTable(ds.Tables["DataTable2"]));
+                if ((ds.Tables["CLIENTE"] != null)) {
+                    base.Tables.Add(new CLIENTEDataTable(ds.Tables["CLIENTE"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Vista {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DataTable2DataTable DataTable2 {
+        public CLIENTEDataTable CLIENTE {
             get {
-                return this.tableDataTable2;
+                return this.tableCLIENTE;
             }
         }
         
@@ -152,8 +152,8 @@ namespace Vista {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["DataTable2"] != null)) {
-                    base.Tables.Add(new DataTable2DataTable(ds.Tables["DataTable2"]));
+                if ((ds.Tables["CLIENTE"] != null)) {
+                    base.Tables.Add(new CLIENTEDataTable(ds.Tables["CLIENTE"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Vista {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableDataTable2 = ((DataTable2DataTable)(base.Tables["DataTable2"]));
+            this.tableCLIENTE = ((CLIENTEDataTable)(base.Tables["CLIENTE"]));
             if ((initTable == true)) {
-                if ((this.tableDataTable2 != null)) {
-                    this.tableDataTable2.InitVars();
+                if ((this.tableCLIENTE != null)) {
+                    this.tableCLIENTE.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace Vista {
             this.Namespace = "http://tempuri.org/DsClienteFrecuente.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableDataTable2 = new DataTable2DataTable();
-            base.Tables.Add(this.tableDataTable2);
+            this.tableCLIENTE = new CLIENTEDataTable();
+            base.Tables.Add(this.tableCLIENTE);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeDataTable2() {
+        private bool ShouldSerializeCLIENTE() {
             return false;
         }
         
@@ -270,27 +270,25 @@ namespace Vista {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void DataTable2RowChangeEventHandler(object sender, DataTable2RowChangeEvent e);
+        public delegate void CLIENTERowChangeEventHandler(object sender, CLIENTERowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DataTable2DataTable : global::System.Data.TypedTableBase<DataTable2Row> {
+        public partial class CLIENTEDataTable : global::System.Data.TypedTableBase<CLIENTERow> {
             
             private global::System.Data.DataColumn columnNOMBRE;
             
             private global::System.Data.DataColumn columnAPELLIDO;
             
-            private global::System.Data.DataColumn columnNUMEROBOLETA;
-            
-            private global::System.Data.DataColumn columnTOTAL;
+            private global::System.Data.DataColumn columnBOLETA;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable2DataTable() {
-                this.TableName = "DataTable2";
+            public CLIENTEDataTable() {
+                this.TableName = "CLIENTE";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +296,7 @@ namespace Vista {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal DataTable2DataTable(global::System.Data.DataTable table) {
+            internal CLIENTEDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,7 +313,7 @@ namespace Vista {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected DataTable2DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected CLIENTEDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -338,17 +336,9 @@ namespace Vista {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn NUMEROBOLETAColumn {
+            public global::System.Data.DataColumn BOLETAColumn {
                 get {
-                    return this.columnNUMEROBOLETA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TOTALColumn {
-                get {
-                    return this.columnTOTAL;
+                    return this.columnBOLETA;
                 }
             }
             
@@ -363,48 +353,47 @@ namespace Vista {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable2Row this[int index] {
+            public CLIENTERow this[int index] {
                 get {
-                    return ((DataTable2Row)(this.Rows[index]));
+                    return ((CLIENTERow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event DataTable2RowChangeEventHandler DataTable2RowChanging;
+            public event CLIENTERowChangeEventHandler CLIENTERowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event DataTable2RowChangeEventHandler DataTable2RowChanged;
+            public event CLIENTERowChangeEventHandler CLIENTERowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event DataTable2RowChangeEventHandler DataTable2RowDeleting;
+            public event CLIENTERowChangeEventHandler CLIENTERowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event DataTable2RowChangeEventHandler DataTable2RowDeleted;
+            public event CLIENTERowChangeEventHandler CLIENTERowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddDataTable2Row(DataTable2Row row) {
+            public void AddCLIENTERow(CLIENTERow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable2Row AddDataTable2Row(string NOMBRE, string APELLIDO, decimal NUMEROBOLETA, decimal TOTAL) {
-                DataTable2Row rowDataTable2Row = ((DataTable2Row)(this.NewRow()));
+            public CLIENTERow AddCLIENTERow(string NOMBRE, string APELLIDO, decimal BOLETA) {
+                CLIENTERow rowCLIENTERow = ((CLIENTERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NOMBRE,
                         APELLIDO,
-                        NUMEROBOLETA,
-                        TOTAL};
-                rowDataTable2Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDataTable2Row);
-                return rowDataTable2Row;
+                        BOLETA};
+                rowCLIENTERow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCLIENTERow);
+                return rowCLIENTERow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                DataTable2DataTable cln = ((DataTable2DataTable)(base.Clone()));
+                CLIENTEDataTable cln = ((CLIENTEDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -412,7 +401,7 @@ namespace Vista {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new DataTable2DataTable();
+                return new CLIENTEDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -420,8 +409,7 @@ namespace Vista {
             internal void InitVars() {
                 this.columnNOMBRE = base.Columns["NOMBRE"];
                 this.columnAPELLIDO = base.Columns["APELLIDO"];
-                this.columnNUMEROBOLETA = base.Columns["NUMEROBOLETA"];
-                this.columnTOTAL = base.Columns["TOTAL"];
+                this.columnBOLETA = base.Columns["BOLETA"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -431,42 +419,39 @@ namespace Vista {
                 base.Columns.Add(this.columnNOMBRE);
                 this.columnAPELLIDO = new global::System.Data.DataColumn("APELLIDO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAPELLIDO);
-                this.columnNUMEROBOLETA = new global::System.Data.DataColumn("NUMEROBOLETA", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNUMEROBOLETA);
-                this.columnTOTAL = new global::System.Data.DataColumn("TOTAL", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTOTAL);
+                this.columnBOLETA = new global::System.Data.DataColumn("BOLETA", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBOLETA);
                 this.columnNOMBRE.AllowDBNull = false;
                 this.columnNOMBRE.MaxLength = 70;
                 this.columnAPELLIDO.AllowDBNull = false;
                 this.columnAPELLIDO.MaxLength = 70;
-                this.columnNUMEROBOLETA.AllowDBNull = false;
-                this.columnTOTAL.AllowDBNull = false;
+                this.columnBOLETA.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable2Row NewDataTable2Row() {
-                return ((DataTable2Row)(this.NewRow()));
+            public CLIENTERow NewCLIENTERow() {
+                return ((CLIENTERow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DataTable2Row(builder);
+                return new CLIENTERow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(DataTable2Row);
+                return typeof(CLIENTERow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.DataTable2RowChanged != null)) {
-                    this.DataTable2RowChanged(this, new DataTable2RowChangeEvent(((DataTable2Row)(e.Row)), e.Action));
+                if ((this.CLIENTERowChanged != null)) {
+                    this.CLIENTERowChanged(this, new CLIENTERowChangeEvent(((CLIENTERow)(e.Row)), e.Action));
                 }
             }
             
@@ -474,8 +459,8 @@ namespace Vista {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.DataTable2RowChanging != null)) {
-                    this.DataTable2RowChanging(this, new DataTable2RowChangeEvent(((DataTable2Row)(e.Row)), e.Action));
+                if ((this.CLIENTERowChanging != null)) {
+                    this.CLIENTERowChanging(this, new CLIENTERowChangeEvent(((CLIENTERow)(e.Row)), e.Action));
                 }
             }
             
@@ -483,8 +468,8 @@ namespace Vista {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.DataTable2RowDeleted != null)) {
-                    this.DataTable2RowDeleted(this, new DataTable2RowChangeEvent(((DataTable2Row)(e.Row)), e.Action));
+                if ((this.CLIENTERowDeleted != null)) {
+                    this.CLIENTERowDeleted(this, new CLIENTERowChangeEvent(((CLIENTERow)(e.Row)), e.Action));
                 }
             }
             
@@ -492,14 +477,14 @@ namespace Vista {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.DataTable2RowDeleting != null)) {
-                    this.DataTable2RowDeleting(this, new DataTable2RowChangeEvent(((DataTable2Row)(e.Row)), e.Action));
+                if ((this.CLIENTERowDeleting != null)) {
+                    this.CLIENTERowDeleting(this, new CLIENTERowChangeEvent(((CLIENTERow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveDataTable2Row(DataTable2Row row) {
+            public void RemoveCLIENTERow(CLIENTERow row) {
                 this.Rows.Remove(row);
             }
             
@@ -526,7 +511,7 @@ namespace Vista {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DataTable2DataTable";
+                attribute2.FixedValue = "CLIENTEDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -570,25 +555,25 @@ namespace Vista {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class DataTable2Row : global::System.Data.DataRow {
+        public partial class CLIENTERow : global::System.Data.DataRow {
             
-            private DataTable2DataTable tableDataTable2;
+            private CLIENTEDataTable tableCLIENTE;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal DataTable2Row(global::System.Data.DataRowBuilder rb) : 
+            internal CLIENTERow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableDataTable2 = ((DataTable2DataTable)(this.Table));
+                this.tableCLIENTE = ((CLIENTEDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string NOMBRE {
                 get {
-                    return ((string)(this[this.tableDataTable2.NOMBREColumn]));
+                    return ((string)(this[this.tableCLIENTE.NOMBREColumn]));
                 }
                 set {
-                    this[this.tableDataTable2.NOMBREColumn] = value;
+                    this[this.tableCLIENTE.NOMBREColumn] = value;
                 }
             }
             
@@ -596,33 +581,39 @@ namespace Vista {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string APELLIDO {
                 get {
-                    return ((string)(this[this.tableDataTable2.APELLIDOColumn]));
+                    return ((string)(this[this.tableCLIENTE.APELLIDOColumn]));
                 }
                 set {
-                    this[this.tableDataTable2.APELLIDOColumn] = value;
+                    this[this.tableCLIENTE.APELLIDOColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal NUMEROBOLETA {
+            public decimal BOLETA {
                 get {
-                    return ((decimal)(this[this.tableDataTable2.NUMEROBOLETAColumn]));
+                    try {
+                        return ((decimal)(this[this.tableCLIENTE.BOLETAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'BOLETA\' de la tabla \'CLIENTE\' es DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableDataTable2.NUMEROBOLETAColumn] = value;
+                    this[this.tableCLIENTE.BOLETAColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal TOTAL {
-                get {
-                    return ((decimal)(this[this.tableDataTable2.TOTALColumn]));
-                }
-                set {
-                    this[this.tableDataTable2.TOTALColumn] = value;
-                }
+            public bool IsBOLETANull() {
+                return this.IsNull(this.tableCLIENTE.BOLETAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetBOLETANull() {
+                this[this.tableCLIENTE.BOLETAColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -630,22 +621,22 @@ namespace Vista {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class DataTable2RowChangeEvent : global::System.EventArgs {
+        public class CLIENTERowChangeEvent : global::System.EventArgs {
             
-            private DataTable2Row eventRow;
+            private CLIENTERow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable2RowChangeEvent(DataTable2Row row, global::System.Data.DataRowAction action) {
+            public CLIENTERowChangeEvent(CLIENTERow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable2Row Row {
+            public CLIENTERow Row {
                 get {
                     return this.eventRow;
                 }
@@ -673,7 +664,7 @@ namespace Vista.DsClienteFrecuenteTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class DataTable2TableAdapter : global::System.ComponentModel.Component {
+    public partial class CLIENTETableAdapter : global::System.ComponentModel.Component {
         
         private global::Oracle.ManagedDataAccess.Client.OracleDataAdapter _adapter;
         
@@ -687,7 +678,7 @@ namespace Vista.DsClienteFrecuenteTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public DataTable2TableAdapter() {
+        public CLIENTETableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -784,11 +775,10 @@ namespace Vista.DsClienteFrecuenteTableAdapters {
             this._adapter = new global::Oracle.ManagedDataAccess.Client.OracleDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "DataTable2";
+            tableMapping.DataSetTable = "CLIENTE";
             tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE");
             tableMapping.ColumnMappings.Add("APELLIDO", "APELLIDO");
-            tableMapping.ColumnMappings.Add("NUMEROBOLETA", "NUMEROBOLETA");
-            tableMapping.ColumnMappings.Add("TOTAL", "TOTAL");
+            tableMapping.ColumnMappings.Add("BOLETA", "BOLETA");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -805,9 +795,10 @@ namespace Vista.DsClienteFrecuenteTableAdapters {
             this._commandCollection = new global::Oracle.ManagedDataAccess.Client.OracleCommand[1];
             this._commandCollection[0] = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        ALMACEN.CLIENTE.NOMBRE, ALMACEN.CLIENTE.APELLIDO, ALMACEN.BOLETA.NUMEROBOLETA, ALMACEN.BOLETA.TOTAL
+            this._commandCollection[0].CommandText = @"SELECT        ALMACEN.CLIENTE.NOMBRE, ALMACEN.CLIENTE.APELLIDO, COUNT(ALMACEN.BOLETA.CLIENTE_RUNCLIENTE) AS BOLETA
 FROM            ALMACEN.BOLETA INNER JOIN
-                         ALMACEN.CLIENTE ON ALMACEN.BOLETA.CLIENTE_RUNCLIENTE = ALMACEN.CLIENTE.RUNCLIENTE";
+                         ALMACEN.CLIENTE ON ALMACEN.BOLETA.CLIENTE_RUNCLIENTE = ALMACEN.CLIENTE.RUNCLIENTE
+GROUP BY ALMACEN.CLIENTE.APELLIDO, ALMACEN.CLIENTE.NOMBRE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -815,7 +806,7 @@ FROM            ALMACEN.BOLETA INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DsClienteFrecuente.DataTable2DataTable dataTable) {
+        public virtual int Fill(DsClienteFrecuente.CLIENTEDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -828,9 +819,9 @@ FROM            ALMACEN.BOLETA INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DsClienteFrecuente.DataTable2DataTable GetData() {
+        public virtual DsClienteFrecuente.CLIENTEDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DsClienteFrecuente.DataTable2DataTable dataTable = new DsClienteFrecuente.DataTable2DataTable();
+            DsClienteFrecuente.CLIENTEDataTable dataTable = new DsClienteFrecuente.CLIENTEDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

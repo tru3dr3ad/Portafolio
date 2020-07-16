@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsDelMes" targetNamespace="http://tempuri.org/DsDelMes.xsd" xmlns:mstns="http://tempuri.org/DsDelMes.xsd" xmlns="http://tempuri.org/DsDelMes.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix=":" PropertyReference="ApplicationSettings.Vista.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="Oracle.ManagedDataAccess.Client" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BOLETATableAdapter" GeneratorDataComponentClassName="BOLETATableAdapter" Name="BOLETA" UserDataComponentName="BOLETATableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="ALMACEN.BOLETA" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        FECHACREACION AS FECHA, SUM(TOTAL) AS MONTO
+FROM            ALMACEN.BOLETA
+GROUP BY FECHACREACION
+ORDER BY FECHA DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FECHA" DataSetColumn="FECHA" />
+              <Mapping SourceColumn="MONTO" DataSetColumn="MONTO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsDelMes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsDelMes" msprop:Generator_UserDSName="DsDelMes">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BOLETA" msprop:Generator_TableClassName="BOLETADataTable" msprop:Generator_TableVarName="tableBOLETA" msprop:Generator_TablePropName="BOLETA" msprop:Generator_RowDeletingName="BOLETARowDeleting" msprop:Generator_RowChangingName="BOLETARowChanging" msprop:Generator_RowEvHandlerName="BOLETARowChangeEventHandler" msprop:Generator_RowDeletedName="BOLETARowDeleted" msprop:Generator_UserTableName="BOLETA" msprop:Generator_RowChangedName="BOLETARowChanged" msprop:Generator_RowEvArgName="BOLETARowChangeEvent" msprop:Generator_RowClassName="BOLETARow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FECHA" msprop:Generator_ColumnVarNameInTable="columnFECHA" msprop:Generator_ColumnPropNameInRow="FECHA" msprop:Generator_ColumnPropNameInTable="FECHAColumn" msprop:Generator_UserColumnName="FECHA" type="xs:dateTime" />
+              <xs:element name="MONTO" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMONTO" msprop:Generator_ColumnPropNameInRow="MONTO" msprop:Generator_ColumnPropNameInTable="MONTOColumn" msprop:Generator_UserColumnName="MONTO" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

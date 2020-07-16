@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -33,12 +33,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo Almacen.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.19.7.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
@@ -62,6 +65,24 @@
     <Compile Include="ABONO.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="AUTH_GROUP.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AUTH_GROUP_PERMISSIONS.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AUTH_PERMISSION.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AUTH_USER.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AUTH_USER_GROUPS.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AUTH_USER_USER_PERMISSIONS.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="BOLETA.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
@@ -75,6 +96,18 @@
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="DETALLE_PEDIDO.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DJANGO_ADMIN_LOG.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DJANGO_CONTENT_TYPE.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DJANGO_MIGRATIONS.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DJANGO_SESSION.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="ESTADO_BOLETA.cs">
@@ -172,6 +205,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Logo Almacen.ico" />
     <Content Include="ModeloDatos.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
@@ -191,8 +225,8 @@
     <PropertyGroup>
       <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Mail;
 
 namespace Controlador
 {
@@ -363,15 +362,16 @@ namespace Controlador
                 string asunto = "ORDEN DE PEDIDO DESDE ALMACEN LOS YUYITOS";
                 string body = @"<html>
                       <body>
-                      <p>Buenas Tardes {proveedor} ,</p>
-                      <p>Esperando que todo este marchando en orden, le adjunto una orden de pedido. Esperamos la confirmacion del pedido en cuanto se haya confirmado su stock.</p>
+                      <p>Hola {proveedor}!</p>
+                      <p>Esperando en que apesar de la situación se encuentre bien, le adjunto una nueva orden de pedido para el Almacén Los Yuyitos. Estaremos en contacto una vez se haya confirmado el stock de los productos.</p>
                         <br></br>
-                       <p>La direccion de nuestro local es: Av San fernandez #1329</p> 
-                        <br></br>
-                        <br></br>
-                      <p>De antemano se despide:<br>-Administracion Los Yuyitos</br></p>
+                       <p>La dirección de nuestro local es: Avenida México #3144, Puente Alto.</p> 
                         <br></br>
                         <br></br>
+                        <p>Saludos cordiales, Almacén Los Yuyitos.</p>     
+                        <p>Correo: almacenportafolio@gmail.com Teléfono: +569 5920980</p>     
+                        <p>Horario de atención: Lunes a Domingo de 09:00hrs a 18:00hrs.</p>     
+                        <p>Ubicación: Av. Mexico 3144, Puente Alto, Región Metropolitana.</p> 
                       </body>
                       </html>
                      ";
@@ -386,7 +386,6 @@ namespace Controlador
             }
         }
         #endregion
-
 
     }
 }

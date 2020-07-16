@@ -104,7 +104,6 @@ namespace Controlador
             decimal deuda = montoBoleta - abonos;
             return deuda;
         }
-
         #endregion
 
         #region Metodos de la clase

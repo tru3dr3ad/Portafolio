@@ -43,7 +43,7 @@ namespace Controlador
         public List<Modelo.V_DETALLE_BOLETA> ListarDetallePorBoleta(int numero)
         {
             List<Modelo.V_DETALLE_BOLETA> listado = new List<Modelo.V_DETALLE_BOLETA>();
-            listado = ConectorDALC.ModeloAlmacen.V_DETALLE_BOLETA.Where( d => d.BOLETA_NUMEROBOLETA == numero).
+            listado = ConectorDALC.ModeloAlmacen.V_DETALLE_BOLETA.Where(d => d.BOLETA_NUMEROBOLETA == numero).
                 ToList();
             return listado;
         }
@@ -132,24 +132,21 @@ namespace Controlador
         }
         public bool AgregarStockBoletaAnulada(int numero)
         {
-            List<DetalleBoleta> listado = new List<DetalleBoleta>();
-            listado = ListaProductoCantidadDetalle(numero);
-            foreach (DetalleBoleta item in listado)
+            if (numero > 0)
             {
-                Producto producto = new Producto();
-                producto = producto.ObtenerProducto(item.CodigoProducto);
-                producto.Stock = producto.Stock + item.Cantidad;
-                bool estaAgregado =  producto.ModificarProducto(producto);
-                if (estaAgregado)
+                List<DetalleBoleta> listado = new List<DetalleBoleta>();
+                listado = ListaProductoCantidadDetalle(numero);
+                foreach (DetalleBoleta item in listado)
                 {
-                    return true;
+                    Producto producto = new Producto();
+                    producto = producto.ObtenerProducto(item.CodigoProducto);
+                    producto.Stock = producto.Stock + item.Cantidad;
+                    producto.ModificarProducto(producto);
                 }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
             return false;
+
         }
 
         #endregion

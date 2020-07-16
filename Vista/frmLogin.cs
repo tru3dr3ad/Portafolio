@@ -1,5 +1,6 @@
 ﻿using Controlador;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Vista
@@ -14,8 +15,8 @@ namespace Vista
         #region Metodos
         private void IniciarSesion()
         {
-            string nombreUsuario = txtNombreUsuario.Text;
-            string clave = txtContrasena.Text;
+            string nombreUsuario = txtNombreUsuario.Text.ToUpper();
+            string clave = txtContrasena.Text.ToUpper();
             Usuario usuario = new Usuario();
             usuario = usuario.Login(nombreUsuario, clave);
 
@@ -61,6 +62,14 @@ namespace Vista
         {
             IniciarSesion();
         }
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = @"\Ayuda\Ayuda.chm";
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string ayudaPath = projectDirectory + rutaAyuda;
+            Help.ShowHelp(this, ayudaPath, "Login.htm");
+        }
         #endregion
 
         private void lblContrasenaOlvidada_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -68,5 +77,7 @@ namespace Vista
             frmContrasenaRecuperar recuperacion = new frmContrasenaRecuperar();
             recuperacion.ShowDialog();
         }
+
+        
     }
 }

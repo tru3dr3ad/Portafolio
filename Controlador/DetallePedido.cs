@@ -129,31 +129,30 @@ namespace Controlador
         }
         public bool AgregarStockOrdenRecepcionada(int numero)
         {
-            List<DetallePedido> listado = new List<DetallePedido>();
-            listado = ListaProductoCantidadDetalle(numero);
-            foreach (DetallePedido item in listado)
+            if (numero > 0)
             {
-                Producto producto = new Producto();
-                producto = producto.ObtenerProducto(item.CodigoProducto);
-                producto.Stock = producto.Stock + item.Cantidad;
-                bool estaAgregado = producto.ModificarProducto(producto);
-                if (estaAgregado)
+                List<DetallePedido> listado = new List<DetallePedido>();
+                listado = ListaProductoCantidadDetalle(numero);
+                foreach (DetallePedido item in listado)
                 {
-                    return true;
+                    Producto producto = new Producto();
+                    producto = producto.ObtenerProducto(item.CodigoProducto);
+                    producto.Stock = producto.Stock + item.Cantidad;
+                    producto.ModificarProducto(producto);
                 }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
         public int ContarCantidadProductosOrden(int numero)
         {
             try
             {
                 int cantidadProductos = (int)ConectorDALC.ModeloAlmacen.DETALLE_PEDIDO.
-                    Where(d=> d.ORDEN_PEDIDO_NUMEROORDEN == numero).Count();
+                    Where(d => d.ORDEN_PEDIDO_NUMEROORDEN == numero).Count();
                 return cantidadProductos;
             }
             catch (Exception)
@@ -161,7 +160,7 @@ namespace Controlador
                 return 0;
                 throw;
             }
-        } 
+        }
         public bool EliminarDetalleEnCascada(int numeroOrden)
         {
 
@@ -171,7 +170,7 @@ namespace Controlador
             {
                 EliminarDetallePedido(item.IdDetalle);
             }
-            if (ContarCantidadProductosOrden(numeroOrden)==0)
+            if (ContarCantidadProductosOrden(numeroOrden) == 0)
             {
                 return true;
             }
@@ -180,7 +179,7 @@ namespace Controlador
                 return false;
             }
         }
-        
+
         #endregion
 
     }

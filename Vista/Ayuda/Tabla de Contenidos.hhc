@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Men&uacute;">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Login">
+			<param name="Local" value="Login.htm">
+			<param name="URL" value="Login.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Cambio Contrase&ntilde;a">
+			<param name="Local" value="Cambio contraseña.htm">
+			<param name="URL" value="Cambio contraseña.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Configuraci&oacute;n">
+			<param name="Local" value="Configuración.htm">
+			<param name="URL" value="Configuración.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="M&oacute;dulo Ventas">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Punto de Ventas">
+				<param name="Local" value="Punto de Venta.htm">
+				<param name="URL" value="Punto de Venta.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Revisar Ventas">
+				<param name="Local" value="Revisar Ventas.htm">
+				<param name="URL" value="Revisar Ventas.htm">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="M&oacute;dulo Clientes">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Fiados">
+				<param name="Local" value="Fiados.htm">
+				<param name="URL" value="Fiados.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Revision Clientes">
+				<param name="Local" value="Revision cliente.htm">
+				<param name="URL" value="Revision cliente.htm">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="M&oacute;dulo Productos">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Producto">
+				<param name="Local" value="Producto.htm">
+				<param name="URL" value="Producto.htm">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="M&oacute;dulo Pedidos">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Hacer Pedido">
+				<param name="Local" value="Hacer Pedido.htm">
+				<param name="URL" value="Hacer Pedido.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Revision">
+				<param name="Local" value="Revision.htm">
+				<param name="URL" value="Revision.htm">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="M&oacute;dulo Proveedores">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Proveedores">
+				<param name="Local" value="Proveedores.htm">
+				<param name="URL" value="Proveedores.htm">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="M&oacute;dulo Usuarios">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Usuario">
+				<param name="Local" value="Usuarios.htm">
+				<param name="URL" value="Usuarios.htm">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="M&oacute;dulo Reportes">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Estad&iacute;stica">
+				<param name="Local" value="Estadistica.htm">
+				<param name="URL" value="Estadistica.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Informes">
+				<param name="Local" value="Informes.htm">
+				<param name="URL" value="Informes.htm">
+				</OBJECT>
+		</UL>
+	</UL>
+</UL>
+</BODY></HTML>

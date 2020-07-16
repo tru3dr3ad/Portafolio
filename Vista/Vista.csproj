@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,39 +35,36 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo Almacen.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.12.0.2.2403\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.12.0.2.2403\lib\net40\Microsoft.ReportViewer.DataVisualization.DLL</HintPath>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Design, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.12.0.2.2403\lib\net40\Microsoft.ReportViewer.Design.DLL</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.12.0.2.2403\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.12.0.2.2403\lib\net40\Microsoft.ReportViewer.WebDesign.DLL</HintPath>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.12.0.2.2403\lib\net40\Microsoft.ReportViewer.WebForms.DLL</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.12.0.2.2403\lib\net40\Microsoft.ReportViewer.WinForms.DLL</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.12.0.2.2403\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.19.7.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
@@ -88,20 +88,68 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSet1.Designer.cs">
+    <Compile Include="DsCaja.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <DependentUpon>DsCaja.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DsClienteEfectivo.Designer.cs">
+    <Compile Include="DsClienteDeuda.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DsClienteEfectivo.xsd</DependentUpon>
+      <DependentUpon>DsClienteDeuda.xsd</DependentUpon>
     </Compile>
     <Compile Include="DsClienteFrecuente.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DsClienteFrecuente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsDelMes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsDelMes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsFiado.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsFiado.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsMedioCredito.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsMedioCredito.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsMedioDebito.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsMedioDebito.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsMedioEfectivo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsMedioEfectivo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsMedioFrecuente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsMedioFrecuente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsMorosos.cs">
+      <DependentUpon>DsMorosos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsMorosos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsMorosos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsProductoMas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsProductoMas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsStockCategoria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsStockCategoria.xsd</DependentUpon>
     </Compile>
     <Compile Include="frmCambiarContrasena.cs">
       <SubType>Form</SubType>
@@ -217,6 +265,78 @@
     <Compile Include="frmRevisarVenta.Designer.cs">
       <DependentUpon>frmRevisarVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfCaja.Designer.cs">
+      <DependentUpon>InfCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfClienteDeuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfClienteDeuda.Designer.cs">
+      <DependentUpon>InfClienteDeuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfClienteFrecuente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfClienteFrecuente.Designer.cs">
+      <DependentUpon>InfClienteFrecuente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfDelMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfDelMes.Designer.cs">
+      <DependentUpon>InfDelMes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfFiado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfFiado.Designer.cs">
+      <DependentUpon>InfFiado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfMedioCredito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfMedioCredito.Designer.cs">
+      <DependentUpon>InfMedioCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfMedioDebito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfMedioDebito.Designer.cs">
+      <DependentUpon>InfMedioDebito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfMedioEfectivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfMedioEfectivo.Designer.cs">
+      <DependentUpon>InfMedioEfectivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfMedioFrecuente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfMedioFrecuente.Designer.cs">
+      <DependentUpon>InfMedioFrecuente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfMorosos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfMorosos.Designer.cs">
+      <DependentUpon>InfMorosos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfProductoMas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfProductoMas.Designer.cs">
+      <DependentUpon>InfProductoMas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfStock.Designer.cs">
+      <DependentUpon>InfStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCambiarContrasena.resx">
@@ -276,6 +396,42 @@
     <EmbeddedResource Include="frmRevisarVenta.resx">
       <DependentUpon>frmRevisarVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InfCaja.resx">
+      <DependentUpon>InfCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfClienteDeuda.resx">
+      <DependentUpon>InfClienteDeuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfClienteFrecuente.resx">
+      <DependentUpon>InfClienteFrecuente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfDelMes.resx">
+      <DependentUpon>InfDelMes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfFiado.resx">
+      <DependentUpon>InfFiado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfMedioCredito.resx">
+      <DependentUpon>InfMedioCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfMedioDebito.resx">
+      <DependentUpon>InfMedioDebito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfMedioEfectivo.resx">
+      <DependentUpon>InfMedioEfectivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfMedioFrecuente.resx">
+      <DependentUpon>InfMedioFrecuente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfMorosos.resx">
+      <DependentUpon>InfMorosos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfProductoMas.resx">
+      <DependentUpon>InfProductoMas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfStock.resx">
+      <DependentUpon>InfStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -285,30 +441,56 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RepClienteEfectivo.rdlc" />
-    <EmbeddedResource Include="RepClienteFrecuencia.rdlc" />
-    <EmbeddedResource Include="RepEfectivo.rdlc" />
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <EmbeddedResource Include="ReportCaja.rdlc" />
+    <EmbeddedResource Include="ReportClienteDeuda.rdlc" />
+    <EmbeddedResource Include="ReportClienteFrecuente.rdlc" />
+    <EmbeddedResource Include="ReportDelMes.rdlc" />
+    <EmbeddedResource Include="ReportFiado.rdlc" />
+    <EmbeddedResource Include="ReportMedioCredito.rdlc" />
+    <EmbeddedResource Include="ReportMedioDebito.rdlc" />
+    <EmbeddedResource Include="ReportMedioEfectivo.rdlc" />
+    <EmbeddedResource Include="ReportMedioFrecuente.rdlc" />
+    <EmbeddedResource Include="ReportMorosos.rdlc" />
+    <EmbeddedResource Include="ReportProductoMas.rdlc" />
+    <EmbeddedResource Include="ReportStock.rdlc" />
+    <None Include="Ayuda\Ayuda.chm" />
+    <None Include="Ayuda\Ayuda.hhp" />
+    <None Include="Ayuda\Cambio contraseña_archivos\themedata.thmx" />
+    <None Include="Ayuda\Configuración_archivos\themedata.thmx" />
+    <None Include="Ayuda\Estadistica_archivos\themedata.thmx" />
+    <None Include="Ayuda\Fiados_archivos\themedata.thmx" />
+    <None Include="Ayuda\Hacer Pedido_archivos\themedata.thmx" />
+    <None Include="Ayuda\Informes_archivos\themedata.thmx" />
+    <None Include="Ayuda\Login_archivos\themedata.thmx" />
+    <None Include="Ayuda\Producto_archivos\themedata.thmx" />
+    <None Include="Ayuda\Proveedores_archivos\themedata.thmx" />
+    <None Include="Ayuda\Punto de Venta_archivos\themedata.thmx" />
+    <None Include="Ayuda\Revisar Ventas_archivos\themedata.thmx" />
+    <None Include="Ayuda\Revision cliente_archivos\themedata.thmx" />
+    <None Include="Ayuda\Revision_archivos\themedata.thmx" />
+    <None Include="Ayuda\Tabla de Contenidos.hhc" />
+    <None Include="Ayuda\Usuarios_archivos\themedata.thmx" />
+    <None Include="DsCaja.xsc">
+      <DependentUpon>DsCaja.xsd</DependentUpon>
     </None>
-    <None Include="DataSet1.xsd">
+    <None Include="DsCaja.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DsCaja.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <None Include="DsCaja.xss">
+      <DependentUpon>DsCaja.xsd</DependentUpon>
     </None>
-    <None Include="DsClienteEfectivo.xsc">
-      <DependentUpon>DsClienteEfectivo.xsd</DependentUpon>
+    <None Include="DsClienteDeuda.xsc">
+      <DependentUpon>DsClienteDeuda.xsd</DependentUpon>
     </None>
-    <None Include="DsClienteEfectivo.xsd">
+    <None Include="DsClienteDeuda.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsClienteEfectivo.Designer.cs</LastGenOutput>
+      <LastGenOutput>DsClienteDeuda.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DsClienteEfectivo.xss">
-      <DependentUpon>DsClienteEfectivo.xsd</DependentUpon>
+    <None Include="DsClienteDeuda.xss">
+      <DependentUpon>DsClienteDeuda.xsd</DependentUpon>
     </None>
     <None Include="DsClienteFrecuente.xsc">
       <DependentUpon>DsClienteFrecuente.xsd</DependentUpon>
@@ -320,6 +502,105 @@
     </None>
     <None Include="DsClienteFrecuente.xss">
       <DependentUpon>DsClienteFrecuente.xsd</DependentUpon>
+    </None>
+    <None Include="DsDelMes.xsc">
+      <DependentUpon>DsDelMes.xsd</DependentUpon>
+    </None>
+    <None Include="DsDelMes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsDelMes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsDelMes.xss">
+      <DependentUpon>DsDelMes.xsd</DependentUpon>
+    </None>
+    <None Include="DsFiado.xsc">
+      <DependentUpon>DsFiado.xsd</DependentUpon>
+    </None>
+    <None Include="DsFiado.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsFiado.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsFiado.xss">
+      <DependentUpon>DsFiado.xsd</DependentUpon>
+    </None>
+    <None Include="DsMedioCredito.xsc">
+      <DependentUpon>DsMedioCredito.xsd</DependentUpon>
+    </None>
+    <None Include="DsMedioCredito.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsMedioCredito.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsMedioCredito.xss">
+      <DependentUpon>DsMedioCredito.xsd</DependentUpon>
+    </None>
+    <None Include="DsMedioDebito.xsc">
+      <DependentUpon>DsMedioDebito.xsd</DependentUpon>
+    </None>
+    <None Include="DsMedioDebito.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsMedioDebito.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsMedioDebito.xss">
+      <DependentUpon>DsMedioDebito.xsd</DependentUpon>
+    </None>
+    <None Include="DsMedioEfectivo.xsc">
+      <DependentUpon>DsMedioEfectivo.xsd</DependentUpon>
+    </None>
+    <None Include="DsMedioEfectivo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsMedioEfectivo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsMedioEfectivo.xss">
+      <DependentUpon>DsMedioEfectivo.xsd</DependentUpon>
+    </None>
+    <None Include="DsMedioFrecuente.xsc">
+      <DependentUpon>DsMedioFrecuente.xsd</DependentUpon>
+    </None>
+    <None Include="DsMedioFrecuente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsMedioFrecuente.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsMedioFrecuente.xss">
+      <DependentUpon>DsMedioFrecuente.xsd</DependentUpon>
+    </None>
+    <None Include="DsMorosos.xsc">
+      <DependentUpon>DsMorosos.xsd</DependentUpon>
+    </None>
+    <None Include="DsMorosos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsMorosos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsMorosos.xss">
+      <DependentUpon>DsMorosos.xsd</DependentUpon>
+    </None>
+    <None Include="DsProductoMas.xsc">
+      <DependentUpon>DsProductoMas.xsd</DependentUpon>
+    </None>
+    <None Include="DsProductoMas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsProductoMas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsProductoMas.xss">
+      <DependentUpon>DsProductoMas.xsd</DependentUpon>
+    </None>
+    <None Include="DsStockCategoria.xsc">
+      <DependentUpon>DsStockCategoria.xsd</DependentUpon>
+    </None>
+    <None Include="DsStockCategoria.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsStockCategoria.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsStockCategoria.xss">
+      <DependentUpon>DsStockCategoria.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -345,8 +626,212 @@
       <Name>Modelo</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
+    <Content Include="Ayuda\Cambio contraseña.htm" />
+    <Content Include="Ayuda\Cambio contraseña_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Cambio contraseña_archivos\filelist.xml" />
+    <Content Include="Ayuda\Cambio contraseña_archivos\image001.png" />
+    <Content Include="Ayuda\Cambio contraseña_archivos\image002.png" />
+    <Content Include="Ayuda\Cambio contraseña_archivos\image003.png" />
+    <Content Include="Ayuda\Cambio contraseña_archivos\image004.png" />
+    <Content Include="Ayuda\Cambio contraseña_archivos\image005.png" />
+    <Content Include="Ayuda\Configuración.htm" />
+    <Content Include="Ayuda\Configuración_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Configuración_archivos\filelist.xml" />
+    <Content Include="Ayuda\Configuración_archivos\image001.png" />
+    <Content Include="Ayuda\Configuración_archivos\image002.png" />
+    <Content Include="Ayuda\Configuración_archivos\image003.png" />
+    <Content Include="Ayuda\Configuración_archivos\image004.png" />
+    <Content Include="Ayuda\Configuración_archivos\image005.png" />
+    <Content Include="Ayuda\Configuración_archivos\image006.png" />
+    <Content Include="Ayuda\Configuración_archivos\image007.png" />
+    <Content Include="Ayuda\Configuración_archivos\image008.png" />
+    <Content Include="Ayuda\Configuración_archivos\image009.png" />
+    <Content Include="Ayuda\Configuración_archivos\image010.png" />
+    <Content Include="Ayuda\Configuración_archivos\image011.png" />
+    <Content Include="Ayuda\Estadistica.htm" />
+    <Content Include="Ayuda\Estadistica_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Estadistica_archivos\filelist.xml" />
+    <Content Include="Ayuda\Estadistica_archivos\image001.png" />
+    <Content Include="Ayuda\Estadistica_archivos\image002.png" />
+    <Content Include="Ayuda\Estadistica_archivos\image003.png" />
+    <Content Include="Ayuda\Estadistica_archivos\image004.png" />
+    <Content Include="Ayuda\Estadistica_archivos\image005.png" />
+    <Content Include="Ayuda\Estadistica_archivos\image006.png" />
+    <Content Include="Ayuda\Estadistica_archivos\image007.png" />
+    <Content Include="Ayuda\Estadistica_archivos\image008.png" />
+    <Content Include="Ayuda\Estadistica_archivos\image009.png" />
+    <Content Include="Ayuda\Estadistica_archivos\image010.png" />
+    <Content Include="Ayuda\Estadistica_archivos\image011.png" />
+    <Content Include="Ayuda\Estadistica_archivos\image012.png" />
+    <Content Include="Ayuda\Estadistica_archivos\image013.png" />
+    <Content Include="Ayuda\Estadistica_archivos\image014.png" />
+    <Content Include="Ayuda\Fiados.htm" />
+    <Content Include="Ayuda\Fiados_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Fiados_archivos\filelist.xml" />
+    <Content Include="Ayuda\Fiados_archivos\image001.png" />
+    <Content Include="Ayuda\Fiados_archivos\image002.png" />
+    <Content Include="Ayuda\Fiados_archivos\image003.png" />
+    <Content Include="Ayuda\Fiados_archivos\image004.png" />
+    <Content Include="Ayuda\Fiados_archivos\image005.png" />
+    <Content Include="Ayuda\Fiados_archivos\image006.png" />
+    <Content Include="Ayuda\Fiados_archivos\image007.png" />
+    <Content Include="Ayuda\Fiados_archivos\image008.png" />
+    <Content Include="Ayuda\Fiados_archivos\image009.png" />
+    <Content Include="Ayuda\Fiados_archivos\image010.png" />
+    <Content Include="Ayuda\Hacer Pedido.htm" />
+    <Content Include="Ayuda\Hacer Pedido_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Hacer Pedido_archivos\filelist.xml" />
+    <Content Include="Ayuda\Hacer Pedido_archivos\image001.png" />
+    <Content Include="Ayuda\Hacer Pedido_archivos\image002.png" />
+    <Content Include="Ayuda\Hacer Pedido_archivos\image003.png" />
+    <Content Include="Ayuda\Hacer Pedido_archivos\image004.png" />
+    <Content Include="Ayuda\Hacer Pedido_archivos\image005.png" />
+    <Content Include="Ayuda\Hacer Pedido_archivos\image006.png" />
+    <Content Include="Ayuda\Hacer Pedido_archivos\image007.png" />
+    <Content Include="Ayuda\Hacer Pedido_archivos\image008.png" />
+    <Content Include="Ayuda\Informes.htm" />
+    <Content Include="Ayuda\Informes_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Informes_archivos\filelist.xml" />
+    <Content Include="Ayuda\Informes_archivos\image001.png" />
+    <Content Include="Ayuda\Informes_archivos\image002.png" />
+    <Content Include="Ayuda\Informes_archivos\image003.png" />
+    <Content Include="Ayuda\Informes_archivos\image004.png" />
+    <Content Include="Ayuda\Informes_archivos\image005.png" />
+    <Content Include="Ayuda\Informes_archivos\image006.png" />
+    <Content Include="Ayuda\Informes_archivos\image007.png" />
+    <Content Include="Ayuda\Informes_archivos\image008.png" />
+    <Content Include="Ayuda\Informes_archivos\image009.png" />
+    <Content Include="Ayuda\Informes_archivos\image010.png" />
+    <Content Include="Ayuda\Informes_archivos\image011.png" />
+    <Content Include="Ayuda\Informes_archivos\image012.png" />
+    <Content Include="Ayuda\Informes_archivos\image013.png" />
+    <Content Include="Ayuda\Informes_archivos\image014.png" />
+    <Content Include="Ayuda\Login.htm" />
+    <Content Include="Ayuda\Login_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Login_archivos\filelist.xml" />
+    <Content Include="Ayuda\Login_archivos\image001.png" />
+    <Content Include="Ayuda\Login_archivos\image002.png" />
+    <Content Include="Ayuda\Login_archivos\image003.png" />
+    <Content Include="Ayuda\Login_archivos\image004.png" />
+    <Content Include="Ayuda\Login_archivos\image005.png" />
+    <Content Include="Ayuda\Login_archivos\image006.png" />
+    <Content Include="Ayuda\Login_archivos\image007.png" />
+    <Content Include="Ayuda\Login_archivos\image008.png" />
+    <Content Include="Ayuda\Producto.htm" />
+    <Content Include="Ayuda\Producto_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Producto_archivos\filelist.xml" />
+    <Content Include="Ayuda\Producto_archivos\image001.png" />
+    <Content Include="Ayuda\Producto_archivos\image002.png" />
+    <Content Include="Ayuda\Producto_archivos\image003.png" />
+    <Content Include="Ayuda\Producto_archivos\image004.png" />
+    <Content Include="Ayuda\Producto_archivos\image005.png" />
+    <Content Include="Ayuda\Producto_archivos\image006.png" />
+    <Content Include="Ayuda\Producto_archivos\image007.png" />
+    <Content Include="Ayuda\Producto_archivos\image008.png" />
+    <Content Include="Ayuda\Producto_archivos\image009.png" />
+    <Content Include="Ayuda\Producto_archivos\image010.png" />
+    <Content Include="Ayuda\Producto_archivos\image011.png" />
+    <Content Include="Ayuda\Producto_archivos\image012.png" />
+    <Content Include="Ayuda\Producto_archivos\image013.png" />
+    <Content Include="Ayuda\Producto_archivos\image015.png" />
+    <Content Include="Ayuda\Producto_archivos\image016.png" />
+    <Content Include="Ayuda\Producto_archivos\image017.png" />
+    <Content Include="Ayuda\Producto_archivos\image018.png" />
+    <Content Include="Ayuda\Proveedores.htm" />
+    <Content Include="Ayuda\Proveedores_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Proveedores_archivos\filelist.xml" />
+    <Content Include="Ayuda\Proveedores_archivos\image001.png" />
+    <Content Include="Ayuda\Proveedores_archivos\image002.png" />
+    <Content Include="Ayuda\Proveedores_archivos\image003.png" />
+    <Content Include="Ayuda\Proveedores_archivos\image004.png" />
+    <Content Include="Ayuda\Proveedores_archivos\image005.png" />
+    <Content Include="Ayuda\Proveedores_archivos\image006.png" />
+    <Content Include="Ayuda\Proveedores_archivos\image007.png" />
+    <Content Include="Ayuda\Proveedores_archivos\image008.png" />
+    <Content Include="Ayuda\Proveedores_archivos\image009.png" />
+    <Content Include="Ayuda\Proveedores_archivos\image010.png" />
+    <Content Include="Ayuda\Proveedores_archivos\image011.png" />
+    <Content Include="Ayuda\Proveedores_archivos\image012.png" />
+    <Content Include="Ayuda\Proveedores_archivos\image013.png" />
+    <Content Include="Ayuda\Punto de Venta.htm" />
+    <Content Include="Ayuda\Punto de Venta_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Punto de Venta_archivos\filelist.xml" />
+    <Content Include="Ayuda\Punto de Venta_archivos\image001.png" />
+    <Content Include="Ayuda\Punto de Venta_archivos\image002.png" />
+    <Content Include="Ayuda\Punto de Venta_archivos\image003.png" />
+    <Content Include="Ayuda\Punto de Venta_archivos\image004.png" />
+    <Content Include="Ayuda\Punto de Venta_archivos\image005.png" />
+    <Content Include="Ayuda\Punto de Venta_archivos\image006.png" />
+    <Content Include="Ayuda\Punto de Venta_archivos\image007.png" />
+    <Content Include="Ayuda\Punto de Venta_archivos\image008.png" />
+    <Content Include="Ayuda\Punto de Venta_archivos\image009.png" />
+    <Content Include="Ayuda\Punto de Venta_archivos\image010.png" />
+    <Content Include="Ayuda\Revisar Ventas.htm" />
+    <Content Include="Ayuda\Revisar Ventas_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Revisar Ventas_archivos\filelist.xml" />
+    <Content Include="Ayuda\Revisar Ventas_archivos\image001.png" />
+    <Content Include="Ayuda\Revisar Ventas_archivos\image002.png" />
+    <Content Include="Ayuda\Revisar Ventas_archivos\image003.png" />
+    <Content Include="Ayuda\Revisar Ventas_archivos\image004.png" />
+    <Content Include="Ayuda\Revisar Ventas_archivos\image005.png" />
+    <Content Include="Ayuda\Revision cliente.htm" />
+    <Content Include="Ayuda\Revision cliente_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Revision cliente_archivos\filelist.xml" />
+    <Content Include="Ayuda\Revision cliente_archivos\image001.png" />
+    <Content Include="Ayuda\Revision cliente_archivos\image002.png" />
+    <Content Include="Ayuda\Revision cliente_archivos\image003.png" />
+    <Content Include="Ayuda\Revision cliente_archivos\image004.png" />
+    <Content Include="Ayuda\Revision cliente_archivos\image005.png" />
+    <Content Include="Ayuda\Revision cliente_archivos\image006.png" />
+    <Content Include="Ayuda\Revision cliente_archivos\image007.png" />
+    <Content Include="Ayuda\Revision cliente_archivos\image008.png" />
+    <Content Include="Ayuda\Revision cliente_archivos\image009.png" />
+    <Content Include="Ayuda\Revision cliente_archivos\image010.png" />
+    <Content Include="Ayuda\Revision cliente_archivos\image011.png" />
+    <Content Include="Ayuda\Revision cliente_archivos\image012.png" />
+    <Content Include="Ayuda\Revision cliente_archivos\image013.png" />
+    <Content Include="Ayuda\Revision cliente_archivos\image014.png" />
+    <Content Include="Ayuda\Revision.htm" />
+    <Content Include="Ayuda\Revision_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Revision_archivos\filelist.xml" />
+    <Content Include="Ayuda\Revision_archivos\image001.png" />
+    <Content Include="Ayuda\Revision_archivos\image002.png" />
+    <Content Include="Ayuda\Revision_archivos\image003.png" />
+    <Content Include="Ayuda\Revision_archivos\image004.png" />
+    <Content Include="Ayuda\Revision_archivos\image005.png" />
+    <Content Include="Ayuda\Revision_archivos\image006.png" />
+    <Content Include="Ayuda\Revision_archivos\image007.png" />
+    <Content Include="Ayuda\Revision_archivos\image008.png" />
+    <Content Include="Ayuda\Usuarios.htm" />
+    <Content Include="Ayuda\Usuarios_archivos\colorschememapping.xml" />
+    <Content Include="Ayuda\Usuarios_archivos\filelist.xml" />
+    <Content Include="Ayuda\Usuarios_archivos\image001.png" />
+    <Content Include="Ayuda\Usuarios_archivos\image002.png" />
+    <Content Include="Ayuda\Usuarios_archivos\image003.png" />
+    <Content Include="Ayuda\Usuarios_archivos\image004.png" />
+    <Content Include="Ayuda\Usuarios_archivos\image005.png" />
+    <Content Include="Ayuda\Usuarios_archivos\image006.png" />
+    <Content Include="Ayuda\Usuarios_archivos\image007.png" />
+    <Content Include="Ayuda\Usuarios_archivos\image008.png" />
+    <Content Include="Ayuda\Usuarios_archivos\image009.png" />
+    <Content Include="Ayuda\Usuarios_archivos\image010.png" />
+    <Content Include="Ayuda\Usuarios_archivos\image011.png" />
+    <Content Include="Ayuda\Usuarios_archivos\image012.png" />
+    <Content Include="Ayuda\Usuarios_archivos\image013.png" />
+    <Content Include="Ayuda\Usuarios_archivos\image014.png" />
+    <Content Include="Logo Almacen.ico" />
+    <Content Include="Logo\Logo Almacen.ico" />
     <Content Include="Logo\Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

@@ -1,12 +1,7 @@
-﻿using iTextSharp.text;
-using iTextSharp.text.pdf;
-using Modelo;
+﻿using Modelo;
 using System;
 using System.Collections.Generic;
-using System.Drawing.Imaging;
-using System.IO;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace Controlador
 {
@@ -150,7 +145,7 @@ namespace Controlador
                 proveedor.CORREO = CorreoElectronico;
                 proveedor.TELEFONO = Telefono;
                 proveedor.DIRECCION = Direccion;
-                proveedor.TIPO_RUBRO_IDRUBRO= Tipo.Id;
+                proveedor.TIPO_RUBRO_IDRUBRO = Tipo.Id;
 
                 ConectorDALC.ModeloAlmacen.PROVEEDOR.Add(proveedor);
                 ConectorDALC.ModeloAlmacen.SaveChanges();
@@ -175,7 +170,7 @@ namespace Controlador
                     proveedor.NOMBRE = modificarProveedor.Nombre;
                     proveedor.CORREO = modificarProveedor.CorreoElectronico;
                     proveedor.TELEFONO = modificarProveedor.Telefono;
-                    proveedor.DIRECCION= modificarProveedor.Direccion;
+                    proveedor.DIRECCION = modificarProveedor.Direccion;
                     proveedor.TIPO_RUBRO_IDRUBRO = modificarProveedor.Tipo.Id;
 
                     ConectorDALC.ModeloAlmacen.SaveChanges();
@@ -216,5 +211,6 @@ namespace Controlador
             }
         }
         #endregion
+
     }
 }

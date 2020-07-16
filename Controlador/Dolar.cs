@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
-using System.Linq.Expressions;
 using System.Net;
 
 namespace Controlador
@@ -47,7 +47,7 @@ namespace Controlador
         {
             Dolar dolar = new Dolar();
             string stringDolar = dolar.StringDolar();
-            decimal valorDolar = decimal.Parse(stringDolar);
+            decimal valorDolar = decimal.Parse(stringDolar, CultureInfo.InvariantCulture); 
             return valorDolar;
         }
     }

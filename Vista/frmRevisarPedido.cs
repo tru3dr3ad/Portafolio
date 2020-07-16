@@ -5,7 +5,6 @@ using System;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Net.Mail;
 using System.Windows.Forms;
 
 namespace Vista
@@ -22,6 +21,7 @@ namespace Vista
             CargarComboboxEstadoOrden();
             CargarComboboxProveedor();
             CargarGrillaOrden();
+            MostrarVistaVendedor();
         }
 
         #region Metodos
@@ -73,7 +73,6 @@ namespace Vista
             grdDetalleOrden.Columns["IDDETALLEO"].Visible = false;
             grdDetalleOrden.Columns["PRODUCTO_CODIGO"].Visible = false;
             grdDetalleOrden.Columns["NOMBRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            grdDetalleOrden.Columns["PRODUCTO_CODIGO"].HeaderText = "CODIGO";
         }
         private void CambioNombreColumnaGrillaOrden()
         {
@@ -81,6 +80,17 @@ namespace Vista
             grdOrden.Columns["FECHA_CREACION"].HeaderText = "FECHA CREACION";
             grdOrden.Columns["FECHA_RECEPCION"].HeaderText = "FECHA RECEPCION";
             grdOrden.Columns["ESTADO_ORDEN"].HeaderText = "ESTADO";
+        }
+        private void MostrarVistaVendedor()
+        {
+            Usuario usuario = new Usuario();
+            bool esVendedor = usuario.esVendedor(Global.RunUsuarioActivo);
+            if (esVendedor)
+            {
+                btnEnviarOrden.Visible = false;
+                btnModificarOrden.Visible = false;
+                btnAnularOrden.Visible = false;
+            }
         }
         #endregion
 
@@ -210,7 +220,7 @@ namespace Vista
                             }
                             else
                             {
-                                MessageBox.Show("No se puede anular la orden desde aqui, intente con el boton anular.");
+                                MessageBox.Show("La orden de pedido ya fue enviada, no se puede anular.");
                             }
                         }
                         else
@@ -236,9 +246,9 @@ namespace Vista
             if (orden.OrdenPedidoGuardada(orden.Numero))
             {
                 bool ordenEnviada = GenerarPDFOrdenPedido(orden);
-                bool cambioEstado = orden.CambiarEstadoAEnviado(_numeroOrdenSeleccionado);
                 if (ordenEnviada)
                 {
+                    bool cambioEstado = orden.CambiarEstadoAEnviado(_numeroOrdenSeleccionado);
                     if (cambioEstado)
                     {
                         MessageBox.Show("La orden ha sido enviada y descargada correctamente.");
@@ -250,7 +260,7 @@ namespace Vista
                 }
                 else
                 {
-                    MessageBox.Show("Orden no se ha podido enviar.");
+                    MessageBox.Show("La orden no ha sido enviada.");
                 }
                 CargarGrillaDetalleOrden(_numeroOrdenSeleccionado);
                 _numeroOrdenSeleccionado = 0;
@@ -283,10 +293,18 @@ namespace Vista
             RecepcionarOrden();
             CargarGrillaOrden();
         }
-        private void btnDescargarOrden_Click(object sender, EventArgs e)
+        private void btnEnviarOrden_Click(object sender, EventArgs e)
         {
             EnviarOrdenPedido();
             CargarGrillaOrden();
+        }
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = @"\Ayuda\Ayuda.chm";
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string ayudaPath = projectDirectory + rutaAyuda;
+            Help.ShowHelp(this, ayudaPath, "Revision.htm");
         }
         #endregion
 
@@ -312,13 +330,17 @@ namespace Vista
                 EsconderColumnasAutogeneradas();
             }
         }
+        private void txtBuscarOrden_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
 
         #endregion
 
         #region Metodo Para Enviar PDF Orden Pedido
         private bool GenerarPDFOrdenPedido(OrdenPedido orden)
         {
-            if (orden!=null)
+            if (orden != null)
             {
                 using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF|*.pdf", ValidateNames = true })
                 {
@@ -358,8 +380,19 @@ namespace Vista
                             tituloTable.AddCell(tituloCell);
                             doc.Add(tituloTable);
 
-                            var imagePath = @"C:\Users\krist\source\repos\slnAlmacen\Portafolio\Vista\Logo\Logo.png";
-                            using (FileStream fs = new FileStream(imagePath, FileMode.Open))
+                            string nombreLogo = @"\Logo\Logo.png";
+
+                            // This will get the current WORKING directory (i.e. \bin\Debug)
+                            string workingDirectory = Environment.CurrentDirectory;
+                            // or: Directory.GetCurrentDirectory() gives the same result
+
+                            // This will get the current PROJECT directory
+                            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+
+                            string logoPath = projectDirectory + nombreLogo;
+
+                            //var imagePath = @"C:\Users\krist\source\repos\slnAlmacen\Portafolio\Vista\Logo\Logo.png";
+                            using (FileStream fs = new FileStream(logoPath, FileMode.Open))
                             {
                                 var png = Image.GetInstance(System.Drawing.Image.FromStream(fs),
                                     ImageFormat.Png);
@@ -490,13 +523,16 @@ namespace Vista
             bool correoEnviado = orden.EnviarCorreoOrdenPedido(orden, ruta);
             if (correoEnviado)
             {
-                MessageBox.Show("Se ha enviado la orden correctamente.");
+                MessageBox.Show("La orden ha sido enviada.");
             }
             else
             {
-                MessageBox.Show("Ha ocurrido un error mientras se enviaba la orden");
+                MessageBox.Show("Ha ocurrido un error mientras se enviaba la orden.");
             }
         }
+
         #endregion
+
+        
     }
 }

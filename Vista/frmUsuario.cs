@@ -1,6 +1,6 @@
 ﻿using Controlador;
 using System;
-using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Vista
@@ -46,7 +46,6 @@ namespace Vista
                     txtDv.Text = usuario.DvUsuario.ToString();
                     txtNombreUsuario.Text = usuario.NombreUsuario;
                     txtApellidoUsuario.Text = usuario.ApellidoUsuario;
-                    txtContrasena.Text = usuario.Contrasena;
                     cmbTipoUsuario.SelectedValue = usuario.Tipo.Id;
                     dtpFechaNacimiento.Value = usuario.FechaNacimiento;
                     txtDireccionUsuario.Text = usuario.DireccionUsuario;
@@ -71,7 +70,6 @@ namespace Vista
             txtDv.Clear();
             txtNombreUsuario.Clear();
             txtApellidoUsuario.Clear();
-            txtContrasena.Clear();
             cmbTipoUsuario.SelectedValue = 0;
             dtpFechaNacimiento.Value = DateTime.Now;
             txtDireccionUsuario.Clear();
@@ -111,7 +109,7 @@ namespace Vista
                             }
                             else
                             {
-                                mensajeError = "El largo de la direccion de usuario es invalido";
+                                mensajeError = "El largo de la direccion de usuario es invalido, debe ser entre 3 y 250 caracteres.";
                             }
                         }
                         else
@@ -121,12 +119,12 @@ namespace Vista
                     }
                     else
                     {
-                        mensajeError = "El largo del apellido de usuario es invalido";
+                        mensajeError = "El largo del apellido de usuario es invalido, debe ser entre 3 y 70 caracteres.";
                     }
                 }
                 else
                 {
-                    mensajeError = "El largo del nombre de usuario es invalido";
+                    mensajeError = "El largo del nombre de usuario es invalido, debe ser entre 3 y 70 caracteres.";
                 }
             }
             else
@@ -205,7 +203,6 @@ namespace Vista
                 char dv = char.Parse(txtDv.Text);
                 string nombre = txtNombreUsuario.Text;
                 string apellido = txtApellidoUsuario.Text;
-                string contrasena = txtContrasena.Text;
                 DateTime fechaNacimiento = dtpFechaNacimiento.Value.Date;
                 DateTime fechaCreacion = DateTime.Now;
                 string direccion = txtDireccionUsuario.Text;
@@ -213,7 +210,7 @@ namespace Vista
                 string correo = txtCorreo.Text;
                 TipoUsuario tipo = new TipoUsuario();
                 tipo.Id = (int)cmbTipoUsuario.SelectedValue;
-                Usuario usuario = new Usuario(run, dv, nombre, apellido, contrasena, fechaNacimiento, fechaCreacion,
+                Usuario usuario = new Usuario(run, dv, nombre, apellido, fechaNacimiento, fechaCreacion,
                     direccion, telefono, correo, tipo);
                 bool estaModificado = usuario.ModificarUsuario(usuario);
                 if (estaModificado)
@@ -235,15 +232,22 @@ namespace Vista
         {
             if (!String.IsNullOrEmpty(txtRunUsuario.Text))
             {
-                Usuario usuario = new Usuario();
-                bool estaEliminado = usuario.EliminarUsuario(int.Parse(txtRunUsuario.Text));
-                if (estaEliminado)
+                if (int.Parse(txtRunUsuario.Text) != Global.RunUsuarioActivo)
                 {
-                    MessageBox.Show("Usuario eliminado");
+                    Usuario usuario = new Usuario();
+                    bool estaEliminado = usuario.EliminarUsuario(int.Parse(txtRunUsuario.Text));
+                    if (estaEliminado)
+                    {
+                        MessageBox.Show("Usuario eliminado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El usuario tiene datos vinculados con boletas y/o ordenes de pedido, no se puede eliminar.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Usuario no eliminado");
+                    MessageBox.Show("No se puede eliminar al usuario activo.");
                 }
             }
         }
@@ -254,24 +258,29 @@ namespace Vista
         {
             BuscarUsuarioPorNombre();
         }
-
         private void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
             AgregarUsuario();
             CargarGrilla();
         }
-
         private void btnModificarUsuario_Click(object sender, EventArgs e)
         {
             ModificarUsuario();
             CargarGrilla();
         }
-
         private void btnEliminarUsuario_Click(object sender, EventArgs e)
         {
             EliminarUsuario();
             CargarGrilla();
             LimpiarDatos();
+        }
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = @"\Ayuda\Ayuda.chm";
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string ayudaPath = projectDirectory + rutaAyuda;
+            Help.ShowHelp(this, ayudaPath, "Usuarios.htm");
         }
         #endregion
 
@@ -294,6 +303,19 @@ namespace Vista
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
+        private void txtNombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
+        }
+        private void txtApellidoUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
+        }
+        private void txtBuscarUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
+        }
         #endregion
+
     }
 }

@@ -40,6 +40,22 @@ namespace Controlador
         {
             return Descripcion;
         }
+        public EstadoBoleta ObtenerEstadoBoleta(int id)
+        {
+            try
+            {
+                Modelo.ESTADO_BOLETA estadoModelo = ConectorDALC.ModeloAlmacen.ESTADO_BOLETA.FirstOrDefault(e => e.IDESTADO == id);
+                Id = (int)estadoModelo.IDESTADO;
+                Descripcion = estadoModelo.DESCRIPCION;
+                EstadoBoleta estado = new EstadoBoleta(Id, Descripcion);
+                return estado;
+            }
+            catch (Exception)
+            {
+                return null;
+                throw;
+            }
+        }
         #endregion
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
@@ -18,13 +19,15 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        #region Metodos
         private bool VerificarContrasenaActual()
         {
             Usuario usuario = new Usuario();
             int runUsuarioActivo = Global.RunUsuarioActivo;
             usuario = usuario.ObtenerUsuario(runUsuarioActivo);
-            string contrasena = txtContrasenaActual.Text;
-            bool contrasenaIgual = usuario.VerificarContrasena(usuario,contrasena);
+            string contrasena = txtContrasenaActual.Text.ToUpper();
+            bool contrasenaIgual = usuario.VerificarContrasena(usuario, contrasena);
             if (contrasenaIgual)
             {
                 return true;
@@ -38,11 +41,11 @@ namespace Vista
         {
             if (VerificarContrasenaActual())
             {
-                if (!String.IsNullOrEmpty(txtContrasenaNueva.Text)&& !String.IsNullOrEmpty(txtContrasenaNueva.Text))
+                if (!String.IsNullOrEmpty(txtContrasenaNueva.Text) && !String.IsNullOrEmpty(txtContrasenaNueva.Text))
                 {
                     if (txtContrasenaNueva.Text == txtRepertirContrasenaNueva.Text)
                     {
-                        string contrasenaNueva = txtContrasenaNueva.Text;
+                        string contrasenaNueva = txtContrasenaNueva.Text.ToUpper();
                         Usuario usuario = new Usuario();
                         usuario = usuario.ObtenerUsuario(Global.RunUsuarioActivo);
                         usuario.Contrasena = contrasenaNueva;
@@ -77,9 +80,21 @@ namespace Vista
             txtContrasenaNueva.Clear();
             txtRepertirContrasenaNueva.Clear();
         }
+        #endregion
+
+        #region Botones
         private void btnCambiarContrasena_Click(object sender, EventArgs e)
         {
             CambiarContrasena();
         }
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = @"\Ayuda\Ayuda.chm";
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string ayudaPath = projectDirectory + rutaAyuda;
+            Help.ShowHelp(this, ayudaPath, "Cambio contraseña.htm");
+        }
+        #endregion
     }
 }

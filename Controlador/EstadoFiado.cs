@@ -42,6 +42,22 @@ namespace Controlador
         {
             return Descripcion;
         }
+        public EstadoFiado ObtenerEstadoFiado(int id)
+        {
+            try
+            {
+                Modelo.ESTADO_FIADO estadoModelo = ConectorDALC.ModeloAlmacen.ESTADO_FIADO.FirstOrDefault(e => e.IDESTADO == id);
+                Id = (int)estadoModelo.IDESTADO;
+                Descripcion = estadoModelo.DESCRIPCION;
+                EstadoFiado estado = new EstadoFiado(Id, Descripcion);
+                return estado;
+            }
+            catch (Exception)
+            {
+                return null;
+                throw;
+            }
+        }
         #endregion
 
         #region Metodo de la clase

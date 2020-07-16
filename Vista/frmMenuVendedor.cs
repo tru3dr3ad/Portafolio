@@ -188,5 +188,12 @@ namespace Vista
             this.Dispose();
         }
         #endregion
+
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
+            OcultarSubMenu();
+            AbrirFormInPanel(new frmCambiarContrasena());
+            NombreFormularioAbierto("Cambio de Contraseña");
+        }
     }
 }

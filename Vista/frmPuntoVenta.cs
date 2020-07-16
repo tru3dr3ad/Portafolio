@@ -1,5 +1,6 @@
 ﻿using Controlador;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Vista
@@ -148,23 +149,40 @@ namespace Vista
                 if (ventaFiada)
                 {
                     Cliente cliente = new Cliente();
-                    bool existeDeuda = cliente.ExisteDeudaCliente((int)cmbCliente.SelectedValue);
-                    if (existeDeuda)
+                    bool clienteMoroso = cliente.ClienteMoroso((int)cmbCliente.SelectedValue);
+                    if (!clienteMoroso)
                     {
-                        bool estadoCambio = cliente.EstadoDebeClienteFiador((int)cmbCliente.SelectedValue);
-                        if (estadoCambio)
+                        bool clienteDebe = cliente.ClienteDebe((int)cmbCliente.SelectedValue);
+                        if (clienteDebe)
                         {
-                            AgregarBoleta();
-                            MessageBox.Show("Se ha agregado la deuda correctamente");
+                            bool clienteEstaMoroso = cliente.ClienteDebeHaceMasUnMes((int)cmbCliente.SelectedValue);
+                            if (clienteEstaMoroso)
+                            {
+                                MessageBox.Show("El cliente tiene una deuda de hace mas de un mes, se ha detectado que esta moroso. Por favor regularizar.");
+                            }
+                            else
+                            {
+                                AgregarBoleta();
+                                MessageBox.Show("Se ha agregado la deuda correctamente");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("No se ha podido cambiar el estado del cliente");
+                            bool estadoCambio = cliente.EstadoDebeClienteFiador((int)cmbCliente.SelectedValue);
+                            if (estadoCambio)
+                            {
+                                AgregarBoleta();
+                                MessageBox.Show("Se ha agregado la deuda correctamente");
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se ha podido cambiar el estado del cliente");
+                            }
                         }
                     }
                     else
                     {
-                        MessageBox.Show("El cliente tiene una deuda. Favor revisar");
+                        MessageBox.Show("El cliente se encuentra moroso. Por favor regularizar.");
                     }
                 }
                 else
@@ -186,7 +204,7 @@ namespace Vista
                 Usuario usuario = new Usuario();
                 usuario.RunUsuario = Global.RunUsuarioActivo;
                 EstadoBoleta estado = new EstadoBoleta();
-                estado.Id = 1;
+                estado = estado.ObtenerEstadoBoleta(1);
                 Boleta boleta = new Boleta(fechaCreacion, total, medioPago, cliente, usuario, estado);
                 if (boleta.AgregarBoleta())
                 {
@@ -253,10 +271,6 @@ namespace Vista
                 {
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
             }
             return false;
         }
@@ -297,6 +311,14 @@ namespace Vista
         private void btnQuitarProducto_Click(object sender, EventArgs e)
         {
             QuitarDetalleBoleta();
+        }
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = @"\Ayuda\Ayuda.chm";
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string ayudaPath = projectDirectory + rutaAyuda;
+            Help.ShowHelp(this, ayudaPath, "Punto de Venta.htm");
         }
         #endregion
 
@@ -355,7 +377,13 @@ namespace Vista
                 txtRunCliente.Text = run;
             }
         }
+        private void txtBuscarProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
 
         #endregion
+
     }
 }

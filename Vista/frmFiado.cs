@@ -1,6 +1,7 @@
 ﻿using Controlador;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Vista
@@ -109,30 +110,21 @@ namespace Vista
             txtDeuda.Text = "--";
             txtMontoAbono.Enabled = true;
         }
-        #endregion
-
-        #region Metodos de la clase
-        public void BuscarBoletasPorNombreCliente()
+        private void CargarLabelDeudaTotal()
         {
-            string nombre = txtBuscarUsuario.Text.ToUpper();
             Boleta boleta = new Boleta();
-            if (nombre == "")
+            if ((int)cmbCliente.SelectedValue > 0)
             {
-                grdVentaFiadas.DataSource = boleta.ListarBoletasPorMedioPago(4);
+                decimal deuda = 0;
+                deuda = boleta.CalcularDeudaTotal((int)cmbCliente.SelectedValue);
+                lblDeudaTotal.Text = deuda.ToString();
             }
-            else
-            {
-                grdVentaFiadas.DataSource = boleta.ListarBoletasPorNombreClienteFiador(nombre);
-            }
-            txtBuscarUsuario.Clear();
-            OcultarColumnasAutogeneradas();
         }
         public void EvaluarDeudaParaEstadoFiador(int numeroBoleta)
         {
-            Abono abono = new Abono();
             Boleta boleta = new Boleta();
             boleta = boleta.ObtenerBoleta(numeroBoleta);
-            decimal deuda = abono.ObtenerDeuda(numeroBoleta);
+            decimal deuda = boleta.CalcularDeudaTotal(boleta.Cliente.Run);
             Cliente cliente = new Cliente();
             cliente = cliente.ObtenerCliente(boleta.Cliente.Run);
             if (deuda == 0)
@@ -153,33 +145,60 @@ namespace Vista
                 }
             }
         }
+        #endregion
+
+        #region Metodos de la clase
+        public void BuscarBoletasPorNombreCliente()
+        {
+            string nombre = txtBuscarUsuario.Text.ToUpper();
+            Boleta boleta = new Boleta();
+            if (nombre == "")
+            {
+                grdVentaFiadas.DataSource = boleta.ListarBoletasPorMedioPago(4);
+            }
+            else
+            {
+                grdVentaFiadas.DataSource = boleta.ListarBoletasPorNombreClienteFiador(nombre);
+            }
+            txtBuscarUsuario.Clear();
+            OcultarColumnasAutogeneradas();
+        }
         public void AgregarAbono()
         {
-            if (!string.IsNullOrEmpty(txtDeuda.Text) && txtDeuda.Text != "--" )
+            if (!string.IsNullOrEmpty(txtDeuda.Text) && txtDeuda.Text != "--")
             {
-                if (!string.IsNullOrEmpty(txtMontoAbono.Text) && int.Parse(txtMontoAbono.Text) > 0)
+                if (!string.IsNullOrEmpty(txtMontoAbono.Text))
                 {
-                    if (int.Parse(txtMontoAbono.Text) <= int.Parse(txtDeuda.Text))
+                    if (int.Parse(txtMontoAbono.Text) > 0)
                     {
-                        DateTime fechaAbono = DateTime.Now.Date;
-                        int montoAbono = int.Parse(txtMontoAbono.Text);
-                        Boleta boleta = new Boleta();
-                        boleta = boleta.ObtenerBoleta(_numeroBoleta);
-                        DateTime fechaLimite = boleta.FechaCreacion.AddMonths(1);
-
-                        Abono abono = new Abono(boleta, montoAbono, fechaAbono, fechaLimite);
-                        if (abono.AgregarAbono())
+                        if (int.Parse(txtMontoAbono.Text) <= int.Parse(txtDeuda.Text))
                         {
-                            int idAbono = abono.ObtenerIdMaximoAbono();
-                            CargarGrillaAbonoPorBoleta(boleta.Numero);
-                            MessageBox.Show("Abono N°" + idAbono + " agregado.");
-                            EvaluarDeudaParaEstadoFiador(boleta.Numero);
-                            _numeroBoleta = 0;
+                            DateTime fechaAbono = DateTime.Now.Date;
+                            int montoAbono = int.Parse(txtMontoAbono.Text);
+                            Boleta boleta = new Boleta();
+                            boleta = boleta.ObtenerBoleta(_numeroBoleta);
+                            DateTime fechaLimite = boleta.FechaCreacion.AddMonths(1);
+
+                            Abono abono = new Abono(boleta, montoAbono, fechaAbono, fechaLimite);
+                            if (abono.AgregarAbono())
+                            {
+                                int idAbono = abono.ObtenerIdMaximoAbono();
+                                CargarGrillaAbonoPorBoleta(boleta.Numero);
+                                MessageBox.Show("Abono N°" + idAbono + " agregado.");
+                                EvaluarDeudaParaEstadoFiador(boleta.Numero);
+                                CargarLabelDeudaTotal();
+                                txtDeuda.Clear();
+                                _numeroBoleta = 0;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Monto del abono no puede ser mayor a lo adeudado.");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Monto del abono no puede ser mayor a lo adeudado.");
+                        MessageBox.Show("El monto ingresado no puede ser $0.");
                     }
                 }
                 else
@@ -194,41 +213,49 @@ namespace Vista
         }
         private void ModificarAbono()
         {
-            if (!string.IsNullOrEmpty(txtMontoAbono.Text) && int.Parse(txtMontoAbono.Text) > 0)
+            if (!string.IsNullOrEmpty(txtMontoAbono.Text))
             {
-                Abono abono = new Abono();
-                Boleta boleta = new Boleta();
-                abono = abono.ObtenerAbono(_idAbono);
-                boleta = boleta.ObtenerBoleta(abono.Boleta.Numero);
-                decimal deuda = abono.ObtenerDeuda(boleta.Numero);
-                deuda = deuda + abono.Total;
-                if (abono != null)
+                if (int.Parse(txtMontoAbono.Text) > 0)
                 {
-                    if (decimal.Parse(txtMontoAbono.Text) <= deuda)
+                    Abono abono = new Abono();
+                    Boleta boleta = new Boleta();
+                    abono = abono.ObtenerAbono(_idAbono);
+                    boleta = boleta.ObtenerBoleta(abono.Boleta.Numero);
+                    decimal deuda = abono.ObtenerDeuda(boleta.Numero);
+                    deuda = deuda + abono.Total;
+                    if (abono != null)
                     {
-                        abono.Total = decimal.Parse(txtMontoAbono.Text);
-                        bool estaModificado = abono.ModificarAbono(abono);
-                        if (estaModificado)
+                        if (decimal.Parse(txtMontoAbono.Text) <= deuda)
                         {
-                            MessageBox.Show("El abono ha sido modificado");
-                            EvaluarDeudaParaEstadoFiador(abono.Boleta.Numero);
-                            _idAbono = 0;
+                            abono.Total = decimal.Parse(txtMontoAbono.Text);
+                            bool estaModificado = abono.ModificarAbono(abono);
+                            if (estaModificado)
+                            {
+                                MessageBox.Show("El abono ha sido modificado");
+                                EvaluarDeudaParaEstadoFiador(abono.Boleta.Numero);
+                                CargarLabelDeudaTotal();
+                                txtDeuda.Clear();
+                                _idAbono = 0;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al modificar abono");
+                            }
                         }
-                        else
+                        else if (decimal.Parse(txtMontoAbono.Text) == abono.Total)
                         {
-                            MessageBox.Show("Error al modificar abono");
+                            MessageBox.Show("El monto ingresado es igual al monto guardado");
                         }
                     }
-                    else if (decimal.Parse(txtMontoAbono.Text) == abono.Total)
+                    else
                     {
-                        MessageBox.Show("El monto ingresado es igual al monto guardado");
+                        MessageBox.Show("No ha seleccionado ningun abono para modificar");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No ha seleccionado ningun abono para modificar");
+                    MessageBox.Show("El monto ingresado no puede ser $0.");
                 }
-
             }
             else
             {
@@ -238,31 +265,35 @@ namespace Vista
         private void EliminarAbono()
         {
             Abono abono = new Abono();
-            abono = abono.ObtenerAbono(_idAbono);
-            if (abono != null)
+            if (_idAbono>0)
             {
-                bool estaEliminado = abono.EliminarAbono(abono.Id);
-                if (estaEliminado)
+                abono = abono.ObtenerAbono(_idAbono);
+                if (abono != null)
                 {
-                    MessageBox.Show("El abono ha sido eliminado.");
-                    EvaluarDeudaParaEstadoFiador(abono.Boleta.Numero);
-                    _idAbono = 0;
+                    bool estaEliminado = abono.EliminarAbono(abono.Id);
+                    if (estaEliminado)
+                    {
+                        MessageBox.Show("El abono ha sido eliminado.");
+                        EvaluarDeudaParaEstadoFiador(abono.Boleta.Numero);
+                        CargarLabelDeudaTotal();
+                        _idAbono = 0;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se ha podido eliminar el abono");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No se ha podido eliminar el abono");
+                    MessageBox.Show("No ha seleccionado ningun abono para eliminar");
                 }
-            }
-            else
-            {
-                MessageBox.Show("No ha seleccionado ningun abono para eliminar");
             }
         }
 
         #endregion
 
         #region Botones
-        private void btnBuscarUsuario_Click(object sender, EventArgs e)
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             BuscarBoletasPorNombreCliente();
             LimpiarGrillaAbono();
@@ -285,6 +316,15 @@ namespace Vista
             CargarGrillaAbonoPorBoleta(_numeroBoleta);
             LimpiarMontos();
         }
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = @"\Ayuda\Ayuda.chm";
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string ayudaPath = projectDirectory + rutaAyuda;
+            Help.ShowHelp(this, ayudaPath, "Fiados.htm");
+        }
+
         #endregion
 
         #region Eventos
@@ -316,6 +356,7 @@ namespace Vista
                 txtRunCliente.Text = run;
                 LimpiarMontos();
                 LimpiarGrillaAbono();
+                CargarLabelDeudaTotal();
             }
         }
         private void txtDeuda_KeyPress(object sender, KeyPressEventArgs e)
@@ -325,6 +366,10 @@ namespace Vista
         private void txtMontoAbono_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+        private void txtBuscarUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
         #endregion
 
@@ -351,6 +396,9 @@ namespace Vista
                 PersonalizarAbono();
             }
         }
+
         #endregion
+
+        
     }
 }

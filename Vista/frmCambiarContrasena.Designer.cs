@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCambiarContrasena));
             this.txtContrasenaActual = new System.Windows.Forms.TextBox();
             this.txtContrasenaNueva = new System.Windows.Forms.TextBox();
             this.txtRepertirContrasenaNueva = new System.Windows.Forms.TextBox();
-            this.btnCambiarContrasena = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAyuda = new System.Windows.Forms.Button();
+            this.btnCambiarContrasena = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,17 +67,6 @@
             this.txtRepertirContrasenaNueva.PasswordChar = '*';
             this.txtRepertirContrasenaNueva.Size = new System.Drawing.Size(275, 29);
             this.txtRepertirContrasenaNueva.TabIndex = 2;
-            // 
-            // btnCambiarContrasena
-            // 
-            this.btnCambiarContrasena.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnCambiarContrasena.Location = new System.Drawing.Point(55, 363);
-            this.btnCambiarContrasena.Name = "btnCambiarContrasena";
-            this.btnCambiarContrasena.Size = new System.Drawing.Size(274, 46);
-            this.btnCambiarContrasena.TabIndex = 3;
-            this.btnCambiarContrasena.Text = "Cambiar Contraseña";
-            this.btnCambiarContrasena.UseVisualStyleBackColor = true;
-            this.btnCambiarContrasena.Click += new System.EventHandler(this.btnCambiarContrasena_Click);
             // 
             // label1
             // 
@@ -109,10 +100,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnCambiarContrasena);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnCambiarContrasena);
             this.groupBox1.Controls.Add(this.txtRepertirContrasenaNueva);
             this.groupBox1.Controls.Add(this.txtContrasenaNueva);
             this.groupBox1.Controls.Add(this.txtContrasenaActual);
@@ -124,13 +115,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cambiar Contraseña";
             // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAyuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAyuda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAyuda.BackgroundImage")));
+            this.btnAyuda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAyuda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAyuda.Location = new System.Drawing.Point(973, 6);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(21, 22);
+            this.btnAyuda.TabIndex = 4;
+            this.btnAyuda.UseVisualStyleBackColor = false;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
+            // btnCambiarContrasena
+            // 
+            this.btnCambiarContrasena.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCambiarContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnCambiarContrasena.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnCambiarContrasena.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCambiarContrasena.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCambiarContrasena.ForeColor = System.Drawing.Color.White;
+            this.btnCambiarContrasena.Location = new System.Drawing.Point(55, 374);
+            this.btnCambiarContrasena.Name = "btnCambiarContrasena";
+            this.btnCambiarContrasena.Size = new System.Drawing.Size(275, 46);
+            this.btnCambiarContrasena.TabIndex = 44;
+            this.btnCambiarContrasena.Text = "Cambiar Contraseña";
+            this.btnCambiarContrasena.UseVisualStyleBackColor = false;
+            this.btnCambiarContrasena.Click += new System.EventHandler(this.btnCambiarContrasena_Click);
+            // 
             // frmCambiarContrasena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCambiarContrasena";
             this.Text = "frmCambiarContrasena";
             this.groupBox1.ResumeLayout(false);
@@ -144,10 +167,11 @@
         private System.Windows.Forms.TextBox txtContrasenaActual;
         private System.Windows.Forms.TextBox txtContrasenaNueva;
         private System.Windows.Forms.TextBox txtRepertirContrasenaNueva;
-        private System.Windows.Forms.Button btnCambiarContrasena;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnAyuda;
+        private System.Windows.Forms.Button btnCambiarContrasena;
     }
 }

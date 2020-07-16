@@ -42,6 +42,25 @@ namespace Controlador
         {
             return Descripcion;
         }
+        public TipoCliente ObtenerTipoCliente(int id)
+        {
+            try
+            {
+                Modelo.TIPO_CLIENTE estadoModelo = ConectorDALC.ModeloAlmacen.TIPO_CLIENTE.FirstOrDefault(e => e.IDTIPO == id);
+                Id = (int)estadoModelo.IDTIPO;
+                Descripcion = estadoModelo.DESCRIPCION;
+                TipoCliente estado = new TipoCliente(Id, Descripcion);
+                return estado;
+            }
+            catch (Exception)
+            {
+                return null;
+                throw;
+            }
+        }
+        #endregion
+
+        #region Metodo de la clase
         public bool BuscarTipoCliente(string descripcion)
         {
             try

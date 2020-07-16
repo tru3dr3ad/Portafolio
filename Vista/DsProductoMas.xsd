@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsProductoMas" targetNamespace="http://tempuri.org/DsProductoMas.xsd" xmlns:mstns="http://tempuri.org/DsProductoMas.xsd" xmlns="http://tempuri.org/DsProductoMas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix=":" PropertyReference="ApplicationSettings.Vista.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="Oracle.ManagedDataAccess.Client" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PRODUCTOTableAdapter" GeneratorDataComponentClassName="PRODUCTOTableAdapter" Name="PRODUCTO" UserDataComponentName="PRODUCTOTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="ALMACEN.PRODUCTO" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ALMACEN.PRODUCTO.NOMBRE, SUM(ALMACEN.DETALLE_BOLETA.CANTIDAD) AS EXPR1
+FROM            ALMACEN.DETALLE_BOLETA INNER JOIN
+                         ALMACEN.PRODUCTO ON ALMACEN.DETALLE_BOLETA.PRODUCTO_CODIGO = ALMACEN.PRODUCTO.CODIGO
+GROUP BY ALMACEN.PRODUCTO.NOMBRE
+ORDER BY EXPR1 DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NOMBRE" DataSetColumn="NOMBRE" />
+              <Mapping SourceColumn="EXPR1" DataSetColumn="EXPR1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsProductoMas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsProductoMas" msprop:Generator_UserDSName="DsProductoMas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PRODUCTO" msprop:Generator_TableClassName="PRODUCTODataTable" msprop:Generator_TableVarName="tablePRODUCTO" msprop:Generator_RowChangedName="PRODUCTORowChanged" msprop:Generator_TablePropName="PRODUCTO" msprop:Generator_RowDeletingName="PRODUCTORowDeleting" msprop:Generator_RowChangingName="PRODUCTORowChanging" msprop:Generator_RowEvHandlerName="PRODUCTORowChangeEventHandler" msprop:Generator_RowDeletedName="PRODUCTORowDeleted" msprop:Generator_RowClassName="PRODUCTORow" msprop:Generator_UserTableName="PRODUCTO" msprop:Generator_RowEvArgName="PRODUCTORowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" msprop:Generator_UserColumnName="NOMBRE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXPR1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEXPR1" msprop:Generator_ColumnPropNameInRow="EXPR1" msprop:Generator_ColumnPropNameInTable="EXPR1Column" msprop:Generator_UserColumnName="EXPR1" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

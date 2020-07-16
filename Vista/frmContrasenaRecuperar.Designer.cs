@@ -34,20 +34,21 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.txtRunUsuario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnVerificarUsuario = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblMostrarCorreo = new System.Windows.Forms.Label();
             this.txtVerificarCorreo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnVerificarCorreo = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDv = new System.Windows.Forms.TextBox();
             this.grpCorreo = new System.Windows.Forms.GroupBox();
-            this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.lblNombreUsuario = new System.Windows.Forms.Label();
+            this.btnAyuda = new System.Windows.Forms.Button();
+            this.btnVerificarUsuario = new System.Windows.Forms.Button();
+            this.btnVerificarCorreo = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grpCorreo.SuspendLayout();
@@ -86,7 +87,7 @@
             this.btnCerrar.Location = new System.Drawing.Point(457, 3);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(40, 40);
-            this.btnCerrar.TabIndex = 6;
+            this.btnCerrar.TabIndex = 8;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
@@ -103,21 +104,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 34);
+            this.label1.Location = new System.Drawing.Point(55, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 14;
             this.label1.Text = "INGRESE RUN";
-            // 
-            // btnVerificarUsuario
-            // 
-            this.btnVerificarUsuario.Location = new System.Drawing.Point(253, 50);
-            this.btnVerificarUsuario.Name = "btnVerificarUsuario";
-            this.btnVerificarUsuario.Size = new System.Drawing.Size(75, 23);
-            this.btnVerificarUsuario.TabIndex = 3;
-            this.btnVerificarUsuario.Text = "INGRESAR";
-            this.btnVerificarUsuario.UseVisualStyleBackColor = true;
-            this.btnVerificarUsuario.Click += new System.EventHandler(this.btnVerificarUsuario_Click);
             // 
             // label2
             // 
@@ -176,21 +167,11 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "Ingresa el correo electronico que mostramos arriba";
             // 
-            // btnVerificarCorreo
-            // 
-            this.btnVerificarCorreo.Location = new System.Drawing.Point(196, 208);
-            this.btnVerificarCorreo.Name = "btnVerificarCorreo";
-            this.btnVerificarCorreo.Size = new System.Drawing.Size(75, 23);
-            this.btnVerificarCorreo.TabIndex = 5;
-            this.btnVerificarCorreo.Text = "VERIFICAR";
-            this.btnVerificarCorreo.UseVisualStyleBackColor = true;
-            this.btnVerificarCorreo.Click += new System.EventHandler(this.btnVerificarCorreo_Click);
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnVerificarUsuario);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtDv);
-            this.groupBox1.Controls.Add(this.btnVerificarUsuario);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtRunUsuario);
             this.groupBox1.Location = new System.Drawing.Point(75, 75);
@@ -204,7 +185,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label5.Location = new System.Drawing.Point(205, 50);
+            this.label5.Location = new System.Drawing.Point(202, 47);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(16, 21);
             this.label5.TabIndex = 23;
@@ -221,9 +202,9 @@
             // 
             // grpCorreo
             // 
+            this.grpCorreo.Controls.Add(this.btnVerificarCorreo);
             this.grpCorreo.Controls.Add(this.label7);
             this.grpCorreo.Controls.Add(this.lblNombreUsuario);
-            this.grpCorreo.Controls.Add(this.btnVerificarCorreo);
             this.grpCorreo.Controls.Add(this.label6);
             this.grpCorreo.Controls.Add(this.txtVerificarCorreo);
             this.grpCorreo.Controls.Add(this.lblMostrarCorreo);
@@ -237,16 +218,6 @@
             this.grpCorreo.TabStop = false;
             this.grpCorreo.Text = "Verificacion Correo";
             // 
-            // lblNombreUsuario
-            // 
-            this.lblNombreUsuario.AutoSize = true;
-            this.lblNombreUsuario.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lblNombreUsuario.Location = new System.Drawing.Point(138, 35);
-            this.lblNombreUsuario.Name = "lblNombreUsuario";
-            this.lblNombreUsuario.Size = new System.Drawing.Size(146, 21);
-            this.lblNombreUsuario.TabIndex = 23;
-            this.lblNombreUsuario.Text = "NOMBRE USUARIO";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -257,15 +228,73 @@
             this.label7.TabIndex = 24;
             this.label7.Text = "vemos que haz";
             // 
+            // lblNombreUsuario
+            // 
+            this.lblNombreUsuario.AutoSize = true;
+            this.lblNombreUsuario.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblNombreUsuario.Location = new System.Drawing.Point(138, 35);
+            this.lblNombreUsuario.Name = "lblNombreUsuario";
+            this.lblNombreUsuario.Size = new System.Drawing.Size(146, 21);
+            this.lblNombreUsuario.TabIndex = 23;
+            this.lblNombreUsuario.Text = "NOMBRE USUARIO";
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAyuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAyuda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAyuda.BackgroundImage")));
+            this.btnAyuda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAyuda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAyuda.Location = new System.Drawing.Point(475, 51);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(21, 22);
+            this.btnAyuda.TabIndex = 6;
+            this.btnAyuda.UseVisualStyleBackColor = false;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
+            // btnVerificarUsuario
+            // 
+            this.btnVerificarUsuario.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnVerificarUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnVerificarUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnVerificarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerificarUsuario.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerificarUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnVerificarUsuario.Location = new System.Drawing.Point(253, 48);
+            this.btnVerificarUsuario.Name = "btnVerificarUsuario";
+            this.btnVerificarUsuario.Size = new System.Drawing.Size(75, 23);
+            this.btnVerificarUsuario.TabIndex = 49;
+            this.btnVerificarUsuario.Text = "INGRESAR";
+            this.btnVerificarUsuario.UseVisualStyleBackColor = false;
+            this.btnVerificarUsuario.Click += new System.EventHandler(this.btnVerificarUsuario_Click);
+            // 
+            // btnVerificarCorreo
+            // 
+            this.btnVerificarCorreo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnVerificarCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnVerificarCorreo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnVerificarCorreo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerificarCorreo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerificarCorreo.ForeColor = System.Drawing.Color.White;
+            this.btnVerificarCorreo.Location = new System.Drawing.Point(197, 211);
+            this.btnVerificarCorreo.Name = "btnVerificarCorreo";
+            this.btnVerificarCorreo.Size = new System.Drawing.Size(75, 23);
+            this.btnVerificarCorreo.TabIndex = 50;
+            this.btnVerificarCorreo.Text = "VERIFICAR";
+            this.btnVerificarCorreo.UseVisualStyleBackColor = false;
+            this.btnVerificarCorreo.Click += new System.EventHandler(this.btnVerificarCorreo_Click);
+            // 
             // frmContrasenaRecuperar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 450);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.grpCorreo);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmContrasenaRecuperar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmContrasenaRecuperar";
@@ -285,19 +314,20 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.TextBox txtRunUsuario;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnVerificarUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblMostrarCorreo;
         private System.Windows.Forms.TextBox txtVerificarCorreo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnVerificarCorreo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox grpCorreo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDv;
         private System.Windows.Forms.Label lblNombreUsuario;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnAyuda;
+        private System.Windows.Forms.Button btnVerificarUsuario;
+        private System.Windows.Forms.Button btnVerificarCorreo;
     }
 }

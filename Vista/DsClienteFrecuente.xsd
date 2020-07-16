@@ -7,14 +7,15 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix=":" PropertyReference="ApplicationSettings.Vista.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="Oracle.ManagedDataAccess.Client" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CLIENTETableAdapter" GeneratorDataComponentClassName="CLIENTETableAdapter" Name="CLIENTE" UserDataComponentName="CLIENTETableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="ALMACEN.CLIENTE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        ALMACEN.CLIENTE.NOMBRE, ALMACEN.CLIENTE.APELLIDO, ALMACEN.BOLETA.NUMEROBOLETA, ALMACEN.BOLETA.TOTAL
+                    <CommandText>SELECT        ALMACEN.CLIENTE.NOMBRE, ALMACEN.CLIENTE.APELLIDO, COUNT(ALMACEN.BOLETA.CLIENTE_RUNCLIENTE) AS BOLETA
 FROM            ALMACEN.BOLETA INNER JOIN
-                         ALMACEN.CLIENTE ON ALMACEN.BOLETA.CLIENTE_RUNCLIENTE = ALMACEN.CLIENTE.RUNCLIENTE</CommandText>
+                         ALMACEN.CLIENTE ON ALMACEN.BOLETA.CLIENTE_RUNCLIENTE = ALMACEN.CLIENTE.RUNCLIENTE
+GROUP BY ALMACEN.CLIENTE.APELLIDO, ALMACEN.CLIENTE.NOMBRE</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -23,8 +24,7 @@ FROM            ALMACEN.BOLETA INNER JOIN
             <Mappings>
               <Mapping SourceColumn="NOMBRE" DataSetColumn="NOMBRE" />
               <Mapping SourceColumn="APELLIDO" DataSetColumn="APELLIDO" />
-              <Mapping SourceColumn="NUMEROBOLETA" DataSetColumn="NUMEROBOLETA" />
-              <Mapping SourceColumn="TOTAL" DataSetColumn="TOTAL" />
+              <Mapping SourceColumn="BOLETA" DataSetColumn="BOLETA" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -36,7 +36,7 @@ FROM            ALMACEN.BOLETA INNER JOIN
   <xs:element name="DsClienteFrecuente" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsClienteFrecuente" msprop:Generator_UserDSName="DsClienteFrecuente">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowClassName="DataTable2Row">
+        <xs:element name="CLIENTE" msprop:Generator_TableClassName="CLIENTEDataTable" msprop:Generator_TableVarName="tableCLIENTE" msprop:Generator_TablePropName="CLIENTE" msprop:Generator_RowDeletingName="CLIENTERowDeleting" msprop:Generator_RowChangingName="CLIENTERowChanging" msprop:Generator_RowEvHandlerName="CLIENTERowChangeEventHandler" msprop:Generator_RowDeletedName="CLIENTERowDeleted" msprop:Generator_UserTableName="CLIENTE" msprop:Generator_RowChangedName="CLIENTERowChanged" msprop:Generator_RowEvArgName="CLIENTERowChangeEvent" msprop:Generator_RowClassName="CLIENTERow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" msprop:Generator_UserColumnName="NOMBRE">
@@ -53,8 +53,7 @@ FROM            ALMACEN.BOLETA INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NUMEROBOLETA" msprop:Generator_ColumnVarNameInTable="columnNUMEROBOLETA" msprop:Generator_ColumnPropNameInRow="NUMEROBOLETA" msprop:Generator_ColumnPropNameInTable="NUMEROBOLETAColumn" msprop:Generator_UserColumnName="NUMEROBOLETA" type="xs:decimal" />
-              <xs:element name="TOTAL" msprop:Generator_ColumnVarNameInTable="columnTOTAL" msprop:Generator_ColumnPropNameInRow="TOTAL" msprop:Generator_ColumnPropNameInTable="TOTALColumn" msprop:Generator_UserColumnName="TOTAL" type="xs:decimal" />
+              <xs:element name="BOLETA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBOLETA" msprop:Generator_ColumnPropNameInRow="BOLETA" msprop:Generator_ColumnPropNameInTable="BOLETAColumn" msprop:Generator_UserColumnName="BOLETA" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

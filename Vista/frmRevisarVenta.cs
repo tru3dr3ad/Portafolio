@@ -1,5 +1,6 @@
 ﻿using Controlador;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Vista
@@ -63,11 +64,14 @@ namespace Vista
         #region Metodos de la clase
         private void BuscarBoletasPorNombreCliente()
         {
-            string nombre = txtBuscarBoleta.Text.ToUpper();
-            Boleta boleta = new Boleta();
-            grdBoleta.DataSource = boleta.ListarBoletasPorNombreCliente(nombre);
-            txtBuscarBoleta.Clear();
-            EsconderColumnasAutogeneradas();
+            if (!String.IsNullOrEmpty(txtBuscarBoleta.Text))
+            {
+                int numero = int.Parse(txtBuscarBoleta.Text);
+                Boleta boleta = new Boleta();
+                grdBoleta.DataSource = boleta.ListarBoletasPorNumeroBoleta(numero);
+                txtBuscarBoleta.Clear();
+                EsconderColumnasAutogeneradas();
+            }
         }
         private void AnularBoleta()
         {
@@ -80,11 +84,16 @@ namespace Vista
                     DetalleBoleta detalle = new DetalleBoleta();
                     Cliente cliente = new Cliente();
                     cliente = cliente.ObtenerCliente(boleta.Cliente.Run);
-                    bool boletaAnulada = boleta.AnularBoleta(_numeroBoletaSeleccionado);
                     bool agregarStock = detalle.AgregarStockBoletaAnulada(_numeroBoletaSeleccionado);
-                    if (boletaAnulada && agregarStock)
+                    if (agregarStock)
                     {
-                        MessageBox.Show("La boleta N°" + _numeroBoletaSeleccionado + " se ha anulado.");
+                        bool boletaAnulada = boleta.AnularBoleta(_numeroBoletaSeleccionado);
+                        if (boletaAnulada)
+                        {
+                            MessageBox.Show("La boleta N°" + _numeroBoletaSeleccionado + " se ha anulado.");
+                            _numeroBoletaSeleccionado = 0;
+                        }
+                        //Ojo! este metodo cambia el estado del fiador en caso de que la boleta se anule, de DEBE a NODEBE
                         if (cliente.Estado.Id == 2)
                         {
                             cliente.CambiarEstadoDeudaPagada(cliente.Run);
@@ -129,9 +138,25 @@ namespace Vista
         }
         private void btnAnularBoleta_Click(object sender, EventArgs e)
         {
-            AnularBoleta();
-            CargarGrilla();
-            LimpiarGrillaDetalle();
+            DialogResult dialogResult = MessageBox.Show("Si la boleta que desea anular ha sido generada en esta ultima instancia, se le solicita que reinicie la aplicacion. Si ya ha reiniciado la aplicación, presione 'Si'. Para cancelar presionar 'No'.", "Antes de Anular Boleta", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                AnularBoleta();
+                CargarGrilla();
+                LimpiarGrillaDetalle();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
+        }
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = @"\Ayuda\Ayuda.chm";
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string ayudaPath = projectDirectory + rutaAyuda;
+            Help.ShowHelp(this, ayudaPath, "Revisar Ventas.htm");
         }
         #endregion
 
@@ -156,6 +181,10 @@ namespace Vista
                 LimpiarGrillaDetalle();
             }
         }
+        private void txtBuscarBoleta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
         #endregion
 
         #region Evento Grilla
@@ -168,5 +197,7 @@ namespace Vista
             }
         }
         #endregion
+
+
     }
 }

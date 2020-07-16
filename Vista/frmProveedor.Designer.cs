@@ -32,9 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnEliminarProveedor = new System.Windows.Forms.Button();
-            this.btnAgregarProveedor = new System.Windows.Forms.Button();
-            this.btnModificarProveedor = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProveedor));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDv = new System.Windows.Forms.TextBox();
@@ -51,51 +49,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtRutProveedor = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnBuscarProveedor = new System.Windows.Forms.Button();
             this.txtBuscarProveedor = new System.Windows.Forms.TextBox();
             this.pnlContenedorGrilla = new System.Windows.Forms.Panel();
             this.grdProveedor = new System.Windows.Forms.DataGridView();
             this.pnlTituloGrilla = new System.Windows.Forms.Panel();
             this.nombreGrilla = new System.Windows.Forms.Label();
+            this.btnAyuda = new System.Windows.Forms.Button();
+            this.btnAgregarProveedor = new System.Windows.Forms.Button();
+            this.btnModificarProveedor = new System.Windows.Forms.Button();
+            this.btnEliminarProveedor = new System.Windows.Forms.Button();
+            this.btnBuscarProveedor = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlContenedorGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdProveedor)).BeginInit();
             this.pnlTituloGrilla.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnEliminarProveedor
-            // 
-            this.btnEliminarProveedor.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnEliminarProveedor.Location = new System.Drawing.Point(816, 517);
-            this.btnEliminarProveedor.Name = "btnEliminarProveedor";
-            this.btnEliminarProveedor.Size = new System.Drawing.Size(128, 21);
-            this.btnEliminarProveedor.TabIndex = 12;
-            this.btnEliminarProveedor.Text = "Eliminar";
-            this.btnEliminarProveedor.UseVisualStyleBackColor = true;
-            this.btnEliminarProveedor.Click += new System.EventHandler(this.btnEliminarProveedor_Click);
-            // 
-            // btnAgregarProveedor
-            // 
-            this.btnAgregarProveedor.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAgregarProveedor.Location = new System.Drawing.Point(816, 463);
-            this.btnAgregarProveedor.Name = "btnAgregarProveedor";
-            this.btnAgregarProveedor.Size = new System.Drawing.Size(128, 21);
-            this.btnAgregarProveedor.TabIndex = 10;
-            this.btnAgregarProveedor.Text = "Agregar";
-            this.btnAgregarProveedor.UseVisualStyleBackColor = true;
-            this.btnAgregarProveedor.Click += new System.EventHandler(this.btnAgregarProveedor_Click);
-            // 
-            // btnModificarProveedor
-            // 
-            this.btnModificarProveedor.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnModificarProveedor.Location = new System.Drawing.Point(816, 490);
-            this.btnModificarProveedor.Name = "btnModificarProveedor";
-            this.btnModificarProveedor.Size = new System.Drawing.Size(128, 21);
-            this.btnModificarProveedor.TabIndex = 11;
-            this.btnModificarProveedor.Text = "Modificar";
-            this.btnModificarProveedor.UseVisualStyleBackColor = true;
-            this.btnModificarProveedor.Click += new System.EventHandler(this.btnModificarProveedor_Click);
             // 
             // groupBox1
             // 
@@ -227,6 +196,7 @@
             this.txtNombre.Size = new System.Drawing.Size(182, 20);
             this.txtNombre.TabIndex = 5;
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label1
             // 
@@ -259,16 +229,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Buscar Proveedor:";
             // 
-            // btnBuscarProveedor
-            // 
-            this.btnBuscarProveedor.Location = new System.Drawing.Point(40, 55);
-            this.btnBuscarProveedor.Name = "btnBuscarProveedor";
-            this.btnBuscarProveedor.Size = new System.Drawing.Size(128, 21);
-            this.btnBuscarProveedor.TabIndex = 2;
-            this.btnBuscarProveedor.Text = "Buscar";
-            this.btnBuscarProveedor.UseVisualStyleBackColor = true;
-            this.btnBuscarProveedor.Click += new System.EventHandler(this.btnBuscarProveedor_Click);
-            // 
             // txtBuscarProveedor
             // 
             this.txtBuscarProveedor.Location = new System.Drawing.Point(13, 19);
@@ -276,6 +236,7 @@
             this.txtBuscarProveedor.Size = new System.Drawing.Size(182, 20);
             this.txtBuscarProveedor.TabIndex = 1;
             this.txtBuscarProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBuscarProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarProveedor_KeyPress);
             // 
             // pnlContenedorGrilla
             // 
@@ -305,7 +266,7 @@
             this.grdProveedor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -322,7 +283,7 @@
             this.grdProveedor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.SandyBrown;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SandyBrown;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
@@ -336,7 +297,7 @@
             this.grdProveedor.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.grdProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdProveedor.Size = new System.Drawing.Size(758, 487);
-            this.grdProveedor.TabIndex = 27;
+            this.grdProveedor.TabIndex = 14;
             this.grdProveedor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProveedor_CellDoubleClick);
             // 
             // pnlTituloGrilla
@@ -352,22 +313,101 @@
             // nombreGrilla
             // 
             this.nombreGrilla.AutoSize = true;
-            this.nombreGrilla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreGrilla.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombreGrilla.Location = new System.Drawing.Point(15, 10);
             this.nombreGrilla.Name = "nombreGrilla";
-            this.nombreGrilla.Size = new System.Drawing.Size(104, 19);
+            this.nombreGrilla.Size = new System.Drawing.Size(109, 20);
             this.nombreGrilla.TabIndex = 0;
             this.nombreGrilla.Text = "Proveedores";
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAyuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAyuda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAyuda.BackgroundImage")));
+            this.btnAyuda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAyuda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAyuda.Location = new System.Drawing.Point(976, 3);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(21, 22);
+            this.btnAyuda.TabIndex = 13;
+            this.btnAyuda.UseVisualStyleBackColor = false;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
+            // btnAgregarProveedor
+            // 
+            this.btnAgregarProveedor.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAgregarProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnAgregarProveedor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAgregarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarProveedor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarProveedor.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarProveedor.Location = new System.Drawing.Point(816, 439);
+            this.btnAgregarProveedor.Name = "btnAgregarProveedor";
+            this.btnAgregarProveedor.Size = new System.Drawing.Size(128, 29);
+            this.btnAgregarProveedor.TabIndex = 46;
+            this.btnAgregarProveedor.Text = "Agregar";
+            this.btnAgregarProveedor.UseVisualStyleBackColor = false;
+            this.btnAgregarProveedor.Click += new System.EventHandler(this.btnAgregarProveedor_Click);
+            // 
+            // btnModificarProveedor
+            // 
+            this.btnModificarProveedor.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnModificarProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnModificarProveedor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnModificarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarProveedor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarProveedor.ForeColor = System.Drawing.Color.White;
+            this.btnModificarProveedor.Location = new System.Drawing.Point(816, 474);
+            this.btnModificarProveedor.Name = "btnModificarProveedor";
+            this.btnModificarProveedor.Size = new System.Drawing.Size(128, 29);
+            this.btnModificarProveedor.TabIndex = 45;
+            this.btnModificarProveedor.Text = "Modificar";
+            this.btnModificarProveedor.UseVisualStyleBackColor = false;
+            this.btnModificarProveedor.Click += new System.EventHandler(this.btnModificarProveedor_Click);
+            // 
+            // btnEliminarProveedor
+            // 
+            this.btnEliminarProveedor.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnEliminarProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnEliminarProveedor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnEliminarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarProveedor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarProveedor.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarProveedor.Location = new System.Drawing.Point(816, 509);
+            this.btnEliminarProveedor.Name = "btnEliminarProveedor";
+            this.btnEliminarProveedor.Size = new System.Drawing.Size(128, 29);
+            this.btnEliminarProveedor.TabIndex = 44;
+            this.btnEliminarProveedor.Text = "Eliminar";
+            this.btnEliminarProveedor.UseVisualStyleBackColor = false;
+            this.btnEliminarProveedor.Click += new System.EventHandler(this.btnEliminarProveedor_Click);
+            // 
+            // btnBuscarProveedor
+            // 
+            this.btnBuscarProveedor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBuscarProveedor.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBuscarProveedor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnBuscarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProveedor.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProveedor.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscarProveedor.Location = new System.Drawing.Point(40, 51);
+            this.btnBuscarProveedor.Name = "btnBuscarProveedor";
+            this.btnBuscarProveedor.Size = new System.Drawing.Size(128, 21);
+            this.btnBuscarProveedor.TabIndex = 47;
+            this.btnBuscarProveedor.Text = "Buscar";
+            this.btnBuscarProveedor.UseVisualStyleBackColor = false;
+            this.btnBuscarProveedor.Click += new System.EventHandler(this.btnBuscarProveedor_Click);
             // 
             // frmProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 550);
-            this.Controls.Add(this.pnlContenedorGrilla);
-            this.Controls.Add(this.btnEliminarProveedor);
             this.Controls.Add(this.btnAgregarProveedor);
             this.Controls.Add(this.btnModificarProveedor);
+            this.Controls.Add(this.btnEliminarProveedor);
+            this.Controls.Add(this.btnAyuda);
+            this.Controls.Add(this.pnlContenedorGrilla);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -386,9 +426,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnEliminarProveedor;
-        private System.Windows.Forms.Button btnAgregarProveedor;
-        private System.Windows.Forms.Button btnModificarProveedor;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbRubro;
@@ -403,7 +440,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtRutProveedor;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnBuscarProveedor;
         private System.Windows.Forms.TextBox txtBuscarProveedor;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDv;
@@ -411,5 +447,10 @@
         protected System.Windows.Forms.DataGridView grdProveedor;
         private System.Windows.Forms.Panel pnlTituloGrilla;
         private System.Windows.Forms.Label nombreGrilla;
+        private System.Windows.Forms.Button btnAyuda;
+        private System.Windows.Forms.Button btnAgregarProveedor;
+        private System.Windows.Forms.Button btnModificarProveedor;
+        private System.Windows.Forms.Button btnEliminarProveedor;
+        private System.Windows.Forms.Button btnBuscarProveedor;
     }
 }

@@ -15,6 +15,62 @@
           <Property Name="FECHAABONO" Type="date" Nullable="false" />
           <Property Name="FECHALIMITE" Type="date" Nullable="false" />
         </EntityType>
+        <EntityType Name="AUTH_GROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar2" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="AUTH_GROUP_PERMISSIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GROUP_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="PERMISSION_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AUTH_PERMISSION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar2" MaxLength="255" />
+          <Property Name="CONTENT_TYPE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="CODENAME" Type="nvarchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="AUTH_USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PASSWORD" Type="nvarchar2" MaxLength="128" />
+          <Property Name="LAST_LOGIN" Type="timestamp" Precision="6" />
+          <Property Name="IS_SUPERUSER" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="USERNAME" Type="nvarchar2" MaxLength="150" />
+          <Property Name="FIRST_NAME" Type="nvarchar2" MaxLength="30" />
+          <Property Name="LAST_NAME" Type="nvarchar2" MaxLength="150" />
+          <Property Name="EMAIL" Type="nvarchar2" MaxLength="254" />
+          <Property Name="IS_STAFF" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="DATE_JOINED" Type="timestamp" Precision="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AUTH_USER_GROUPS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="GROUP_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AUTH_USER_USER_PERMISSIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="PERMISSION_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
         <EntityType Name="BOLETA">
           <Key>
             <PropertyRef Name="NUMEROBOLETA" />
@@ -70,6 +126,44 @@
           <Property Name="PRODUCTO_CODIGO" Type="varchar2" MaxLength="17" Nullable="false" />
           <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
+        <EntityType Name="DJANGO_ADMIN_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ACTION_TIME" Type="timestamp" Precision="6" Nullable="false" />
+          <Property Name="OBJECT_ID" Type="nclob" />
+          <Property Name="OBJECT_REPR" Type="nvarchar2" MaxLength="200" />
+          <Property Name="ACTION_FLAG" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="CHANGE_MESSAGE" Type="nclob" />
+          <Property Name="CONTENT_TYPE_ID" Type="number" Precision="11" Scale="0" />
+          <Property Name="USER_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DJANGO_CONTENT_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="APP_LABEL" Type="nvarchar2" MaxLength="100" />
+          <Property Name="MODEL" Type="nvarchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DJANGO_MIGRATIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="APP" Type="nvarchar2" MaxLength="255" />
+          <Property Name="NAME" Type="nvarchar2" MaxLength="255" />
+          <Property Name="APPLIED" Type="timestamp" Precision="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DJANGO_SESSION">
+          <Key>
+            <PropertyRef Name="SESSION_KEY" />
+          </Key>
+          <Property Name="SESSION_KEY" Type="nvarchar2" MaxLength="40" Nullable="false" />
+          <Property Name="SESSION_DATA" Type="nclob" />
+          <Property Name="EXPIRE_DATE" Type="timestamp" Precision="6" Nullable="false" />
+        </EntityType>
         <EntityType Name="ESTADO_BOLETA">
           <Key>
             <PropertyRef Name="IDESTADO" />
@@ -88,7 +182,7 @@
           <Key>
             <PropertyRef Name="IDESTADO" />
           </Key>
-          <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar2" MaxLength="70" Nullable="false" />
         </EntityType>
         <EntityType Name="MEDIO_PAGO">
@@ -171,7 +265,7 @@
           <Property Name="FECHACREACION" Type="date" Nullable="false" />
           <Property Name="DIRECCION" Type="varchar2" MaxLength="250" Nullable="false" />
           <Property Name="TELEFONO" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="CORREO" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="CORREO" Type="char" MaxLength="250" Nullable="false" />
           <Property Name="TIPO_USUARIO_IDTIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
@@ -400,7 +494,7 @@ advertencia 6002: La tabla o vista 'ALMACEN.V_USUARIOS' no tiene definida ningun
           <Property Name="FECHACREACION" Type="date" Nullable="false" />
           <Property Name="DIRECCION" Type="varchar2" MaxLength="250" Nullable="false" />
           <Property Name="TELEFONO" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="CORREO" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="CORREO" Type="char" MaxLength="250" Nullable="false" />
           <Property Name="IDTIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar2" MaxLength="70" Nullable="false" />
         </EntityType>
@@ -413,6 +507,90 @@ advertencia 6002: La tabla o vista 'ALMACEN.V_USUARIOS' no tiene definida ningun
             </Principal>
             <Dependent Role="ABONO">
               <PropertyRef Name="BOLETA_NUMEROBOLETA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_GROU_GROUP_ID_B120CBF9_F">
+          <End Role="AUTH_GROUP" Type="Self.AUTH_GROUP" Multiplicity="1" />
+          <End Role="AUTH_GROUP_PERMISSIONS" Type="Self.AUTH_GROUP_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_GROUP_PERMISSIONS">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_GROU_PERMISSIO_84C5C92E_F">
+          <End Role="AUTH_PERMISSION" Type="Self.AUTH_PERMISSION" Multiplicity="1" />
+          <End Role="AUTH_GROUP_PERMISSIONS" Type="Self.AUTH_GROUP_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_PERMISSION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_GROUP_PERMISSIONS">
+              <PropertyRef Name="PERMISSION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_PERM_CONTENT_T_2F476E4B_F">
+          <End Role="DJANGO_CONTENT_TYPE" Type="Self.DJANGO_CONTENT_TYPE" Multiplicity="1" />
+          <End Role="AUTH_PERMISSION" Type="Self.AUTH_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DJANGO_CONTENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_PERMISSION">
+              <PropertyRef Name="CONTENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_GROUP_ID_97559544_F">
+          <End Role="AUTH_GROUP" Type="Self.AUTH_GROUP" Multiplicity="1" />
+          <End Role="AUTH_USER_GROUPS" Type="Self.AUTH_USER_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_GROUPS">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_PERMISSIO_1FBB5F2C_F">
+          <End Role="AUTH_PERMISSION" Type="Self.AUTH_PERMISSION" Multiplicity="1" />
+          <End Role="AUTH_USER_USER_PERMISSIONS" Type="Self.AUTH_USER_USER_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_PERMISSION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_USER_PERMISSIONS">
+              <PropertyRef Name="PERMISSION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_USER_ID_6A12ED8B_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="AUTH_USER_GROUPS" Type="Self.AUTH_USER_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_GROUPS">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_USER_ID_A95EAD1B_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="AUTH_USER_USER_PERMISSIONS" Type="Self.AUTH_USER_USER_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_USER_PERMISSIONS">
+              <PropertyRef Name="USER_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -536,6 +714,30 @@ advertencia 6002: La tabla o vista 'ALMACEN.V_USUARIOS' no tiene definida ningun
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="DJANGO_AD_CONTENT_T_C4BCE8EB_F">
+          <End Role="DJANGO_CONTENT_TYPE" Type="Self.DJANGO_CONTENT_TYPE" Multiplicity="0..1" />
+          <End Role="DJANGO_ADMIN_LOG" Type="Self.DJANGO_ADMIN_LOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DJANGO_CONTENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DJANGO_ADMIN_LOG">
+              <PropertyRef Name="CONTENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DJANGO_AD_USER_ID_C564EBA6_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="DJANGO_ADMIN_LOG" Type="Self.DJANGO_ADMIN_LOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DJANGO_ADMIN_LOG">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="ORDEN_PEDIDO_ESTADO_ORDEN_FK">
           <End Role="ESTADO_ORDEN" Type="Self.ESTADO_ORDEN" Multiplicity="1" />
           <End Role="ORDEN_PEDIDO" Type="Self.ORDEN_PEDIDO" Multiplicity="*" />
@@ -608,18 +810,28 @@ advertencia 6002: La tabla o vista 'ALMACEN.V_USUARIOS' no tiene definida ningun
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="SP_ACTUALIZARPRECIO2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ALMACEN" />
+        <Function Name="SP_LISTAR_PRODUCTOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ALMACEN" />
         <Function Name="SP_MONEDA_CAMBIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ALMACEN">
           <Parameter Name="NOMBRE_MONEDA" Type="varchar2" Mode="In" />
           <Parameter Name="VALOR" Type="number" Mode="In" />
         </Function>
         <EntityContainer Name="ModeloAlmacenStoreContainer">
           <EntitySet Name="ABONO" EntityType="Self.ABONO" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="AUTH_GROUP" EntityType="Self.AUTH_GROUP" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="AUTH_GROUP_PERMISSIONS" EntityType="Self.AUTH_GROUP_PERMISSIONS" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="AUTH_PERMISSION" EntityType="Self.AUTH_PERMISSION" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="AUTH_USER" EntityType="Self.AUTH_USER" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="AUTH_USER_GROUPS" EntityType="Self.AUTH_USER_GROUPS" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="AUTH_USER_USER_PERMISSIONS" EntityType="Self.AUTH_USER_USER_PERMISSIONS" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="BOLETA" EntityType="Self.BOLETA" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="DETALLE_BOLETA" EntityType="Self.DETALLE_BOLETA" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="DETALLE_PEDIDO" EntityType="Self.DETALLE_PEDIDO" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="DJANGO_ADMIN_LOG" EntityType="Self.DJANGO_ADMIN_LOG" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="DJANGO_CONTENT_TYPE" EntityType="Self.DJANGO_CONTENT_TYPE" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="DJANGO_MIGRATIONS" EntityType="Self.DJANGO_MIGRATIONS" Schema="ALMACEN" store:Type="Tables" />
+          <EntitySet Name="DJANGO_SESSION" EntityType="Self.DJANGO_SESSION" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="ESTADO_BOLETA" EntityType="Self.ESTADO_BOLETA" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="ESTADO_FIADO" EntityType="Self.ESTADO_FIADO" Schema="ALMACEN" store:Type="Tables" />
           <EntitySet Name="ESTADO_ORDEN" EntityType="Self.ESTADO_ORDEN" Schema="ALMACEN" store:Type="Tables" />
@@ -765,6 +977,34 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
             <End Role="BOLETA" EntitySet="BOLETA" />
             <End Role="ABONO" EntitySet="ABONO" />
           </AssociationSet>
+          <AssociationSet Name="AUTH_GROU_GROUP_ID_B120CBF9_F" Association="Self.AUTH_GROU_GROUP_ID_B120CBF9_F">
+            <End Role="AUTH_GROUP" EntitySet="AUTH_GROUP" />
+            <End Role="AUTH_GROUP_PERMISSIONS" EntitySet="AUTH_GROUP_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_GROU_PERMISSIO_84C5C92E_F" Association="Self.AUTH_GROU_PERMISSIO_84C5C92E_F">
+            <End Role="AUTH_PERMISSION" EntitySet="AUTH_PERMISSION" />
+            <End Role="AUTH_GROUP_PERMISSIONS" EntitySet="AUTH_GROUP_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_PERM_CONTENT_T_2F476E4B_F" Association="Self.AUTH_PERM_CONTENT_T_2F476E4B_F">
+            <End Role="DJANGO_CONTENT_TYPE" EntitySet="DJANGO_CONTENT_TYPE" />
+            <End Role="AUTH_PERMISSION" EntitySet="AUTH_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_GROUP_ID_97559544_F" Association="Self.AUTH_USER_GROUP_ID_97559544_F">
+            <End Role="AUTH_GROUP" EntitySet="AUTH_GROUP" />
+            <End Role="AUTH_USER_GROUPS" EntitySet="AUTH_USER_GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_PERMISSIO_1FBB5F2C_F" Association="Self.AUTH_USER_PERMISSIO_1FBB5F2C_F">
+            <End Role="AUTH_PERMISSION" EntitySet="AUTH_PERMISSION" />
+            <End Role="AUTH_USER_USER_PERMISSIONS" EntitySet="AUTH_USER_USER_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_USER_ID_6A12ED8B_F" Association="Self.AUTH_USER_USER_ID_6A12ED8B_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="AUTH_USER_GROUPS" EntitySet="AUTH_USER_GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_USER_ID_A95EAD1B_F" Association="Self.AUTH_USER_USER_ID_A95EAD1B_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="AUTH_USER_USER_PERMISSIONS" EntitySet="AUTH_USER_USER_PERMISSIONS" />
+          </AssociationSet>
           <AssociationSet Name="BOLETA_CLIENTE_FK" Association="Self.BOLETA_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="BOLETA" EntitySet="BOLETA" />
@@ -805,6 +1045,14 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
             <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
           </AssociationSet>
+          <AssociationSet Name="DJANGO_AD_CONTENT_T_C4BCE8EB_F" Association="Self.DJANGO_AD_CONTENT_T_C4BCE8EB_F">
+            <End Role="DJANGO_CONTENT_TYPE" EntitySet="DJANGO_CONTENT_TYPE" />
+            <End Role="DJANGO_ADMIN_LOG" EntitySet="DJANGO_ADMIN_LOG" />
+          </AssociationSet>
+          <AssociationSet Name="DJANGO_AD_USER_ID_C564EBA6_F" Association="Self.DJANGO_AD_USER_ID_C564EBA6_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="DJANGO_ADMIN_LOG" EntitySet="DJANGO_ADMIN_LOG" />
+          </AssociationSet>
           <AssociationSet Name="ORDEN_PEDIDO_ESTADO_ORDEN_FK" Association="Self.ORDEN_PEDIDO_ESTADO_ORDEN_FK">
             <End Role="ESTADO_ORDEN" EntitySet="ESTADO_ORDEN" />
             <End Role="ORDEN_PEDIDO" EntitySet="ORDEN_PEDIDO" />
@@ -840,12 +1088,23 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
             <Parameter Name="NOMBRE_MONEDA" Mode="In" Type="String" />
             <Parameter Name="VALOR" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <FunctionImport Name="SP_LISTAR_PRODUCTOS" />
           <EntitySet Name="ABONO" EntityType="ModeloAlmacen.ABONO" />
+          <EntitySet Name="AUTH_GROUP" EntityType="ModeloAlmacen.AUTH_GROUP" />
+          <EntitySet Name="AUTH_GROUP_PERMISSIONS" EntityType="ModeloAlmacen.AUTH_GROUP_PERMISSIONS" />
+          <EntitySet Name="AUTH_PERMISSION" EntityType="ModeloAlmacen.AUTH_PERMISSION" />
+          <EntitySet Name="AUTH_USER" EntityType="ModeloAlmacen.AUTH_USER" />
+          <EntitySet Name="AUTH_USER_GROUPS" EntityType="ModeloAlmacen.AUTH_USER_GROUPS" />
+          <EntitySet Name="AUTH_USER_USER_PERMISSIONS" EntityType="ModeloAlmacen.AUTH_USER_USER_PERMISSIONS" />
           <EntitySet Name="BOLETA" EntityType="ModeloAlmacen.BOLETA" />
           <EntitySet Name="CATEGORIA" EntityType="ModeloAlmacen.CATEGORIA" />
           <EntitySet Name="CLIENTE" EntityType="ModeloAlmacen.CLIENTE" />
           <EntitySet Name="DETALLE_BOLETA" EntityType="ModeloAlmacen.DETALLE_BOLETA" />
           <EntitySet Name="DETALLE_PEDIDO" EntityType="ModeloAlmacen.DETALLE_PEDIDO" />
+          <EntitySet Name="DJANGO_ADMIN_LOG" EntityType="ModeloAlmacen.DJANGO_ADMIN_LOG" />
+          <EntitySet Name="DJANGO_CONTENT_TYPE" EntityType="ModeloAlmacen.DJANGO_CONTENT_TYPE" />
+          <EntitySet Name="DJANGO_MIGRATIONS" EntityType="ModeloAlmacen.DJANGO_MIGRATIONS" />
+          <EntitySet Name="DJANGO_SESSION" EntityType="ModeloAlmacen.DJANGO_SESSION" />
           <EntitySet Name="ESTADO_BOLETA" EntityType="ModeloAlmacen.ESTADO_BOLETA" />
           <EntitySet Name="ESTADO_FIADO" EntityType="ModeloAlmacen.ESTADO_FIADO" />
           <EntitySet Name="ESTADO_ORDEN" EntityType="ModeloAlmacen.ESTADO_ORDEN" />
@@ -871,6 +1130,38 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <AssociationSet Name="ABONO_BOLETA_FK" Association="ModeloAlmacen.ABONO_BOLETA_FK">
             <End Role="BOLETA" EntitySet="BOLETA" />
             <End Role="ABONO" EntitySet="ABONO" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_GROU_GROUP_ID_B120CBF9_F" Association="ModeloAlmacen.AUTH_GROU_GROUP_ID_B120CBF9_F">
+            <End Role="AUTH_GROUP" EntitySet="AUTH_GROUP" />
+            <End Role="AUTH_GROUP_PERMISSIONS" EntitySet="AUTH_GROUP_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_GROUP_ID_97559544_F" Association="ModeloAlmacen.AUTH_USER_GROUP_ID_97559544_F">
+            <End Role="AUTH_GROUP" EntitySet="AUTH_GROUP" />
+            <End Role="AUTH_USER_GROUPS" EntitySet="AUTH_USER_GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_GROU_PERMISSIO_84C5C92E_F" Association="ModeloAlmacen.AUTH_GROU_PERMISSIO_84C5C92E_F">
+            <End Role="AUTH_PERMISSION" EntitySet="AUTH_PERMISSION" />
+            <End Role="AUTH_GROUP_PERMISSIONS" EntitySet="AUTH_GROUP_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_PERM_CONTENT_T_2F476E4B_F" Association="ModeloAlmacen.AUTH_PERM_CONTENT_T_2F476E4B_F">
+            <End Role="DJANGO_CONTENT_TYPE" EntitySet="DJANGO_CONTENT_TYPE" />
+            <End Role="AUTH_PERMISSION" EntitySet="AUTH_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_PERMISSIO_1FBB5F2C_F" Association="ModeloAlmacen.AUTH_USER_PERMISSIO_1FBB5F2C_F">
+            <End Role="AUTH_PERMISSION" EntitySet="AUTH_PERMISSION" />
+            <End Role="AUTH_USER_USER_PERMISSIONS" EntitySet="AUTH_USER_USER_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_USER_ID_6A12ED8B_F" Association="ModeloAlmacen.AUTH_USER_USER_ID_6A12ED8B_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="AUTH_USER_GROUPS" EntitySet="AUTH_USER_GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_USER_ID_A95EAD1B_F" Association="ModeloAlmacen.AUTH_USER_USER_ID_A95EAD1B_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="AUTH_USER_USER_PERMISSIONS" EntitySet="AUTH_USER_USER_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="DJANGO_AD_USER_ID_C564EBA6_F" Association="ModeloAlmacen.DJANGO_AD_USER_ID_C564EBA6_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="DJANGO_ADMIN_LOG" EntitySet="DJANGO_ADMIN_LOG" />
           </AssociationSet>
           <AssociationSet Name="BOLETA_CLIENTE_FK" Association="ModeloAlmacen.BOLETA_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
@@ -916,6 +1207,10 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
             <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
           </AssociationSet>
+          <AssociationSet Name="DJANGO_AD_CONTENT_T_C4BCE8EB_F" Association="ModeloAlmacen.DJANGO_AD_CONTENT_T_C4BCE8EB_F">
+            <End Role="DJANGO_CONTENT_TYPE" EntitySet="DJANGO_CONTENT_TYPE" />
+            <End Role="DJANGO_ADMIN_LOG" EntitySet="DJANGO_ADMIN_LOG" />
+          </AssociationSet>
           <AssociationSet Name="ORDEN_PEDIDO_ESTADO_ORDEN_FK" Association="ModeloAlmacen.ORDEN_PEDIDO_ESTADO_ORDEN_FK">
             <End Role="ESTADO_ORDEN" EntitySet="ESTADO_ORDEN" />
             <End Role="ORDEN_PEDIDO" EntitySet="ORDEN_PEDIDO" />
@@ -947,6 +1242,76 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Property Name="FECHAABONO" Type="DateTime" Nullable="false" />
           <Property Name="FECHALIMITE" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="BOLETA" Relationship="ModeloAlmacen.ABONO_BOLETA_FK" FromRole="ABONO" ToRole="BOLETA" />
+        </EntityType>
+        <EntityType Name="AUTH_GROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AUTH_GROUP_PERMISSIONS" Relationship="ModeloAlmacen.AUTH_GROU_GROUP_ID_B120CBF9_F" FromRole="AUTH_GROUP" ToRole="AUTH_GROUP_PERMISSIONS" />
+          <NavigationProperty Name="AUTH_USER_GROUPS" Relationship="ModeloAlmacen.AUTH_USER_GROUP_ID_97559544_F" FromRole="AUTH_GROUP" ToRole="AUTH_USER_GROUPS" />
+        </EntityType>
+        <EntityType Name="AUTH_GROUP_PERMISSIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GROUP_ID" Type="Int64" Nullable="false" />
+          <Property Name="PERMISSION_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_GROUP" Relationship="ModeloAlmacen.AUTH_GROU_GROUP_ID_B120CBF9_F" FromRole="AUTH_GROUP_PERMISSIONS" ToRole="AUTH_GROUP" />
+          <NavigationProperty Name="AUTH_PERMISSION" Relationship="ModeloAlmacen.AUTH_GROU_PERMISSIO_84C5C92E_F" FromRole="AUTH_GROUP_PERMISSIONS" ToRole="AUTH_PERMISSION" />
+        </EntityType>
+        <EntityType Name="AUTH_PERMISSION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CONTENT_TYPE_ID" Type="Int64" Nullable="false" />
+          <Property Name="CODENAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AUTH_GROUP_PERMISSIONS" Relationship="ModeloAlmacen.AUTH_GROU_PERMISSIO_84C5C92E_F" FromRole="AUTH_PERMISSION" ToRole="AUTH_GROUP_PERMISSIONS" />
+          <NavigationProperty Name="DJANGO_CONTENT_TYPE" Relationship="ModeloAlmacen.AUTH_PERM_CONTENT_T_2F476E4B_F" FromRole="AUTH_PERMISSION" ToRole="DJANGO_CONTENT_TYPE" />
+          <NavigationProperty Name="AUTH_USER_USER_PERMISSIONS" Relationship="ModeloAlmacen.AUTH_USER_PERMISSIO_1FBB5F2C_F" FromRole="AUTH_PERMISSION" ToRole="AUTH_USER_USER_PERMISSIONS" />
+        </EntityType>
+        <EntityType Name="AUTH_USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PASSWORD" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_LOGIN" Type="DateTime" Precision="6" />
+          <Property Name="IS_SUPERUSER" Type="Boolean" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="IS_STAFF" Type="Boolean" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="DATE_JOINED" Type="DateTime" Nullable="false" Precision="6" />
+          <NavigationProperty Name="AUTH_USER_GROUPS" Relationship="ModeloAlmacen.AUTH_USER_USER_ID_6A12ED8B_F" FromRole="AUTH_USER" ToRole="AUTH_USER_GROUPS" />
+          <NavigationProperty Name="AUTH_USER_USER_PERMISSIONS" Relationship="ModeloAlmacen.AUTH_USER_USER_ID_A95EAD1B_F" FromRole="AUTH_USER" ToRole="AUTH_USER_USER_PERMISSIONS" />
+          <NavigationProperty Name="DJANGO_ADMIN_LOG" Relationship="ModeloAlmacen.DJANGO_AD_USER_ID_C564EBA6_F" FromRole="AUTH_USER" ToRole="DJANGO_ADMIN_LOG" />
+        </EntityType>
+        <EntityType Name="AUTH_USER_GROUPS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_ID" Type="Int64" Nullable="false" />
+          <Property Name="GROUP_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_GROUP" Relationship="ModeloAlmacen.AUTH_USER_GROUP_ID_97559544_F" FromRole="AUTH_USER_GROUPS" ToRole="AUTH_GROUP" />
+          <NavigationProperty Name="AUTH_USER" Relationship="ModeloAlmacen.AUTH_USER_USER_ID_6A12ED8B_F" FromRole="AUTH_USER_GROUPS" ToRole="AUTH_USER" />
+        </EntityType>
+        <EntityType Name="AUTH_USER_USER_PERMISSIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_ID" Type="Int64" Nullable="false" />
+          <Property Name="PERMISSION_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_PERMISSION" Relationship="ModeloAlmacen.AUTH_USER_PERMISSIO_1FBB5F2C_F" FromRole="AUTH_USER_USER_PERMISSIONS" ToRole="AUTH_PERMISSION" />
+          <NavigationProperty Name="AUTH_USER" Relationship="ModeloAlmacen.AUTH_USER_USER_ID_A95EAD1B_F" FromRole="AUTH_USER_USER_PERMISSIONS" ToRole="AUTH_USER" />
         </EntityType>
         <EntityType Name="BOLETA">
           <Key>
@@ -1017,6 +1382,48 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <NavigationProperty Name="ORDEN_PEDIDO" Relationship="ModeloAlmacen.DETALLE_PEDIDO_ORDEN_PEDIDO_FK" FromRole="DETALLE_PEDIDO" ToRole="ORDEN_PEDIDO" />
           <NavigationProperty Name="PRODUCTO" Relationship="ModeloAlmacen.DETALLE_PEDIDO_PRODUCTO_FK" FromRole="DETALLE_PEDIDO" ToRole="PRODUCTO" />
         </EntityType>
+        <EntityType Name="DJANGO_ADMIN_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ACTION_TIME" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="OBJECT_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OBJECT_REPR" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ACTION_FLAG" Type="Int64" Nullable="false" />
+          <Property Name="CHANGE_MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CONTENT_TYPE_ID" Type="Int64" />
+          <Property Name="USER_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_USER" Relationship="ModeloAlmacen.DJANGO_AD_USER_ID_C564EBA6_F" FromRole="DJANGO_ADMIN_LOG" ToRole="AUTH_USER" />
+          <NavigationProperty Name="DJANGO_CONTENT_TYPE" Relationship="ModeloAlmacen.DJANGO_AD_CONTENT_T_C4BCE8EB_F" FromRole="DJANGO_ADMIN_LOG" ToRole="DJANGO_CONTENT_TYPE" />
+        </EntityType>
+        <EntityType Name="DJANGO_CONTENT_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APP_LABEL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MODEL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AUTH_PERMISSION" Relationship="ModeloAlmacen.AUTH_PERM_CONTENT_T_2F476E4B_F" FromRole="DJANGO_CONTENT_TYPE" ToRole="AUTH_PERMISSION" />
+          <NavigationProperty Name="DJANGO_ADMIN_LOG" Relationship="ModeloAlmacen.DJANGO_AD_CONTENT_T_C4BCE8EB_F" FromRole="DJANGO_CONTENT_TYPE" ToRole="DJANGO_ADMIN_LOG" />
+        </EntityType>
+        <EntityType Name="DJANGO_MIGRATIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="APPLIED" Type="DateTime" Nullable="false" Precision="6" />
+        </EntityType>
+        <EntityType Name="DJANGO_SESSION">
+          <Key>
+            <PropertyRef Name="SESSION_KEY" />
+          </Key>
+          <Property Name="SESSION_KEY" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="SESSION_DATA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EXPIRE_DATE" Type="DateTime" Nullable="false" Precision="6" />
+        </EntityType>
         <EntityType Name="ESTADO_BOLETA">
           <Key>
             <PropertyRef Name="IDESTADO" />
@@ -1037,7 +1444,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Key>
             <PropertyRef Name="IDESTADO" />
           </Key>
-          <Property Name="IDESTADO" Type="Decimal" Nullable="false" Precision="38" Scale="1" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDESTADO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ORDEN_PEDIDO" Relationship="ModeloAlmacen.ORDEN_PEDIDO_ESTADO_ORDEN_FK" FromRole="ESTADO_ORDEN" ToRole="ORDEN_PEDIDO" />
         </EntityType>
@@ -1134,7 +1541,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
           <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="TELEFONO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="CORREO" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CORREO" Type="String" Nullable="false" MaxLength="250" FixedLength="true" Unicode="false" />
           <Property Name="TIPO_USUARIO_IDTIPO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="BOLETA" Relationship="ModeloAlmacen.BOLETA_USUARIO_FK" FromRole="USUARIO" ToRole="BOLETA" />
           <NavigationProperty Name="ORDEN_PEDIDO" Relationship="ModeloAlmacen.ORDEN_PEDIDO_USUARIO_FK" FromRole="USUARIO" ToRole="ORDEN_PEDIDO" />
@@ -1344,7 +1751,7 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
           <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
           <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="TELEFONO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="CORREO" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CORREO" Type="String" Nullable="false" MaxLength="250" FixedLength="true" Unicode="false" />
           <Property Name="IDTIPO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -1357,6 +1764,102 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
             </Principal>
             <Dependent Role="ABONO">
               <PropertyRef Name="BOLETA_NUMEROBOLETA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_GROU_GROUP_ID_B120CBF9_F">
+          <End Type="ModeloAlmacen.AUTH_GROUP" Role="AUTH_GROUP" Multiplicity="1" />
+          <End Type="ModeloAlmacen.AUTH_GROUP_PERMISSIONS" Role="AUTH_GROUP_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_GROUP_PERMISSIONS">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_GROUP_ID_97559544_F">
+          <End Type="ModeloAlmacen.AUTH_GROUP" Role="AUTH_GROUP" Multiplicity="1" />
+          <End Type="ModeloAlmacen.AUTH_USER_GROUPS" Role="AUTH_USER_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_GROUPS">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_GROU_PERMISSIO_84C5C92E_F">
+          <End Type="ModeloAlmacen.AUTH_PERMISSION" Role="AUTH_PERMISSION" Multiplicity="1" />
+          <End Type="ModeloAlmacen.AUTH_GROUP_PERMISSIONS" Role="AUTH_GROUP_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_PERMISSION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_GROUP_PERMISSIONS">
+              <PropertyRef Name="PERMISSION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_PERM_CONTENT_T_2F476E4B_F">
+          <End Type="ModeloAlmacen.DJANGO_CONTENT_TYPE" Role="DJANGO_CONTENT_TYPE" Multiplicity="1" />
+          <End Type="ModeloAlmacen.AUTH_PERMISSION" Role="AUTH_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DJANGO_CONTENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_PERMISSION">
+              <PropertyRef Name="CONTENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_PERMISSIO_1FBB5F2C_F">
+          <End Type="ModeloAlmacen.AUTH_PERMISSION" Role="AUTH_PERMISSION" Multiplicity="1" />
+          <End Type="ModeloAlmacen.AUTH_USER_USER_PERMISSIONS" Role="AUTH_USER_USER_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_PERMISSION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_USER_PERMISSIONS">
+              <PropertyRef Name="PERMISSION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_USER_ID_6A12ED8B_F">
+          <End Type="ModeloAlmacen.AUTH_USER" Role="AUTH_USER" Multiplicity="1" />
+          <End Type="ModeloAlmacen.AUTH_USER_GROUPS" Role="AUTH_USER_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_GROUPS">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_USER_ID_A95EAD1B_F">
+          <End Type="ModeloAlmacen.AUTH_USER" Role="AUTH_USER" Multiplicity="1" />
+          <End Type="ModeloAlmacen.AUTH_USER_USER_PERMISSIONS" Role="AUTH_USER_USER_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_USER_PERMISSIONS">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DJANGO_AD_USER_ID_C564EBA6_F">
+          <End Type="ModeloAlmacen.AUTH_USER" Role="AUTH_USER" Multiplicity="1" />
+          <End Type="ModeloAlmacen.DJANGO_ADMIN_LOG" Role="DJANGO_ADMIN_LOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DJANGO_ADMIN_LOG">
+              <PropertyRef Name="USER_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1492,6 +1995,18 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="DJANGO_AD_CONTENT_T_C4BCE8EB_F">
+          <End Type="ModeloAlmacen.DJANGO_CONTENT_TYPE" Role="DJANGO_CONTENT_TYPE" Multiplicity="0..1" />
+          <End Type="ModeloAlmacen.DJANGO_ADMIN_LOG" Role="DJANGO_ADMIN_LOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DJANGO_CONTENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DJANGO_ADMIN_LOG">
+              <PropertyRef Name="CONTENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="ORDEN_PEDIDO_ESTADO_ORDEN_FK">
           <End Type="ModeloAlmacen.ESTADO_ORDEN" Role="ESTADO_ORDEN" Multiplicity="1" />
           <End Type="ModeloAlmacen.ORDEN_PEDIDO" Role="ORDEN_PEDIDO" Multiplicity="*" />
@@ -1558,8 +2073,8 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModeloAlmacenStoreContainer" CdmEntityContainer="AlmacenEntities">
-          <FunctionImportMapping FunctionImportName="SP_ACTUALIZARPRECIO2" FunctionName="ModeloAlmacen.Store.SP_ACTUALIZARPRECIO2" />
           <FunctionImportMapping FunctionImportName="SP_MONEDA_CAMBIO" FunctionName="ModeloAlmacen.Store.SP_MONEDA_CAMBIO" />
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_PRODUCTOS" FunctionName="ModeloAlmacen.Store.SP_LISTAR_PRODUCTOS" />
           <EntitySetMapping Name="ABONO">
             <EntityTypeMapping TypeName="ModeloAlmacen.ABONO">
               <MappingFragment StoreEntitySet="ABONO">
@@ -1568,6 +2083,68 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
                 <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
                 <ScalarProperty Name="BOLETA_NUMEROBOLETA" ColumnName="BOLETA_NUMEROBOLETA" />
                 <ScalarProperty Name="IDABONO" ColumnName="IDABONO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTH_GROUP">
+            <EntityTypeMapping TypeName="ModeloAlmacen.AUTH_GROUP">
+              <MappingFragment StoreEntitySet="AUTH_GROUP">
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTH_GROUP_PERMISSIONS">
+            <EntityTypeMapping TypeName="ModeloAlmacen.AUTH_GROUP_PERMISSIONS">
+              <MappingFragment StoreEntitySet="AUTH_GROUP_PERMISSIONS">
+                <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTH_PERMISSION">
+            <EntityTypeMapping TypeName="ModeloAlmacen.AUTH_PERMISSION">
+              <MappingFragment StoreEntitySet="AUTH_PERMISSION">
+                <ScalarProperty Name="CODENAME" ColumnName="CODENAME" />
+                <ScalarProperty Name="CONTENT_TYPE_ID" ColumnName="CONTENT_TYPE_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTH_USER">
+            <EntityTypeMapping TypeName="ModeloAlmacen.AUTH_USER">
+              <MappingFragment StoreEntitySet="AUTH_USER">
+                <ScalarProperty Name="DATE_JOINED" ColumnName="DATE_JOINED" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="IS_STAFF" ColumnName="IS_STAFF" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="IS_SUPERUSER" ColumnName="IS_SUPERUSER" />
+                <ScalarProperty Name="LAST_LOGIN" ColumnName="LAST_LOGIN" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTH_USER_GROUPS">
+            <EntityTypeMapping TypeName="ModeloAlmacen.AUTH_USER_GROUPS">
+              <MappingFragment StoreEntitySet="AUTH_USER_GROUPS">
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTH_USER_USER_PERMISSIONS">
+            <EntityTypeMapping TypeName="ModeloAlmacen.AUTH_USER_USER_PERMISSIONS">
+              <MappingFragment StoreEntitySet="AUTH_USER_USER_PERMISSIONS">
+                <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1624,6 +2201,48 @@ FROM "ALMACEN"."V_USUARIOS" "V_USUARIOS"</DefiningQuery>
                 <ScalarProperty Name="PRODUCTO_CODIGO" ColumnName="PRODUCTO_CODIGO" />
                 <ScalarProperty Name="ORDEN_PEDIDO_NUMEROORDEN" ColumnName="ORDEN_PEDIDO_NUMEROORDEN" />
                 <ScalarProperty Name="IDDETALLEO" ColumnName="IDDETALLEO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DJANGO_ADMIN_LOG">
+            <EntityTypeMapping TypeName="ModeloAlmacen.DJANGO_ADMIN_LOG">
+              <MappingFragment StoreEntitySet="DJANGO_ADMIN_LOG">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CONTENT_TYPE_ID" ColumnName="CONTENT_TYPE_ID" />
+                <ScalarProperty Name="CHANGE_MESSAGE" ColumnName="CHANGE_MESSAGE" />
+                <ScalarProperty Name="ACTION_FLAG" ColumnName="ACTION_FLAG" />
+                <ScalarProperty Name="OBJECT_REPR" ColumnName="OBJECT_REPR" />
+                <ScalarProperty Name="OBJECT_ID" ColumnName="OBJECT_ID" />
+                <ScalarProperty Name="ACTION_TIME" ColumnName="ACTION_TIME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DJANGO_CONTENT_TYPE">
+            <EntityTypeMapping TypeName="ModeloAlmacen.DJANGO_CONTENT_TYPE">
+              <MappingFragment StoreEntitySet="DJANGO_CONTENT_TYPE">
+                <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+                <ScalarProperty Name="APP_LABEL" ColumnName="APP_LABEL" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DJANGO_MIGRATIONS">
+            <EntityTypeMapping TypeName="ModeloAlmacen.DJANGO_MIGRATIONS">
+              <MappingFragment StoreEntitySet="DJANGO_MIGRATIONS">
+                <ScalarProperty Name="APPLIED" ColumnName="APPLIED" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="APP" ColumnName="APP" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DJANGO_SESSION">
+            <EntityTypeMapping TypeName="ModeloAlmacen.DJANGO_SESSION">
+              <MappingFragment StoreEntitySet="DJANGO_SESSION">
+                <ScalarProperty Name="EXPIRE_DATE" ColumnName="EXPIRE_DATE" />
+                <ScalarProperty Name="SESSION_DATA" ColumnName="SESSION_DATA" />
+                <ScalarProperty Name="SESSION_KEY" ColumnName="SESSION_KEY" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

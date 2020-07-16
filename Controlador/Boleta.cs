@@ -66,7 +66,7 @@ namespace Controlador
         public List<V_BOLETAS> ListarBoletasPorMedioPago(int idMedioPago)
         {
             List<V_BOLETAS> listado = new List<V_BOLETAS>();
-            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => 
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b =>
             b.IDMEDIOPAGO == idMedioPago).OrderByDescending(b => b.NUMERO).ToList();
             return listado;
         }
@@ -76,6 +76,13 @@ namespace Controlador
             listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b =>
             b.IDMEDIOPAGO == 4 && b.IDESTADO == 1).OrderByDescending
             (b => b.NUMERO).ToList();
+            return listado;
+        }
+        public List<V_BOLETAS> ListarBoletasPorNumeroBoleta(int numero)
+        {
+            List<V_BOLETAS> listado = new List<V_BOLETAS>();
+            listado = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.NUMERO == numero).
+                OrderByDescending(b => b.NUMERO).ToList();
             return listado;
         }
         public List<V_BOLETAS> ListarBoletasPorNombreCliente(string nombre)
@@ -115,6 +122,57 @@ namespace Controlador
                 listaB.Add(boleta);
             }
             return listaB;
+        }
+        public bool UltimaBoletaAbonadaPorRunFiador(int runCliente)
+        {
+            List<V_BOLETAS> listadoBoletas = new List<V_BOLETAS>();
+            listadoBoletas = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.RUN_CLIENTE == runCliente)
+                .Where(b => b.IDMEDIOPAGO == 4 && b.IDESTADO == 1).OrderBy(b => b.NUMERO).ToList();
+            foreach (V_BOLETAS item in listadoBoletas)
+            {
+                List<V_ABONO> listadoAbonos = new List<V_ABONO>();
+                Abono abono = new Abono();
+                listadoAbonos = abono.ListarAbonosPorBoleta((int)item.NUMERO);
+                if (listadoAbonos.Count() == 0)
+                {
+                    if (item.FECHA_CREACION.AddMonths(1) < DateTime.Now.Date)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        public decimal TotalBoletasFiadasPorRutFiador(int runCliente)
+        {
+            decimal totalDeuda = decimal.Parse(ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.RUN_CLIENTE == runCliente)
+                .Where(b => b.IDMEDIOPAGO == 4 && b.IDESTADO == 1).Select(b => b.TOTAL).DefaultIfEmpty(0).Sum().ToString());
+            return totalDeuda;
+        }
+        public decimal ObtenerMontoTotalAbonos(int runCliente)
+        {
+            List<V_BOLETAS> listadoBoletas = new List<V_BOLETAS>();
+            listadoBoletas = ConectorDALC.ModeloAlmacen.V_BOLETAS.Where(b => b.RUN_CLIENTE == runCliente)
+                .Where(b => b.IDMEDIOPAGO == 4 && b.IDESTADO == 1).OrderBy(b => b.NUMERO).ToList();
+            decimal totalAbonos = 0;
+            foreach (V_BOLETAS item in listadoBoletas)
+            {
+                List<V_ABONO> listadoAbonos = new List<V_ABONO>();
+                Abono abono = new Abono();
+                listadoAbonos = abono.ListarAbonosPorBoleta((int)item.NUMERO);
+                foreach (V_ABONO abonos in listadoAbonos)
+                {
+                    totalAbonos = totalAbonos + abonos.TOTAL;
+                }
+            }
+            return totalAbonos;
+        }
+        public decimal CalcularDeudaTotal(int runFiador)
+        {
+            decimal totalBoletas = TotalBoletasFiadasPorRutFiador(runFiador);
+            decimal totalAbonos = ObtenerMontoTotalAbonos(runFiador);
+            decimal totalDeuda = totalBoletas - totalAbonos;
+            return totalDeuda;
         }
         #endregion
 

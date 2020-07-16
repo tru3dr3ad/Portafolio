@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
@@ -63,7 +62,7 @@ namespace Controlador
         public bool ValidarMayoriaEdad(DateTime fechaNacimiento)
         {
             int edad = DateTime.Now.Year - fechaNacimiento.Date.Year;
-            if (edad >= 18)
+            if (edad >= 18 && edad < 100)
             {
                 return true;
             }

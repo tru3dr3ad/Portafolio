@@ -1,8 +1,5 @@
 ﻿using Controlador;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 using System;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
@@ -81,7 +78,7 @@ namespace Vista
         #region Metodos de la clase
         private void BuscarProductoPorNombre()
         {
-            string nombre = txtBuscarProducto.Text.ToUpper();
+            string nombre = txtBuscarProducto.Text.ToUpper(); 
             Producto producto = new Producto();
             grdProducto.DataSource = producto.ListarProductosPorNombre(nombre);
             txtBuscarProducto.Clear();
@@ -117,19 +114,26 @@ namespace Vista
         }
         public void AgregarDetallePedido()
         {
-            if (int.Parse(txtCantidad.Text) > 0)
+            if (int.Parse(txtCantidad.Text) > 0 && _codProductoSeleccionado != "")
             {
-                int cantidad = int.Parse(txtCantidad.Text);
-                Producto producto = new Producto();
-                producto = producto.ObtenerProducto(_codProductoSeleccionado);
-                if (producto != null)
+                if (!ValidarProductoLista(grdOrden))
                 {
-                    string nombreProducto = producto.Nombre;
-                    decimal totalProductos = producto.PrecioCompra * cantidad;
-                    decimal totalPedido = decimal.Parse(txtTotalOrden.Text);
-                    totalPedido = totalPedido + totalProductos;
-                    txtTotalOrden.Text = totalPedido.ToString();
-                    grdOrden.Rows.Add(_codProductoSeleccionado, nombreProducto, cantidad, totalProductos);
+                    int cantidad = int.Parse(txtCantidad.Text);
+                    Producto producto = new Producto();
+                    producto = producto.ObtenerProducto(_codProductoSeleccionado);
+                    if (producto != null)
+                    {
+                        string nombreProducto = producto.Nombre;
+                        decimal totalProductos = producto.PrecioCompra * cantidad;
+                        decimal totalPedido = decimal.Parse(txtTotalOrden.Text);
+                        totalPedido = totalPedido + totalProductos;
+                        txtTotalOrden.Text = totalPedido.ToString();
+                        grdOrden.Rows.Add(_codProductoSeleccionado, nombreProducto, cantidad, totalProductos);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ya lleva de ese producto, por favor quitelo y vuelva a agregarlo si desea canbiar la cantidad.");
                 }
             }
         }
@@ -151,6 +155,17 @@ namespace Vista
             {
                 MessageBox.Show("Debes seleccionar el producto a quitar");
             }
+        }
+        private bool ValidarProductoLista(DataGridView grdOrden)
+        {
+            foreach (DataGridViewRow row in grdOrden.Rows)
+            {
+                if (grdOrden.Rows[row.Index].Cells[0].Value.ToString() == _codProductoSeleccionado)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         #endregion
 
@@ -194,6 +209,14 @@ namespace Vista
         {
             QuitarDetallePedido();
         }
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = @"\Ayuda\Ayuda.chm";
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string ayudaPath = projectDirectory + rutaAyuda;
+            Help.ShowHelp(this, ayudaPath, "Hacer Pedido.htm");
+        }
         #endregion
 
         #region Eventos
@@ -218,5 +241,6 @@ namespace Vista
         }
         #endregion
 
+      
     }
 }

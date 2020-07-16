@@ -1,6 +1,6 @@
 ﻿using Controlador;
 using System;
-using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Vista
@@ -13,6 +13,7 @@ namespace Vista
             CargarComboboxTipoCliente();
             CargarComboboxEstadoFiado();
             CargarGrilla();
+            MostrarVistaVendedor();
         }
 
         #region Metodos
@@ -44,6 +45,8 @@ namespace Vista
         }
         public bool MostrarDatosCliente(int run)
         {
+            Usuario usuario = new Usuario();
+            bool esVendedor = usuario.esVendedor(Global.RunUsuarioActivo);
             Cliente cliente = new Cliente();
             cliente = cliente.ObtenerCliente(run);
             if (cliente != null)
@@ -55,8 +58,15 @@ namespace Vista
                 dtpFechaNacimiento.Value = cliente.FechaNacimiento;
                 txtDireccion.Text = cliente.Direccion;
                 txtTelefono.Text = cliente.Telefono.ToString();
-                cmbTipoCliente.SelectedValue = cliente.Tipo.Id;
-                cmbEstado.SelectedValue = cliente.Estado.Id;
+                if (esVendedor)
+                {
+
+                }
+                else
+                {
+                    cmbTipoCliente.SelectedValue = cliente.Tipo.Id;
+                    cmbEstado.SelectedValue = cliente.Estado.Id;
+                }
                 return true;
             }
             else
@@ -135,6 +145,18 @@ namespace Vista
             grdCliente.Columns["ESTADO_FIADO"].HeaderText = "ESTADO";
             grdCliente.Columns["NOMBRE_CLIENTE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
+        private void MostrarVistaVendedor()
+        {
+            Usuario usuario = new Usuario();
+            bool esVendedor = usuario.esVendedor(Global.RunUsuarioActivo);
+            if (esVendedor)
+            {
+                cmbEstado.Visible = false;
+                cmbTipoCliente.Visible = false;
+                lblEstadoCliente.Visible = false;
+                lblTipoCliente.Visible = false;
+            }
+        }
         #endregion
 
         #region Metodos de la clase
@@ -149,6 +171,8 @@ namespace Vista
         public void AgregarCliente()
         {
             string msgEsValido = ValidacionIngresoCliente();
+            Usuario usuario = new Usuario();
+            bool esVendedor = usuario.esVendedor(Global.RunUsuarioActivo);
             if (string.IsNullOrEmpty(msgEsValido))
             {
                 int run = int.Parse(txtRunCliente.Text);
@@ -159,9 +183,17 @@ namespace Vista
                 string direccion = txtDireccion.Text.ToUpper();
                 int telefono = int.Parse(txtTelefono.Text);
                 EstadoFiado estado = new EstadoFiado();
-                estado.Id = (int)cmbEstado.SelectedValue;
                 TipoCliente tipo = new TipoCliente();
-                tipo.Id = (int)cmbTipoCliente.SelectedValue;
+                if (esVendedor)
+                {
+                    estado = estado.ObtenerEstadoFiado(1);
+                    tipo = tipo.ObtenerTipoCliente(2);
+                }
+                else
+                {
+                    estado.Id = (int)cmbEstado.SelectedValue;
+                    tipo.Id = (int)cmbTipoCliente.SelectedValue;
+                }
                 Cliente cliente = new Cliente(run, dv, nombre, apellido, fechaNacimiento, direccion, telefono, estado, tipo);
                 if (cliente.AgregarCliente())
                 {
@@ -176,7 +208,10 @@ namespace Vista
         }
         private void ModificarCliente()
         {
-            if (!String.IsNullOrEmpty(txtRunCliente.Text))
+            string msgEsValido = ValidacionIngresoCliente();
+            Usuario usuario = new Usuario();
+            bool esVendedor = usuario.esVendedor(Global.RunUsuarioActivo);
+            if (string.IsNullOrEmpty(msgEsValido))
             {
                 int run = int.Parse(txtRunCliente.Text);
                 char dv = char.Parse(txtDv.Text);
@@ -186,19 +221,31 @@ namespace Vista
                 string direccion = txtDireccion.Text.ToUpper();
                 int telefono = int.Parse(txtTelefono.Text);
                 EstadoFiado estado = new EstadoFiado();
-                estado.Id = (int)cmbEstado.SelectedValue;
                 TipoCliente tipo = new TipoCliente();
-                tipo.Id = (int)cmbTipoCliente.SelectedValue;
+                if (esVendedor)
+                {
+                    estado = estado.ObtenerEstadoFiado(1);
+                    tipo = tipo.ObtenerTipoCliente(2);
+                }
+                else
+                {
+                    estado.Id = (int)cmbEstado.SelectedValue;
+                    tipo.Id = (int)cmbTipoCliente.SelectedValue;
+                }
                 Cliente cliente = new Cliente(run, dv, nombre, apellido, fechaNacimiento, direccion, telefono, estado, tipo);
                 bool modificarCliente = cliente.ModificarCliente(cliente);
                 if (modificarCliente)
                 {
-                    MessageBox.Show("Cliente Actualizado");
+                    MessageBox.Show("Cliente actualizado");
                 }
                 else
                 {
                     MessageBox.Show("Cliente no se ha actualizado");
                 }
+            }
+            else
+            {
+                MessageBox.Show(msgEsValido);
             }
         }
         private void EliminarCliente()
@@ -213,7 +260,7 @@ namespace Vista
                 }
                 else
                 {
-                    MessageBox.Show("Cliente no eliminado");
+                    MessageBox.Show("El cliente tiene datos vinculados con boletas, no se puede eliminar.");
                 }
             }
         }
@@ -242,6 +289,14 @@ namespace Vista
             CargarGrilla();
             LimpiarDatos();
         }
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = @"\Ayuda\Ayuda.chm";
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string ayudaPath = projectDirectory + rutaAyuda;
+            Help.ShowHelp(this, ayudaPath, "Revision cliente.htm");
+        }
         #endregion
 
         #region MetodoGrilla
@@ -256,24 +311,27 @@ namespace Vista
         }
         #endregion
 
+        #region Eventos
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
-
         private void txtRunCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
-
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
         }
-
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
         }
+        private void txtBuscarCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back) || e.KeyChar == (char)Keys.Space;
+        }
+        #endregion
     }
 }

@@ -16,7 +16,6 @@ namespace Controlador
         public int Stock { get; set; }
         public int StockCritico { get; set; }
         public DateTime FechaVencimiento { get; set; }
-        //public char Estado { get; set; }
         public Categoria Categoria { get; set; }
 
         #region Constructores
@@ -59,6 +58,7 @@ namespace Controlador
                 Where(p => p.STOCK > 0).OrderBy(p => p.CODIGO).ToList();
             return listado;
         }
+
         //public List<V_PRODUCTOS> ListarProductosConEstado() TODO
         //{
         //    List<V_PRODUCTOS> listado = new List<V_PRODUCTOS>();
@@ -94,8 +94,6 @@ namespace Controlador
         public List<Producto> ListarTopProductos()
         {
             List<Producto> listaP = new List<Producto>();
-
-
             List<V_TOP_PRODUCTOS> listado = new List<V_TOP_PRODUCTOS>();
             listado = ConectorDALC.ModeloAlmacen.V_TOP_PRODUCTOS.ToList();
 
@@ -110,6 +108,17 @@ namespace Controlador
 
             return listaP;
         }
+        public bool ContieneDecimal()
+        {
+            //Metodo para validar moneda
+            Modelo.PRODUCTO productoModelo = ConectorDALC.ModeloAlmacen.PRODUCTO.FirstOrDefault();
+            if (productoModelo.PRECIOVENTA.ToString().Contains(".") || productoModelo.PRECIOVENTA.ToString().Contains(","))
+            {
+                return true;
+            }
+            return false; 
+        }
+
         #endregion
 
         #region Metodos

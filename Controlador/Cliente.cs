@@ -84,13 +84,30 @@ namespace Controlador
         #endregion
 
         #region Metodos
-        public bool ExisteDeudaCliente(int run)
+        public bool ClienteMoroso(int run)
         {
             Cliente cliente = new Cliente();
             if (cliente.BuscarCliente(run))
             {
                 cliente = cliente.ObtenerCliente(run);
-                if (cliente.Estado.Id == 1)
+                if (cliente.Estado.Id == 3)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+        public bool ClienteDebe(int run)
+        {
+            Cliente cliente = new Cliente();
+            if (cliente.BuscarCliente(run))
+            {
+                cliente = cliente.ObtenerCliente(run);
+                if (cliente.Estado.Id == 2)
                 {
                     return true;
                 }
@@ -129,6 +146,27 @@ namespace Controlador
                 Cliente cliente = new Cliente();
                 cliente = cliente.ObtenerCliente(run);
                 cliente.Estado.Id = 1;
+                if (ModificarCliente(cliente))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public bool EstadoMorosoClienteFiador(int run)
+        {
+            try
+            {
+                Cliente cliente = new Cliente();
+                cliente = cliente.ObtenerCliente(run);
+                cliente.Estado.Id = 3;
                 if (ModificarCliente(cliente))
                 {
                     return true;
@@ -298,6 +336,19 @@ namespace Controlador
                 return false;
             }
         }
+        public bool ClienteDebeHaceMasUnMes(int runFiador)
+        {
+            Boleta boleta = new Boleta();
+            bool ultimaBoletaAbonada = boleta.UltimaBoletaAbonadaPorRunFiador(runFiador);
+            if (ultimaBoletaAbonada)
+            {
+                EstadoMorosoClienteFiador(runFiador);
+                return true;
+            }
+            return false;
+        }
+        
+        
         #endregion
 
     }

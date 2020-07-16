@@ -36,12 +36,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnAnularBoleta = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRevisarVenta));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.cmbMedioPago = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbVendedores = new System.Windows.Forms.ComboBox();
-            this.btnBuscarBoleta = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBuscarBoleta = new System.Windows.Forms.TextBox();
             this.pnlContenedorGrilla = new System.Windows.Forms.Panel();
@@ -52,7 +52,9 @@
             this.grdDetalleBoleta = new System.Windows.Forms.DataGridView();
             this.pnlTituloGrillaDetalle = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnAyuda = new System.Windows.Forms.Button();
+            this.btnAnularBoleta = new System.Windows.Forms.Button();
+            this.btnBuscarBoleta = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.pnlContenedorGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdBoleta)).BeginInit();
@@ -62,26 +64,15 @@
             this.pnlTituloGrillaDetalle.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnAnularBoleta
-            // 
-            this.btnAnularBoleta.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAnularBoleta.Location = new System.Drawing.Point(845, 501);
-            this.btnAnularBoleta.Name = "btnAnularBoleta";
-            this.btnAnularBoleta.Size = new System.Drawing.Size(128, 21);
-            this.btnAnularBoleta.TabIndex = 35;
-            this.btnAnularBoleta.Text = "Anular";
-            this.btnAnularBoleta.UseVisualStyleBackColor = true;
-            this.btnAnularBoleta.Click += new System.EventHandler(this.btnAnularBoleta_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btnBuscarBoleta);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.cmbMedioPago);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cmbVendedores);
-            this.groupBox2.Controls.Add(this.btnBuscarBoleta);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtBuscarBoleta);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
@@ -91,6 +82,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Buscar Boleta:";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(552, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 13);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "Ingrese N° Boleta:";
+            // 
             // cmbMedioPago
             // 
             this.cmbMedioPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -98,7 +98,7 @@
             this.cmbMedioPago.Location = new System.Drawing.Point(333, 38);
             this.cmbMedioPago.Name = "cmbMedioPago";
             this.cmbMedioPago.Size = new System.Drawing.Size(181, 21);
-            this.cmbMedioPago.TabIndex = 50;
+            this.cmbMedioPago.TabIndex = 2;
             this.cmbMedioPago.SelectedValueChanged += new System.EventHandler(this.cmbMedioPago_SelectedValueChanged);
             // 
             // label1
@@ -117,18 +117,8 @@
             this.cmbVendedores.Location = new System.Drawing.Point(65, 38);
             this.cmbVendedores.Name = "cmbVendedores";
             this.cmbVendedores.Size = new System.Drawing.Size(181, 21);
-            this.cmbVendedores.TabIndex = 48;
+            this.cmbVendedores.TabIndex = 1;
             this.cmbVendedores.SelectedIndexChanged += new System.EventHandler(this.cmbVendedores_SelectedIndexChanged);
-            // 
-            // btnBuscarBoleta
-            // 
-            this.btnBuscarBoleta.Location = new System.Drawing.Point(839, 38);
-            this.btnBuscarBoleta.Name = "btnBuscarBoleta";
-            this.btnBuscarBoleta.Size = new System.Drawing.Size(128, 21);
-            this.btnBuscarBoleta.TabIndex = 2;
-            this.btnBuscarBoleta.Text = "Buscar";
-            this.btnBuscarBoleta.UseVisualStyleBackColor = true;
-            this.btnBuscarBoleta.Click += new System.EventHandler(this.btnBuscarBoleta_Click);
             // 
             // label4
             // 
@@ -144,8 +134,9 @@
             this.txtBuscarBoleta.Location = new System.Drawing.Point(651, 39);
             this.txtBuscarBoleta.Name = "txtBuscarBoleta";
             this.txtBuscarBoleta.Size = new System.Drawing.Size(182, 20);
-            this.txtBuscarBoleta.TabIndex = 1;
+            this.txtBuscarBoleta.TabIndex = 3;
             this.txtBuscarBoleta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBuscarBoleta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarBoleta_KeyPress);
             // 
             // pnlContenedorGrilla
             // 
@@ -172,7 +163,7 @@
             this.grdBoleta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -190,7 +181,7 @@
             this.grdBoleta.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.SandyBrown;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SandyBrown;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
@@ -204,7 +195,7 @@
             this.grdBoleta.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.grdBoleta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdBoleta.Size = new System.Drawing.Size(474, 379);
-            this.grdBoleta.TabIndex = 29;
+            this.grdBoleta.TabIndex = 6;
             this.grdBoleta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdBoleta_CellClick);
             // 
             // pnlTituloGrilla
@@ -220,10 +211,10 @@
             // nombreGrilla
             // 
             this.nombreGrilla.AutoSize = true;
-            this.nombreGrilla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreGrilla.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombreGrilla.Location = new System.Drawing.Point(15, 10);
             this.nombreGrilla.Name = "nombreGrilla";
-            this.nombreGrilla.Size = new System.Drawing.Size(63, 19);
+            this.nombreGrilla.Size = new System.Drawing.Size(70, 20);
             this.nombreGrilla.TabIndex = 0;
             this.nombreGrilla.Text = "Boletas";
             // 
@@ -251,7 +242,7 @@
             this.grdDetalleBoleta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
@@ -269,7 +260,7 @@
             this.grdDetalleBoleta.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.SandyBrown;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.SandyBrown;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
@@ -283,7 +274,7 @@
             this.grdDetalleBoleta.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.grdDetalleBoleta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdDetalleBoleta.Size = new System.Drawing.Size(334, 379);
-            this.grdDetalleBoleta.TabIndex = 29;
+            this.grdDetalleBoleta.TabIndex = 7;
             // 
             // pnlTituloGrillaDetalle
             // 
@@ -298,30 +289,68 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(15, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 19);
+            this.label2.Size = new System.Drawing.Size(146, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Detalle de boleta";
             // 
-            // label3
+            // btnAyuda
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(552, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 13);
-            this.label3.TabIndex = 51;
-            this.label3.Text = "Ingrese N° Boleta:";
+            this.btnAyuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAyuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAyuda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAyuda.BackgroundImage")));
+            this.btnAyuda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAyuda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAyuda.Location = new System.Drawing.Point(974, 4);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(21, 22);
+            this.btnAyuda.TabIndex = 47;
+            this.btnAyuda.UseVisualStyleBackColor = false;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
+            // btnAnularBoleta
+            // 
+            this.btnAnularBoleta.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAnularBoleta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnAnularBoleta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAnularBoleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnularBoleta.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnularBoleta.ForeColor = System.Drawing.Color.White;
+            this.btnAnularBoleta.Location = new System.Drawing.Point(851, 493);
+            this.btnAnularBoleta.Name = "btnAnularBoleta";
+            this.btnAnularBoleta.Size = new System.Drawing.Size(128, 29);
+            this.btnAnularBoleta.TabIndex = 48;
+            this.btnAnularBoleta.Text = "Anular";
+            this.btnAnularBoleta.UseVisualStyleBackColor = false;
+            this.btnAnularBoleta.Click += new System.EventHandler(this.btnAnularBoleta_Click);
+            // 
+            // btnBuscarBoleta
+            // 
+            this.btnBuscarBoleta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBuscarBoleta.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBuscarBoleta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnBuscarBoleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarBoleta.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarBoleta.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscarBoleta.Location = new System.Drawing.Point(839, 38);
+            this.btnBuscarBoleta.Name = "btnBuscarBoleta";
+            this.btnBuscarBoleta.Size = new System.Drawing.Size(128, 21);
+            this.btnBuscarBoleta.TabIndex = 49;
+            this.btnBuscarBoleta.Text = "Buscar";
+            this.btnBuscarBoleta.UseVisualStyleBackColor = false;
+            this.btnBuscarBoleta.Click += new System.EventHandler(this.btnBuscarBoleta_Click);
             // 
             // frmRevisarVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.btnAnularBoleta);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.pnlContenedorGrillaDetalleBoleta);
             this.Controls.Add(this.pnlContenedorGrilla);
-            this.Controls.Add(this.btnAnularBoleta);
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRevisarVenta";
@@ -341,9 +370,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnAnularBoleta;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnBuscarBoleta;
         private System.Windows.Forms.TextBox txtBuscarBoleta;
         private System.Windows.Forms.ComboBox cmbVendedores;
         private System.Windows.Forms.Label label4;
@@ -358,5 +385,8 @@
         private System.Windows.Forms.Panel pnlTituloGrillaDetalle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnAyuda;
+        private System.Windows.Forms.Button btnAnularBoleta;
+        private System.Windows.Forms.Button btnBuscarBoleta;
     }
 }

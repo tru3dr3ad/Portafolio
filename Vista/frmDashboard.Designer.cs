@@ -31,16 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.lblTotal3 = new System.Windows.Forms.Label();
             this.lblFechaBoleta3 = new System.Windows.Forms.Label();
             this.lblRun3 = new System.Windows.Forms.Label();
             this.lblBoletaNombre3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.lblTotal2 = new System.Windows.Forms.Label();
             this.lblFechaBoleta2 = new System.Windows.Forms.Label();
             this.lblRun2 = new System.Windows.Forms.Label();
             this.lblBoletaNombre2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.lblTotal1 = new System.Windows.Forms.Label();
             this.lblFechaBoleta1 = new System.Windows.Forms.Label();
             this.lblRun1 = new System.Windows.Forms.Label();
             this.lblBoletaNombre1 = new System.Windows.Forms.Label();
@@ -79,9 +82,6 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lblCantidadBoletas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblTotal1 = new System.Windows.Forms.Label();
-            this.lblTotal2 = new System.Windows.Forms.Label();
-            this.lblTotal3 = new System.Windows.Forms.Label();
             this.panel8.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -129,6 +129,18 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(403, 93);
             this.panel11.TabIndex = 18;
+            // 
+            // lblTotal3
+            // 
+            this.lblTotal3.AutoSize = true;
+            this.lblTotal3.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal3.ForeColor = System.Drawing.Color.White;
+            this.lblTotal3.Location = new System.Drawing.Point(266, 22);
+            this.lblTotal3.Name = "lblTotal3";
+            this.lblTotal3.Size = new System.Drawing.Size(56, 46);
+            this.lblTotal3.TabIndex = 9;
+            this.lblTotal3.Text = "$0";
+            this.lblTotal3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblFechaBoleta3
             // 
@@ -186,6 +198,18 @@
             this.panel10.Size = new System.Drawing.Size(403, 93);
             this.panel10.TabIndex = 18;
             // 
+            // lblTotal2
+            // 
+            this.lblTotal2.AutoSize = true;
+            this.lblTotal2.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal2.ForeColor = System.Drawing.Color.White;
+            this.lblTotal2.Location = new System.Drawing.Point(266, 22);
+            this.lblTotal2.Name = "lblTotal2";
+            this.lblTotal2.Size = new System.Drawing.Size(56, 46);
+            this.lblTotal2.TabIndex = 9;
+            this.lblTotal2.Text = "$0";
+            this.lblTotal2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lblFechaBoleta2
             // 
             this.lblFechaBoleta2.AutoSize = true;
@@ -241,6 +265,18 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(403, 93);
             this.panel9.TabIndex = 17;
+            // 
+            // lblTotal1
+            // 
+            this.lblTotal1.AutoSize = true;
+            this.lblTotal1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal1.ForeColor = System.Drawing.Color.White;
+            this.lblTotal1.Location = new System.Drawing.Point(266, 20);
+            this.lblTotal1.Name = "lblTotal1";
+            this.lblTotal1.Size = new System.Drawing.Size(56, 46);
+            this.lblTotal1.TabIndex = 9;
+            this.lblTotal1.Text = "$0";
+            this.lblTotal1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblFechaBoleta1
             // 
@@ -326,7 +362,7 @@
             this.lblPrecioProducto3.AutoSize = true;
             this.lblPrecioProducto3.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioProducto3.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioProducto3.Location = new System.Drawing.Point(278, 22);
+            this.lblPrecioProducto3.Location = new System.Drawing.Point(278, 25);
             this.lblPrecioProducto3.Name = "lblPrecioProducto3";
             this.lblPrecioProducto3.Size = new System.Drawing.Size(56, 46);
             this.lblPrecioProducto3.TabIndex = 17;
@@ -668,42 +704,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Boletas Mensuales";
             // 
-            // lblTotal1
-            // 
-            this.lblTotal1.AutoSize = true;
-            this.lblTotal1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal1.ForeColor = System.Drawing.Color.White;
-            this.lblTotal1.Location = new System.Drawing.Point(266, 20);
-            this.lblTotal1.Name = "lblTotal1";
-            this.lblTotal1.Size = new System.Drawing.Size(56, 46);
-            this.lblTotal1.TabIndex = 9;
-            this.lblTotal1.Text = "$0";
-            this.lblTotal1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblTotal2
-            // 
-            this.lblTotal2.AutoSize = true;
-            this.lblTotal2.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal2.ForeColor = System.Drawing.Color.White;
-            this.lblTotal2.Location = new System.Drawing.Point(266, 22);
-            this.lblTotal2.Name = "lblTotal2";
-            this.lblTotal2.Size = new System.Drawing.Size(56, 46);
-            this.lblTotal2.TabIndex = 9;
-            this.lblTotal2.Text = "$0";
-            this.lblTotal2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblTotal3
-            // 
-            this.lblTotal3.AutoSize = true;
-            this.lblTotal3.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal3.ForeColor = System.Drawing.Color.White;
-            this.lblTotal3.Location = new System.Drawing.Point(266, 22);
-            this.lblTotal3.Name = "lblTotal3";
-            this.lblTotal3.Size = new System.Drawing.Size(56, 46);
-            this.lblTotal3.TabIndex = 9;
-            this.lblTotal3.Text = "$0";
-            this.lblTotal3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -715,6 +715,7 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDashboard";
             this.Text = "frmDashboard";
             this.panel8.ResumeLayout(false);

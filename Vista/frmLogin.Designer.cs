@@ -42,6 +42,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnAyuda = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -75,7 +76,7 @@
             this.lblContrasenaOlvidada.Location = new System.Drawing.Point(52, 181);
             this.lblContrasenaOlvidada.Name = "lblContrasenaOlvidada";
             this.lblContrasenaOlvidada.Size = new System.Drawing.Size(203, 21);
-            this.lblContrasenaOlvidada.TabIndex = 10;
+            this.lblContrasenaOlvidada.TabIndex = 4;
             this.lblContrasenaOlvidada.TabStop = true;
             this.lblContrasenaOlvidada.Text = "¿Ha olvidado la contraseña?";
             this.lblContrasenaOlvidada.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblContrasenaOlvidada_LinkClicked);
@@ -88,7 +89,7 @@
             this.btnIniciarSesion.Location = new System.Drawing.Point(27, 135);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(250, 40);
-            this.btnIniciarSesion.TabIndex = 9;
+            this.btnIniciarSesion.TabIndex = 3;
             this.btnIniciarSesion.Text = "Iniciar Sesion";
             this.btnIniciarSesion.UseVisualStyleBackColor = true;
             this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
@@ -131,7 +132,7 @@
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(219, 22);
-            this.txtContrasena.TabIndex = 6;
+            this.txtContrasena.TabIndex = 2;
             this.txtContrasena.Text = "123";
             // 
             // pictureBox2
@@ -153,7 +154,7 @@
             this.txtNombreUsuario.Location = new System.Drawing.Point(58, 38);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(219, 22);
-            this.txtNombreUsuario.TabIndex = 2;
+            this.txtNombreUsuario.TabIndex = 1;
             this.txtNombreUsuario.Text = "KRISTAL";
             // 
             // pictureBox1
@@ -186,7 +187,7 @@
             this.btnMinimizar.Location = new System.Drawing.Point(361, 3);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(40, 40);
-            this.btnMinimizar.TabIndex = 7;
+            this.btnMinimizar.TabIndex = 6;
             this.btnMinimizar.UseVisualStyleBackColor = true;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
@@ -199,19 +200,35 @@
             this.btnCerrar.Location = new System.Drawing.Point(407, 3);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(40, 40);
-            this.btnCerrar.TabIndex = 6;
+            this.btnCerrar.TabIndex = 7;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAyuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAyuda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAyuda.BackgroundImage")));
+            this.btnAyuda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAyuda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAyuda.Location = new System.Drawing.Point(427, 48);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(21, 22);
+            this.btnAyuda.TabIndex = 5;
+            this.btnAyuda.UseVisualStyleBackColor = false;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 650);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
@@ -240,5 +257,6 @@
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.LinkLabel lblContrasenaOlvidada;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }

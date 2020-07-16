@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuVendedor));
             this.pnlBarraSuperior = new System.Windows.Forms.Panel();
+            this.btnPerfil = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMenuVertical = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.lblTituloForm = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlContenedor = new System.Windows.Forms.Panel();
-            this.btnPerfil = new System.Windows.Forms.Button();
             this.pnlBarraSuperior.SuspendLayout();
             this.pnlMenuVertical.SuspendLayout();
             this.pnlClienteSubMenu.SuspendLayout();
@@ -75,6 +75,19 @@
             this.pnlBarraSuperior.TabIndex = 8;
             this.pnlBarraSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBarraSuperior_MouseDown);
             // 
+            // btnPerfil
+            // 
+            this.btnPerfil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPerfil.BackgroundImage")));
+            this.btnPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPerfil.FlatAppearance.BorderSize = 0;
+            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerfil.Location = new System.Drawing.Point(1065, 5);
+            this.btnPerfil.Name = "btnPerfil";
+            this.btnPerfil.Size = new System.Drawing.Size(40, 40);
+            this.btnPerfil.TabIndex = 12;
+            this.btnPerfil.UseVisualStyleBackColor = true;
+            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
+            // 
             // btnMinimizar
             // 
             this.btnMinimizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.BackgroundImage")));
@@ -84,7 +97,7 @@
             this.btnMinimizar.Location = new System.Drawing.Point(1111, 3);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(40, 40);
-            this.btnMinimizar.TabIndex = 5;
+            this.btnMinimizar.TabIndex = 13;
             this.btnMinimizar.UseVisualStyleBackColor = true;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
@@ -97,7 +110,7 @@
             this.btnMenuVertical.Location = new System.Drawing.Point(204, 5);
             this.btnMenuVertical.Name = "btnMenuVertical";
             this.btnMenuVertical.Size = new System.Drawing.Size(45, 40);
-            this.btnMenuVertical.TabIndex = 4;
+            this.btnMenuVertical.TabIndex = 1;
             this.btnMenuVertical.UseVisualStyleBackColor = true;
             this.btnMenuVertical.Click += new System.EventHandler(this.btnMenuVertical_Click);
             // 
@@ -110,7 +123,7 @@
             this.btnCerrar.Location = new System.Drawing.Point(1157, 3);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(40, 40);
-            this.btnCerrar.TabIndex = 3;
+            this.btnCerrar.TabIndex = 14;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
@@ -158,7 +171,7 @@
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnCerrarSesion.Size = new System.Drawing.Size(200, 40);
-            this.btnCerrarSesion.TabIndex = 47;
+            this.btnCerrarSesion.TabIndex = 11;
             this.btnCerrarSesion.Text = "Cerrar Sesion";
             this.btnCerrarSesion.UseVisualStyleBackColor = true;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
@@ -177,7 +190,7 @@
             this.btnPedido.Name = "btnPedido";
             this.btnPedido.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnPedido.Size = new System.Drawing.Size(200, 40);
-            this.btnPedido.TabIndex = 42;
+            this.btnPedido.TabIndex = 10;
             this.btnPedido.Text = "Pedidos";
             this.btnPedido.UseVisualStyleBackColor = true;
             this.btnPedido.Click += new System.EventHandler(this.btnPedido_Click);
@@ -196,7 +209,7 @@
             this.btnProducto.Name = "btnProducto";
             this.btnProducto.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnProducto.Size = new System.Drawing.Size(200, 40);
-            this.btnProducto.TabIndex = 41;
+            this.btnProducto.TabIndex = 9;
             this.btnProducto.Text = "Productos";
             this.btnProducto.UseVisualStyleBackColor = true;
             this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
@@ -226,7 +239,7 @@
             this.btnRevisionCliente.Name = "btnRevisionCliente";
             this.btnRevisionCliente.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnRevisionCliente.Size = new System.Drawing.Size(200, 40);
-            this.btnRevisionCliente.TabIndex = 41;
+            this.btnRevisionCliente.TabIndex = 8;
             this.btnRevisionCliente.Text = "Revision Clientes";
             this.btnRevisionCliente.UseVisualStyleBackColor = true;
             this.btnRevisionCliente.Click += new System.EventHandler(this.btnRevisionCliente_Click);
@@ -245,7 +258,7 @@
             this.btnFiado.Name = "btnFiado";
             this.btnFiado.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnFiado.Size = new System.Drawing.Size(200, 40);
-            this.btnFiado.TabIndex = 34;
+            this.btnFiado.TabIndex = 7;
             this.btnFiado.Text = "Fiados";
             this.btnFiado.UseVisualStyleBackColor = true;
             this.btnFiado.Click += new System.EventHandler(this.btnFiado_Click);
@@ -264,7 +277,7 @@
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnCliente.Size = new System.Drawing.Size(200, 40);
-            this.btnCliente.TabIndex = 40;
+            this.btnCliente.TabIndex = 6;
             this.btnCliente.Text = "Clientes";
             this.btnCliente.UseVisualStyleBackColor = true;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
@@ -294,7 +307,7 @@
             this.btnRevisarVentas.Name = "btnRevisarVentas";
             this.btnRevisarVentas.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnRevisarVentas.Size = new System.Drawing.Size(200, 40);
-            this.btnRevisarVentas.TabIndex = 41;
+            this.btnRevisarVentas.TabIndex = 5;
             this.btnRevisarVentas.Text = "Revisar Ventas";
             this.btnRevisarVentas.UseVisualStyleBackColor = true;
             this.btnRevisarVentas.Click += new System.EventHandler(this.btnRevisarVentas_Click);
@@ -313,7 +326,7 @@
             this.btnRealizarVenta.Name = "btnRealizarVenta";
             this.btnRealizarVenta.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnRealizarVenta.Size = new System.Drawing.Size(200, 44);
-            this.btnRealizarVenta.TabIndex = 40;
+            this.btnRealizarVenta.TabIndex = 4;
             this.btnRealizarVenta.Text = "Punto de Venta";
             this.btnRealizarVenta.UseVisualStyleBackColor = true;
             this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
@@ -332,7 +345,7 @@
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnVentas.Size = new System.Drawing.Size(200, 40);
-            this.btnVentas.TabIndex = 7;
+            this.btnVentas.TabIndex = 3;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.UseVisualStyleBackColor = true;
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
@@ -351,7 +364,7 @@
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnDashboard.Size = new System.Drawing.Size(200, 40);
-            this.btnDashboard.TabIndex = 6;
+            this.btnDashboard.TabIndex = 2;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = true;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
@@ -372,7 +385,7 @@
             // 
             this.lblTituloForm.AutoSize = true;
             this.lblTituloForm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloForm.Location = new System.Drawing.Point(852, 16);
+            this.lblTituloForm.Location = new System.Drawing.Point(806, 16);
             this.lblTituloForm.Name = "lblTituloForm";
             this.lblTituloForm.Size = new System.Drawing.Size(86, 21);
             this.lblTituloForm.TabIndex = 3;
@@ -397,18 +410,6 @@
             this.pnlContenedor.Size = new System.Drawing.Size(1000, 550);
             this.pnlContenedor.TabIndex = 14;
             // 
-            // btnPerfil
-            // 
-            this.btnPerfil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPerfil.BackgroundImage")));
-            this.btnPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPerfil.FlatAppearance.BorderSize = 0;
-            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPerfil.Location = new System.Drawing.Point(1065, 5);
-            this.btnPerfil.Name = "btnPerfil";
-            this.btnPerfil.Size = new System.Drawing.Size(40, 40);
-            this.btnPerfil.TabIndex = 6;
-            this.btnPerfil.UseVisualStyleBackColor = true;
-            // 
             // frmMenuVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -419,6 +420,7 @@
             this.Controls.Add(this.pnlMenuVertical);
             this.Controls.Add(this.pnlBarraSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMenuVendedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Vendedor";

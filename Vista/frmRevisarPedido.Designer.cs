@@ -36,17 +36,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnAnularOrden = new System.Windows.Forms.Button();
-            this.btnModificarOrden = new System.Windows.Forms.Button();
-            this.btnDescargarOrden = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRevisarPedido));
             this.grpRecepcion = new System.Windows.Forms.GroupBox();
+            this.btnRecepcionar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.cmbEstadoOrden = new System.Windows.Forms.ComboBox();
-            this.btnRecepcionar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarOrden = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbProveedores = new System.Windows.Forms.ComboBox();
-            this.btnBuscarOrden = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBuscarOrden = new System.Windows.Forms.TextBox();
             this.pnlContenedorGrilla = new System.Windows.Forms.Panel();
@@ -57,6 +55,10 @@
             this.grdDetalleOrden = new System.Windows.Forms.DataGridView();
             this.pnlTituloDetallle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAyuda = new System.Windows.Forms.Button();
+            this.btnEnviarOrden = new System.Windows.Forms.Button();
+            this.btnModificarOrden = new System.Windows.Forms.Button();
+            this.btnAnularOrden = new System.Windows.Forms.Button();
             this.grpRecepcion.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlContenedorGrilla.SuspendLayout();
@@ -67,51 +69,34 @@
             this.pnlTituloDetallle.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnAnularOrden
-            // 
-            this.btnAnularOrden.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAnularOrden.Location = new System.Drawing.Point(816, 506);
-            this.btnAnularOrden.Name = "btnAnularOrden";
-            this.btnAnularOrden.Size = new System.Drawing.Size(128, 21);
-            this.btnAnularOrden.TabIndex = 35;
-            this.btnAnularOrden.Text = "Anular";
-            this.btnAnularOrden.UseVisualStyleBackColor = true;
-            this.btnAnularOrden.Click += new System.EventHandler(this.btnAnularOrden_Click);
-            // 
-            // btnModificarOrden
-            // 
-            this.btnModificarOrden.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnModificarOrden.Location = new System.Drawing.Point(816, 467);
-            this.btnModificarOrden.Name = "btnModificarOrden";
-            this.btnModificarOrden.Size = new System.Drawing.Size(128, 21);
-            this.btnModificarOrden.TabIndex = 34;
-            this.btnModificarOrden.Text = "Modificar";
-            this.btnModificarOrden.UseVisualStyleBackColor = true;
-            this.btnModificarOrden.Click += new System.EventHandler(this.btnModificarOrden_Click);
-            // 
-            // btnDescargarOrden
-            // 
-            this.btnDescargarOrden.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnDescargarOrden.Location = new System.Drawing.Point(816, 426);
-            this.btnDescargarOrden.Name = "btnDescargarOrden";
-            this.btnDescargarOrden.Size = new System.Drawing.Size(128, 21);
-            this.btnDescargarOrden.TabIndex = 42;
-            this.btnDescargarOrden.Text = "Enviar";
-            this.btnDescargarOrden.UseVisualStyleBackColor = true;
-            this.btnDescargarOrden.Click += new System.EventHandler(this.btnDescargarOrden_Click);
-            // 
             // grpRecepcion
             // 
             this.grpRecepcion.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.grpRecepcion.Controls.Add(this.btnRecepcionar);
             this.grpRecepcion.Controls.Add(this.label9);
             this.grpRecepcion.Controls.Add(this.cmbEstadoOrden);
-            this.grpRecepcion.Controls.Add(this.btnRecepcionar);
-            this.grpRecepcion.Location = new System.Drawing.Point(776, 12);
+            this.grpRecepcion.Location = new System.Drawing.Point(776, 21);
             this.grpRecepcion.Name = "grpRecepcion";
             this.grpRecepcion.Size = new System.Drawing.Size(212, 135);
             this.grpRecepcion.TabIndex = 38;
             this.grpRecepcion.TabStop = false;
             this.grpRecepcion.Text = "Recepción:";
+            // 
+            // btnRecepcionar
+            // 
+            this.btnRecepcionar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnRecepcionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnRecepcionar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnRecepcionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecepcionar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecepcionar.ForeColor = System.Drawing.Color.White;
+            this.btnRecepcionar.Location = new System.Drawing.Point(40, 89);
+            this.btnRecepcionar.Name = "btnRecepcionar";
+            this.btnRecepcionar.Size = new System.Drawing.Size(128, 29);
+            this.btnRecepcionar.TabIndex = 50;
+            this.btnRecepcionar.Text = "Confirmar";
+            this.btnRecepcionar.UseVisualStyleBackColor = false;
+            this.btnRecepcionar.Click += new System.EventHandler(this.btnRecepcionar_Click);
             // 
             // label9
             // 
@@ -130,23 +115,13 @@
             this.cmbEstadoOrden.Location = new System.Drawing.Point(13, 52);
             this.cmbEstadoOrden.Name = "cmbEstadoOrden";
             this.cmbEstadoOrden.Size = new System.Drawing.Size(181, 21);
-            this.cmbEstadoOrden.TabIndex = 3;
-            // 
-            // btnRecepcionar
-            // 
-            this.btnRecepcionar.Location = new System.Drawing.Point(40, 100);
-            this.btnRecepcionar.Name = "btnRecepcionar";
-            this.btnRecepcionar.Size = new System.Drawing.Size(128, 21);
-            this.btnRecepcionar.TabIndex = 2;
-            this.btnRecepcionar.Text = "Confirmar";
-            this.btnRecepcionar.UseVisualStyleBackColor = true;
-            this.btnRecepcionar.Click += new System.EventHandler(this.btnRecepcionar_Click);
+            this.cmbEstadoOrden.TabIndex = 4;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnBuscarOrden);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cmbProveedores);
-            this.groupBox1.Controls.Add(this.btnBuscarOrden);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtBuscarOrden);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -155,6 +130,22 @@
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar Orden de pedido:";
+            // 
+            // btnBuscarOrden
+            // 
+            this.btnBuscarOrden.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBuscarOrden.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBuscarOrden.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnBuscarOrden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarOrden.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarOrden.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscarOrden.Location = new System.Drawing.Point(620, 28);
+            this.btnBuscarOrden.Name = "btnBuscarOrden";
+            this.btnBuscarOrden.Size = new System.Drawing.Size(128, 21);
+            this.btnBuscarOrden.TabIndex = 50;
+            this.btnBuscarOrden.Text = "Buscar";
+            this.btnBuscarOrden.UseVisualStyleBackColor = false;
+            this.btnBuscarOrden.Click += new System.EventHandler(this.btnBuscarOrden_Click);
             // 
             // label2
             // 
@@ -172,18 +163,8 @@
             this.cmbProveedores.Location = new System.Drawing.Point(68, 28);
             this.cmbProveedores.Name = "cmbProveedores";
             this.cmbProveedores.Size = new System.Drawing.Size(181, 21);
-            this.cmbProveedores.TabIndex = 48;
+            this.cmbProveedores.TabIndex = 1;
             this.cmbProveedores.SelectedValueChanged += new System.EventHandler(this.cmbProveedores_SelectedValueChanged);
-            // 
-            // btnBuscarOrden
-            // 
-            this.btnBuscarOrden.Location = new System.Drawing.Point(611, 29);
-            this.btnBuscarOrden.Name = "btnBuscarOrden";
-            this.btnBuscarOrden.Size = new System.Drawing.Size(128, 21);
-            this.btnBuscarOrden.TabIndex = 2;
-            this.btnBuscarOrden.Text = "Buscar";
-            this.btnBuscarOrden.UseVisualStyleBackColor = true;
-            this.btnBuscarOrden.Click += new System.EventHandler(this.btnBuscarOrden_Click);
             // 
             // label4
             // 
@@ -199,8 +180,9 @@
             this.txtBuscarOrden.Location = new System.Drawing.Point(423, 29);
             this.txtBuscarOrden.Name = "txtBuscarOrden";
             this.txtBuscarOrden.Size = new System.Drawing.Size(182, 20);
-            this.txtBuscarOrden.TabIndex = 1;
+            this.txtBuscarOrden.TabIndex = 2;
             this.txtBuscarOrden.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBuscarOrden.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarOrden_KeyPress);
             // 
             // pnlContenedorGrilla
             // 
@@ -227,7 +209,7 @@
             this.grdOrden.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -245,7 +227,7 @@
             this.grdOrden.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.SandyBrown;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SandyBrown;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
@@ -259,7 +241,7 @@
             this.grdOrden.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.grdOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdOrden.Size = new System.Drawing.Size(446, 397);
-            this.grdOrden.TabIndex = 28;
+            this.grdOrden.TabIndex = 9;
             this.grdOrden.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOrden_CellClick);
             // 
             // pnlTituloGrilla
@@ -275,10 +257,10 @@
             // nombreGrilla
             // 
             this.nombreGrilla.AutoSize = true;
-            this.nombreGrilla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreGrilla.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombreGrilla.Location = new System.Drawing.Point(15, 10);
             this.nombreGrilla.Name = "nombreGrilla";
-            this.nombreGrilla.Size = new System.Drawing.Size(158, 19);
+            this.nombreGrilla.Size = new System.Drawing.Size(162, 20);
             this.nombreGrilla.TabIndex = 0;
             this.nombreGrilla.Text = "Ordenes de Pedido";
             // 
@@ -306,7 +288,7 @@
             this.grdDetalleOrden.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(150)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
@@ -324,7 +306,7 @@
             this.grdDetalleOrden.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.SandyBrown;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.SandyBrown;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
@@ -338,7 +320,7 @@
             this.grdDetalleOrden.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.grdDetalleOrden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdDetalleOrden.Size = new System.Drawing.Size(293, 397);
-            this.grdDetalleOrden.TabIndex = 28;
+            this.grdDetalleOrden.TabIndex = 10;
             // 
             // pnlTituloDetallle
             // 
@@ -353,25 +335,88 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(15, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 19);
+            this.label1.Size = new System.Drawing.Size(226, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle de orden de pedido";
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAyuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAyuda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAyuda.BackgroundImage")));
+            this.btnAyuda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAyuda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAyuda.Location = new System.Drawing.Point(976, 2);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(21, 22);
+            this.btnAyuda.TabIndex = 46;
+            this.btnAyuda.UseVisualStyleBackColor = false;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
+            // btnEnviarOrden
+            // 
+            this.btnEnviarOrden.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnEnviarOrden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnEnviarOrden.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnEnviarOrden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviarOrden.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviarOrden.ForeColor = System.Drawing.Color.White;
+            this.btnEnviarOrden.Location = new System.Drawing.Point(816, 428);
+            this.btnEnviarOrden.Name = "btnEnviarOrden";
+            this.btnEnviarOrden.Size = new System.Drawing.Size(128, 29);
+            this.btnEnviarOrden.TabIndex = 49;
+            this.btnEnviarOrden.Text = "Enviar";
+            this.btnEnviarOrden.UseVisualStyleBackColor = false;
+            this.btnEnviarOrden.Click += new System.EventHandler(this.btnEnviarOrden_Click);
+            // 
+            // btnModificarOrden
+            // 
+            this.btnModificarOrden.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnModificarOrden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnModificarOrden.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnModificarOrden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarOrden.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarOrden.ForeColor = System.Drawing.Color.White;
+            this.btnModificarOrden.Location = new System.Drawing.Point(816, 463);
+            this.btnModificarOrden.Name = "btnModificarOrden";
+            this.btnModificarOrden.Size = new System.Drawing.Size(128, 29);
+            this.btnModificarOrden.TabIndex = 48;
+            this.btnModificarOrden.Text = "Modificar";
+            this.btnModificarOrden.UseVisualStyleBackColor = false;
+            this.btnModificarOrden.Click += new System.EventHandler(this.btnModificarOrden_Click);
+            // 
+            // btnAnularOrden
+            // 
+            this.btnAnularOrden.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAnularOrden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(142)))), ((int)(((byte)(141)))));
+            this.btnAnularOrden.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(99)))), ((int)(((byte)(98)))));
+            this.btnAnularOrden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnularOrden.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnularOrden.ForeColor = System.Drawing.Color.White;
+            this.btnAnularOrden.Location = new System.Drawing.Point(816, 498);
+            this.btnAnularOrden.Name = "btnAnularOrden";
+            this.btnAnularOrden.Size = new System.Drawing.Size(128, 29);
+            this.btnAnularOrden.TabIndex = 47;
+            this.btnAnularOrden.Text = "Anular";
+            this.btnAnularOrden.UseVisualStyleBackColor = false;
+            this.btnAnularOrden.Click += new System.EventHandler(this.btnAnularOrden_Click);
             // 
             // frmRevisarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.btnEnviarOrden);
+            this.Controls.Add(this.btnModificarOrden);
+            this.Controls.Add(this.btnAnularOrden);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.pnlContenedorGrillaDetalle);
             this.Controls.Add(this.pnlContenedorGrilla);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpRecepcion);
-            this.Controls.Add(this.btnDescargarOrden);
-            this.Controls.Add(this.btnAnularOrden);
-            this.Controls.Add(this.btnModificarOrden);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRevisarPedido";
             this.Text = "frmPedido";
@@ -392,16 +437,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnAnularOrden;
-        private System.Windows.Forms.Button btnModificarOrden;
-        private System.Windows.Forms.Button btnDescargarOrden;
         private System.Windows.Forms.GroupBox grpRecepcion;
         private System.Windows.Forms.ComboBox cmbEstadoOrden;
-        private System.Windows.Forms.Button btnRecepcionar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cmbProveedores;
-        private System.Windows.Forms.Button btnBuscarOrden;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtBuscarOrden;
         private System.Windows.Forms.Panel pnlContenedorGrilla;
@@ -413,5 +453,11 @@
         private System.Windows.Forms.Panel pnlTituloDetallle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnAyuda;
+        private System.Windows.Forms.Button btnEnviarOrden;
+        private System.Windows.Forms.Button btnModificarOrden;
+        private System.Windows.Forms.Button btnAnularOrden;
+        private System.Windows.Forms.Button btnRecepcionar;
+        private System.Windows.Forms.Button btnBuscarOrden;
     }
 }

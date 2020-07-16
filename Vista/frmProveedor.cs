@@ -1,5 +1,7 @@
 ﻿using Controlador;
 using System;
+using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Vista
@@ -69,41 +71,48 @@ namespace Vista
             Validaciones validaciones = new Validaciones();
             if (validaciones.ValidarRun(runProveedor))
             {
-                if (validaciones.ValidarLargoString(3, 70, txtNombre.Text))
+                if (Regex.IsMatch(txtNombre.Text, @"^[a-zA-Z0-9# ]+$"))
                 {
-                    if (validaciones.ValidarNumeroTelefono(txtTelefono.Text))
+                    if (validaciones.ValidarLargoString(3, 70, txtNombre.Text))
                     {
-                        if (validaciones.ValidarLargoString(10, 250, txtCorreo.Text))
+                        if (validaciones.ValidarNumeroTelefono(txtTelefono.Text))
                         {
-                            if (validaciones.ValidarEmail(txtCorreo.Text))
+                            if (validaciones.ValidarLargoString(10, 250, txtCorreo.Text))
                             {
-                                if (validaciones.ValidarLargoString(10, 150, txtDireccion.Text))
+                                if (validaciones.ValidarEmail(txtCorreo.Text))
                                 {
-                                    return mensajeError;
+                                    if (validaciones.ValidarLargoString(10, 150, txtDireccion.Text))
+                                    {
+                                        return mensajeError;
+                                    }
+                                    else
+                                    {
+                                        mensajeError = "EL largo de la direccion es invalida, debe ser entre 10 y 250 caracteres.";
+                                    }
                                 }
                                 else
                                 {
-                                    mensajeError = "EL largo de la direccion es invalida";
+                                    mensajeError = "El correo electronico no tiene un formato correcto";
                                 }
                             }
                             else
                             {
-                                mensajeError = "El correo electronico no tiene un formato correcto";
+                                mensajeError = "El largo del correo es invalido, debe ser entre 10 y 250 caracteres.";
                             }
                         }
                         else
                         {
-                            mensajeError = "El largo del correo es invalido";
+                            mensajeError = "El numero de celular es invalido";
                         }
                     }
                     else
                     {
-                        mensajeError = "El numero de celular es invalido";
+                        mensajeError = "El largo del nombre de proveedor es invalido, debe ser entre 3 y 70 caracteres.";
                     }
                 }
                 else
                 {
-                    mensajeError = "El largo del nombre de proveedor es invalido";
+                    mensajeError = "El nombre del proveedor es invalido";
                 }
             }
             else
@@ -172,6 +181,10 @@ namespace Vista
                     MessageBox.Show("Proveedor no se ha actualizado");
                 }
             }
+            else
+            {
+                MessageBox.Show(msgEsValido);
+            }
         }
         private void EliminarProveedor()
         {
@@ -185,7 +198,7 @@ namespace Vista
                 }
                 else
                 {
-                    MessageBox.Show("Proveedor no eliminado");
+                    MessageBox.Show("El proveedor tiene una orden de pedido vinculada, no se puede eliminar.");
                 }
             }
         }
@@ -196,26 +209,31 @@ namespace Vista
         {
             BuscarProveedorPorNombre();
         }
-
         private void btnAgregarProveedor_Click(object sender, EventArgs e)
         {
             AgregarProveedor();
             CargarGrilla();
 
         }
-
         private void btnModificarProveedor_Click(object sender, EventArgs e)
         {
             ModificarProveedor();
             CargarGrilla();
             LimpiarDatos();
         }
-
         private void btnEliminarProveedor_Click(object sender, EventArgs e)
         {
             EliminarProveedor();
             CargarGrilla();
             LimpiarDatos();
+        }
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = @"\Ayuda\Ayuda.chm";
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string ayudaPath = projectDirectory + rutaAyuda;
+            Help.ShowHelp(this, ayudaPath, "Proveedores.htm");
         }
         #endregion
 
@@ -243,7 +261,18 @@ namespace Vista
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
-        #endregion
+        private void txtBuscarProveedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
+        }
 
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
+        }
     }
+
+    #endregion
+
+
 }

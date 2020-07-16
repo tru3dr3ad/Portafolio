@@ -1,7 +1,6 @@
 ﻿using Modelo;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -31,6 +30,20 @@ namespace Controlador
             NombreUsuario = nombre;
             ApellidoUsuario = apellido;
             Contrasena = contrasena;
+            FechaNacimiento = fechaNacimiento;
+            FechaCreacionUsuario = fechaCreacion;
+            DireccionUsuario = direccion;
+            TelefonoUsuario = telefono;
+            Correo = correo;
+            Tipo = tipo;
+        }
+        public Usuario(int run, char dv, string nombre, string apellido, DateTime fechaNacimiento,
+            DateTime fechaCreacion, string direccion, int telefono, string correo, TipoUsuario tipo)
+        {
+            RunUsuario = run;
+            DvUsuario = dv;
+            NombreUsuario = nombre;
+            ApellidoUsuario = apellido;
             FechaNacimiento = fechaNacimiento;
             FechaCreacionUsuario = fechaCreacion;
             DireccionUsuario = direccion;
@@ -153,19 +166,10 @@ namespace Controlador
                 ConectorDALC.ModeloAlmacen.SaveChanges();
                 return true;
             }
-            catch (DbEntityValidationException e)
+            catch (Exception ex)
             {
-                foreach (var eve in e.EntityValidationErrors)
-                {
-                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                    foreach (var ve in eve.ValidationErrors)
-                    {
-                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                            ve.PropertyName, ve.ErrorMessage);
-                    }
-                }
-                throw;
+                return false;
+                throw new ArgumentException("Error al agregar usuario: " + ex);
             }
         }
         public bool ModificarUsuario(Usuario modificarUsuario)
@@ -230,7 +234,7 @@ namespace Controlador
                 {
                     Modelo.USUARIO usuarioModelo = ConectorDALC.ModeloAlmacen.USUARIO.FirstOrDefault(e => e.RUNUSUARIO == usuario.RunUsuario);
                     usuarioModelo.CONTRASENA = GenerateSHA256String(Contrasena);
-                    
+
                     ConectorDALC.ModeloAlmacen.SaveChanges();
                     return true;
                 }
@@ -257,12 +261,12 @@ namespace Controlador
                 else
                 {
                     return false;
-                }           
+                }
             }
             catch (Exception ex)
             {
                 return false;
-                throw ;
+                throw;
             }
         }
         public bool AsignarNuevaContrasena(Usuario usuario)
@@ -291,6 +295,19 @@ namespace Controlador
                 throw;
             }
         }
+        public bool esVendedor(int rut)
+        {
+            Usuario usuario = new Usuario();
+            usuario = usuario.ObtenerUsuario(rut);
+            if (usuario.Tipo.Id == 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public bool EnviarCorreoRecuperacionCuenta(Usuario usuario, string nuevaContrasena)
         {
             try
@@ -300,15 +317,18 @@ namespace Controlador
                 string asunto = "Recuperacion de Contraseña Personal Almacen Los Yuyitos";
                 string body = @"<html>
                       <body>
-                      <p>Buenas Tardes {usuario} ,</p>
-                      <p>Si usted esta viendo este correo, significa que ha olvidado su contraseña, seguido de eso ha solicitado la recuperacion de esta, la cual le sera facilitada en la parte de abajo de este mensaje. En caso de que usted no haya solicitado la recuperacion de contraseña de la aplicacion de Almancen, por favor contactarse con el administrador.</p>
+                      <p>Hola {usuario}!</p>
+                      <p>Hemos recibido una solicitud que olvidaste tu contraseña, por lo que te enviamos una nueva, recuerda que podrá ser modificada una vez hayas ingresado nuevamente al sistema. </p>
                         <br></br>
-                       <p>La contraseña es: {contrasena}</p> 
+                       <p>Su nueva contraseña es:  {contrasena}</p> 
+                        <br></br>
+                        <p>IMPORTANTE: En caso de que usted no haya solicitado la recuperacion de contraseña, por favor contactarse con el administrador.  </p>
                         <br></br>
                         <br></br>
-                      <p>De antemano se despide:<br>-Administracion Los Yuyitos</br></p>
-                        <br></br>
-                        <br></br>
+                        <p>Saludos cordiales, Almacén Los Yuyitos.</p>     
+                        <p>Correo: almacenportafolio@gmail.com Teléfono: +569 5920980</p>     
+                        <p>Horario de atención: Lunes a Domingo de 09:00hrs a 18:00hrs.</p>     
+                        <p>Ubicación: Av. Mexico 3144, Puente Alto, Región Metropolitana.</p> 
                       </body>
                       </html>
                      ";
@@ -332,15 +352,17 @@ namespace Controlador
                 string asunto = "Bienvenido Personal Almacen Los Yuyitos";
                 string body = @"<html>
                       <body>
-                      <p>Buenas Tardes {usuario} ,</p>
-                      <p>Esperando que se encuentre megnificamente, este correo es para darle la bienvenida a nuestra empresa, esperando que tenga una calida llegada, tambien le adjuntaremos una contraseña personal, la cual podra ser cambiada una vez haya ingresado al sistema. De igual manera se le recuerda que su nombre de usuario es el nombre con el cual se la ha saludado al inicio de este correo.</p>
+                      <p>Hola {usuario}!</p>
+                      <p>Esperando que se encuentres muy bien, queremos darte la bienvenida de parte de todo el equipo del Almacén Los Yuyitos, deseamos que tengas una grata experiencia trabajando junto a nosotros. También te adjuntamos una contraseña personal, la cual podras cambiar una vez hayas ingresado al sistema. </p>
                         <br></br>
-                       <p>La contraseña es: {contrasena}</p> 
-                        <br></br>
-                        <br></br>
-                      <p>De antemano se despide:<br>-Administracion Los Yuyitos</br></p>
+                       <p>Su usuario es: {usuario}</p> 
+                       <p>Su contraseña es:  {contrasena}</p> 
                         <br></br>
                         <br></br>
+                        <p>Saludos cordiales, Almacén Los Yuyitos.</p>     
+                        <p>Correo: almacenportafolio@gmail.com Teléfono: +569 5920980</p>     
+                        <p>Horario de atención: Lunes a Domingo de 09:00hrs a 18:00hrs.</p>     
+                        <p>Ubicación: Av. Mexico 3144, Puente Alto, Región Metropolitana.</p>     
                       </body>
                       </html>
                      ";

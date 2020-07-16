@@ -1,19 +1,22 @@
 ﻿using Controlador;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Vista
 {
     public partial class frmProducto : Form
     {
+        private string Path = @"C:\Users\krist\Desktop\LosyuyitosWEB\core\static\core\img\";
         public frmProducto()
         {
             InitializeComponent();
             CargarComboboxCategoria();
             CargarComboboxProveedorId();
             CargarGrilla();
+            MostrarVistaVendedor();
         }
 
         #region Metodos
@@ -68,7 +71,9 @@ namespace Vista
                 txtStock.Text = producto.Stock.ToString();
                 txtStockCritico.Text = producto.StockCritico.ToString();
                 cmbCategoria.SelectedValue = producto.Categoria.Id;
-
+                FileStream fs = new FileStream(Path + codigo + ".jpg", FileMode.Open, FileAccess.Read);
+                picFoto.Image = Image.FromStream(fs);
+                fs.Close();
                 return true;
             }
             else
@@ -87,6 +92,7 @@ namespace Vista
             txtStock.Clear();
             txtStockCritico.Clear();
             cmbCategoria.SelectedIndex = 0;
+            picFoto.Image = null;
         }
         public int NumeroRandom(int min, int max)
         {
@@ -195,6 +201,20 @@ namespace Vista
 
             //grdProducto.Columns["PRECIO_VENTA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
+        private void MostrarVistaVendedor()
+        {
+            Usuario usuario = new Usuario();
+            bool esVendedor = usuario.esVendedor(Global.RunUsuarioActivo);
+            if (esVendedor)
+            {
+                grpProducto.Visible = false;
+                btnAbrir.Visible = false;
+                picFoto.Visible = false;
+                btnAgregarProducto.Visible = false;
+                btnModificarProducto.Visible = false;
+                btnEliminarProducto.Visible = false;
+            }
+        }
         #endregion
 
         #region Metodos de la clase
@@ -211,23 +231,30 @@ namespace Vista
             string msgEsValido = ValidarIngresoProducto();
             if (string.IsNullOrEmpty(msgEsValido))
             {
-                string codigo = GenerarCodigoProducto();
-                string nombre = txtNombre.Text.ToUpper();
-                string descripcion = txtDescripcion.Text.ToUpper();
-                int precioVenta = int.Parse(txtPrecioVenta.Text);
-                int precioCompra = int.Parse(txtPrecioCompra.Text);
-                DateTime fechaVencimiento = dtpFechaVencimiento.Value.Date;
-                int stock = int.Parse(txtStock.Text);
-                int stockCritico = int.Parse(txtStockCritico.Text);
-                //char estado = '1';
-                Categoria categoria = new Categoria();
-                categoria.Id = (int)cmbCategoria.SelectedValue;
-                Producto producto = new Producto(codigo, nombre, descripcion, precioVenta, precioCompra, stock, stockCritico,
-                        fechaVencimiento, categoria);
-                if (producto.AgregarProducto())
+                if (picFoto.Image != null)
                 {
-                    LimpiarDatos();
-                    MessageBox.Show("Producto ha sido agregado");
+                    string codigo = GenerarCodigoProducto();
+                    string nombre = txtNombre.Text.ToUpper();
+                    string descripcion = txtDescripcion.Text.ToUpper();
+                    int precioVenta = int.Parse(txtPrecioVenta.Text);
+                    int precioCompra = int.Parse(txtPrecioCompra.Text);
+                    DateTime fechaVencimiento = dtpFechaVencimiento.Value.Date;
+                    int stock = int.Parse(txtStock.Text);
+                    int stockCritico = int.Parse(txtStockCritico.Text);
+                    Categoria categoria = new Categoria();
+                    categoria.Id = (int)cmbCategoria.SelectedValue;
+                    picFoto.Image.Save(Path + codigo + ".jpg", ImageFormat.Png);
+                    Producto producto = new Producto(codigo, nombre, descripcion, precioVenta, precioCompra, stock, stockCritico,
+                            fechaVencimiento, categoria);
+                    if (producto.AgregarProducto())
+                    {
+                        LimpiarDatos();
+                        MessageBox.Show("Producto ha sido agregado");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe indicar una imagen.");
                 }
             }
             else
@@ -250,6 +277,8 @@ namespace Vista
                 int stockCritico = int.Parse(txtStockCritico.Text);
                 Categoria categoria = new Categoria();
                 categoria.Id = (int)cmbCategoria.SelectedValue;
+                File.Delete(Path + codigo + ".jpg");
+                picFoto.Image.Save(Path + codigo + ".jpg", ImageFormat.Png);
                 Producto producto = new Producto(codigo, nombre, descripcion, precioVenta, precioCompra, stock, stockCritico,
                         fechaVencimiento, categoria);
                 bool modificarProducto = producto.ModificarProducto(producto);
@@ -268,7 +297,7 @@ namespace Vista
                 MessageBox.Show(msgEsValido);
             }
         }
-        private void EliminarProveedor()
+        private void EliminarProducto()
         {
             if (!String.IsNullOrEmpty(txtCodigo.Text))
             {
@@ -280,7 +309,7 @@ namespace Vista
                 }
                 else
                 {
-                    MessageBox.Show("Producto no eliminado");
+                    MessageBox.Show("El producto se encuentra en alguna orden o boleta activa, por lo cual no se puede eliminar.");
                 }
             }
         }
@@ -292,24 +321,34 @@ namespace Vista
             BuscarProductoPorNombre();
             LimpiarDatos();
         }
-
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             AgregarProducto();
             CargarGrilla();
         }
-
         private void btnModificarProducto_Click(object sender, EventArgs e)
         {
             ModificarProducto();
             CargarGrilla();
         }
-
         private void btnEliminarProducto_Click(object sender, EventArgs e)
         {
-            EliminarProveedor();
+            EliminarProducto();
             CargarGrilla();
             LimpiarDatos();
+        }
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:/Users/c-vp/OneDrive/Escritorio/Ayuda/Ayuda.chm", "Producto.htm");
+        }
+        private void btnAbrir_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.ShowDialog();
+            if (ofd.FileName != "")
+            {
+                picFoto.Image = Image.FromFile(ofd.FileName);
+            }
         }
         #endregion
 
@@ -343,6 +382,14 @@ namespace Vista
         private void grdProducto_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             CambiarColorProductoSinStock();
+        }
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
+        }
+        private void txtBuscarProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
         }
         #endregion
 

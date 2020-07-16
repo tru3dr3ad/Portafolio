@@ -1,6 +1,7 @@
 ﻿using Controlador;
 using System;
 using System.Globalization;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Vista
@@ -13,8 +14,9 @@ namespace Vista
             CargarComboboxRubro();
             CargarComboboxCategoria();
             ValorDolar();
+            MonedaActual();
         }
-        
+
         #region Metodos
         private void CargarComboboxRubro()
         {
@@ -35,8 +37,29 @@ namespace Vista
             Dolar dolar = new Dolar();
             decimal dolarValor = dolar.ObtenerValorDolar();
             Producto producto = new Producto();
-            string nombreMoneda = cmbNombreMoneda.Text;
+            string nombreMoneda = "";
+
+            if (lblMonedaActual.Text == "CLP")
+            {
+                nombreMoneda = "USD";
+            }
+            else if(lblMonedaActual.Text == "USD")
+            {
+                nombreMoneda = "CLP";
+            }
             producto.CambiarPrecioPorMoneda(nombreMoneda, dolarValor);
+        }
+        private void MonedaActual()
+        {
+            Producto producto = new Producto();
+            if (producto.ContieneDecimal())
+            {
+                lblMonedaActual.Text = "USD";
+            }
+            else
+            {
+                lblMonedaActual.Text = "CLP";
+            }
         }
         private void ValorDolar()
         {
@@ -118,7 +141,16 @@ namespace Vista
         #region Botones
         private void btnMoneda_Click(object sender, EventArgs e)
         {
-            CambioMoneda();
+            DialogResult dialogResult = MessageBox.Show("Es necesario cerrar la aplicacion para realizar este cambio, ¿Esta seguro que desea continuar?", "Cambio de Moneda", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                CambioMoneda();
+                Application.Exit();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
         }
         private void btnAgregarRubro_Click(object sender, System.EventArgs e)
         {
@@ -140,7 +172,29 @@ namespace Vista
             EliminarCategoria();
             CargarComboboxCategoria();
         }
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = @"\Ayuda\Ayuda.chm";
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string ayudaPath = projectDirectory + rutaAyuda;
+            Help.ShowHelp(this, ayudaPath, "Configuración.htm");
+        }
+
         #endregion
 
+        #region Eventos
+        private void txtRubro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+        private void txtCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        #endregion
+
+      
     }
 }
